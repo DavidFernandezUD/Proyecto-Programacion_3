@@ -1,6 +1,7 @@
 package main;
 
 import javax.swing.JPanel;
+import entity.Player;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -12,7 +13,7 @@ public class GamePanel extends JPanel implements Runnable {
     final int originalTileSize = 16; // 16x16 tiles
     final int scale = 3;
 
-    final int tileSize = originalTileSize * scale; // 48x48 tiles
+    public final int tileSize = originalTileSize * scale; // 48x48 tiles
     final int maxScreenCol = 16;
     final int maxScreenRow = 12;
     final int screenWidth = tileSize * maxScreenCol; // 768 pixels
@@ -23,6 +24,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     KeyHandler keyHandler = new KeyHandler();
     Thread gameThread;
+    Player player = new Player(this, keyHandler);
 
     // Set player's default possition
     int playerX = 100;
@@ -50,47 +52,44 @@ public class GamePanel extends JPanel implements Runnable {
     public void run() {
 
         double drawInterval = 1000000000 / FPS; // Nanoseconds per frame
-        double nextDrawTime =  System.nanoTime() + drawInterval;
+        double delta = 0;
+        long lastTime = System.nanoTime();
+        long currentTime;
+        long timer = 0;
+        int drawCount = 0;
         
         // The game loop will be running in the run() method
         while(gameThread != null) {
-            // 1 UPDATE: Update information like location of items, mobs, character, etc.
-            update();
 
-            // 2 DRAW: Draw the screen with the updated infomation
-            repaint(); // repaint() calls the paintComponent() method
-            
-            try {
-                // We wait the remaining time before painting the next frame
-                double remainingTime = nextDrawTime - System.nanoTime();
-                remainingTime /= 1000000; // Converting  from nano to milli
+            currentTime = System.nanoTime();
 
-                // We set the remaining time to 0 if it was negative
-                if(remainingTime < 0) {
-                    remainingTime = 0;
-                }
+            delta += (currentTime - lastTime) / drawInterval;
+            timer += currentTime - lastTime;
+            lastTime = currentTime;
 
-                Thread.sleep((long) remainingTime);
+            if(delta >= 1) {
+                // 1 UPDATE: Update information like location of items, mobs, character, etc.
+                update();
 
-                nextDrawTime += drawInterval; // We update the next frames time
+                // 2 DRAW: Draw the screen with the updated infomation
+                repaint(); // repaint() calls the paintComponent() method
 
-            } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                delta--;
+                drawCount++;
+            }
+
+            // Every second it draws the FPS count
+            if(timer >= 1000000000) {
+                System.out.println("FPS: " + drawCount);
+
+                drawCount = 0;
+                timer = 0;
             }
         }
     }
 
     public void update() {
-        if(keyHandler.upPressed) {
-            playerY -= playerSpeed;
-        } else if(keyHandler.downPressed) {
-            playerY += playerSpeed;
-        } else if(keyHandler.leftPressed) {
-            playerX -= playerSpeed;
-        } else if(keyHandler.rightPressed) {
-            playerX += playerSpeed;
-        }
+        player.update();
     }
 
     public void paintComponent(Graphics g) {
@@ -98,8 +97,7 @@ public class GamePanel extends JPanel implements Runnable {
 
         Graphics2D g2 = (Graphics2D) g;
 
-        g2.setColor(Color.WHITE);
-        g2.fillRect(playerX, playerY, tileSize, tileSize);
+        player.draw(g2);
 
         g2.dispose(); // dispose helps to free some memory after the painting has ended
     }
