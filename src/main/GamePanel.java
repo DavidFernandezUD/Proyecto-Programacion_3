@@ -2,6 +2,7 @@ package main;
 
 import javax.swing.JPanel;
 import entity.Player;
+import tile.TileManager;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -14,17 +15,18 @@ public class GamePanel extends JPanel implements Runnable {
     final int scale = 4;
 
     public final int tileSize = originalTileSize * scale; // 48x48 tiles
-    final int maxScreenCol = 16;
-    final int maxScreenRow = 12;
-    final int screenWidth = tileSize * maxScreenCol; // 768 pixels
-    final int screenHeight = tileSize * maxScreenRow; // 576 pixels
+    public final int maxScreenCol = 16;
+    public final int maxScreenRow = 12;
+    public final int screenWidth = tileSize * maxScreenCol; // 768 pixels
+    public final int screenHeight = tileSize * maxScreenRow; // 576 pixels
 
     // FPS
     public int FPS = 60;
 
-    KeyHandler keyHandler = new KeyHandler();
     Thread gameThread;
+    KeyHandler keyHandler = new KeyHandler();
     Player player = new Player(this, keyHandler);
+    TileManager tileManager = new TileManager(this);
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -92,6 +94,8 @@ public class GamePanel extends JPanel implements Runnable {
 
         Graphics2D g2 = (Graphics2D) g;
 
+        // The painting order is important
+        tileManager.draw(g2);
         player.draw(g2);
 
         g2.dispose(); // dispose helps to free some memory after the painting has ended
