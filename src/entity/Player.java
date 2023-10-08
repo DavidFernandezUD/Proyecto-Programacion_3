@@ -1,19 +1,29 @@
 package entity;
 
 import main.KeyHandler;
+
+import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import main.GamePanel;
 
 public class Player extends Entity {
+
     GamePanel gamePanel;
     KeyHandler keyHandler;
 
+    // Just for debugging purposes
+    boolean debug = false;
+
     public Player(GamePanel gamePanel, KeyHandler keyHandler) {
+
         this.gamePanel = gamePanel;
         this.keyHandler = keyHandler;
+
+        collisionBox = new Rectangle(11, 22, 42, 42);
 
         setDefaultValues();
         getPlayerSprite();
@@ -48,16 +58,34 @@ public class Player extends Entity {
         if(keyHandler.upPressed || keyHandler.rightPressed || keyHandler.downPressed || keyHandler.leftPressed) {
             if(keyHandler.upPressed) {
                 direction = "up";
-                y -= speed;
             } else if(keyHandler.downPressed) {
                 direction = "down";
-                y += speed;
             } else if(keyHandler.leftPressed) {
                 direction = "left";
-                x -= speed;
             } else if(keyHandler.rightPressed) {
                 direction = "right";
-                x += speed;
+            }
+
+            // Check tile collision
+            collisionOn = false;
+            gamePanel.collisionChecker.checkTile(this);
+
+            // If collision is false the player can move
+            if(!collisionOn) {
+                switch(direction) {
+                    case "up":
+                        y -= speed;
+                        break;
+                    case "down":
+                        y += speed;
+                        break;
+                    case "left":
+                        x -= speed;
+                        break;
+                    case "right":
+                        x += speed;
+                        break;
+                }
             }
 
             spriteCounter++;
@@ -69,9 +97,10 @@ public class Player extends Entity {
                 }
                 spriteCounter = 0;
             }
-        } else {
+        }
+        else {
             // If no key is being pressed spriteNum sets to default 1
-            // spriteCounter is set to the limit so that it changes the spriteNum inmediately after pressing a key
+            // spriteCounter is set to the limit + 1 so that it changes the spriteNum inmediately after pressing a key
             spriteCounter = 13;
             spriteNum = 1;
         }
@@ -118,5 +147,10 @@ public class Player extends Entity {
 
         g2.drawImage(image, x, y, gamePanel.tileSize, gamePanel.tileSize, null);
 
+        // Show collision box
+        if(debug) {
+            g2.setColor(new Color(255, 0, 0, 150));
+            g2.fillRect(collisionBox.x + x, collisionBox.y + y, collisionBox.width, collisionBox.height);
+        }
     }
 }

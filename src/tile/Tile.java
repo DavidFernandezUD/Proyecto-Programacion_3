@@ -16,4 +16,14 @@ public class Tile {
             e.printStackTrace();
         }
     }
+
+    public Tile(String filePath, boolean collision) {
+        try {
+            image = ImageIO.read(getClass().getResourceAsStream(filePath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        this.collision = collision;
+    }
 }

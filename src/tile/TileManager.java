@@ -10,8 +10,8 @@ import main.GamePanel;
 public class TileManager {
     
     GamePanel gamePanel;
-    Tile[] tile;
-    int[][] mapTileNum;
+    public Tile[] tile;
+    public int[][] mapTileNum;
 
     public TileManager(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
@@ -28,8 +28,8 @@ public class TileManager {
     public void getTileSprite() {
 
             tile[0] = new Tile("..\\res\\tiles\\grass.png");
-            tile[1] = new Tile("..\\res\\tiles\\wall.png");
-            tile[2] = new Tile("..\\res\\tiles\\water.png");
+            tile[1] = new Tile("..\\res\\tiles\\wall.png", true);
+            tile[2] = new Tile("..\\res\\tiles\\water.png", true);
     }
 
     public void loadMap(String filePath) {
