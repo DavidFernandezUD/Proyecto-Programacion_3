@@ -13,7 +13,7 @@ public class TileManager {
     
     GamePanel gamePanel;
 
-    // TODO: Think of a better way of managing collisions
+    // TODO: Implement a way of creating different types of collision areas for different tiles
     // TODO: Maybe make floorTiles an static image instead of tile array for eficiency
     public Tile[] floorTile; // Floor tiles (no collisions)
     public Tile[] solidTile; // Collision tiles (placeholder name) (with collisions)
