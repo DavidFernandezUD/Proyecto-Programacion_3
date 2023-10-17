@@ -14,9 +14,9 @@ public class CollisionChecker {
     public void checkTile(Entity entity) {
         
         // Calculating the four edges of the collision box
-        int collisionLeftBound = entity.x + entity.collisionBox.x;
+        int collisionLeftBound = entity.worldX + entity.collisionBox.x;
         int collisionRightBound = collisionLeftBound + entity.collisionBox.width;
-        int collisionTopBound = entity.y + entity.collisionBox.y;
+        int collisionTopBound = entity.worldY + entity.collisionBox.y;
         int collisionBottomBound = collisionTopBound + entity.collisionBox.height;
         
         // Calculating the row and column in the tile matrix

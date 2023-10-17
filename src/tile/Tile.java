@@ -26,4 +26,14 @@ public class Tile {
 
         this.collision = collision;
     }
+
+    public Tile(BufferedImage image) {
+        this.image = image;
+    }
+
+    public Tile(BufferedImage image, boolean collision) {
+        
+        this.image = image;
+        this.collision = collision;
+    }
 }

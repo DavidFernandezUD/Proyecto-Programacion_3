@@ -15,13 +15,19 @@ public class Player extends Entity {
     GamePanel gamePanel;
     KeyHandler keyHandler;
 
-    // Just for debugging purposes
+    public final int screenX;
+    public final int screenY;
+
+    // Just for debugging purposes (Displays Collision Box)
     boolean debug = false;
 
     public Player(GamePanel gamePanel, KeyHandler keyHandler) {
 
         this.gamePanel = gamePanel;
         this.keyHandler = keyHandler;
+
+        screenX = (gamePanel.screenWidth / 2) - (gamePanel.tileSize / 2);
+        screenY = (gamePanel.screenHeight / 2) - (gamePanel.tileSize / 2);
 
         collisionBox = new Rectangle(11, 22, 42, 42);
 
@@ -30,8 +36,8 @@ public class Player extends Entity {
     }
 
     public void setDefaultValues() {
-        x = 100;
-        y = 100;
+        worldX = gamePanel.tileSize * 14;
+        worldY = gamePanel.tileSize * 10;
         speed = 4;
         direction = "down";
     }
@@ -74,16 +80,16 @@ public class Player extends Entity {
             if(!collisionOn) {
                 switch(direction) {
                     case "up":
-                        y -= speed;
+                        worldY -= speed;
                         break;
                     case "down":
-                        y += speed;
+                        worldY += speed;
                         break;
                     case "left":
-                        x -= speed;
+                        worldX -= speed;
                         break;
                     case "right":
-                        x += speed;
+                        worldX += speed;
                         break;
                 }
             }
@@ -145,12 +151,12 @@ public class Player extends Entity {
                 break;
         }
 
-        g2.drawImage(image, x, y, gamePanel.tileSize, gamePanel.tileSize, null);
+        g2.drawImage(image, screenX, screenY, gamePanel.tileSize, gamePanel.tileSize, null);
 
         // Show collision box
         if(debug) {
             g2.setColor(new Color(255, 0, 0, 150));
-            g2.fillRect(collisionBox.x + x, collisionBox.y + y, collisionBox.width, collisionBox.height);
+            g2.fillRect(collisionBox.x + screenX, collisionBox.y + screenY, collisionBox.width, collisionBox.height);
         }
     }
 }
