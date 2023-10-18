@@ -1,7 +1,6 @@
 package entity;
 
 import main.KeyHandler;
-
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -127,7 +126,7 @@ public class Player extends Entity {
                     image = down2;
                 }
                 break;
-            case "left":
+            case "left":        
                 if(spriteNum == 1) {
                     image = left1;
                 }

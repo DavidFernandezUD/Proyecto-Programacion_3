@@ -66,6 +66,7 @@ public class GamePanel extends JPanel implements Runnable {
             lastTime = currentTime;
 
             if(delta >= 1) {
+                
                 // 1 UPDATE: Update information like location of items, mobs, character, etc.
                 update();
 
