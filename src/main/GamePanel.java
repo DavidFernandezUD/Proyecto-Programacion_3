@@ -11,14 +11,20 @@ import java.awt.Graphics2D;
 public class GamePanel extends JPanel implements Runnable {
     
     // SCREEN SETTINGS
-    final int originalTileSize = 16; // 16x16 tiles
-    final int scale = 4;
+    final int originalTileSize = 32; // 16x16 tiles
+    final int scale = 2;
 
     public final int tileSize = originalTileSize * scale; // 64x64 tiles
     public final int maxScreenCol = 16;
     public final int maxScreenRow = 12;
     public final int screenWidth = tileSize * maxScreenCol; // 1024 pixels
     public final int screenHeight = tileSize * maxScreenRow; // 768 pixels
+
+    // WORLD SETTINGS
+    public final int maxWorldCol = 40;
+    public final int maxWorldRow = 40;
+    public final int worldHeight = tileSize * maxWorldCol;
+    public final int worldWidth = tileSize * maxWorldRow;
 
     // FPS
     public int FPS = 60;

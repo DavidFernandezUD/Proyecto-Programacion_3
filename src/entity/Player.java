@@ -14,13 +14,19 @@ public class Player extends Entity {
     GamePanel gamePanel;
     KeyHandler keyHandler;
 
-    // Just for debugging purposes
+    public final int screenX;
+    public final int screenY;
+
+    // Just for debugging purposes (Displays Collision Box)
     boolean debug = false;
 
     public Player(GamePanel gamePanel, KeyHandler keyHandler) {
 
         this.gamePanel = gamePanel;
         this.keyHandler = keyHandler;
+
+        screenX = (gamePanel.screenWidth / 2) - (gamePanel.tileSize / 2);
+        screenY = (gamePanel.screenHeight / 2) - (gamePanel.tileSize / 2);
 
         collisionBox = new Rectangle(11, 22, 42, 42);
 
@@ -29,23 +35,29 @@ public class Player extends Entity {
     }
 
     public void setDefaultValues() {
-        x = 100;
-        y = 100;
+        worldX = gamePanel.tileSize * 25;
+        worldY = gamePanel.tileSize * 35;
         speed = 4;
         direction = "down";
+        moving = false;
     }
 
     public void getPlayerSprite() {
 
         try {
-            up1 = ImageIO.read(getClass().getResourceAsStream("..\\res\\player\\boy_up_1.png"));
-            up2 = ImageIO.read(getClass().getResourceAsStream("..\\res\\player\\boy_up_2.png"));
-            down1 = ImageIO.read(getClass().getResourceAsStream("..\\res\\player\\boy_down_1.png"));
-            down2 = ImageIO.read(getClass().getResourceAsStream("..\\res\\player\\boy_down_2.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("..\\res\\player\\boy_left_1.png"));
-            left2 = ImageIO.read(getClass().getResourceAsStream("..\\res\\player\\boy_left_2.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("..\\res\\player\\boy_right_1.png"));
-            right2 = ImageIO.read(getClass().getResourceAsStream("..\\res\\player\\boy_right_2.png"));
+            BufferedImage runSpriteSheet = ImageIO.read(getClass().getResourceAsStream("..\\res\\player\\run.png"));
+
+            upRunSprites = runSpriteSheet.getSubimage(0, 0, 128, 32);
+            leftRunSprites = runSpriteSheet.getSubimage(0, 32, 128, 32);
+            rightRunSprites = runSpriteSheet.getSubimage(0, 64, 128, 32);
+            downRunSprites = runSpriteSheet.getSubimage(0, 96, 128, 32);
+
+            BufferedImage idleSpriteSheet = ImageIO.read(getClass().getResourceAsStream("..\\res\\player\\idle.png"));
+
+            upIdleSprites = idleSpriteSheet.getSubimage(0, 0, 128, 32);
+            leftIdleSprites = idleSpriteSheet.getSubimage(0, 32, 128, 32);
+            rightIdleSprites = idleSpriteSheet.getSubimage(0, 64, 128, 32);
+            downIdleSprites = idleSpriteSheet.getSubimage(0, 96, 128, 32);
         } catch(IOException e) {
             e.printStackTrace();
         }
@@ -55,6 +67,15 @@ public class Player extends Entity {
         
         // The spriteCounter is only incremented if a key is pressed
         if(keyHandler.upPressed || keyHandler.rightPressed || keyHandler.downPressed || keyHandler.leftPressed) {
+
+            // If playeer has just started moving the spriteNum and counter is restarted
+            if(!moving) {
+                spriteNum = 1;
+                spriteCounter = 13;
+            }
+
+            moving = true;
+
             if(keyHandler.upPressed) {
                 direction = "up";
             } else if(keyHandler.downPressed) {
@@ -73,83 +94,82 @@ public class Player extends Entity {
             if(!collisionOn) {
                 switch(direction) {
                     case "up":
-                        y -= speed;
+                        worldY -= speed;
                         break;
                     case "down":
-                        y += speed;
+                        worldY += speed;
                         break;
                     case "left":
-                        x -= speed;
+                        worldX -= speed;
                         break;
                     case "right":
-                        x += speed;
+                        worldX += speed;
                         break;
                 }
             }
+        }
+        else {
+            moving = false;
+        }
 
-            spriteCounter++;
+        spriteCounter++;
             if(spriteCounter > 12) {
                 if(spriteNum == 1) {
                     spriteNum = 2;
+                } else if(spriteNum == 2) {
+                    spriteNum = 3;
+                } else if(spriteNum == 3) {
+                    spriteNum = 4;
                 } else {
                     spriteNum = 1;
                 }
                 spriteCounter = 0;
             }
-        }
-        else {
-            // If no key is being pressed spriteNum sets to default 1
-            // spriteCounter is set to the limit + 1 so that it changes the spriteNum inmediately after pressing a key
-            spriteCounter = 13;
-            spriteNum = 1;
-        }
     }
 
     public void draw(Graphics2D g2) {
         
         BufferedImage image = null;
 
-        switch(direction) {
+        if(moving) {
+            switch(direction) {
             case "up":
-                if(spriteNum == 1) {
-                    image = up1;
-                }
-                if(spriteNum == 2) {
-                    image = up2;
-                }
+                image = upRunSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
                 break;
             case "down":
-                if(spriteNum == 1) {
-                    image = down1;
-                }
-                if(spriteNum == 2) {
-                    image = down2;
-                }
+                image = downRunSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
                 break;
             case "left":        
-                if(spriteNum == 1) {
-                    image = left1;
-                }
-                if(spriteNum == 2) {
-                    image = left2;
-                }
+                image = leftRunSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
                 break;
             case "right":
-                if(spriteNum == 1) {
-                    image = right1;
-                }
-                if(spriteNum == 2) {
-                    image = right2;
-                }
+                image = rightRunSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
                 break;
+            }
+        } else {
+            switch(direction) {
+            case "up":
+                image = upIdleSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
+                break;
+            case "down":
+                image = downIdleSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
+                break;
+            case "left":        
+                image = leftIdleSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
+                break;
+            case "right":
+                image = rightIdleSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
+                break;
+            }
         }
+        
 
-        g2.drawImage(image, x, y, gamePanel.tileSize, gamePanel.tileSize, null);
+        g2.drawImage(image, screenX, screenY, gamePanel.tileSize, gamePanel.tileSize, null);
 
         // Show collision box
         if(debug) {
             g2.setColor(new Color(255, 0, 0, 150));
-            g2.fillRect(collisionBox.x + x, collisionBox.y + y, collisionBox.width, collisionBox.height);
+            g2.fillRect(collisionBox.x + screenX, collisionBox.y + screenY, collisionBox.width, collisionBox.height);
         }
     }
 }
