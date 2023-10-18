@@ -113,18 +113,18 @@ public class Player extends Entity {
         }
 
         spriteCounter++;
-            if(spriteCounter > 12) {
-                if(spriteNum == 1) {
-                    spriteNum = 2;
-                } else if(spriteNum == 2) {
-                    spriteNum = 3;
-                } else if(spriteNum == 3) {
-                    spriteNum = 4;
-                } else {
-                    spriteNum = 1;
-                }
-                spriteCounter = 0;
+        if(spriteCounter > 12) {
+            if(spriteNum == 1) {
+                spriteNum = 2;
+            } else if(spriteNum == 2) {
+                spriteNum = 3;
+            } else if(spriteNum == 3) {
+                spriteNum = 4;
+            } else {
+                spriteNum = 1;
             }
+            spriteCounter = 0;
+        }
     }
 
     public void draw(Graphics2D g2) {

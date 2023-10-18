@@ -33,12 +33,6 @@ public class TileManager {
     }
 
     public void getTileSprite() {
-        
-        /*
-        tile[0] = new Tile("..\\res\\tiles\\grass.png");
-        tile[1] = new Tile("..\\res\\tiles\\wall.png", true);
-        tile[2] = new Tile("..\\res\\tiles\\water.png", true);
-        */
 
         // LOADING FLOOR TILES
         try {
@@ -140,14 +134,18 @@ public class TileManager {
                 int screenX = worldX - gamePanel.player.worldX + gamePanel.player.screenX;
                 int screenY = worldY - gamePanel.player.worldY + gamePanel.player.screenY;
 
-                // First drawing floor tiles
-                g2.drawImage(floorTile[mapFloorTileNum[row][col]].image, screenX, screenY,
-                             gamePanel.tileSize, gamePanel.tileSize, null);
+                // The tiles are only painted if they are inside the screen
+                if(screenX > -gamePanel.tileSize && screenX < gamePanel.screenWidth && screenY > -gamePanel.tileSize && screenY < gamePanel.screenHeight) {
 
-                // Then we draw the solid tiles on top (only if it exists "not -1")
-                if(mapSolidTileNum[row][col] != -1) {
-                    g2.drawImage(solidTile[mapSolidTileNum[row][col]].image, screenX, screenY,
-                                 gamePanel.tileSize, gamePanel.tileSize, null); 
+                    // First drawing floor tiles
+                    g2.drawImage(floorTile[mapFloorTileNum[row][col]].image, screenX, screenY,
+                                gamePanel.tileSize, gamePanel.tileSize, null);
+
+                    // Then we draw the solid tiles on top (only if it exists "not -1")
+                    if(mapSolidTileNum[row][col] != -1) {
+                        g2.drawImage(solidTile[mapSolidTileNum[row][col]].image, screenX, screenY,
+                                    gamePanel.tileSize, gamePanel.tileSize, null); 
+                    }
                 }
             }
         }
