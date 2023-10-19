@@ -15,68 +15,49 @@ public class TileManager {
 
     // TODO: Implement a way of creating different types of collision areas for different tiles
     // TODO: Maybe make floorTiles an static image instead of tile array for eficiency
-    public Tile[] floorTile; // Floor tiles (no collisions)
-    public Tile[] solidTile; // Collision tiles (placeholder name) (with collisions)
+    public Tile[] tiles; // Floor tiles (no collisions)
 
-    public int[][] mapFloorTileNum; // Numeric values of the floor tiles
-    public int[][] mapSolidTileNum; // Numeric values of the solid tiles
+    public int[][] groundTileNum;
+    public int[][] level1TileNum;
+    public int[][] level2TileNum;
+    public int[][] propTileNum;
 
     public TileManager(GamePanel gamePanel) {
         
         this.gamePanel = gamePanel;
         
-        this.mapFloorTileNum = new int[gamePanel.maxWorldRow][gamePanel.maxWorldCol];
-        this.mapSolidTileNum = new int[gamePanel.maxWorldRow][gamePanel.maxWorldCol];
+        this.groundTileNum = new int[gamePanel.maxWorldRow][gamePanel.maxWorldCol];
+        this.level1TileNum = new int[gamePanel.maxWorldRow][gamePanel.maxWorldCol];
+        this.level2TileNum = new int[gamePanel.maxWorldRow][gamePanel.maxWorldCol];
+        this.propTileNum = new int[gamePanel.maxWorldRow][gamePanel.maxWorldCol];
         
         getTileSprite();
-        loadMap("..\\maps\\test_map_01_Grass.txt", "..\\maps\\test_map_01_Solid.txt");
+        loadMap("..\\maps\\Map_02_Ground.csv",
+                "..\\maps\\Map_02_Level1.csv",
+                "..\\maps\\Map_02_Level2.csv",
+                "..\\maps\\Map_02_Props.csv");
     }
 
     public void getTileSprite() {
 
-        // LOADING FLOOR TILES
+        // LOADING TILES
         try {
-            BufferedImage spriteSheet = ImageIO.read(getClass().getResourceAsStream("..\\res\\tiles\\FloorTiles.png"));
+            BufferedImage spriteSheet = ImageIO.read(getClass().getResourceAsStream("..\\res\\tiles\\tileSheet.png"));
 
             // Dimension of the tile-sheet in tiles
-            int rows = 8;
-            int cols = 8;
+            int rows = 35;
+            int cols = 24;
 
             // Size of the individual tiles in the sprite-sheet
             int spriteSize = 32; 
 
             // This will store all the possible tiles
-            this.floorTile = new Tile[rows * cols];
+            this.tiles = new Tile[rows * cols];
 
             for(int i = 0; i < rows; i++) {
                 for(int j = 0; j < cols; j++) {
                     BufferedImage tileImage = spriteSheet.getSubimage(j * spriteSize, i * spriteSize, spriteSize, spriteSize);
-                    this.floorTile[(i * cols) + j] = new Tile(tileImage);
-                }
-            }
-
-        } catch(IOException e) {
-            e.printStackTrace();
-        }
-
-        // LOADING SOLID TILES
-        try {
-            BufferedImage spriteSheet = ImageIO.read(getClass().getResourceAsStream("..\\res\\tiles\\SolidTiles.png"));
-
-            // Dimension of the tile-sheet in tiles
-            int rows = 16;
-            int cols = 16;
-
-            // Size of the individual tiles in the sprite-sheet
-            int spriteSize = 32; 
-
-            // This will store all the possible tiles
-            this.solidTile = new Tile[rows * cols];
-
-            for(int i = 0; i < rows; i++) {
-                for(int j = 0; j < cols; j++) {
-                    BufferedImage tileImage = spriteSheet.getSubimage(j * spriteSize, i * spriteSize, spriteSize, spriteSize);
-                    this.solidTile[(i * cols) + j] = new Tile(tileImage);
+                    this.tiles[(i * cols) + j] = new Tile(tileImage);
                 }
             }
 
@@ -85,38 +66,44 @@ public class TileManager {
         }
     }
 
-    public void loadMap(String floorFilePath, String solidFilePath) {
+    public void loadMap(String groundMap, String level1Map, String level2Map, String propMap) {
 
         // Loading floor map
         try {
-            InputStream is = getClass().getResourceAsStream(floorFilePath);
-            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+            InputStream groundIs = getClass().getResourceAsStream(groundMap);
+            BufferedReader groundBr = new BufferedReader(new InputStreamReader(groundIs));
+
+            InputStream level1Is = getClass().getResourceAsStream(level1Map);
+            BufferedReader level1Br = new BufferedReader(new InputStreamReader(level1Is));
+
+            InputStream level2Is = getClass().getResourceAsStream(level2Map);
+            BufferedReader level2Br = new BufferedReader(new InputStreamReader(level2Is));
+
+            InputStream propIs = getClass().getResourceAsStream(propMap);
+            BufferedReader propBr = new BufferedReader(new InputStreamReader(propIs));
 
             for(int row = 0; row < gamePanel.maxWorldRow; row++) {
-                String line = br.readLine();
-                String[] numbers = line.split(",");
+                String groundLine = groundBr.readLine();
+                String[] groundNumbers = groundLine.split(",");
+
+                String level1Line = level1Br.readLine();
+                String[] level1Numbers = level1Line.split(",");
+
+                String level2Line = level2Br.readLine();
+                String[] level2Numbers = level2Line.split(",");
+
+                String propLine = propBr.readLine();
+                String[] propNumbers = propLine.split(",");
                 for(int col = 0; col < gamePanel.maxWorldCol; col++) {
-                    int num = Integer.parseInt(numbers[col]);
+                    int groundNum = Integer.parseInt(groundNumbers[col]);
+                    int level1Num = Integer.parseInt(level1Numbers[col]);
+                    int level2Num = Integer.parseInt(level2Numbers[col]);
+                    int propNum = Integer.parseInt(propNumbers[col]);
 
-                    mapFloorTileNum[row][col] = num;
-                }
-            }
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-
-        // Loding solid map
-        try {
-            InputStream is = getClass().getResourceAsStream(solidFilePath);
-            BufferedReader br = new BufferedReader(new InputStreamReader(is));
-
-            for(int row = 0; row < gamePanel.maxWorldRow; row++) {
-                String line = br.readLine();
-                String[] numbers = line.split(",");
-                for(int col = 0; col < gamePanel.maxWorldCol; col++) {
-                    int num = Integer.parseInt(numbers[col]);
-
-                    mapSolidTileNum[row][col] = num;
+                    groundTileNum[row][col] = groundNum;
+                    level1TileNum[row][col] = level1Num;
+                    level2TileNum[row][col] = level2Num;
+                    propTileNum[row][col] = propNum;
                 }
             }
         } catch(Exception e) {
@@ -137,13 +124,25 @@ public class TileManager {
                 // The tiles are only painted if they are inside the screen
                 if(screenX > -gamePanel.tileSize && screenX < gamePanel.screenWidth && screenY > -gamePanel.tileSize && screenY < gamePanel.screenHeight) {
 
-                    // First drawing floor tiles
-                    g2.drawImage(floorTile[mapFloorTileNum[row][col]].image, screenX, screenY,
+                    // Ground Level
+                    g2.drawImage(tiles[groundTileNum[row][col]].image, screenX, screenY,
                                 gamePanel.tileSize, gamePanel.tileSize, null);
 
-                    // Then we draw the solid tiles on top (only if it exists "not -1")
-                    if(mapSolidTileNum[row][col] != -1) {
-                        g2.drawImage(solidTile[mapSolidTileNum[row][col]].image, screenX, screenY,
+                    // Level 1
+                    if(level1TileNum[row][col] != -1) {
+                        g2.drawImage(tiles[level1TileNum[row][col]].image, screenX, screenY,
+                                    gamePanel.tileSize, gamePanel.tileSize, null); 
+                    }
+
+                    // Level 2
+                    if(level2TileNum[row][col] != -1) {
+                        g2.drawImage(tiles[level2TileNum[row][col]].image, screenX, screenY,
+                                    gamePanel.tileSize, gamePanel.tileSize, null); 
+                    }
+
+                    // Props
+                    if(propTileNum[row][col] != -1) {
+                        g2.drawImage(tiles[propTileNum[row][col]].image, screenX, screenY,
                                     gamePanel.tileSize, gamePanel.tileSize, null); 
                     }
                 }
