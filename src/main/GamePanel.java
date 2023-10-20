@@ -2,6 +2,7 @@ package main;
 
 import javax.swing.JPanel;
 import entity.Player;
+import object.SuperObject;
 import tile.TileManager;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -37,6 +38,8 @@ public class GamePanel extends JPanel implements Runnable {
     public Player player = new Player(this, keyHandler);
     public TileManager tileManager = new TileManager(this);
     public CollisionChecker collisionChecker = new CollisionChecker(this);
+    public AssetSetter aSetter = new AssetSetter(this);
+    public SuperObject obj[] = new SuperObject[10];
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -46,6 +49,10 @@ public class GamePanel extends JPanel implements Runnable {
         // keyHandler = new KeyHandler();
         this.addKeyListener(keyHandler);
         this.setFocusable(true);
+    }
+
+    public void setupGame() {
+        aSetter.setObject();
     }
 
     public void startGameThread() {
@@ -116,6 +123,13 @@ public class GamePanel extends JPanel implements Runnable {
 
         // The painting order is important
         tileManager.draw(g2);
+        
+        for(int i = 0; i < obj.length; i++) {
+            if(obj[i] != null) {
+                obj[i].draw(g2, this);
+            }
+        }
+
         player.draw(g2);
 
         // Drawing a dark shade if the game is paused
