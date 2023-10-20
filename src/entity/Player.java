@@ -29,6 +29,7 @@ public class Player extends Entity {
         screenY = (gamePanel.screenHeight / 2) - (gamePanel.tileSize / 2);
 
         collisionBox = new Rectangle(11, 22, 42, 42);
+        hitBox = new Rectangle(-10, -20, 84, 43);
 
         setDefaultValues();
         getPlayerSprite();
@@ -58,6 +59,13 @@ public class Player extends Entity {
             leftIdleSprites = idleSpriteSheet.getSubimage(0, 32, 128, 32);
             rightIdleSprites = idleSpriteSheet.getSubimage(0, 64, 128, 32);
             downIdleSprites = idleSpriteSheet.getSubimage(0, 96, 128, 32);
+
+            BufferedImage attackSpriteSheet = ImageIO.read(getClass().getResourceAsStream("..\\res\\player\\attack1.png"));
+
+            upAttackSprites = attackSpriteSheet.getSubimage(0, 0, 128, 32);
+            leftAttackSprites = attackSpriteSheet.getSubimage(0, 32, 128, 32);
+            rightAttackSprites = attackSpriteSheet.getSubimage(0, 64, 128, 32);
+            downAttackSprites = attackSpriteSheet.getSubimage(0, 96, 128, 32);
         } catch(IOException e) {
             e.printStackTrace();
         }
@@ -72,6 +80,12 @@ public class Player extends Entity {
             if(!moving) {
                 spriteNum = 1;
                 spriteCounter = 13;
+            }
+
+            if(attacking) {
+                speed = 2;
+            } else {
+                speed = 4;
             }
 
             moving = true;
@@ -112,7 +126,41 @@ public class Player extends Entity {
             moving = false;
         }
 
-        spriteCounter++;
+        // Attack
+        if(keyHandler.attackUpPressed || keyHandler.attackRightPressed || keyHandler.attackDownPressed || keyHandler.attackLeftPressed) {
+            
+            if(!attacking) {
+                spriteNum = 1;
+                spriteCounter = 13;
+                attackEnded = false;
+            } else if(spriteNum == 1) {
+                // If it was already attacking and the animation has already looped once it doesn`t continue attacking
+                attackEnded = true;
+                
+            }
+
+            attacking = true;
+
+            if(keyHandler.attackUpPressed) {
+                attackDirection = "up";
+            } else if(keyHandler.attackDownPressed) {
+                attackDirection = "down";
+            } else if(keyHandler.attackLeftPressed) {
+                attackDirection = "left";
+            } else if(keyHandler.attackRightPressed) {
+                attackDirection = "right";
+            }
+
+        } else if(spriteNum == 1) {
+            attacking = false;
+        }
+
+        if(attacking && !attackEnded) {
+            spriteCounter += 2;
+        } else {
+            spriteCounter++;
+        }
+
         if(spriteCounter > 12) {
             if(spriteNum == 1) {
                 spriteNum = 2;
@@ -131,7 +179,22 @@ public class Player extends Entity {
         
         BufferedImage image = null;
 
-        if(moving) {
+        if(attacking && !attackEnded) {
+            switch(attackDirection) {
+            case "up":
+                image = upAttackSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
+                break;
+            case "down":
+                image = downAttackSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
+                break;
+            case "left":        
+                image = leftAttackSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
+                break;
+            case "right":
+                image = rightAttackSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
+                break;
+            }
+        } else if(moving) {
             switch(direction) {
             case "up":
                 image = upRunSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
@@ -170,6 +233,9 @@ public class Player extends Entity {
         if(debug) {
             g2.setColor(new Color(255, 0, 0, 150));
             g2.fillRect(collisionBox.x + screenX, collisionBox.y + screenY, collisionBox.width, collisionBox.height);
+
+            g2.setColor(new Color(0, 255, 0, 150));
+            g2.fillRect(hitBox.x + screenX, hitBox.y + screenY, hitBox.width, hitBox.height);
         }
     }
 }
