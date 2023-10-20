@@ -32,10 +32,10 @@ public class TileManager {
         this.propTileNum = new int[gamePanel.maxWorldRow][gamePanel.maxWorldCol];
         
         getTileSprite();
-        loadMap("..\\maps\\Map_02_Ground.csv",
-                "..\\maps\\Map_02_Level1.csv",
-                "..\\maps\\Map_02_Level2.csv",
-                "..\\maps\\Map_02_Props.csv");
+        loadMap("../maps/Map_02_Ground.csv",
+                "../maps/Map_02_Level1.csv",
+                "../maps/Map_02_Level2.csv",
+                "../maps/Map_02_Props.csv");
     }
 
     public void getTileSprite() {

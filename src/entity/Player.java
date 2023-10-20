@@ -183,15 +183,19 @@ public class Player extends Entity {
             switch(attackDirection) {
             case "up":
                 image = upAttackSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
+                direction = "up";
                 break;
             case "down":
                 image = downAttackSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
+                direction = "down";
                 break;
             case "left":        
                 image = leftAttackSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
+                direction = "left";
                 break;
             case "right":
                 image = rightAttackSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
+                direction = "right";
                 break;
             }
         } else if(moving) {
