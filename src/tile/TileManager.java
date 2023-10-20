@@ -129,11 +129,13 @@ public class TileManager {
         for(int row = 0; row < gamePanel.maxWorldRow; row++) {
             for(int col = 0; col < gamePanel.maxWorldCol; col++) {
 
+                // Camera
+                // TODO: Block the camera when it touches an edge of the map
                 int worldX = col * gamePanel.tileSize;
                 int worldY = row * gamePanel.tileSize;
                 int screenX = worldX - gamePanel.player.worldX + gamePanel.player.screenX;
                 int screenY = worldY - gamePanel.player.worldY + gamePanel.player.screenY;
-
+                
                 // The tiles are only painted if they are inside the screen
                 if(screenX > -gamePanel.tileSize && screenX < gamePanel.screenWidth && screenY > -gamePanel.tileSize && screenY < gamePanel.screenHeight) {
 
