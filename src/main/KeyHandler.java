@@ -8,6 +8,9 @@ public class KeyHandler implements KeyListener {
     public boolean upPressed, downPressed, leftPressed, rightPressed,
                    attackUpPressed, attackDownPressed, attackLeftPressed, attackRightPressed;
 
+    public boolean escPressed;
+    public boolean escToggled; 
+
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -43,6 +46,17 @@ public class KeyHandler implements KeyListener {
         if(code == KeyEvent.VK_RIGHT) {
             attackRightPressed = true;
         }
+
+        if(code == KeyEvent.VK_ESCAPE) {
+            if(!escPressed) {
+                if(!escToggled) {
+                    escToggled = true;
+                } else {
+                    escToggled = false;
+                }
+            }
+            escPressed = true;
+        }
     }
 
     @Override
@@ -74,6 +88,10 @@ public class KeyHandler implements KeyListener {
         }
         if(code == KeyEvent.VK_RIGHT) {
             attackRightPressed = false;
+        }
+
+        if(code == KeyEvent.VK_ESCAPE) {
+            escPressed = false;
         }
     }
 }

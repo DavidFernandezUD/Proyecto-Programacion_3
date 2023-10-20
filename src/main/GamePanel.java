@@ -27,10 +27,7 @@ public class GamePanel extends JPanel implements Runnable {
     public final int worldWidth = tileSize * maxWorldRow;
 
     //States
-    public boolean TitleScreen = true;
-    public boolean GameScreen = false;
-    public boolean PauseScreen = false;
-    public boolean DialogScreen = false;
+    public boolean gamePaused = false;
 
     // FPS
     public int FPS = 60;
@@ -71,6 +68,12 @@ public class GamePanel extends JPanel implements Runnable {
         // The game loop will be running in the run() method
         while(gameThread != null) {
 
+            if(keyHandler.escToggled) {
+                gamePaused = true;
+            } else {
+                gamePaused = false;
+            }
+
             currentTime = System.nanoTime();
 
             delta += (currentTime - lastTime) / drawInterval;
@@ -79,8 +82,11 @@ public class GamePanel extends JPanel implements Runnable {
 
             if(delta >= 1) {
                 
-                // 1 UPDATE: Update information like location of items, mobs, character, etc.
-                update();
+                // Only updating the game state if the game isn't paused
+                if(!gamePaused) {
+                    // 1 UPDATE: Update information like location of items, mobs, character, etc.
+                    update();
+                }
 
                 // 2 DRAW: Draw the screen with the updated infomation
                 repaint(); // repaint() calls the paintComponent() method
@@ -111,6 +117,12 @@ public class GamePanel extends JPanel implements Runnable {
         // The painting order is important
         tileManager.draw(g2);
         player.draw(g2);
+
+        // Drawing a dark shade if the game is paused
+        if(gamePaused) {
+            g2.setColor(new Color(100, 100, 100, 150));
+            g2.fillRect(0, 0, maxScreenCol * tileSize, maxScreenRow * tileSize);
+        }
 
         g2.dispose(); // dispose helps to free some memory after the painting has ended
     }
