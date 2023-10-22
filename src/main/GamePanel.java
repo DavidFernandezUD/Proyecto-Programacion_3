@@ -121,18 +121,20 @@ public class GamePanel extends JPanel implements Runnable {
 
         Graphics2D g2 = (Graphics2D) g;
 
-        // The painting order is important
+        // TILES
         tileManager.draw(g2);
         
+        // OBJECTS
         for(int i = 0; i < obj.length; i++) {
             if(obj[i] != null) {
                 obj[i].draw(g2, this);
             }
         }
 
+        // PLAYER
         player.draw(g2);
 
-        // Drawing a dark shade if the game is paused
+        // PAUSE SCREEN
         if(gamePaused) {
             g2.setColor(new Color(100, 100, 100, 150));
             g2.fillRect(0, 0, maxScreenCol * tileSize, maxScreenRow * tileSize);

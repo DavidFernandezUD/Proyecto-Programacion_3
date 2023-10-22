@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import javax.imageio.ImageIO;
 import main.GamePanel;
+import main.Utility;
 
 public class TileManager {
     
@@ -57,13 +58,22 @@ public class TileManager {
             for(int i = 0; i < rows; i++) {
                 for(int j = 0; j < cols; j++) {
                     BufferedImage tileImage = spriteSheet.getSubimage(j * spriteSize, i * spriteSize, spriteSize, spriteSize);
-                    this.tiles[(i * cols) + j] = new Tile(tileImage);
+                    setUp((i * cols) + j, tileImage);
                 }
             }
 
         } catch(IOException e) {
             e.printStackTrace();
         }
+    }
+
+    // Helper method for scaling images
+    public void setUp(int index, BufferedImage image) {
+        
+        Utility util = new Utility();
+        
+        BufferedImage rescaledImage = util.scaleImage(image, gamePanel.tileSize, gamePanel.tileSize);
+        this.tiles[index] = new Tile(rescaledImage);
     }
 
     public void loadMap(String groundMap, String level1Map, String level2Map, String propMap) {
@@ -124,7 +134,10 @@ public class TileManager {
                 int screenY = worldY - gamePanel.player.worldY + gamePanel.player.screenY;
                 
                 // The tiles are only painted if they are inside the screen
-                if(screenX > -gamePanel.tileSize && screenX < gamePanel.screenWidth && screenY > -gamePanel.tileSize && screenY < gamePanel.screenHeight) {
+                if(worldX + gamePanel.tileSize > gamePanel.player.worldX - gamePanel.player.screenX &&
+                   worldX - gamePanel.tileSize < gamePanel.player.worldX + gamePanel.player.screenX &&
+                   worldY + gamePanel.tileSize > gamePanel.player.worldY - gamePanel.player.screenY &&
+                   worldY - gamePanel.tileSize < gamePanel.player.worldY + gamePanel.player.screenY) {
 
                     // Ground Level
                     g2.drawImage(tiles[groundTileNum[row][col]].image, screenX, screenY,
