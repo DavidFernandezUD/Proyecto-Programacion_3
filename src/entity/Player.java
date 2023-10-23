@@ -143,7 +143,6 @@ public class Player extends Entity {
             } else if(spriteNum == 1) {
                 // If it was already attacking and the animation has already looped once it doesn`t continue attacking
                 attackEnded = true;
-                
             }
 
             attacking = true;
@@ -256,9 +255,10 @@ public class Player extends Entity {
             }
         }
 
+        // Drawing Player
         g2.drawImage(image, screenX, screenY, gamePanel.tileSize, gamePanel.tileSize, null);
 
-        // Show collision box
+        // Drawing collision box
         if(debug) {
             g2.setColor(new Color(255, 0, 0, 150));
             g2.fillRect(collisionBox.x + screenX, collisionBox.y + screenY, collisionBox.width, collisionBox.height);

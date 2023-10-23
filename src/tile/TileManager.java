@@ -16,10 +16,10 @@ public class TileManager {
     GamePanel gamePanel;
 
     // TODO: Implement a way of creating different types of collision areas for different tiles
-    public Tile[] tiles; // Floor tiles (no collisions)
+    public Tile[] tiles;
 
     // PLACEHOLDER
-    // TODO: Move this objectManager
+    // TODO: Move this to AssetSetter
     public SuperObject[] objects;
 
     public int[][] groundTileNum;
