@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import javax.imageio.ImageIO;
 import main.GamePanel;
 import main.Utility;
+import object.SuperObject;
 
 public class TileManager {
     
@@ -18,10 +19,15 @@ public class TileManager {
     // TODO: Maybe make floorTiles an static image instead of tile array for eficiency
     public Tile[] tiles; // Floor tiles (no collisions)
 
+    // PLACEHOLDER
+    // TODO: Move this objectManager
+    public SuperObject[] objects;
+
     public int[][] groundTileNum;
     public int[][] level1TileNum;
     public int[][] level2TileNum;
     public int[][] propTileNum;
+    public int[][] objTileNum;
 
     public TileManager(GamePanel gamePanel) {
         
@@ -31,19 +37,21 @@ public class TileManager {
         this.level1TileNum = new int[gamePanel.maxWorldRow][gamePanel.maxWorldCol];
         this.level2TileNum = new int[gamePanel.maxWorldRow][gamePanel.maxWorldCol];
         this.propTileNum = new int[gamePanel.maxWorldRow][gamePanel.maxWorldCol];
+        this.objTileNum = new int[gamePanel.maxWorldRow][gamePanel.maxWorldCol];
         
         getTileSprite();
-        loadMap("../maps/Map_02_Ground.csv",
-                "../maps/Map_02_Level1.csv",
-                "../maps/Map_02_Level2.csv",
-                "../maps/Map_02_Props.csv");
+        loadMap("../maps/Map2/Map_02_Ground.csv",
+                "../maps/Map2/Map_02_Level1.csv",
+                "../maps/Map2/Map_02_Level2.csv",
+                "../maps/Map2/Map_02_Props.csv",
+                "../maps/Map2/Map_02_Obj.csv");
     }
 
     public void getTileSprite() {
 
         // LOADING TILES
         try {
-            BufferedImage spriteSheet = ImageIO.read(getClass().getResourceAsStream("..\\res\\tiles\\tileSheet.png"));
+            BufferedImage spriteSheet = ImageIO.read(getClass().getResourceAsStream("../res/tiles/tileSheet.png"));
 
             // Dimension of the tile-sheet in tiles
             int rows = 35;
@@ -62,6 +70,12 @@ public class TileManager {
                 }
             }
 
+            // TODO: Move this to object manager
+            objects = new SuperObject[1];
+            
+            objects[0] = new SuperObject();
+            objects[0].image = ImageIO.read(getClass().getResourceAsStream("../res/objects/sign.png"));
+
         } catch(IOException e) {
             e.printStackTrace();
         }
@@ -76,7 +90,7 @@ public class TileManager {
         this.tiles[index] = new Tile(rescaledImage);
     }
 
-    public void loadMap(String groundMap, String level1Map, String level2Map, String propMap) {
+    public void loadMap(String groundMap, String level1Map, String level2Map, String propMap, String objMap) {
 
         // Loading floor map
         try {
@@ -92,6 +106,9 @@ public class TileManager {
             InputStream propIs = getClass().getResourceAsStream(propMap);
             BufferedReader propBr = new BufferedReader(new InputStreamReader(propIs));
 
+            InputStream objIs = getClass().getResourceAsStream(objMap);
+            BufferedReader objBr = new BufferedReader(new InputStreamReader(objIs));
+
             for(int row = 0; row < gamePanel.maxWorldRow; row++) {
                 String groundLine = groundBr.readLine();
                 String[] groundNumbers = groundLine.split(",");
@@ -102,6 +119,9 @@ public class TileManager {
                 String level2Line = level2Br.readLine();
                 String[] level2Numbers = level2Line.split(",");
 
+                String objLine = objBr.readLine();
+                String[] objNumbers = objLine.split(",");
+
                 String propLine = propBr.readLine();
                 String[] propNumbers = propLine.split(",");
                 for(int col = 0; col < gamePanel.maxWorldCol; col++) {
@@ -109,11 +129,13 @@ public class TileManager {
                     int level1Num = Integer.parseInt(level1Numbers[col]);
                     int level2Num = Integer.parseInt(level2Numbers[col]);
                     int propNum = Integer.parseInt(propNumbers[col]);
+                    int objNum = Integer.parseInt(objNumbers[col]);
 
                     groundTileNum[row][col] = groundNum;
                     level1TileNum[row][col] = level1Num;
                     level2TileNum[row][col] = level2Num;
                     propTileNum[row][col] = propNum;
+                    objTileNum[row][col] = objNum;
                 }
             }
         } catch(Exception e) {
@@ -158,6 +180,12 @@ public class TileManager {
                     // Props
                     if(propTileNum[row][col] != -1) {
                         g2.drawImage(tiles[propTileNum[row][col]].image, screenX, screenY,
+                                    gamePanel.tileSize, gamePanel.tileSize, null); 
+                    }
+
+                    // Objects
+                    if(objTileNum[row][col] != -1) {
+                        g2.drawImage(objects[objTileNum[row][col]].image, screenX, screenY,
                                     gamePanel.tileSize, gamePanel.tileSize, null); 
                     }
                 }
