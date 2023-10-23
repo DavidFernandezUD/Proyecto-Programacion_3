@@ -16,7 +16,6 @@ public class TileManager {
     GamePanel gamePanel;
 
     // TODO: Implement a way of creating different types of collision areas for different tiles
-    // TODO: Maybe make floorTiles an static image instead of tile array for eficiency
     public Tile[] tiles; // Floor tiles (no collisions)
 
     // PLACEHOLDER
@@ -145,6 +144,9 @@ public class TileManager {
 
     public void draw(Graphics2D g2) {
 
+        boolean xBlocked = playerOnEdge("X");
+        boolean yBlocked = playerOnEdge("Y");
+
         for(int row = 0; row < gamePanel.maxWorldRow; row++) {
             for(int col = 0; col < gamePanel.maxWorldCol; col++) {
 
@@ -152,14 +154,40 @@ public class TileManager {
                 // TODO: Block the camera when it touches an edge of the map
                 int worldX = col * gamePanel.tileSize;
                 int worldY = row * gamePanel.tileSize;
-                int screenX = worldX - gamePanel.player.worldX + gamePanel.player.screenX;
-                int screenY = worldY - gamePanel.player.worldY + gamePanel.player.screenY;
+
+                int screenX;
+                int screenY;
+
+                if(xBlocked) {
+                    if(gamePanel.player.worldX < gamePanel.screenWidth) {
+                        screenX = worldX;
+                    } else {
+                        screenX = worldX - gamePanel.worldWidth + gamePanel.screenWidth;
+                    }
+                    gamePanel.player.screenXLocked = false;
+                } else {
+                    screenX = worldX - gamePanel.player.worldX + gamePanel.player.defaultScreenX;
+                    gamePanel.player.screenXLocked = true;
+                }
+
+                if(yBlocked) {
+                    if(gamePanel.player.worldY < gamePanel.screenHeight) {
+                        screenY = worldY;
+                    } else {
+                        screenY = worldY - gamePanel.worldHeight + gamePanel.screenHeight;
+                    }
+                    gamePanel.player.screenYLocked = false;
+                } else {
+                    screenY = worldY - gamePanel.player.worldY + gamePanel.player.defaultScreenY;
+                    gamePanel.player.screenYLocked = true;
+                }
                 
                 // The tiles are only painted if they are inside the screen
-                if(worldX + gamePanel.tileSize > gamePanel.player.worldX - gamePanel.player.screenX &&
-                   worldX - gamePanel.tileSize < gamePanel.player.worldX + gamePanel.player.screenX &&
-                   worldY + gamePanel.tileSize > gamePanel.player.worldY - gamePanel.player.screenY &&
-                   worldY - gamePanel.tileSize < gamePanel.player.worldY + gamePanel.player.screenY) {
+                // TODO: Check if this has something to do with rendering glitches whem moving left und up
+                if(worldX + gamePanel.tileSize > gamePanel.player.worldX - gamePanel.player.defaultScreenX + (gamePanel.player.defaultScreenX - gamePanel.player.screenX) &&
+                   worldX - gamePanel.tileSize < gamePanel.player.worldX + gamePanel.player.defaultScreenX + (gamePanel.player.defaultScreenX - gamePanel.player.screenX) &&
+                   worldY + gamePanel.tileSize > gamePanel.player.worldY - gamePanel.player.defaultScreenY + (gamePanel.player.defaultScreenY - gamePanel.player.screenY) &&
+                   worldY - gamePanel.tileSize < gamePanel.player.worldY + gamePanel.player.defaultScreenY + (gamePanel.player.defaultScreenY - gamePanel.player.screenY)) {
 
                     // Ground Level
                     g2.drawImage(tiles[groundTileNum[row][col]].image, screenX, screenY,
@@ -191,5 +219,33 @@ public class TileManager {
                 }
             }
         }
+    }
+
+    // Helpper method to check if the player is on an edge of the map
+    private boolean playerOnEdge(String axis) {
+
+        int playerX = gamePanel.player.worldX;
+        int playerY = gamePanel.player.worldY;
+
+        switch(axis) {
+        case "X":
+            if(playerX < gamePanel.player.defaultScreenX) {
+                return true;
+            }
+            if(playerX > gamePanel.worldWidth - gamePanel.player.defaultScreenX - gamePanel.tileSize) {
+                return true;
+            }
+            break;
+        case "Y":
+            if(playerY < gamePanel.player.defaultScreenY) {
+                return true;
+            }
+            if(playerY > gamePanel.worldHeight - gamePanel.player.defaultScreenY - gamePanel.tileSize) {
+                return true;
+            }
+            break;
+        }
+
+        return false;
     }
 }

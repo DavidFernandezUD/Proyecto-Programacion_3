@@ -125,11 +125,7 @@ public class GamePanel extends JPanel implements Runnable {
         tileManager.draw(g2);
         
         // OBJECTS
-        for(int i = 0; i < obj.length; i++) {
-            if(obj[i] != null) {
-                obj[i].draw(g2, this);
-            }
-        }
+        // TODO: Implemet separate drawing method on AssetSetter
 
         // PLAYER
         player.draw(g2);

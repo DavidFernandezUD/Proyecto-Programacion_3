@@ -14,8 +14,15 @@ public class Player extends Entity {
     GamePanel gamePanel;
     KeyHandler keyHandler;
 
-    public final int screenX;
-    public final int screenY;
+    public final int defaultScreenX;
+    public final int defaultScreenY;
+
+    // For camera locking
+    public int screenX;
+    public int screenY;
+
+    public boolean screenXLocked;
+    public boolean screenYLocked;
 
     // Just for debugging purposes (Displays Collision Box)
     boolean debug = false;
@@ -25,8 +32,8 @@ public class Player extends Entity {
         this.gamePanel = gamePanel;
         this.keyHandler = keyHandler;
 
-        screenX = (gamePanel.screenWidth / 2) - (gamePanel.tileSize / 2);
-        screenY = (gamePanel.screenHeight / 2) - (gamePanel.tileSize / 2);
+        defaultScreenX = (gamePanel.screenWidth / 2) - (gamePanel.tileSize / 2);
+        defaultScreenY = (gamePanel.screenHeight / 2) - (gamePanel.tileSize / 2);
 
         collisionBox = new Rectangle(11, 22, 42, 42);
         hitBox = new Rectangle(-10, -20, 84, 43);
@@ -230,6 +237,24 @@ public class Player extends Entity {
             }
         }
         
+        // Camera System
+        screenX = defaultScreenX;
+        screenY = defaultScreenY;
+
+        if(!screenXLocked) {
+            if(worldX < gamePanel.screenWidth) {
+                screenX = worldX;
+            } else {
+                screenX = worldX - gamePanel.worldWidth + gamePanel.screenWidth;
+            }
+        }
+        if(!screenYLocked) {
+            if(worldY < gamePanel.screenHeight) {
+                screenY = worldY;
+            } else {
+                screenY = worldY - gamePanel.worldHeight + gamePanel.screenHeight;
+            }
+        }
 
         g2.drawImage(image, screenX, screenY, gamePanel.tileSize, gamePanel.tileSize, null);
 
