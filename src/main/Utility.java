@@ -7,7 +7,7 @@ public class Utility {
     
     public BufferedImage scaleImage(BufferedImage original, int width, int height) {
 
-        // TODO: Use this method to optimize player and object drawing too
+        // TODO: Use this method to optimize object drawing too
 
         BufferedImage scaledImage = new BufferedImage(width, height, original.getType());
         Graphics2D g2 = scaledImage.createGraphics();

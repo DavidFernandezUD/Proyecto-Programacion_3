@@ -1,6 +1,8 @@
 package entity;
 
 import main.KeyHandler;
+import main.Utility;
+
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -13,6 +15,8 @@ public class Player extends Entity {
 
     GamePanel gamePanel;
     KeyHandler keyHandler;
+
+    final int tileSize;
 
     public final int defaultScreenX;
     public final int defaultScreenY;
@@ -31,6 +35,8 @@ public class Player extends Entity {
 
         this.gamePanel = gamePanel;
         this.keyHandler = keyHandler;
+
+        tileSize = gamePanel.tileSize;
 
         defaultScreenX = (gamePanel.screenWidth / 2) - (gamePanel.tileSize / 2);
         defaultScreenY = (gamePanel.screenHeight / 2) - (gamePanel.tileSize / 2);
@@ -52,27 +58,33 @@ public class Player extends Entity {
 
     public void getPlayerSprite() {
 
+        // For image scaling and optimization
+        Utility util = new Utility();
+
         try {
             BufferedImage runSpriteSheet = ImageIO.read(getClass().getResourceAsStream("..\\res\\player\\run.png"));
+            runSpriteSheet = util.scaleImage(runSpriteSheet, tileSize * 4, tileSize * 4);
 
-            upRunSprites = runSpriteSheet.getSubimage(0, 0, 128, 32);
-            leftRunSprites = runSpriteSheet.getSubimage(0, 32, 128, 32);
-            rightRunSprites = runSpriteSheet.getSubimage(0, 64, 128, 32);
-            downRunSprites = runSpriteSheet.getSubimage(0, 96, 128, 32);
+            upRunSprites = runSpriteSheet.getSubimage(0, 0, tileSize * 4, tileSize);
+            leftRunSprites = runSpriteSheet.getSubimage(0, tileSize, tileSize * 4, tileSize);
+            rightRunSprites = runSpriteSheet.getSubimage(0, tileSize * 2, tileSize * 4, tileSize);
+            downRunSprites = runSpriteSheet.getSubimage(0, tileSize * 3, tileSize * 4, tileSize);
 
             BufferedImage idleSpriteSheet = ImageIO.read(getClass().getResourceAsStream("..\\res\\player\\idle.png"));
+            idleSpriteSheet = util.scaleImage(idleSpriteSheet, tileSize * 4, tileSize * 4);
 
-            upIdleSprites = idleSpriteSheet.getSubimage(0, 0, 128, 32);
-            leftIdleSprites = idleSpriteSheet.getSubimage(0, 32, 128, 32);
-            rightIdleSprites = idleSpriteSheet.getSubimage(0, 64, 128, 32);
-            downIdleSprites = idleSpriteSheet.getSubimage(0, 96, 128, 32);
+            upIdleSprites = idleSpriteSheet.getSubimage(0, 0, tileSize * 4, tileSize);
+            leftIdleSprites = idleSpriteSheet.getSubimage(0, tileSize, tileSize * 4, tileSize);
+            rightIdleSprites = idleSpriteSheet.getSubimage(0, tileSize * 2, tileSize * 4, tileSize);
+            downIdleSprites = idleSpriteSheet.getSubimage(0, tileSize * 3, tileSize * 4, tileSize);
 
             BufferedImage attackSpriteSheet = ImageIO.read(getClass().getResourceAsStream("..\\res\\player\\attack1.png"));
+            attackSpriteSheet = util.scaleImage(attackSpriteSheet, tileSize * 4, tileSize * 4);
 
-            upAttackSprites = attackSpriteSheet.getSubimage(0, 0, 128, 32);
-            leftAttackSprites = attackSpriteSheet.getSubimage(0, 32, 128, 32);
-            rightAttackSprites = attackSpriteSheet.getSubimage(0, 64, 128, 32);
-            downAttackSprites = attackSpriteSheet.getSubimage(0, 96, 128, 32);
+            upAttackSprites = attackSpriteSheet.getSubimage(0, 0, tileSize * 4, tileSize);
+            leftAttackSprites = attackSpriteSheet.getSubimage(0, tileSize, tileSize * 4, tileSize);
+            rightAttackSprites = attackSpriteSheet.getSubimage(0, tileSize * 2, tileSize * 4, tileSize);
+            downAttackSprites = attackSpriteSheet.getSubimage(0, tileSize * 3, tileSize * 4, tileSize);
         } catch(IOException e) {
             e.printStackTrace();
         }
@@ -188,50 +200,49 @@ public class Player extends Entity {
         if(attacking && !attackEnded) {
             switch(attackDirection) {
             case "up":
-                image = upAttackSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
+                image = upAttackSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
                 direction = "up";
                 break;
             case "down":
-                image = downAttackSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
-                direction = "down";
+                image = downAttackSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
                 break;
             case "left":        
-                image = leftAttackSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
+                image = leftAttackSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
                 direction = "left";
                 break;
             case "right":
-                image = rightAttackSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
+                image = rightAttackSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
                 direction = "right";
                 break;
             }
         } else if(moving) {
             switch(direction) {
             case "up":
-                image = upRunSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
+                image = upRunSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
                 break;
             case "down":
-                image = downRunSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
+                image = downRunSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
                 break;
             case "left":        
-                image = leftRunSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
+                image = leftRunSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
                 break;
             case "right":
-                image = rightRunSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
+                image = rightRunSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
                 break;
             }
         } else {
             switch(direction) {
             case "up":
-                image = upIdleSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
+                image = upIdleSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
                 break;
             case "down":
-                image = downIdleSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
+                image = downIdleSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
                 break;
             case "left":        
-                image = leftIdleSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
+                image = leftIdleSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
                 break;
             case "right":
-                image = rightIdleSprites.getSubimage((spriteNum - 1) * 32, 0, 32, 32);
+                image = rightIdleSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
                 break;
             }
         }
