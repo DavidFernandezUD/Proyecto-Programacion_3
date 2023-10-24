@@ -184,10 +184,7 @@ public class TileManager {
                 
                 // The tiles are only painted if they are inside the screen
                 // TODO: Check if this has something to do with rendering glitches whem moving left und up
-                if(worldX + gamePanel.tileSize > gamePanel.player.worldX - gamePanel.player.defaultScreenX + (gamePanel.player.defaultScreenX - gamePanel.player.screenX) &&
-                   worldX - gamePanel.tileSize < gamePanel.player.worldX + gamePanel.player.defaultScreenX + (gamePanel.player.defaultScreenX - gamePanel.player.screenX) &&
-                   worldY + gamePanel.tileSize > gamePanel.player.worldY - gamePanel.player.defaultScreenY + (gamePanel.player.defaultScreenY - gamePanel.player.screenY) &&
-                   worldY - gamePanel.tileSize < gamePanel.player.worldY + gamePanel.player.defaultScreenY + (gamePanel.player.defaultScreenY - gamePanel.player.screenY)) {
+                if(tileOnScreen(worldX, worldY)) {
 
                     // Ground Level
                     g2.drawImage(tiles[groundTileNum[row][col]].image, screenX, screenY,
@@ -219,6 +216,20 @@ public class TileManager {
                 }
             }
         }
+    }
+
+    private boolean tileOnScreen(int worldX, int worldY) {
+
+        // Accounts for the deviation of the player position in the screen from it's default position
+        int screenXDelta = gamePanel.player.defaultScreenX - gamePanel.player.screenX;
+        int screenYDelta = gamePanel.player.defaultScreenY - gamePanel.player.screenY;
+
+        boolean result = worldX + gamePanel.tileSize > gamePanel.player.worldX - gamePanel.player.defaultScreenX + screenXDelta &&
+                         worldX - gamePanel.tileSize < gamePanel.player.worldX + gamePanel.player.defaultScreenX + screenXDelta &&
+                         worldY + gamePanel.tileSize > gamePanel.player.worldY - gamePanel.player.defaultScreenY + screenYDelta &&
+                         worldY - gamePanel.tileSize < gamePanel.player.worldY + gamePanel.player.defaultScreenY + screenYDelta;
+        
+        return result;
     }
 
     // Helpper method to check if the player is on an edge of the map
