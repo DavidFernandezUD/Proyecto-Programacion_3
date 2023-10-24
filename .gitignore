@@ -1,0 +1,15 @@
+# Ignore compiled source #
+*.class
+
+# Ignore logs and databases #
+*.log
+*.sql
+*.sqlite
+
+# Ignore the bin directory
+bin/
+
+# Ignore IDE specific files
+.idea/
+.vscode/
+*.sw*

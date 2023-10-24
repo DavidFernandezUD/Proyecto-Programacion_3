@@ -151,7 +151,6 @@ public class TileManager {
             for(int col = 0; col < gamePanel.maxWorldCol; col++) {
 
                 // Camera
-                // TODO: Block the camera when it touches an edge of the map
                 int worldX = col * gamePanel.tileSize;
                 int worldY = row * gamePanel.tileSize;
 
@@ -183,7 +182,6 @@ public class TileManager {
                 }
                 
                 // The tiles are only painted if they are inside the screen
-                // TODO: Check if this has something to do with rendering glitches whem moving left und up
                 if(tileOnScreen(worldX, worldY)) {
 
                     // Ground Level
