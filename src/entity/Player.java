@@ -54,6 +54,7 @@ public class Player extends Entity {
         speed = 4;
         direction = "down";
         moving = false;
+        attackDirection = "down";
     }
 
     public void getPlayerSprite() {
