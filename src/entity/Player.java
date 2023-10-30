@@ -63,7 +63,7 @@ public class Player extends Entity {
         Utility util = new Utility();
 
         try {
-            BufferedImage runSpriteSheet = ImageIO.read(getClass().getResourceAsStream("..\\res\\player\\run.png"));
+            BufferedImage runSpriteSheet = ImageIO.read(getClass().getResourceAsStream("../res/player//run.png"));
             runSpriteSheet = util.scaleImage(runSpriteSheet, tileSize * 4, tileSize * 4);
 
             upRunSprites = runSpriteSheet.getSubimage(0, 0, tileSize * 4, tileSize);
@@ -71,7 +71,7 @@ public class Player extends Entity {
             rightRunSprites = runSpriteSheet.getSubimage(0, tileSize * 2, tileSize * 4, tileSize);
             downRunSprites = runSpriteSheet.getSubimage(0, tileSize * 3, tileSize * 4, tileSize);
 
-            BufferedImage idleSpriteSheet = ImageIO.read(getClass().getResourceAsStream("..\\res\\player\\idle.png"));
+            BufferedImage idleSpriteSheet = ImageIO.read(getClass().getResourceAsStream("..//res//player//idle.png"));
             idleSpriteSheet = util.scaleImage(idleSpriteSheet, tileSize * 4, tileSize * 4);
 
             upIdleSprites = idleSpriteSheet.getSubimage(0, 0, tileSize * 4, tileSize);
@@ -79,7 +79,7 @@ public class Player extends Entity {
             rightIdleSprites = idleSpriteSheet.getSubimage(0, tileSize * 2, tileSize * 4, tileSize);
             downIdleSprites = idleSpriteSheet.getSubimage(0, tileSize * 3, tileSize * 4, tileSize);
 
-            BufferedImage attackSpriteSheet = ImageIO.read(getClass().getResourceAsStream("..\\res\\player\\attack1.png"));
+            BufferedImage attackSpriteSheet = ImageIO.read(getClass().getResourceAsStream("..//res//player//attack1.png"));
             attackSpriteSheet = util.scaleImage(attackSpriteSheet, tileSize * 4, tileSize * 4);
 
             upAttackSprites = attackSpriteSheet.getSubimage(0, 0, tileSize * 4, tileSize);
