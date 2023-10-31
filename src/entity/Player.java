@@ -96,7 +96,7 @@ public class Player extends Entity {
         // The spriteCounter is only incremented if a key is pressed
         if(keyHandler.upPressed || keyHandler.rightPressed || keyHandler.downPressed || keyHandler.leftPressed) {
 
-            // If playeer has just started moving the spriteNum and counter is restarted
+            // If player has just started moving the spriteNum and counter is restarted
             if(!moving) {
                 spriteNum = 1;
                 spriteCounter = 13;
@@ -154,7 +154,7 @@ public class Player extends Entity {
                 spriteCounter = 13;
                 attackEnded = false;
             } else if(spriteNum == 1) {
-                // If it was already attacking and the animation has already looped once it doesn`t continue attacking
+                // If it was already attacking and the animation has already looped once it doesn't continue attacking
                 attackEnded = true;
             }
 

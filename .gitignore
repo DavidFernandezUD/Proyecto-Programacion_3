@@ -8,8 +8,10 @@
 
 # Ignore the bin directory
 bin/
+out/
 
 # Ignore IDE specific files
 .idea/
 .vscode/
+*.iml
 *.sw*
