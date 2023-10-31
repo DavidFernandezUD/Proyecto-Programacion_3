@@ -11,7 +11,7 @@ public class CollisionChecker {
         this.gamePanel = gamePanel;
     }
 
-    // TODO: FIX THIS MESS
+    // TODO: CHANGE EVERYTHING
     public void checkTile(Entity entity) {
         
         // Calculating the four edges of the collision box
@@ -33,11 +33,11 @@ public class CollisionChecker {
             case "up":
                 topRow = (collisionTopBound - entity.speed) / gamePanel.tileSize;
 
-                tileNum1 = gamePanel.tileManager.level1TileNum[topRow][leftCol] +
-                           gamePanel.tileManager.level2TileNum[topRow][leftCol];
+                tileNum1 = gamePanel.tileManager.map.get(1)[topRow][leftCol] +
+                           gamePanel.tileManager.map.get(2)[topRow][leftCol];
 
-                tileNum2 = gamePanel.tileManager.level1TileNum[topRow][rightCol] +
-                           gamePanel.tileManager.level2TileNum[topRow][rightCol];
+                tileNum2 = gamePanel.tileManager.map.get(1)[topRow][rightCol] +
+                           gamePanel.tileManager.map.get(2)[topRow][rightCol];
                 
                 // Only checking for collisions if a solid tile exist at those positions
                 if(tileNum1 != -2 || tileNum2 != -2) {
@@ -47,11 +47,11 @@ public class CollisionChecker {
             case "down":
                 bottomRow = (collisionBottomBound + entity.speed) / gamePanel.tileSize;
 
-                tileNum1 = gamePanel.tileManager.level1TileNum[bottomRow][leftCol] +
-                           gamePanel.tileManager.level2TileNum[bottomRow][leftCol];
+                tileNum1 = gamePanel.tileManager.map.get(1)[bottomRow][leftCol] +
+                           gamePanel.tileManager.map.get(2)[bottomRow][leftCol];
 
-                tileNum2 = gamePanel.tileManager.level1TileNum[bottomRow][rightCol] + 
-                           gamePanel.tileManager.level2TileNum[bottomRow][rightCol];
+                tileNum2 = gamePanel.tileManager.map.get(1)[bottomRow][rightCol] +
+                           gamePanel.tileManager.map.get(2)[bottomRow][rightCol];
 
                 if(tileNum1 != -2 || tileNum2 != -2) {
                     entity.collisionOn = true;
@@ -60,11 +60,11 @@ public class CollisionChecker {
             case "left":
                 leftCol = (collisionLeftBound - entity.speed) / gamePanel.tileSize;
 
-                tileNum1 = gamePanel.tileManager.level1TileNum[topRow][leftCol] +
-                           gamePanel.tileManager.level2TileNum[topRow][leftCol];
+                tileNum1 = gamePanel.tileManager.map.get(1)[topRow][leftCol] +
+                           gamePanel.tileManager.map.get(2)[topRow][leftCol];
 
-                tileNum2 = gamePanel.tileManager.level1TileNum[bottomRow][leftCol] + 
-                           gamePanel.tileManager.level2TileNum[bottomRow][leftCol];
+                tileNum2 = gamePanel.tileManager.map.get(1)[bottomRow][leftCol] +
+                           gamePanel.tileManager.map.get(2)[bottomRow][leftCol];
 
                 if(tileNum1 != -2 || tileNum2 != -2) {
                     entity.collisionOn = true;
@@ -73,11 +73,11 @@ public class CollisionChecker {
             case "right":
                 rightCol = (collisionRightBound + entity.speed) / gamePanel.tileSize;
 
-                tileNum1 = gamePanel.tileManager.level1TileNum[topRow][rightCol] +
-                           gamePanel.tileManager.level2TileNum[topRow][rightCol];
+                tileNum1 = gamePanel.tileManager.map.get(1)[topRow][rightCol] +
+                           gamePanel.tileManager.map.get(2)[topRow][rightCol];
 
-                tileNum2 = gamePanel.tileManager.level1TileNum[bottomRow][rightCol] + 
-                           gamePanel.tileManager.level2TileNum[bottomRow][rightCol];
+                tileNum2 = gamePanel.tileManager.map.get(1)[bottomRow][rightCol] +
+                           gamePanel.tileManager.map.get(2)[bottomRow][rightCol];
 
                 if(tileNum1 != -2 || tileNum2 != -2) {
                     entity.collisionOn = true;

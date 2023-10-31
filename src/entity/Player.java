@@ -2,12 +2,12 @@ package entity;
 
 import main.KeyHandler;
 import main.Utility;
-
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Objects;
 import javax.imageio.ImageIO;
 import main.GamePanel;
 
@@ -63,29 +63,14 @@ public class Player extends Entity {
         Utility util = new Utility();
 
         try {
-            BufferedImage runSpriteSheet = ImageIO.read(getClass().getResourceAsStream("../res/player//run.png"));
-            runSpriteSheet = util.scaleImage(runSpriteSheet, tileSize * 4, tileSize * 4);
+            runSprites = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("../res/player//run.png")));
+            runSprites = util.scaleImage(runSprites, tileSize * 4, tileSize * 4);
 
-            upRunSprites = runSpriteSheet.getSubimage(0, 0, tileSize * 4, tileSize);
-            leftRunSprites = runSpriteSheet.getSubimage(0, tileSize, tileSize * 4, tileSize);
-            rightRunSprites = runSpriteSheet.getSubimage(0, tileSize * 2, tileSize * 4, tileSize);
-            downRunSprites = runSpriteSheet.getSubimage(0, tileSize * 3, tileSize * 4, tileSize);
+            idleSprites = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("..//res//player//idle.png")));
+            idleSprites = util.scaleImage(idleSprites, tileSize * 4, tileSize * 4);
 
-            BufferedImage idleSpriteSheet = ImageIO.read(getClass().getResourceAsStream("..//res//player//idle.png"));
-            idleSpriteSheet = util.scaleImage(idleSpriteSheet, tileSize * 4, tileSize * 4);
-
-            upIdleSprites = idleSpriteSheet.getSubimage(0, 0, tileSize * 4, tileSize);
-            leftIdleSprites = idleSpriteSheet.getSubimage(0, tileSize, tileSize * 4, tileSize);
-            rightIdleSprites = idleSpriteSheet.getSubimage(0, tileSize * 2, tileSize * 4, tileSize);
-            downIdleSprites = idleSpriteSheet.getSubimage(0, tileSize * 3, tileSize * 4, tileSize);
-
-            BufferedImage attackSpriteSheet = ImageIO.read(getClass().getResourceAsStream("..//res//player//attack1.png"));
-            attackSpriteSheet = util.scaleImage(attackSpriteSheet, tileSize * 4, tileSize * 4);
-
-            upAttackSprites = attackSpriteSheet.getSubimage(0, 0, tileSize * 4, tileSize);
-            leftAttackSprites = attackSpriteSheet.getSubimage(0, tileSize, tileSize * 4, tileSize);
-            rightAttackSprites = attackSpriteSheet.getSubimage(0, tileSize * 2, tileSize * 4, tileSize);
-            downAttackSprites = attackSpriteSheet.getSubimage(0, tileSize * 3, tileSize * 4, tileSize);
+            attackSprites = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("..//res//player//attack1.png")));
+            attackSprites = util.scaleImage(attackSprites, tileSize * 4, tileSize * 4);
         } catch(IOException e) {
             e.printStackTrace();
         }
@@ -116,7 +101,7 @@ public class Player extends Entity {
                 direction = "down";
             } else if(keyHandler.leftPressed) {
                 direction = "left";
-            } else if(keyHandler.rightPressed) {
+            } else {
                 direction = "right";
             }
 
@@ -166,7 +151,7 @@ public class Player extends Entity {
                 attackDirection = "down";
             } else if(keyHandler.attackLeftPressed) {
                 attackDirection = "left";
-            } else if(keyHandler.attackRightPressed) {
+            } else {
                 attackDirection = "right";
             }
 
@@ -199,54 +184,12 @@ public class Player extends Entity {
         BufferedImage image = null;
 
         if(attacking && !attackEnded) {
-            switch(attackDirection) {
-            case "up":
-                image = upAttackSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
-                direction = "up";
-                break;
-            case "down":
-                image = downAttackSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
-                direction = "down";
-                break;
-            case "left":        
-                image = leftAttackSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
-                direction = "left";
-                break;
-            case "right":
-                image = rightAttackSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
-                direction = "right";
-                break;
-            }
+            image = getBufferedImage(image, attackSprites);
+            direction = attackDirection; // Direction changes when attacking
         } else if(moving) {
-            switch(direction) {
-            case "up":
-                image = upRunSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
-                break;
-            case "down":
-                image = downRunSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
-                break;
-            case "left":        
-                image = leftRunSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
-                break;
-            case "right":
-                image = rightRunSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
-                break;
-            }
+            image = getBufferedImage(image, runSprites);
         } else {
-            switch(direction) {
-            case "up":
-                image = upIdleSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
-                break;
-            case "down":
-                image = downIdleSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
-                break;
-            case "left":        
-                image = leftIdleSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
-                break;
-            case "right":
-                image = rightIdleSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
-                break;
-            }
+            image = getBufferedImage(image, idleSprites);
         }
         
         // Camera System
@@ -279,5 +222,15 @@ public class Player extends Entity {
             g2.setColor(new Color(0, 255, 0, 150));
             g2.fillRect(hitBox.x + screenX, hitBox.y + screenY, hitBox.width, hitBox.height);
         }
+    }
+    private BufferedImage getBufferedImage(BufferedImage image, BufferedImage spriteSheet) {
+        image = switch (direction) {
+            case "up" -> spriteSheet.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
+            case "left" -> spriteSheet.getSubimage((spriteNum - 1) * tileSize, tileSize, tileSize, tileSize);
+            case "right" -> spriteSheet.getSubimage((spriteNum - 1) * tileSize, tileSize * 2, tileSize, tileSize);
+            case "down" -> spriteSheet.getSubimage((spriteNum - 1) * tileSize, tileSize * 3, tileSize, tileSize);
+            default -> image;
+        };
+        return image;
     }
 }

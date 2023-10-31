@@ -8,10 +8,7 @@ public class Entity {
     public int worldX, worldY;
     public int speed;
 
-    public BufferedImage upRunSprites, upIdleSprites, upAttackSprites,
-                         downRunSprites, downIdleSprites, downAttackSprites,
-                         leftRunSprites, leftIdleSprites, leftAttackSprites,
-                         rightRunSprites, rightIdleSprites, rightAttackSprites;
+    public BufferedImage idleSprites, runSprites, attackSprites;
                          
     public String direction;
     public String attackDirection;
@@ -26,6 +23,8 @@ public class Entity {
     public Rectangle collisionBox;
     public boolean collisionOn = false;
 
+
+    // TODO: Implement attacking functionality
     public Rectangle hitBox;
     public boolean attackOn = false;
 }

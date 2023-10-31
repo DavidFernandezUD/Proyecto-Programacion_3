@@ -2,7 +2,6 @@ package main;
 
 import javax.swing.JPanel;
 import entity.Player;
-import object.SuperObject;
 import tile.TileManager;
 import java.awt.Font;
 import java.awt.Color;
@@ -41,8 +40,7 @@ public class GamePanel extends JPanel implements Runnable {
     public Player player = new Player(this, keyHandler);
     public TileManager tileManager = new TileManager(this);
     public CollisionChecker collisionChecker = new CollisionChecker(this);
-    public AssetSetter aSetter = new AssetSetter(this);
-    public SuperObject obj[] = new SuperObject[10];
+    public AssetSetter assetSetter = new AssetSetter(this);
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -52,10 +50,6 @@ public class GamePanel extends JPanel implements Runnable {
         // keyHandler = new KeyHandler();
         this.addKeyListener(keyHandler);
         this.setFocusable(true);
-    }
-
-    public void setupGame() {
-        aSetter.setObject();
     }
 
     public void startGameThread() {
@@ -68,7 +62,7 @@ public class GamePanel extends JPanel implements Runnable {
     @Override
     public void run() {
 
-        double drawInterval = 1000000000 / FPS; // Nanoseconds per frame
+        double drawInterval = 1000000000. / FPS; // Nanoseconds per frame
         double delta = 0;
         long lastTime = System.nanoTime();
         long currentTime;
@@ -78,19 +72,15 @@ public class GamePanel extends JPanel implements Runnable {
         // The game loop will be running in the run() method
         while(gameThread != null) {
 
-            if(keyHandler.escToggled) {
-                gamePaused = true;
-            } else {
-                gamePaused = false;
-            }
+            gamePaused = keyHandler.escToggled;
 
             currentTime = System.nanoTime();
 
-            delta += (currentTime - lastTime) / drawInterval;
+            delta += currentTime - lastTime;
             timer += currentTime - lastTime;
             lastTime = currentTime;
 
-            if(delta >= 1) {
+            if(delta >= drawInterval) {
 
                 // TITLE SCREEN LOOP
 
@@ -111,10 +101,10 @@ public class GamePanel extends JPanel implements Runnable {
                     update();
                 }
 
-                // 2 DRAW: Draw the screen with the updated infomation
+                // 2 DRAW: Draw the screen with the updated information
                 repaint(); // repaint() calls the paintComponent() method
 
-                delta--;
+                delta-= drawInterval;
                 drawCount++;
             }
 
@@ -141,7 +131,7 @@ public class GamePanel extends JPanel implements Runnable {
         tileManager.draw(g2);
         
         // OBJECTS
-        // TODO: Implemet separate drawing method on AssetSetter
+        // TODO: Implement separate drawing method on AssetSetter
 
         // PLAYER
         player.draw(g2);

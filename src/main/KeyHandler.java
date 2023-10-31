@@ -53,11 +53,7 @@ public class KeyHandler implements KeyListener {
 
         if(code == KeyEvent.VK_ESCAPE) {
             if(!escPressed) {
-                if(!escToggled) {
-                    escToggled = true;
-                } else {
-                    escToggled = false;
-                }
+                escToggled = !escToggled;
             }
             escPressed = true;
         }

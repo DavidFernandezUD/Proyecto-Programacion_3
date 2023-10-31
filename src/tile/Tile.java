@@ -2,6 +2,7 @@ package tile;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Objects;
 import javax.imageio.ImageIO;
 
 public class Tile {
@@ -10,7 +11,7 @@ public class Tile {
 
     public Tile(String filePath) {
         try {
-            image = ImageIO.read(getClass().getResourceAsStream(filePath));
+            image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
         } catch (IOException e) {
             e.printStackTrace();
         }
