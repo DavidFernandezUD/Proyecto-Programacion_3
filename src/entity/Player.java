@@ -206,6 +206,7 @@ public class Player extends Entity {
                 break;
             case "down":
                 image = downAttackSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
+                direction = "down";
                 break;
             case "left":        
                 image = leftAttackSprites.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);

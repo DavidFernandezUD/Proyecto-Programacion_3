@@ -6,7 +6,8 @@ import java.awt.event.KeyListener;
 public class KeyHandler implements KeyListener {
 
     public boolean upPressed, downPressed, leftPressed, rightPressed,
-                   attackUpPressed, attackDownPressed, attackLeftPressed, attackRightPressed;
+                   attackUpPressed, attackDownPressed, attackLeftPressed, attackRightPressed,
+                   enterPressed;
 
     public boolean escPressed;
     public boolean escToggled; 
@@ -45,6 +46,9 @@ public class KeyHandler implements KeyListener {
         }
         if(code == KeyEvent.VK_RIGHT) {
             attackRightPressed = true;
+        }
+        if(code == KeyEvent.VK_ENTER) {
+            enterPressed = true;
         }
 
         if(code == KeyEvent.VK_ESCAPE) {
@@ -89,9 +93,11 @@ public class KeyHandler implements KeyListener {
         if(code == KeyEvent.VK_RIGHT) {
             attackRightPressed = false;
         }
-
         if(code == KeyEvent.VK_ESCAPE) {
             escPressed = false;
+        }
+        if(code == KeyEvent.VK_ENTER) {
+            enterPressed = false;
         }
     }
 }

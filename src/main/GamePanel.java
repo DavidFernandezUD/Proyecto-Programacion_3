@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 import entity.Player;
 import object.SuperObject;
 import tile.TileManager;
+import java.awt.Font;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -14,7 +15,6 @@ public class GamePanel extends JPanel implements Runnable {
     // SCREEN SETTINGS
     final int originalTileSize = 32; // 16x16 tiles
     final int scale = 2;
-
     public final int tileSize = originalTileSize * scale; // 64x64 tiles
     public final int maxScreenCol = 16;
     public final int maxScreenRow = 12;
@@ -29,6 +29,9 @@ public class GamePanel extends JPanel implements Runnable {
 
     //States
     public boolean gamePaused = false;
+    public boolean titleScreen = true;
+    public boolean startSelected = false;
+    public boolean gameStarted = false;
 
     // FPS
     public int FPS = 60;
@@ -88,9 +91,22 @@ public class GamePanel extends JPanel implements Runnable {
             lastTime = currentTime;
 
             if(delta >= 1) {
-                
+
+                // TITLE SCREEN LOOP
+
+                // TODO: Fix menu selection buttons (add toggle)
+                if(titleScreen  && !gameStarted && !gamePaused){
+                    if (keyHandler.upPressed || keyHandler.downPressed) {
+                        startSelected = !startSelected;
+                        repaint();
+                    } else if (keyHandler.enterPressed && startSelected) {
+                        // Start the game
+                        titleScreen = false;
+                    }
+                }
+
                 // Only updating the game state if the game isn't paused
-                if(!gamePaused) {
+                if(!gamePaused && !titleScreen) {
                     // 1 UPDATE: Update information like location of items, mobs, character, etc.
                     update();
                 }
@@ -134,6 +150,25 @@ public class GamePanel extends JPanel implements Runnable {
         if(gamePaused) {
             g2.setColor(new Color(100, 100, 100, 150));
             g2.fillRect(0, 0, maxScreenCol * tileSize, maxScreenRow * tileSize);
+        }
+
+        // TITLE SCREEN
+        if(titleScreen) {
+            // Draw the title text
+            String title = "SHADOWS OF DESPAIR";
+            g2.setFont(new Font("Arial", Font.BOLD, 36));
+            g2.setColor(Color.WHITE);
+            int titleX = (getWidth() - g2.getFontMetrics().stringWidth(title)) / 2;
+            int titleY = 150;
+            g2.drawString(title, titleX, titleY);
+
+            // Draw the start button
+            String startText = "Start";
+            g2.setFont(new Font("Arial", Font.PLAIN, 24));
+            int startX = (getWidth() - g2.getFontMetrics().stringWidth(startText)) / 2;
+            int startY = 320;
+            g2.setColor(startSelected ? Color.YELLOW : Color.WHITE);
+            g2.drawString(startText, startX, startY);
         }
 
         g2.dispose(); // dispose helps to free some memory after the painting has ended
