@@ -122,36 +122,30 @@ public class Player extends Entity {
         }
 
         // ATTACKING
-        if(keyHandler.isAttackKeyPressed()) {
-            
-            if(!attacking && attackEnded) {
-                spriteNum = 1;
-                spriteCounter = 13;
-                attackEnded = false;
-            } else if(spriteNum == 1) {
-                // If it was already attacking and the animation has already looped once it doesn't continue attacking
-                attackEnded = true;
-            }
-
-            attacking = true;
-
-            // FIXME: Change this to give priority to last pressed key
-            if(keyHandler.isLastAttackKeyPressed(KeyEvent.VK_UP)) {
-                attackDirection = "up";
-            } else if(keyHandler.isLastAttackKeyPressed(KeyEvent.VK_DOWN)) {
-                attackDirection = "down";
-            } else if(keyHandler.isLastAttackKeyPressed(KeyEvent.VK_LEFT)) {
-                attackDirection = "left";
-            } else {
-                attackDirection = "right";
-            }
-
-        } else if(spriteNum == 1) {
-            attacking = false;
+        // FIXME: Fix attacking
+        if(attacking && attackEnded) {
+            spriteNum = 1;
+            spriteCounter = ANIMATION_FRAMES + 1;
+            attackEnded = false;
+        } else if(!attackEnded && spriteNum == 1) {
+            // If it was already attacking and the animation has already looped once it doesn't continue attacking
+            attackEnded = true;
+            direction = attackDirection; // The player stays in the direction it attacked even after ending the attack
         }
 
-        spriteCounter += (!attackEnded ? 2 : 1); // Attack animation runs faster than moving and idle
+        if(keyHandler.isLastAttackKeyPressed(KeyEvent.VK_UP)) {
+            attackDirection = "up";
+        } else if(keyHandler.isLastAttackKeyPressed(KeyEvent.VK_DOWN)) {
+            attackDirection = "down";
+        } else if(keyHandler.isLastAttackKeyPressed(KeyEvent.VK_LEFT)) {
+            attackDirection = "left";
+        } else {
+            attackDirection = "right";
+        }
 
+        attacking = keyHandler.isAttackKeyPressed();
+
+        spriteCounter += (!attackEnded ? 2 : 1); // Attack animation runs faster than moving and idle
         if(spriteCounter > ANIMATION_FRAMES) {
             if(spriteNum < 4) {
                 spriteNum++;
@@ -163,17 +157,8 @@ public class Player extends Entity {
     }
 
     public void draw(Graphics2D g2) {
-        
-        BufferedImage image;
 
-        if(attacking && !attackEnded) {
-            image = getSprite(attackDirection, attackSprites);
-            direction = attackDirection; // Direction changes when attacking
-        } else if(moving) {
-            image = getSprite(direction, runSprites);
-        } else {
-            image = getSprite(direction, idleSprites);
-        }
+        BufferedImage image = getSprite(direction);
         
         // Camera System
         screenX = defaultScreenX;
@@ -206,7 +191,20 @@ public class Player extends Entity {
             g2.fillRect(hitBox.x + screenX, hitBox.y + screenY, hitBox.width, hitBox.height);
         }
     }
-    private BufferedImage getSprite(String direction, BufferedImage spriteSheet) {
+
+    private BufferedImage getSprite(String direction) {
+
+        BufferedImage spriteSheet;
+
+        if(attacking && !attackEnded) {
+            spriteSheet = attackSprites;
+            direction = attackDirection; // If attacking, the passed direction is overwritten by the attack direction
+        } else if(moving) {
+            spriteSheet = runSprites;
+        } else {
+            spriteSheet = idleSprites;
+        }
+
         return switch (direction) {
             case "up" -> spriteSheet.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
             case "left" -> spriteSheet.getSubimage((spriteNum - 1) * tileSize, tileSize, tileSize, tileSize);
