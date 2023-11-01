@@ -3,6 +3,7 @@ package main;
 import javax.swing.JPanel;
 import entity.Player;
 import tile.TileManager;
+import java.awt.Font;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -25,9 +26,11 @@ public class GamePanel extends JPanel implements Runnable {
     public final int worldHeight = tileSize * maxWorldCol;
     public final int worldWidth = tileSize * maxWorldRow;
 
-    // States
+    //States
     public boolean gamePaused = false;
-    public boolean titleScreenOn = true;
+    public boolean titleScreen = true;
+    public boolean startSelected = false;
+    public boolean gameStarted = false;
 
     // FPS
     public int FPS = 60;
@@ -38,13 +41,13 @@ public class GamePanel extends JPanel implements Runnable {
     public TileManager tileManager = new TileManager(this);
     public CollisionChecker collisionChecker = new CollisionChecker(this);
     public AssetSetter assetSetter = new AssetSetter(this);
-    public TitleScreen titleScreen = new TitleScreen(this);
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true);
 
+        // keyHandler = new KeyHandler();
         this.addKeyListener(keyHandler);
         this.setFocusable(true);
     }
@@ -69,6 +72,8 @@ public class GamePanel extends JPanel implements Runnable {
         // The game loop will be running in the run() method
         while(gameThread != null) {
 
+            gamePaused = keyHandler.escToggled;
+
             currentTime = System.nanoTime();
 
             delta += currentTime - lastTime;
@@ -77,18 +82,21 @@ public class GamePanel extends JPanel implements Runnable {
 
             if(delta >= drawInterval) {
 
-                gamePaused = keyHandler.escToggled;
+                // TITLE SCREEN LOOP
 
-                if(titleScreenOn) {
-                    titleScreen.update();
-                    if(titleScreen.startSelected && keyHandler.enterPressed) {
-                        titleScreenOn = false;
+                // TODO: Fix menu selection buttons (add toggle)
+                if(titleScreen  && !gameStarted && !gamePaused){
+                    if (keyHandler.upPressed || keyHandler.downPressed) {
+                        startSelected = !startSelected;
+                        repaint();
+                    } else if (keyHandler.enterPressed && startSelected) {
+                        // Start the game
+                        titleScreen = false;
                     }
                 }
 
-                // TODO: Fix menu selection buttons (add toggle)
                 // Only updating the game state if the game isn't paused
-                if(!gamePaused && !titleScreenOn) {
+                if(!gamePaused && !titleScreen) {
                     // 1 UPDATE: Update information like location of items, mobs, character, etc.
                     update();
                 }
@@ -135,8 +143,22 @@ public class GamePanel extends JPanel implements Runnable {
         }
 
         // TITLE SCREEN
-        if(titleScreenOn) {
-            titleScreen.draw(g2);
+        if(titleScreen) {
+            // Draw the title text
+            String title = "SHADOWS OF DESPAIR";
+            g2.setFont(new Font("Arial", Font.BOLD, 36));
+            g2.setColor(Color.WHITE);
+            int titleX = (getWidth() - g2.getFontMetrics().stringWidth(title)) / 2;
+            int titleY = 150;
+            g2.drawString(title, titleX, titleY);
+
+            // Draw the start button
+            String startText = "Start";
+            g2.setFont(new Font("Arial", Font.PLAIN, 24));
+            int startX = (getWidth() - g2.getFontMetrics().stringWidth(startText)) / 2;
+            int startY = 320;
+            g2.setColor(startSelected ? Color.YELLOW : Color.WHITE);
+            g2.drawString(startText, startX, startY);
         }
 
         g2.dispose(); // dispose helps to free some memory after the painting has ended
