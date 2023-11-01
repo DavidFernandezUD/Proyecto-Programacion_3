@@ -5,6 +5,7 @@ import main.Utility;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
@@ -80,52 +81,39 @@ public class Player extends Entity {
     // FIXME: Fix direction bug when attacking
     public void update() {
         
-        // The spriteCounter is only incremented if a key is pressed
-        if(keyHandler.upPressed || keyHandler.rightPressed || keyHandler.downPressed || keyHandler.leftPressed) {
+        // MOVING
+        if(keyHandler.isMoveKeyPressed()) {
 
             // If player has just started moving the spriteNum and counter is restarted
             if(!moving) {
+                moving = true;
                 spriteNum = 1;
                 spriteCounter = 13;
             }
 
-            if(attacking) {
-                speed = 2;
-            } else {
-                speed = 4;
-            }
+            speed = (attacking ? 2 : 4); // Moving speed is reduced when attacking
 
-            moving = true;
-
-            if(keyHandler.upPressed) {
+            if(keyHandler.isLastMoveKeyPressed(KeyEvent.VK_W)) {
                 direction = "up";
-            } else if(keyHandler.downPressed) {
+            } else if(keyHandler.isLastMoveKeyPressed(KeyEvent.VK_S)) {
                 direction = "down";
-            } else if(keyHandler.leftPressed) {
+            } else if(keyHandler.isLastMoveKeyPressed(KeyEvent.VK_A)) {
                 direction = "left";
             } else {
                 direction = "right";
             }
 
-            // Check tile collision
+            // Check collisions
             collisionOn = false;
             gamePanel.collisionChecker.checkTile(this);
 
             // If collision is false the player can move
             if(!collisionOn) {
                 switch(direction) {
-                    case "up":
-                        worldY -= speed;
-                        break;
-                    case "down":
-                        worldY += speed;
-                        break;
-                    case "left":
-                        worldX -= speed;
-                        break;
-                    case "right":
-                        worldX += speed;
-                        break;
+                    case "up": worldY -= speed; break;
+                    case "down": worldY += speed; break;
+                    case "left": worldX -= speed; break;
+                    case "right": worldX += speed; break;
                 }
             }
         }
@@ -133,10 +121,10 @@ public class Player extends Entity {
             moving = false;
         }
 
-        // Attack
-        if(keyHandler.attackUpPressed || keyHandler.attackRightPressed || keyHandler.attackDownPressed || keyHandler.attackLeftPressed) {
+        // ATTACKING
+        if(keyHandler.isAttackKeyPressed()) {
             
-            if(!attacking) {
+            if(!attacking && attackEnded) {
                 spriteNum = 1;
                 spriteCounter = 13;
                 attackEnded = false;
@@ -147,11 +135,12 @@ public class Player extends Entity {
 
             attacking = true;
 
-            if(keyHandler.attackUpPressed) {
+            // FIXME: Change this to give priority to last pressed key
+            if(keyHandler.isLastAttackKeyPressed(KeyEvent.VK_UP)) {
                 attackDirection = "up";
-            } else if(keyHandler.attackDownPressed) {
+            } else if(keyHandler.isLastAttackKeyPressed(KeyEvent.VK_DOWN)) {
                 attackDirection = "down";
-            } else if(keyHandler.attackLeftPressed) {
+            } else if(keyHandler.isLastAttackKeyPressed(KeyEvent.VK_LEFT)) {
                 attackDirection = "left";
             } else {
                 attackDirection = "right";
@@ -161,19 +150,11 @@ public class Player extends Entity {
             attacking = false;
         }
 
-        if(attacking && !attackEnded) {
-            spriteCounter += 2;
-        } else {
-            spriteCounter++;
-        }
+        spriteCounter += (!attackEnded ? 2 : 1); // Attack animation runs faster than moving and idle
 
-        if(spriteCounter > 12) {
-            if(spriteNum == 1) {
-                spriteNum = 2;
-            } else if(spriteNum == 2) {
-                spriteNum = 3;
-            } else if(spriteNum == 3) {
-                spriteNum = 4;
+        if(spriteCounter > ANIMATION_FRAMES) {
+            if(spriteNum < 4) {
+                spriteNum++;
             } else {
                 spriteNum = 1;
             }
@@ -183,15 +164,15 @@ public class Player extends Entity {
 
     public void draw(Graphics2D g2) {
         
-        BufferedImage image = null;
+        BufferedImage image;
 
         if(attacking && !attackEnded) {
-            image = getBufferedImage(image, attackSprites);
+            image = getSprite(attackDirection, attackSprites);
             direction = attackDirection; // Direction changes when attacking
         } else if(moving) {
-            image = getBufferedImage(image, runSprites);
+            image = getSprite(direction, runSprites);
         } else {
-            image = getBufferedImage(image, idleSprites);
+            image = getSprite(direction, idleSprites);
         }
         
         // Camera System
@@ -225,14 +206,13 @@ public class Player extends Entity {
             g2.fillRect(hitBox.x + screenX, hitBox.y + screenY, hitBox.width, hitBox.height);
         }
     }
-    private BufferedImage getBufferedImage(BufferedImage image, BufferedImage spriteSheet) {
-        image = switch (direction) {
+    private BufferedImage getSprite(String direction, BufferedImage spriteSheet) {
+        return switch (direction) {
             case "up" -> spriteSheet.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
             case "left" -> spriteSheet.getSubimage((spriteNum - 1) * tileSize, tileSize, tileSize, tileSize);
             case "right" -> spriteSheet.getSubimage((spriteNum - 1) * tileSize, tileSize * 2, tileSize, tileSize);
             case "down" -> spriteSheet.getSubimage((spriteNum - 1) * tileSize, tileSize * 3, tileSize, tileSize);
-            default -> image;
+            default -> null;
         };
-        return image;
     }
 }

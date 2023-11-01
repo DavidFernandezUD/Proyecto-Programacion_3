@@ -2,124 +2,106 @@ package main;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.*;
 
 public class KeyHandler implements KeyListener {
 
-    public boolean upPressed, downPressed, leftPressed, rightPressed,
-                   upToggled, downToggled, leftToggled, rightToggled,
-                   attackUpPressed, attackDownPressed, attackLeftPressed, attackRightPressed,
-                   enterPressed, enterToggled,
-                   escPressed, escToggled;
+    private final Set<Integer> pressedKeys = new HashSet<>();
+    private final Map<Integer, Boolean> keyToggleStates = new HashMap<>();
+
+    // Stacks are used to keep record of the last pressed keys in order
+    private final Stack<Integer> pressedMoveKeys = new Stack<>();
+    private final Stack<Integer> pressedAttackKeys = new Stack<>();
+
+    public boolean isKeyPressed(int keyCode) {
+        return pressedKeys.contains(keyCode);
+    }
+
+    public boolean isLastMoveKeyPressed(int keyCode) {
+        if(!pressedMoveKeys.isEmpty()) {
+            return keyCode == pressedMoveKeys.lastElement();
+        }
+        return false;
+    }
+
+    public boolean isLastAttackKeyPressed(int keyCode) {
+        if(!pressedAttackKeys.isEmpty()) {
+            return keyCode == pressedAttackKeys.lastElement();
+        }
+        return false;
+    }
+
+    public boolean isMoveKeyPressed() {
+        return  pressedKeys.contains(KeyEvent.VK_W) ||
+                pressedKeys.contains(KeyEvent.VK_A) ||
+                pressedKeys.contains(KeyEvent.VK_S) ||
+                pressedKeys.contains(KeyEvent.VK_D);
+    }
+
+    public boolean isAttackKeyPressed() {
+        return  pressedKeys.contains(KeyEvent.VK_UP) ||
+                pressedKeys.contains(KeyEvent.VK_LEFT) ||
+                pressedKeys.contains(KeyEvent.VK_DOWN) ||
+                pressedKeys.contains(KeyEvent.VK_RIGHT);
+    }
+
+    public boolean isKeyToggled(int keyCode) {
+        return keyToggleStates.getOrDefault(keyCode, false);
+    }
 
     @Override
     public void keyTyped(KeyEvent e) {
-
+        // Not Used
     }
 
-    // TODO: Fix moving direction priorities
     @Override
     public void keyPressed(KeyEvent e) {
-        
-        int code = e.getKeyCode();
+        int keyCode = e.getKeyCode();
 
-        // MOVING
-        if(code == KeyEvent.VK_W) {
-            if(!upPressed) {
-                upToggled = !upToggled;
+        // Key Toggling
+        if(!pressedKeys.contains(keyCode)) { // Only if the key wasn't already pressed it is toggled
+            if(!keyToggleStates.containsKey(keyCode)) {
+                keyToggleStates.put(keyCode, true);
+            } else {
+                keyToggleStates.put(keyCode, !keyToggleStates.get(keyCode));
             }
-            upPressed = true;
-        }
-        if(code == KeyEvent.VK_A) {
-            if(!leftPressed) {
-                leftToggled = !leftToggled;
+
+            // Adding move and attack keys to their respective stacks the first time they are pressed
+            if(isMoveKey(keyCode)) {
+                pressedMoveKeys.push(keyCode);
+            } else if(isAttackKey(keyCode)) {
+                pressedAttackKeys.push(keyCode);
             }
-            leftPressed = true;
-        }
-        if(code == KeyEvent.VK_S) {
-            if(!downPressed) {
-                downToggled = !downToggled;
-            }
-            downPressed = true;
-        }
-        if(code == KeyEvent.VK_D) {
-            if(!rightPressed) {
-                rightToggled = !rightToggled;
-            }
-            rightPressed = true;
         }
 
-        // ATTACKING
-        if(code == KeyEvent.VK_UP) {
-            attackUpPressed = true;
-        }
-        if(code == KeyEvent.VK_LEFT) {
-            attackLeftPressed = true;
-        }
-        if(code == KeyEvent.VK_DOWN) {
-            attackDownPressed = true;
-        }
-        if(code == KeyEvent.VK_RIGHT) {
-            attackRightPressed = true;
-        }
-
-        // ENTER
-        if(code == KeyEvent.VK_ENTER) {
-            if(!enterPressed) {
-                enterToggled = !enterToggled;
-            }
-            enterPressed = true;
-        }
-
-        // ESCAPE
-        if(code == KeyEvent.VK_ESCAPE) {
-            if(!escPressed) {
-                escToggled = !escToggled;
-            }
-            escPressed = true;
-        }
+        // Key Pressing
+        pressedKeys.add(keyCode);
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        
-        int code = e.getKeyCode();
+        int keyCode = e.getKeyCode();
+        pressedKeys.remove(keyCode);
 
-        // MOVING
-        if(code == KeyEvent.VK_W) {
-            upPressed = false;
+        // Removing move and attack keys from their respective stacks
+        if(isMoveKey(keyCode)) {
+            pressedMoveKeys.removeElement(keyCode);
+        } else if(isAttackKey(keyCode)) {
+            pressedAttackKeys.removeElement(keyCode);
         }
-        if(code == KeyEvent.VK_A) {
-            leftPressed = false;
-        }
-        if(code == KeyEvent.VK_S) {
-                downPressed = false;
-        }
-        if(code == KeyEvent.VK_D) {
-            rightPressed = false;
-        }
+    }
 
-        // ATTACKING
-        if(code == KeyEvent.VK_UP) {
-            attackUpPressed = false;
-        }
-        if(code == KeyEvent.VK_LEFT) {
-            attackLeftPressed = false;
-        }
-        if(code == KeyEvent.VK_DOWN) {
-            attackDownPressed = false;
-        }
-        if(code == KeyEvent.VK_RIGHT) {
-            attackRightPressed = false;
-        }
+    private boolean isMoveKey(int keyCode) {
+        return  keyCode == KeyEvent.VK_W ||
+                keyCode == KeyEvent.VK_A ||
+                keyCode == KeyEvent.VK_S ||
+                keyCode == KeyEvent.VK_D;
+    }
 
-        // ESCAPE
-        if(code == KeyEvent.VK_ESCAPE) {
-            escPressed = false;
-        }
-
-        // ENTER
-        if(code == KeyEvent.VK_ENTER) {
-            enterPressed = false;
-        }
+    private boolean isAttackKey(int keyCode) {
+        return  keyCode == KeyEvent.VK_UP ||
+                keyCode == KeyEvent.VK_LEFT ||
+                keyCode == KeyEvent.VK_DOWN ||
+                keyCode == KeyEvent.VK_RIGHT;
     }
 }

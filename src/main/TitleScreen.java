@@ -1,6 +1,7 @@
 package main;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public class TitleScreen {
 
@@ -39,7 +40,8 @@ public class TitleScreen {
     }
 
     public void update() {
-        startSelected = gamePanel.keyHandler.upToggled;
+        // System.out.println(gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_W));
+        startSelected = gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_W);
     }
 
     public void draw(Graphics2D g2) {

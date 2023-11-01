@@ -7,6 +7,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
 
 public class GamePanel extends JPanel implements Runnable {
     
@@ -77,11 +78,11 @@ public class GamePanel extends JPanel implements Runnable {
 
             if(delta >= drawInterval) {
 
-                gamePaused = keyHandler.escToggled;
+                gamePaused = keyHandler.isKeyToggled(KeyEvent.VK_ESCAPE);
 
                 if(titleScreenOn) {
                     titleScreen.update();
-                    if(titleScreen.startSelected && keyHandler.enterPressed) {
+                    if(titleScreen.startSelected && keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
                         titleScreenOn = false;
                     }
                 }

@@ -19,6 +19,7 @@ public class Entity {
 
     public int spriteCounter = 0;
     public int spriteNum = 1;
+    public final int ANIMATION_FRAMES = 12; // Frames per animation step
 
     public Rectangle collisionBox;
     public boolean collisionOn = false;
