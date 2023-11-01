@@ -76,6 +76,8 @@ public class Player extends Entity {
         }
     }
 
+    // TODO: Rethink this method
+    // FIXME: Fix direction bug when attacking
     public void update() {
         
         // The spriteCounter is only incremented if a key is pressed
