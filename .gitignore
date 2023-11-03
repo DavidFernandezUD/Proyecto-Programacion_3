@@ -11,7 +11,14 @@ bin/
 out/
 
 # Ignore IDE specific files
+# -- IDEA --
 .idea/
-.vscode/
 *.iml
+
+# -- VSCODE --
+.vscode/
+
+# -- ECLIPSE --
 *.sw*
+.classpath
+.project
