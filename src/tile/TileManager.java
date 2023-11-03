@@ -39,7 +39,7 @@ public class TileManager {
         
         getTileSprite();
 
-        ArrayList<String> layerPaths = new ArrayList<String>();
+        ArrayList<String> layerPaths = new ArrayList<>();
         layerPaths.add("../maps/Map2/Map_02_Ground.csv");
         layerPaths.add("../maps/Map2/Map_02_Level1.csv");
         layerPaths.add("../maps/Map2/Map_02_Level2.csv");

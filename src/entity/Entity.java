@@ -11,11 +11,9 @@ public class Entity {
     public BufferedImage idleSprites, runSprites, attackSprites;
                          
     public String direction;
-    public String attackDirection;
 
     public boolean moving;
     public boolean attacking;
-    public boolean attackEnded;
 
     public int spriteCounter = 0;
     public int spriteNum = 1;

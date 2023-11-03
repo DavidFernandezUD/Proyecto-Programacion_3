@@ -9,9 +9,8 @@ public class KeyHandler implements KeyListener {
     private final Set<Integer> pressedKeys = new HashSet<>();
     private final Map<Integer, Boolean> keyToggleStates = new HashMap<>();
 
-    // Stacks are used to keep record of the last pressed keys in order
+    // Stack is used to keep record of the last pressed keys in order
     private final Stack<Integer> pressedMoveKeys = new Stack<>();
-    private final Stack<Integer> pressedAttackKeys = new Stack<>();
 
     public boolean isKeyPressed(int keyCode) {
         return pressedKeys.contains(keyCode);
@@ -24,25 +23,11 @@ public class KeyHandler implements KeyListener {
         return false;
     }
 
-    public boolean isLastAttackKeyPressed(int keyCode) {
-        if(!pressedAttackKeys.isEmpty()) {
-            return keyCode == pressedAttackKeys.lastElement();
-        }
-        return false;
-    }
-
     public boolean isMoveKeyPressed() {
         return  pressedKeys.contains(KeyEvent.VK_W) ||
                 pressedKeys.contains(KeyEvent.VK_A) ||
                 pressedKeys.contains(KeyEvent.VK_S) ||
                 pressedKeys.contains(KeyEvent.VK_D);
-    }
-
-    public boolean isAttackKeyPressed() {
-        return  pressedKeys.contains(KeyEvent.VK_UP) ||
-                pressedKeys.contains(KeyEvent.VK_LEFT) ||
-                pressedKeys.contains(KeyEvent.VK_DOWN) ||
-                pressedKeys.contains(KeyEvent.VK_RIGHT);
     }
 
     public boolean isKeyToggled(int keyCode) {
@@ -69,8 +54,6 @@ public class KeyHandler implements KeyListener {
             // Adding move and attack keys to their respective stacks the first time they are pressed
             if(isMoveKey(keyCode)) {
                 pressedMoveKeys.push(keyCode);
-            } else if(isAttackKey(keyCode)) {
-                pressedAttackKeys.push(keyCode);
             }
         }
 
@@ -86,8 +69,6 @@ public class KeyHandler implements KeyListener {
         // Removing move and attack keys from their respective stacks
         if(isMoveKey(keyCode)) {
             pressedMoveKeys.removeElement(keyCode);
-        } else if(isAttackKey(keyCode)) {
-            pressedAttackKeys.removeElement(keyCode);
         }
     }
 
@@ -96,12 +77,5 @@ public class KeyHandler implements KeyListener {
                 keyCode == KeyEvent.VK_A ||
                 keyCode == KeyEvent.VK_S ||
                 keyCode == KeyEvent.VK_D;
-    }
-
-    private boolean isAttackKey(int keyCode) {
-        return  keyCode == KeyEvent.VK_UP ||
-                keyCode == KeyEvent.VK_LEFT ||
-                keyCode == KeyEvent.VK_DOWN ||
-                keyCode == KeyEvent.VK_RIGHT;
     }
 }

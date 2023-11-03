@@ -1,6 +1,7 @@
 package entity;
 
 import main.KeyHandler;
+import main.MouseHandler;
 import main.Utility;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -16,6 +17,8 @@ public class Player extends Entity {
 
     GamePanel gamePanel;
     KeyHandler keyHandler;
+    MouseHandler mouseHandler;
+
 
     final int tileSize;
 
@@ -32,10 +35,11 @@ public class Player extends Entity {
     // Just for debugging purposes (Displays Collision Box)
     boolean debug = false;
 
-    public Player(GamePanel gamePanel, KeyHandler keyHandler) {
+    public Player(GamePanel gamePanel, KeyHandler keyHandler, MouseHandler mouseHandler) {
 
         this.gamePanel = gamePanel;
         this.keyHandler = keyHandler;
+        this.mouseHandler = mouseHandler;
 
         tileSize = gamePanel.tileSize;
 
@@ -55,7 +59,6 @@ public class Player extends Entity {
         speed = 4;
         direction = "down";
         moving = false;
-        attackDirection = "down";
     }
 
     public void getPlayerSprite() {
@@ -123,29 +126,10 @@ public class Player extends Entity {
 
         // ATTACKING
         // FIXME: Fix attacking
-        if(attacking && attackEnded) {
-            spriteNum = 1;
-            spriteCounter = ANIMATION_FRAMES + 1;
-            attackEnded = false;
-        } else if(!attackEnded && spriteNum == 1) {
-            // If it was already attacking and the animation has already looped once it doesn't continue attacking
-            attackEnded = true;
-            direction = attackDirection; // The player stays in the direction it attacked even after ending the attack
-        }
+        attacking = mouseHandler.isAttackPressed();
 
-        if(keyHandler.isLastAttackKeyPressed(KeyEvent.VK_UP)) {
-            attackDirection = "up";
-        } else if(keyHandler.isLastAttackKeyPressed(KeyEvent.VK_DOWN)) {
-            attackDirection = "down";
-        } else if(keyHandler.isLastAttackKeyPressed(KeyEvent.VK_LEFT)) {
-            attackDirection = "left";
-        } else {
-            attackDirection = "right";
-        }
+        spriteCounter += (attacking ? 2 : 1); // Attack animation runs faster than moving and idle
 
-        attacking = keyHandler.isAttackKeyPressed();
-
-        spriteCounter += (!attackEnded ? 2 : 1); // Attack animation runs faster than moving and idle
         if(spriteCounter > ANIMATION_FRAMES) {
             if(spriteNum < 4) {
                 spriteNum++;
@@ -196,9 +180,8 @@ public class Player extends Entity {
 
         BufferedImage spriteSheet;
 
-        if(attacking && !attackEnded) {
+        if(attacking) {
             spriteSheet = attackSprites;
-            direction = attackDirection; // If attacking, the passed direction is overwritten by the attack direction
         } else if(moving) {
             spriteSheet = runSprites;
         } else {
