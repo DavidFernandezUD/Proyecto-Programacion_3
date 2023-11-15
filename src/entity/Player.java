@@ -32,7 +32,7 @@ public class Player extends Entity {
     public boolean screenYLocked;
 
     // Just for debugging purposes (Displays Collision Box)
-    boolean debug = true;
+    boolean debug = false;
 
     public Player(GamePanel gamePanel, KeyHandler keyHandler, MouseHandler mouseHandler) {
 

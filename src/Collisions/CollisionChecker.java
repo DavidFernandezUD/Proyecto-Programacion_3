@@ -24,17 +24,19 @@ public class CollisionChecker {
 
         this.gamePanel = gamePanel;
 
-        loadCollisions("../maps/Map2.2/Map_02_Collisions.csv");
+        loadCollisions();
 
         tile1Collision = new Rectangle();
         tile2Collision = new Rectangle();
     }
 
-    private void loadCollisions(String collisionsPath) {
+    private void loadCollisions() {
+
+        collisionMap = new int[gamePanel.maxWorldRow][gamePanel.maxWorldCol];
 
         // Loading collision map
         try {
-            InputStream is = getClass().getResourceAsStream(collisionsPath);
+            InputStream is = getClass().getResourceAsStream("../maps/Map2.2/Map_02_Collisions.csv");
             assert is != null;
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
 

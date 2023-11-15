@@ -26,17 +26,11 @@ public class TileManager {
     public SuperObject[] objects;
 
     // Just for debugging purposes (Displays Tile Collisions)
-    boolean debug = true;
+    boolean debug = false;
 
     public TileManager(GamePanel gamePanel) {
         
         this.gamePanel = gamePanel;
-
-        // Initialize map layers
-        map = new ArrayList<int[][]>();
-        for(int layer = 0; layer < LAYERS; layer++) {
-            map.add(new int[gamePanel.maxWorldRow][gamePanel.maxWorldCol]);
-        }
         
         getTileSprite();
 
@@ -96,6 +90,12 @@ public class TileManager {
     }
 
     public void loadMap(ArrayList<String> layerPaths) {
+
+        // Initialize map layers
+        map = new ArrayList<int[][]>();
+        for(int layer = 0; layer < LAYERS; layer++) {
+            map.add(new int[gamePanel.maxWorldRow][gamePanel.maxWorldCol]);
+        }
 
         for(int layer = 0; layer < LAYERS; layer++) {
             try {
