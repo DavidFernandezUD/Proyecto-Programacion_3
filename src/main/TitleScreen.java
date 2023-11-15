@@ -1,9 +1,10 @@
 package main;
 
+import interfaces.Drawable;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-public class TitleScreen {
+public class TitleScreen implements Drawable {
 
     // SETTINGS
     private final String title;
@@ -44,6 +45,7 @@ public class TitleScreen {
         startSelected = gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_W);
     }
 
+    @Override
     public void draw(Graphics2D g2) {
 
         // DRAWING TITLE

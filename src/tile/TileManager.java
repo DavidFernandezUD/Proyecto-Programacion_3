@@ -9,11 +9,12 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Objects;
 import javax.imageio.ImageIO;
+import interfaces.Drawable;
 import main.GamePanel;
 import main.Utility;
 import object.SuperObject;
 
-public class TileManager {
+public class TileManager implements Drawable {
     
     GamePanel gamePanel;
 
@@ -26,7 +27,7 @@ public class TileManager {
     public SuperObject[] objects;
 
     // Just for debugging purposes (Displays Tile Collisions)
-    boolean debug = false;
+    boolean debug = true;
 
     public TileManager(GamePanel gamePanel) {
         
@@ -119,6 +120,7 @@ public class TileManager {
         }
     }
 
+    @Override
     public void draw(Graphics2D g2) {
 
         boolean xBlocked = playerOnEdge("X");

@@ -1,5 +1,6 @@
 package entity;
 
+import interfaces.Drawable;
 import main.KeyHandler;
 import main.MouseHandler;
 import main.Utility;
@@ -13,7 +14,7 @@ import java.util.Objects;
 import javax.imageio.ImageIO;
 import main.GamePanel;
 
-public class Player extends Entity {
+public class Player extends Entity implements Drawable {
 
     GamePanel gamePanel;
     KeyHandler keyHandler;
@@ -138,6 +139,7 @@ public class Player extends Entity {
         }
     }
 
+    @Override
     public void draw(Graphics2D g2) {
 
         BufferedImage image = getSprite(direction);
