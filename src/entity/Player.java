@@ -19,7 +19,6 @@ public class Player extends Entity {
     KeyHandler keyHandler;
     MouseHandler mouseHandler;
 
-
     final int tileSize;
 
     public final int defaultScreenX;
@@ -33,7 +32,7 @@ public class Player extends Entity {
     public boolean screenYLocked;
 
     // Just for debugging purposes (Displays Collision Box)
-    boolean debug = false;
+    boolean debug = true;
 
     public Player(GamePanel gamePanel, KeyHandler keyHandler, MouseHandler mouseHandler) {
 
@@ -47,7 +46,6 @@ public class Player extends Entity {
         defaultScreenY = (gamePanel.screenHeight / 2) - (gamePanel.tileSize / 2);
 
         collisionBox = new Rectangle(11, 22, 42, 42);
-        hitBox = new Rectangle(-10, -20, 84, 43);
 
         setDefaultValues();
         getPlayerSprite();
@@ -108,7 +106,7 @@ public class Player extends Entity {
 
             // Check collisions
             collisionOn = false;
-            gamePanel.collisionChecker.checkTile(this);
+            gamePanel.collisionChecker.checkTileCollision(this);
 
             // If collision is false the player can move
             if(!collisionOn) {
@@ -170,9 +168,6 @@ public class Player extends Entity {
         if(debug) {
             g2.setColor(new Color(255, 0, 0, 150));
             g2.fillRect(collisionBox.x + screenX, collisionBox.y + screenY, collisionBox.width, collisionBox.height);
-
-            g2.setColor(new Color(0, 255, 0, 150));
-            g2.fillRect(hitBox.x + screenX, hitBox.y + screenY, hitBox.width, hitBox.height);
         }
     }
 

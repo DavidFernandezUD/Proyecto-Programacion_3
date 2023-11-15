@@ -1,6 +1,7 @@
 package main;
 
 import javax.swing.JPanel;
+import Collisions.CollisionChecker;
 import entity.Player;
 import tile.TileManager;
 import java.awt.Color;
@@ -13,7 +14,7 @@ public class GamePanel extends JPanel implements Runnable {
     
     // SCREEN SETTINGS
     final int originalTileSize = 32; // 16x16 tiles
-    final int scale = 2;
+    public final int scale = 2;
     public final int tileSize = originalTileSize * scale; // 64x64 tiles
     public final int maxScreenCol = 16;
     public final int maxScreenRow = 12;
@@ -89,7 +90,6 @@ public class GamePanel extends JPanel implements Runnable {
                     }
                 }
 
-                // TODO: Fix menu selection buttons (add toggle)
                 // Only updating the game state if the game isn't paused
                 if(!gamePaused && !titleScreenOn) {
                     // 1 UPDATE: Update information like location of items, mobs, character, etc.

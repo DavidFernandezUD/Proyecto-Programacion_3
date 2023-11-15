@@ -22,8 +22,5 @@ public class Entity {
     public Rectangle collisionBox;
     public boolean collisionOn = false;
 
-
     // TODO: Implement attacking functionality
-    public Rectangle hitBox;
-    public boolean attackOn = false;
 }

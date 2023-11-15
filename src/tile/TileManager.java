@@ -17,15 +17,19 @@ public class TileManager {
     
     GamePanel gamePanel;
 
-    // TODO: Implement a way of creating different types of collision areas for different tiles
     public Tile[] tiles;
+    public ArrayList<int[][]> map;
 
-    // PLACEHOLDER
+    final int LAYERS = 4; // Amount of layers in a map
+
+    // Collisions
+    public int[][] collisionMap;
+
     // TODO: Move this to AssetSetter
     public SuperObject[] objects;
 
-    public ArrayList<int[][]> map;
-    final int  mapLayers = 4; // Amount of layers in a map
+    // Just for debugging purposes (Displays Tile Collisions)
+    boolean debug = true;
 
     public TileManager(GamePanel gamePanel) {
         
@@ -33,21 +37,26 @@ public class TileManager {
 
         // Initialize map layers
         map = new ArrayList<int[][]>();
-        for(int layer = 0; layer < mapLayers; layer++) {
+        for(int layer = 0; layer < LAYERS; layer++) {
             map.add(new int[gamePanel.maxWorldRow][gamePanel.maxWorldCol]);
         }
         
         getTileSprite();
 
         ArrayList<String> layerPaths = new ArrayList<>();
-        layerPaths.add("../maps/Map2/Map_02_Ground.csv");
-        layerPaths.add("../maps/Map2/Map_02_Level1.csv");
-        layerPaths.add("../maps/Map2/Map_02_Level2.csv");
-        layerPaths.add("../maps/Map2/Map_02_Props.csv");
+        layerPaths.add("../maps/Map2.2/Map_02_Ground.csv");
+        layerPaths.add("../maps/Map2.2/Map_02_Level1.csv");
+        layerPaths.add("../maps/Map2.2/Map_02_Level2.csv");
+        layerPaths.add("../maps/Map2.2/Map_02_Props.csv");
 
         layerPaths.add("../maps/Map2/Map_02_Obj.csv"); // TODO: Move this to asset setter
 
         loadMap(layerPaths);
+
+        // Initializing collision array
+        collisionMap = new int[gamePanel.maxWorldRow][gamePanel.maxWorldCol];
+
+        loadCollisions("../maps/Map2.2/Map_02_Collisions.csv");
     }
 
     public void getTileSprite() {
@@ -73,7 +82,7 @@ public class TileManager {
                 }
             }
 
-            // TODO: Move this to object manager
+            // TODO: Move this to AssetSetter
             objects = new SuperObject[1];
             
             objects[0] = new SuperObject();
@@ -96,8 +105,7 @@ public class TileManager {
 
     public void loadMap(ArrayList<String> layerPaths) {
 
-        // Loading floor map
-        for(int layer = 0; layer < mapLayers; layer++) {
+        for(int layer = 0; layer < LAYERS; layer++) {
             try {
                 InputStream is = getClass().getResourceAsStream(layerPaths.get(layer));
                 assert is != null;
@@ -116,6 +124,26 @@ public class TileManager {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    public void loadCollisions(String collisionsPath) {
+        try {
+            InputStream is = getClass().getResourceAsStream(collisionsPath);
+            assert is != null;
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+
+            for(int row = 0; row < gamePanel.maxWorldRow; row++) {
+                String line = br.readLine();
+                String[] numbers = line.split(",");
+
+                for(int col = 0; col < gamePanel.maxWorldCol; col++) {
+                    int tileNum = Integer.parseInt(numbers[col]);
+                    collisionMap[row][col] = tileNum;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -168,6 +196,11 @@ public class TileManager {
                     }
                 }
             }
+        }
+
+        // Drawing tile collisions
+        if(debug) {
+            gamePanel.collisionChecker.draw(g2);
         }
     }
 
