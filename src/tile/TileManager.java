@@ -22,9 +22,6 @@ public class TileManager {
 
     final int LAYERS = 4; // Amount of layers in a map
 
-    // Collisions
-    public int[][] collisionMap;
-
     // TODO: Move this to AssetSetter
     public SuperObject[] objects;
 
@@ -49,14 +46,10 @@ public class TileManager {
         layerPaths.add("../maps/Map2.2/Map_02_Level2.csv");
         layerPaths.add("../maps/Map2.2/Map_02_Props.csv");
 
-        layerPaths.add("../maps/Map2/Map_02_Obj.csv"); // TODO: Move this to asset setter
+        layerPaths.add("../maps/Map2/Map_02_Obj.csv"); // TODO: Move this to the AssetSetter
 
         loadMap(layerPaths);
 
-        // Initializing collision array
-        collisionMap = new int[gamePanel.maxWorldRow][gamePanel.maxWorldCol];
-
-        loadCollisions("../maps/Map2.2/Map_02_Collisions.csv");
     }
 
     public void getTileSprite() {
@@ -84,7 +77,6 @@ public class TileManager {
 
             // TODO: Move this to AssetSetter
             objects = new SuperObject[1];
-            
             objects[0] = new SuperObject();
             objects[0].image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("../res/objects/sign.png")));
 
@@ -124,26 +116,6 @@ public class TileManager {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-    }
-
-    public void loadCollisions(String collisionsPath) {
-        try {
-            InputStream is = getClass().getResourceAsStream(collisionsPath);
-            assert is != null;
-            BufferedReader br = new BufferedReader(new InputStreamReader(is));
-
-            for(int row = 0; row < gamePanel.maxWorldRow; row++) {
-                String line = br.readLine();
-                String[] numbers = line.split(",");
-
-                for(int col = 0; col < gamePanel.maxWorldCol; col++) {
-                    int tileNum = Integer.parseInt(numbers[col]);
-                    collisionMap[row][col] = tileNum;
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 

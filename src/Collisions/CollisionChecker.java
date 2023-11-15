@@ -3,6 +3,9 @@ package Collisions;
 import entity.Entity;
 import main.GamePanel;
 import java.awt.*;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class CollisionChecker {
     
@@ -21,14 +24,34 @@ public class CollisionChecker {
 
         this.gamePanel = gamePanel;
 
-        loadCollisions();
+        loadCollisions("../maps/Map2.2/Map_02_Collisions.csv");
 
         tile1Collision = new Rectangle();
         tile2Collision = new Rectangle();
     }
 
-    private void loadCollisions() {
+    private void loadCollisions(String collisionsPath) {
 
+        // Loading collision map
+        try {
+            InputStream is = getClass().getResourceAsStream(collisionsPath);
+            assert is != null;
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+
+            for(int row = 0; row < gamePanel.maxWorldRow; row++) {
+                String line = br.readLine();
+                String[] numbers = line.split(",");
+
+                for(int col = 0; col < gamePanel.maxWorldCol; col++) {
+                    int tileNum = Integer.parseInt(numbers[col]);
+                    collisionMap[row][col] = tileNum;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Custom collisions
         collisions = new Rectangle[4];
 
         collisions[0] = new Rectangle(0, 0, 64, 64);
@@ -60,16 +83,16 @@ public class CollisionChecker {
         switch(entity.direction) {
             case "up":
                 topRow = (collisionTopBound - entity.speed) / gamePanel.tileSize;
-                if (gamePanel.tileManager.collisionMap[topRow][leftCol] != -1) {
-                    collision = collisions[gamePanel.tileManager.collisionMap[topRow][leftCol]];
+                if (collisionMap[topRow][leftCol] != -1) {
+                    collision = collisions[collisionMap[topRow][leftCol]];
                     tile1Collision = new Rectangle(
                         leftCol * gamePanel.tileSize + collision.x,
                         topRow * gamePanel.tileSize + collision.y,
                         collision.width, collision.height);
                 }
 
-                if(gamePanel.tileManager.collisionMap[topRow][rightCol] != -1) {
-                    collision = collisions[gamePanel.tileManager.collisionMap[topRow][rightCol]];
+                if(collisionMap[topRow][rightCol] != -1) {
+                    collision = collisions[collisionMap[topRow][rightCol]];
                     tile2Collision = new Rectangle(
                         rightCol * gamePanel.tileSize + collision.x,
                         topRow * gamePanel.tileSize + collision.y,
@@ -83,16 +106,16 @@ public class CollisionChecker {
                 break;
             case "down":
                 bottomRow = (collisionBottomBound + entity.speed) / gamePanel.tileSize;
-                if (gamePanel.tileManager.collisionMap[bottomRow][leftCol] != -1) {
-                    collision = collisions[gamePanel.tileManager.collisionMap[bottomRow][leftCol]];
+                if (collisionMap[bottomRow][leftCol] != -1) {
+                    collision = collisions[collisionMap[bottomRow][leftCol]];
                     tile1Collision = new Rectangle(
                         leftCol * gamePanel.tileSize + collision.x,
                         bottomRow * gamePanel.tileSize + collision.y,
                         collision.width, collision.height);
                 }
 
-                if(gamePanel.tileManager.collisionMap[bottomRow][rightCol] != -1) {
-                    collision = collisions[gamePanel.tileManager.collisionMap[bottomRow][rightCol]];
+                if(collisionMap[bottomRow][rightCol] != -1) {
+                    collision = collisions[collisionMap[bottomRow][rightCol]];
                     tile2Collision = new Rectangle(
                         rightCol * gamePanel.tileSize + collision.x,
                         bottomRow * gamePanel.tileSize + collision.y,
@@ -106,16 +129,16 @@ public class CollisionChecker {
                 break;
             case "left":
                 leftCol = (collisionLeftBound - entity.speed) / gamePanel.tileSize;
-                if (gamePanel.tileManager.collisionMap[bottomRow][leftCol] != -1) {
-                    collision = collisions[gamePanel.tileManager.collisionMap[bottomRow][leftCol]];
+                if (collisionMap[bottomRow][leftCol] != -1) {
+                    collision = collisions[collisionMap[bottomRow][leftCol]];
                     tile1Collision = new Rectangle(
                         leftCol * gamePanel.tileSize + collision.x,
                         bottomRow * gamePanel.tileSize + collision.y,
                         collision.width, collision.height);
                 }
 
-                if(gamePanel.tileManager.collisionMap[topRow][leftCol] != -1) {
-                    collision = collisions[gamePanel.tileManager.collisionMap[topRow][leftCol]];
+                if(collisionMap[topRow][leftCol] != -1) {
+                    collision = collisions[collisionMap[topRow][leftCol]];
                     tile2Collision = new Rectangle(
                         leftCol * gamePanel.tileSize + collision.x,
                         topRow * gamePanel.tileSize + collision.y,
@@ -129,16 +152,16 @@ public class CollisionChecker {
                 break;
             case "right":
                 rightCol = (collisionRightBound + entity.speed) / gamePanel.tileSize;
-                if (gamePanel.tileManager.collisionMap[topRow][rightCol] != -1) {
-                    collision = collisions[gamePanel.tileManager.collisionMap[topRow][rightCol]];
+                if (collisionMap[topRow][rightCol] != -1) {
+                    collision = collisions[collisionMap[topRow][rightCol]];
                     tile1Collision = new Rectangle(
                         rightCol * gamePanel.tileSize + collision.x,
                         topRow * gamePanel.tileSize + collision.y,
                         collision.width, collision.height);
                 }
 
-                if(gamePanel.tileManager.collisionMap[bottomRow][rightCol] != -1) {
-                    collision = collisions[gamePanel.tileManager.collisionMap[bottomRow][rightCol]];
+                if(collisionMap[bottomRow][rightCol] != -1) {
+                    collision = collisions[collisionMap[bottomRow][rightCol]];
                     tile2Collision = new Rectangle(
                         rightCol * gamePanel.tileSize + collision.x,
                         bottomRow * gamePanel.tileSize + collision.y,
