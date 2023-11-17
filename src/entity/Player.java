@@ -166,8 +166,14 @@ public class Player extends Entity implements Drawable {
         // Drawing Player
         g2.drawImage(image, screenX, screenY, gamePanel.tileSize, gamePanel.tileSize, null);
 
-        // Redrawing props if necessary
+        // Redrawing props if player is behind them
         redrawProp(g2);
+
+        // Drawing collision box
+        if(debug) {
+            g2.setColor(new Color(255, 0, 0, 150));
+            g2.fillRect(collisionBox.x + screenX, collisionBox.y + screenY, collisionBox.width, collisionBox.height);
+        }
     }
 
     private BufferedImage getSprite(String direction) {
@@ -197,25 +203,46 @@ public class Player extends Entity implements Drawable {
         // The -1 is to avoid the lower tile to change to the next lower one when the player is just on the top edge of the tile
         int propLeft = gamePanel.tileManager.map.get(3)[(worldY + tileSize - 1) / tileSize][worldX / tileSize];
         int propRight = gamePanel.tileManager.map.get(3)[(worldY + tileSize - 1) / tileSize][(worldX + tileSize) / tileSize];
+
+        // Calculating offsets with respect to the player to redraw the tiles at that position
         int offsetX = worldX % tileSize;
         int offsetY = (worldY - 1) % tileSize + 1;
-        if(propLeft != -1) {
+
+        // Special cases
+        int COLUMN = 619;
+        int COLUMN_TOP = 595;
+        int STONE_THRESHOLD = 824; // All the stone props are above this value (we don't want to repaint them)
+
+        // Redrawing lower left tile (if necessary)
+        if(propLeft != -1 && propLeft < STONE_THRESHOLD) { //
             g2.drawImage(
                     gamePanel.tileManager.tiles[propLeft].image,
                     screenX - offsetX, screenY + tileSize - offsetY,
                     gamePanel.tileSize, gamePanel.tileSize, null);
+
+            // If propLeft is a "column" the top part is automatically drawn on top too
+            if(propLeft == COLUMN) {
+                g2.drawImage(
+                    gamePanel.tileManager.tiles[COLUMN_TOP].image,
+                    screenX - offsetX, screenY - offsetY,
+                    gamePanel.tileSize, gamePanel.tileSize, null);
+            }
         }
-        if(propRight != -1) {
+
+        // Redrawing lower right tile (if necessary)
+        if(propRight != -1 && propRight < STONE_THRESHOLD) {
             g2.drawImage(
                     gamePanel.tileManager.tiles[propRight].image,
                     screenX + tileSize - offsetX, screenY + tileSize - offsetY,
                     gamePanel.tileSize, gamePanel.tileSize, null);
-        }
 
-        // Drawing collision box
-        if(debug) {
-            g2.setColor(new Color(255, 0, 0, 150));
-            g2.fillRect(collisionBox.x + screenX, collisionBox.y + screenY, collisionBox.width, collisionBox.height);
+            // If propRight is a "column" the top part is automatically drawn on top too
+            if(propRight == COLUMN) {
+                g2.drawImage(
+                    gamePanel.tileManager.tiles[COLUMN_TOP].image,
+                    screenX + tileSize - offsetX, screenY - offsetY,
+                    gamePanel.tileSize, gamePanel.tileSize, null);
+            }
         }
     }
 }
