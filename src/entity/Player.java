@@ -166,11 +166,8 @@ public class Player extends Entity implements Drawable {
         // Drawing Player
         g2.drawImage(image, screenX, screenY, gamePanel.tileSize, gamePanel.tileSize, null);
 
-        // Drawing collision box
-        if(debug) {
-            g2.setColor(new Color(255, 0, 0, 150));
-            g2.fillRect(collisionBox.x + screenX, collisionBox.y + screenY, collisionBox.width, collisionBox.height);
-        }
+        // Redrawing props if necessary
+        redrawProp(g2);
     }
 
     private BufferedImage getSprite(String direction) {
@@ -192,5 +189,33 @@ public class Player extends Entity implements Drawable {
             case "down" -> spriteSheet.getSubimage((spriteNum - 1) * tileSize, tileSize * 3, tileSize, tileSize);
             default -> null;
         };
+    }
+
+    private void redrawProp(Graphics2D g2) {
+
+        // Checking if the left and right tiles under the player are prop tiles
+        // The -1 is to avoid the lower tile to change to the next lower one when the player is just on the top edge of the tile
+        int propLeft = gamePanel.tileManager.map.get(3)[(worldY + tileSize - 1) / tileSize][worldX / tileSize];
+        int propRight = gamePanel.tileManager.map.get(3)[(worldY + tileSize - 1) / tileSize][(worldX + tileSize) / tileSize];
+        int offsetX = worldX % tileSize;
+        int offsetY = (worldY - 1) % tileSize + 1;
+        if(propLeft != -1) {
+            g2.drawImage(
+                    gamePanel.tileManager.tiles[propLeft].image,
+                    screenX - offsetX, screenY + tileSize - offsetY,
+                    gamePanel.tileSize, gamePanel.tileSize, null);
+        }
+        if(propRight != -1) {
+            g2.drawImage(
+                    gamePanel.tileManager.tiles[propRight].image,
+                    screenX + tileSize - offsetX, screenY + tileSize - offsetY,
+                    gamePanel.tileSize, gamePanel.tileSize, null);
+        }
+
+        // Drawing collision box
+        if(debug) {
+            g2.setColor(new Color(255, 0, 0, 150));
+            g2.fillRect(collisionBox.x + screenX, collisionBox.y + screenY, collisionBox.width, collisionBox.height);
+        }
     }
 }
