@@ -2,6 +2,7 @@ package main;
 
 import javax.swing.JPanel;
 import Collisions.CollisionChecker;
+import entity.EntityManager;
 import entity.Player;
 import tile.TileManager;
 import java.awt.Color;
@@ -38,6 +39,7 @@ public class GamePanel extends JPanel implements Runnable {
     public KeyHandler keyHandler = new KeyHandler();
     public MouseHandler mouseHandler = new MouseHandler();
     public Player player = new Player(this, keyHandler, mouseHandler);
+    public EntityManager entityManager = new EntityManager(this, player);
     public TileManager tileManager = new TileManager(this);
     public CollisionChecker collisionChecker = new CollisionChecker(this);
     public AssetSetter assetSetter = new AssetSetter(this);
@@ -114,7 +116,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void update() {
-        player.update();
+        entityManager.update();
     }
 
     public void paintComponent(Graphics g) {
@@ -128,8 +130,8 @@ public class GamePanel extends JPanel implements Runnable {
         // OBJECTS
         // TODO: Implement separate drawing method on AssetSetter
 
-        // PLAYER
-        player.draw(g2);
+        // Entities
+        entityManager.draw(g2);
 
         // PAUSE SCREEN
         if(gamePaused) {

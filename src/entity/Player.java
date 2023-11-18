@@ -16,11 +16,8 @@ import main.GamePanel;
 
 public class Player extends Entity implements Drawable {
 
-    GamePanel gamePanel;
     KeyHandler keyHandler;
     MouseHandler mouseHandler;
-
-    final int tileSize;
 
     public final int defaultScreenX;
     public final int defaultScreenY;
@@ -36,12 +33,10 @@ public class Player extends Entity implements Drawable {
     boolean debug = false;
 
     public Player(GamePanel gamePanel, KeyHandler keyHandler, MouseHandler mouseHandler) {
+        super(gamePanel);
 
-        this.gamePanel = gamePanel;
         this.keyHandler = keyHandler;
         this.mouseHandler = mouseHandler;
-
-        tileSize = gamePanel.tileSize;
 
         defaultScreenX = (gamePanel.screenWidth / 2) - (gamePanel.tileSize / 2);
         defaultScreenY = (gamePanel.screenHeight / 2) - (gamePanel.tileSize / 2);
@@ -66,13 +61,13 @@ public class Player extends Entity implements Drawable {
         Utility util = new Utility();
 
         try {
-            runSprites = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("../res/player//run.png")));
+            runSprites = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("../res/player/run.png")));
             runSprites = util.scaleImage(runSprites, tileSize * 4, tileSize * 4);
 
-            idleSprites = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("..//res//player//idle.png")));
+            idleSprites = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("../res/player/idle.png")));
             idleSprites = util.scaleImage(idleSprites, tileSize * 4, tileSize * 4);
 
-            attackSprites = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("..//res//player//attack1.png")));
+            attackSprites = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("../res/player/attack1.png")));
             attackSprites = util.scaleImage(attackSprites, tileSize * 4, tileSize * 4);
         } catch(IOException e) {
             e.printStackTrace();
@@ -174,27 +169,6 @@ public class Player extends Entity implements Drawable {
             g2.setColor(new Color(255, 0, 0, 150));
             g2.fillRect(collisionBox.x + screenX, collisionBox.y + screenY, collisionBox.width, collisionBox.height);
         }
-    }
-
-    private BufferedImage getSprite(String direction) {
-
-        BufferedImage spriteSheet;
-
-        if(attacking) {
-            spriteSheet = attackSprites;
-        } else if(moving) {
-            spriteSheet = runSprites;
-        } else {
-            spriteSheet = idleSprites;
-        }
-
-        return switch (direction) {
-            case "up" -> spriteSheet.getSubimage((spriteNum - 1) * tileSize, 0, tileSize, tileSize);
-            case "left" -> spriteSheet.getSubimage((spriteNum - 1) * tileSize, tileSize, tileSize, tileSize);
-            case "right" -> spriteSheet.getSubimage((spriteNum - 1) * tileSize, tileSize * 2, tileSize, tileSize);
-            case "down" -> spriteSheet.getSubimage((spriteNum - 1) * tileSize, tileSize * 3, tileSize, tileSize);
-            default -> null;
-        };
     }
 
     private void redrawProp(Graphics2D g2) {

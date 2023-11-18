@@ -1,6 +1,7 @@
 package Collisions;
 
 import entity.Entity;
+import entity.Player;
 import main.GamePanel;
 import java.awt.*;
 import java.io.BufferedReader;
@@ -67,7 +68,7 @@ public class CollisionChecker {
         collisions[4] = new Rectangle(0, 0, 64, 6);
         collisions[5] = new Rectangle(0, 58, 64, 6);
 
-        // Little trick with the corner to overlap two collisions
+        // Little trick to make the inner corner collisions
         collisions[6] = new Rectangle(0, 0, 20, 24); // TODO: Implement Corner
         collisions[7] = new Rectangle(44, 0, 20, 24); // TODO: Implement Corner
 
