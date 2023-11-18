@@ -60,4 +60,29 @@ public abstract class Entity implements Drawable {
             default -> null;
         };
     }
+
+    // Used to get the vector between two entities
+    protected static int[] getVector(Entity ent1, Entity ent2) {
+        return new int[] {ent2.worldX - ent1.worldX, ent1.worldY - ent2.worldY};
+    }
+
+    // Used to get the direction of one entity with respect to another in degrees
+    protected static double getAngle(Entity ent1, Entity ent2) {
+        return Math.toDegrees(Math.atan2(ent2.worldX - ent1.worldX, ent1.worldY - ent2.worldY));
+    }
+
+    // Used to get the cardinal direction of an entity with respect to another
+    protected static String getDirection(Entity ent1, Entity ent2) {
+        double angle = getAngle(ent1, ent2);
+
+        if(angle >= 45 && angle < 135) {
+            return "right";
+        } else if(angle >= 135 || angle < -135) {
+            return "down";
+        } else if(angle >= -135 && angle < -45) {
+            return "left";
+        } else {
+            return "up";
+        }
+    }
 }

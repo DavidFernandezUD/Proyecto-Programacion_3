@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public class Enemy extends Entity implements Drawable {
 
-    private boolean debug = true;
+    private boolean debug = false;
 
     public Enemy(GamePanel gamePanel) {
         super(gamePanel);
@@ -24,7 +24,7 @@ public class Enemy extends Entity implements Drawable {
         worldX = gamePanel.tileSize * 22;
         worldY = gamePanel.tileSize * 34;
         speed = 2;
-        direction = "up";
+        direction = "down";
         moving = true;
         attacking = false;
         collisionBox = new Rectangle(11, 22, 42, 42);
@@ -52,6 +52,10 @@ public class Enemy extends Entity implements Drawable {
     public void update() {
 
         if(moving) {
+
+            // TODO: CHANGE THIS WITH A* ALGORITHM
+            direction = Entity.getDirection(this, gamePanel.player);
+
             // Check collisions
             collisionOn = false;
             gamePanel.collisionChecker.checkTileCollision(this);
