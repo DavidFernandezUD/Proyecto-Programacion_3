@@ -51,6 +51,10 @@ public class Enemy extends Entity implements Drawable {
 
     public void update() {
 
+        // TODO: THIS IS A PLACEHOLDER
+        double distance = Entity.getDistance(this, gamePanel.player);
+        moving = distance > tileSize && distance < tileSize * 6;
+
         if(moving) {
 
             // TODO: CHANGE THIS WITH A* ALGORITHM
@@ -120,4 +124,6 @@ public class Enemy extends Entity implements Drawable {
             g2.fillRect(collisionBox.x + screenX, collisionBox.y + screenY, collisionBox.width, collisionBox.height);
         }
     }
+
+    // TODO: Add prop redrawing like with Player
 }

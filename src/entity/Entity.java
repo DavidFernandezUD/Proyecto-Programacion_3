@@ -85,4 +85,10 @@ public abstract class Entity implements Drawable {
             return "up";
         }
     }
+
+    // Returns euclidean distance between two entities
+    protected static double getDistance(Entity ent1, Entity ent2) {
+        int[] vector = getVector(ent1, ent2);
+        return Math.sqrt(vector[0] * vector[0] + vector[1] * vector[1]);
+    }
 }
