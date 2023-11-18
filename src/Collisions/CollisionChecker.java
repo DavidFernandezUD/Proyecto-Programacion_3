@@ -6,6 +6,7 @@ import java.awt.*;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.SecureCacheResponse;
 
 public class CollisionChecker {
     
@@ -54,13 +55,31 @@ public class CollisionChecker {
         }
 
         // Custom collisions
-        collisions = new Rectangle[4];
+        collisions = new Rectangle[16];
 
         collisions[0] = new Rectangle(0, 0, 64, 64);
+
         collisions[1] = new Rectangle(16, 16, 32, 32);
+
         collisions[2] = new Rectangle(0, 0, 6, 64);
         collisions[3] = new Rectangle(58, 0, 6, 64);
 
+        collisions[4] = new Rectangle(0, 0, 64, 6);
+        collisions[5] = new Rectangle(0, 58, 64, 6);
+
+        // Little trick with the corner to overlap two collisions
+        collisions[6] = new Rectangle(0, 0, 20, 24); // TODO: Implement Corner
+        collisions[7] = new Rectangle(44, 0, 20, 24); // TODO: Implement Corner
+
+        collisions[8] = new Rectangle(0, 0, 32, 32);
+        collisions[9] = new Rectangle(32, 0, 32, 32);
+        collisions[10] = new Rectangle(0, 32, 32, 32);
+        collisions[11] = new Rectangle(32, 32, 32, 32);
+
+        collisions[12] = new Rectangle(0, 0, 32, 64);
+        collisions[13] = new Rectangle(32, 0, 32, 64);
+        collisions[14] = new Rectangle(0, 0, 64, 32);
+        collisions[15] = new Rectangle(0, 32, 64, 32);
     }
 
     // TODO: CLEAN THIS MESS
@@ -87,18 +106,18 @@ public class CollisionChecker {
                 topRow = (collisionTopBound - entity.speed) / gamePanel.tileSize;
                 if (collisionMap[topRow][leftCol] != -1) {
                     collision = collisions[collisionMap[topRow][leftCol]];
-                    tile1Collision = new Rectangle(
-                        leftCol * gamePanel.tileSize + collision.x,
-                        topRow * gamePanel.tileSize + collision.y,
-                        collision.width, collision.height);
+                    tile1Collision = new Rectangle(collision);
+                    tile1Collision.setLocation(
+                            leftCol * gamePanel.tileSize + collision.x,
+                            topRow * gamePanel.tileSize + collision.y);
                 }
 
                 if(collisionMap[topRow][rightCol] != -1) {
                     collision = collisions[collisionMap[topRow][rightCol]];
-                    tile2Collision = new Rectangle(
+                    tile2Collision = new Rectangle(collision);
+                    tile2Collision.setLocation(
                         rightCol * gamePanel.tileSize + collision.x,
-                        topRow * gamePanel.tileSize + collision.y,
-                        collision.width, collision.height);
+                        topRow * gamePanel.tileSize + collision.y);
                 }
 
                 entityCollision = new Rectangle(
