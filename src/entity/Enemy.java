@@ -11,6 +11,8 @@ import java.util.Objects;
 
 public class Enemy extends Entity implements Drawable {
 
+    private boolean debug = true;
+
     public Enemy(GamePanel gamePanel) {
         super(gamePanel);
 
@@ -21,10 +23,11 @@ public class Enemy extends Entity implements Drawable {
     public void setDefaultValues() {
         worldX = gamePanel.tileSize * 22;
         worldY = gamePanel.tileSize * 34;
-        speed = 4;
-        direction = "down";
-        moving = false;
+        speed = 2;
+        direction = "up";
+        moving = true;
         attacking = false;
+        collisionBox = new Rectangle(11, 22, 42, 42);
     }
 
     public void getEnemySprite() {
@@ -63,6 +66,17 @@ public class Enemy extends Entity implements Drawable {
                 }
             }
         }
+
+        spriteCounter++;
+
+        if(spriteCounter > ANIMATION_FRAMES) {
+            if(spriteNum < 4) {
+                spriteNum++;
+            } else {
+                spriteNum = 1;
+            }
+            spriteCounter = 0;
+        }
     }
 
     @Override
@@ -70,13 +84,36 @@ public class Enemy extends Entity implements Drawable {
 
         BufferedImage image = getSprite(direction);
 
+        int screenX;
+        int screenY;
+
+        if(!gamePanel.player.screenXLocked) {
+            if(gamePanel.player.worldX < gamePanel.screenWidth) {
+                screenX = worldX;
+            } else {
+                screenX = worldX - gamePanel.worldWidth + gamePanel.screenWidth;
+            }
+        } else {
+            screenX = worldX - gamePanel.player.worldX + gamePanel.player.defaultScreenX;
+        }
+
+        if(!gamePanel.player.screenYLocked) {
+            if(gamePanel.player.worldY < gamePanel.screenHeight) {
+                screenY = worldY;
+            } else {
+                screenY = worldY - gamePanel.worldHeight + gamePanel.screenHeight;
+            }
+        }  else {
+            screenY = worldY - gamePanel.player.worldY + gamePanel.player.defaultScreenY;
+        }
+
         // Drawing Player
-        g2.drawImage(image, tileSize, tileSize, gamePanel.tileSize, gamePanel.tileSize, null);
+        g2.drawImage(image, screenX, screenY, gamePanel.tileSize, gamePanel.tileSize, null);
 
         // Drawing collision box
-/*        if(debug) {
+        if(debug) {
             g2.setColor(new Color(255, 0, 0, 150));
             g2.fillRect(collisionBox.x + screenX, collisionBox.y + screenY, collisionBox.width, collisionBox.height);
-        }*/
+        }
     }
 }

@@ -30,7 +30,7 @@ public class Player extends Entity implements Drawable {
     public boolean screenYLocked;
 
     // Just for debugging purposes (Displays Collision Box)
-    boolean debug = false;
+    private boolean debug = false;
 
     public Player(GamePanel gamePanel, KeyHandler keyHandler, MouseHandler mouseHandler) {
         super(gamePanel);
@@ -40,8 +40,6 @@ public class Player extends Entity implements Drawable {
 
         defaultScreenX = (gamePanel.screenWidth / 2) - (gamePanel.tileSize / 2);
         defaultScreenY = (gamePanel.screenHeight / 2) - (gamePanel.tileSize / 2);
-
-        collisionBox = new Rectangle(11, 22, 42, 42);
 
         setDefaultValues();
         getPlayerSprite();
@@ -53,6 +51,8 @@ public class Player extends Entity implements Drawable {
         speed = 4;
         direction = "down";
         moving = false;
+        attacking = false;
+        collisionBox = new Rectangle(11, 22, 42, 42);
     }
 
     public void getPlayerSprite() {
@@ -124,6 +124,7 @@ public class Player extends Entity implements Drawable {
 
         spriteCounter += (attacking ? 2 : 1); // Attack animation runs faster than moving and idle
 
+        // Animation
         if(spriteCounter > ANIMATION_FRAMES) {
             if(spriteNum < 4) {
                 spriteNum++;

@@ -5,6 +5,8 @@ import main.GamePanel;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.TreeSet;
 
 public class EntityManager implements Drawable {
 
@@ -43,6 +45,17 @@ public class EntityManager implements Drawable {
 
     @Override
     public void draw(Graphics2D g2) {
+
+        entities.sort(new Comparator<>() {
+            @Override
+            public int compare(Entity o1, Entity o2) {
+                if (o1.worldY > o2.worldY) {
+                    return 1;
+                } else {
+                    return -1;
+                }
+            }
+        });
 
         for(Entity entity : entities) {
             entity.draw(g2);
