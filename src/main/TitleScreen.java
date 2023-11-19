@@ -41,7 +41,6 @@ public class TitleScreen implements Drawable {
     }
 
     public void update() {
-        // System.out.println(gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_W));
         startSelected = gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_W);
     }
 
