@@ -1,19 +1,17 @@
-package Collisions;
+package main.collisions;
 
-import entity.Entity;
-import entity.Player;
+import main.entities.Entity;
 import main.GamePanel;
 import java.awt.*;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.SecureCacheResponse;
 
 public class CollisionChecker {
     
     GamePanel gamePanel;
 
-    // Collisions
+    // main.Collisions
     public int[][] collisionMap;
 
     Rectangle[] collisions;
@@ -38,7 +36,7 @@ public class CollisionChecker {
 
         // Loading collision map
         try {
-            InputStream is = getClass().getResourceAsStream("../maps/Map2.2/Map_02_Collisions.csv");
+            InputStream is = getClass().getResourceAsStream("/main/res/maps/Map2.2/Map_02_Collisions.csv");
             assert is != null;
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
@@ -92,7 +90,7 @@ public class CollisionChecker {
         int collisionTopBound = entity.worldY + entity.collisionBox.y;
         int collisionBottomBound = collisionTopBound + entity.collisionBox.height;
 
-        // Calculating the row and column in the tile matrix
+        // Calculating the row and column in the main.tile matrix
         int leftCol = collisionLeftBound / gamePanel.tileSize;
         int rightCol = collisionRightBound / gamePanel.tileSize;
         int topRow = collisionTopBound / gamePanel.tileSize;

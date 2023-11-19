@@ -1,6 +1,6 @@
-package entity;
+package main.entities;
 
-import interfaces.Drawable;
+import main.interfaces.Drawable;
 import main.GamePanel;
 import main.Utility;
 import javax.imageio.ImageIO;
@@ -36,13 +36,13 @@ public class Enemy extends Entity implements Drawable {
         Utility util = new Utility();
 
         try {
-            runSprites = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("../res/enemy/run.png")));
+            runSprites = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/main/res/enemy/run.png")));
             runSprites = util.scaleImage(runSprites, tileSize * 4, tileSize * 4);
 
-            idleSprites = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("../res/enemy/idle.png")));
+            idleSprites = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/main/res/enemy/idle.png")));
             idleSprites = util.scaleImage(idleSprites, tileSize * 4, tileSize * 4);
 
-            attackSprites = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("../res/enemy/attack1.png")));
+            attackSprites = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/main/res/enemy/attack1.png")));
             attackSprites = util.scaleImage(attackSprites, tileSize * 4, tileSize * 4);
         } catch(IOException e) {
             e.printStackTrace();

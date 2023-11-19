@@ -1,6 +1,7 @@
-package main;
+package main.objects;
 
-import interfaces.Drawable;
+import main.interfaces.Drawable;
+import main.GamePanel;
 
 import java.awt.*;
 

@@ -1,6 +1,6 @@
 package main;
 
-import interfaces.Drawable;
+import main.interfaces.Drawable;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 

@@ -1,6 +1,6 @@
-package entity;
+package main.entities;
 
-import interfaces.Drawable;
+import main.interfaces.Drawable;
 import main.GamePanel;
 
 import java.awt.*;
@@ -66,12 +66,12 @@ public abstract class Entity implements Drawable {
         return new int[] {ent2.worldX - ent1.worldX, ent1.worldY - ent2.worldY};
     }
 
-    // Used to get the direction of one entity with respect to another in degrees
+    // Used to get the direction of one main.entity with respect to another in degrees
     protected static double getAngle(Entity ent1, Entity ent2) {
         return Math.toDegrees(Math.atan2(ent2.worldX - ent1.worldX, ent1.worldY - ent2.worldY));
     }
 
-    // Used to get the cardinal direction of an entity with respect to another
+    // Used to get the cardinal direction of an main.entity with respect to another
     protected static String getDirection(Entity ent1, Entity ent2) {
         double angle = getAngle(ent1, ent2);
 

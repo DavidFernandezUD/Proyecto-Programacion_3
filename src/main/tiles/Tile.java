@@ -1,4 +1,4 @@
-package tile;
+package main.tiles;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;

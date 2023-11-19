@@ -1,4 +1,4 @@
-package tile;
+package main.tiles;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -9,10 +9,10 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Objects;
 import javax.imageio.ImageIO;
-import interfaces.Drawable;
+import main.interfaces.Drawable;
 import main.GamePanel;
 import main.Utility;
-import object.SuperObject;
+import main.objects.SuperObject;
 
 public class TileManager implements Drawable {
     
@@ -26,7 +26,7 @@ public class TileManager implements Drawable {
     // TODO: Move this to AssetSetter
     public SuperObject[] objects;
 
-    // Just for debugging purposes (Displays Tile Collisions)
+    // Just for debugging purposes (Displays Tile main.Collisions)
     private boolean debug = false;
 
     public TileManager(GamePanel gamePanel) {
@@ -36,12 +36,12 @@ public class TileManager implements Drawable {
         getTileSprite();
 
         ArrayList<String> layerPaths = new ArrayList<>();
-        layerPaths.add("../maps/Map2.2/Map_02_Ground.csv");
-        layerPaths.add("../maps/Map2.2/Map_02_Level1.csv");
-        layerPaths.add("../maps/Map2.2/Map_02_Level2.csv");
-        layerPaths.add("../maps/Map2.2/Map_02_Props.csv");
+        layerPaths.add("/main/res/maps/Map2.2/Map_02_Ground.csv");
+        layerPaths.add("/main/res/maps/Map2.2/Map_02_Level1.csv");
+        layerPaths.add("/main/res/maps/Map2.2/Map_02_Level2.csv");
+        layerPaths.add("/main/res/maps/Map2.2/Map_02_Props.csv");
 
-        layerPaths.add("../maps/Map2/Map_02_Obj.csv"); // TODO: Move this to the AssetSetter
+        layerPaths.add("/main/res/maps/Map2/Map_02_Obj.csv"); // TODO: Move this to the AssetSetter
 
         loadMap(layerPaths);
 
@@ -51,9 +51,9 @@ public class TileManager implements Drawable {
 
         // LOADING TILES
         try {
-            BufferedImage spriteSheet = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("../res/tiles/tileSheet.png")));
+            BufferedImage spriteSheet = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/main/res/tiles/tileSheet.png")));
 
-            // Dimension of the tile-sheet in tiles
+            // Dimension of the main.tile-sheet in tiles
             int rows = 35;
             int cols = 24;
 
@@ -73,7 +73,7 @@ public class TileManager implements Drawable {
             // TODO: Move this to AssetSetter
             objects = new SuperObject[1];
             objects[0] = new SuperObject();
-            objects[0].image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("../res/objects/sign.png")));
+            objects[0].image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/main/res/objects/sign.png")));
 
         } catch(IOException e) {
             e.printStackTrace();
@@ -172,7 +172,7 @@ public class TileManager implements Drawable {
             }
         }
 
-        // Drawing tile collisions
+        // Drawing main.tile collisions
         if(debug) {
             gamePanel.collisionChecker.draw(g2);
         }

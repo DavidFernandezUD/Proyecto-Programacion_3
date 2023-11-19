@@ -1,4 +1,4 @@
-package object;
+package main.objects;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -11,7 +11,7 @@ public class OBJ_Sign extends SuperObject {
         name = "Sign";
 
         try{
-            image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("..//res//objects//sign.png")));
+            image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("..//main.res//objects//sign.png")));
         }catch(IOException  e) {
             e.printStackTrace();
         }

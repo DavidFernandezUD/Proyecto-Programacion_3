@@ -1,10 +1,11 @@
 package main;
 
 import javax.swing.JPanel;
-import Collisions.CollisionChecker;
-import entity.EntityManager;
-import entity.Player;
-import tile.TileManager;
+import main.collisions.CollisionChecker;
+import main.entities.EntityManager;
+import main.entities.Player;
+import main.objects.AssetSetter;
+import main.tiles.TileManager;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;

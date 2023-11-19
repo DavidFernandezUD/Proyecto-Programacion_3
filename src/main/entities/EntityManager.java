@@ -1,12 +1,11 @@
-package entity;
+package main.entities;
 
-import interfaces.Drawable;
+import main.interfaces.Drawable;
 import main.GamePanel;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.TreeSet;
 
 public class EntityManager implements Drawable {
 

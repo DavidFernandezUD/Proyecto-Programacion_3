@@ -1,6 +1,6 @@
-package entity;
+package main.entities;
 
-import interfaces.Drawable;
+import main.interfaces.Drawable;
 import main.KeyHandler;
 import main.MouseHandler;
 import main.Utility;
@@ -61,13 +61,13 @@ public class Player extends Entity implements Drawable {
         Utility util = new Utility();
 
         try {
-            runSprites = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("../res/player/run.png")));
+            runSprites = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/main/res/player/run.png")));
             runSprites = util.scaleImage(runSprites, tileSize * 4, tileSize * 4);
 
-            idleSprites = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("../res/player/idle.png")));
+            idleSprites = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/main/res/player/idle.png")));
             idleSprites = util.scaleImage(idleSprites, tileSize * 4, tileSize * 4);
 
-            attackSprites = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("../res/player/attack1.png")));
+            attackSprites = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/main/res/player/attack1.png")));
             attackSprites = util.scaleImage(attackSprites, tileSize * 4, tileSize * 4);
         } catch(IOException e) {
             e.printStackTrace();
@@ -175,7 +175,7 @@ public class Player extends Entity implements Drawable {
     private void redrawProp(Graphics2D g2) {
 
         // Checking if the left and right tiles under the player are prop tiles
-        // The -1 is to avoid the lower tile to change to the next lower one when the player is just on the top edge of the tile
+        // The -1 is to avoid the lower main.tile to change to the next lower one when the player is just on the top edge of the main.tile
         int propLeft = gamePanel.tileManager.map.get(3)[(worldY + tileSize - 1) / tileSize][worldX / tileSize];
         int propRight = gamePanel.tileManager.map.get(3)[(worldY + tileSize - 1) / tileSize][(worldX + tileSize) / tileSize];
 
@@ -188,7 +188,7 @@ public class Player extends Entity implements Drawable {
         int COLUMN_TOP = 595;
         int STONE_THRESHOLD = 824; // All the stone props are above this value (we don't want to repaint them)
 
-        // Redrawing lower left tile (if necessary)
+        // Redrawing lower left main.tile (if necessary)
         if(propLeft != -1 && propLeft < STONE_THRESHOLD) { //
             g2.drawImage(
                     gamePanel.tileManager.tiles[propLeft].image,
@@ -204,7 +204,7 @@ public class Player extends Entity implements Drawable {
             }
         }
 
-        // Redrawing lower right tile (if necessary)
+        // Redrawing lower right main.tile (if necessary)
         if(propRight != -1 && propRight < STONE_THRESHOLD) {
             g2.drawImage(
                     gamePanel.tileManager.tiles[propRight].image,
