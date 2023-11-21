@@ -27,7 +27,8 @@ public class TileManager implements Drawable {
     public SuperObject[] objects;
 
     // Just for debugging purposes (Displays Tile main.Collisions)
-    private boolean debug = false;
+    private boolean debugCollisions = false;
+    private boolean debugObjects = true;
 
     public TileManager(GamePanel gamePanel) {
         
@@ -69,11 +70,6 @@ public class TileManager implements Drawable {
                     setUp((i * cols) + j, tileImage);
                 }
             }
-
-            // TODO: Move this to AssetSetter
-            objects = new SuperObject[1];
-            objects[0] = new SuperObject();
-            objects[0].image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/main/res/objects/sign.png")));
 
         } catch(IOException e) {
             e.printStackTrace();
@@ -173,9 +169,14 @@ public class TileManager implements Drawable {
         }
 
         // Drawing main.tile collisions
-        if(debug) {
+        if(debugCollisions) {
             gamePanel.collisionChecker.draw(g2);
         }
+        
+        if(debugObjects) {
+            gamePanel.assetSetter.draw(g2);
+        }
+        
     }
 
     private boolean tileOnScreen(int worldX, int worldY) {

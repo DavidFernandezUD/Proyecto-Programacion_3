@@ -129,7 +129,7 @@ public class GamePanel extends JPanel implements Runnable {
         tileManager.draw(g2);
         
         // OBJECTS
-        // TODO: Implement separate drawing method on AssetSetter
+
 
         // Entities
         entityManager.draw(g2);
