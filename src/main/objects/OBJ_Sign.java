@@ -6,7 +6,7 @@ public class OBJ_Sign extends SuperObject{
 		
 		name = "Sign";
 		
-		// TODO: Implement the unique behavior of the sign
+		collision = true;
 		
 	}
 }

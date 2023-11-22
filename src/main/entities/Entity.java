@@ -26,6 +26,8 @@ public abstract class Entity implements Drawable {
     public final int ANIMATION_FRAMES = 12; // Frames per animation step
 
     public Rectangle collisionBox;
+    // for objects
+    public int collisionBoxDefaultX, collisionBoxDefaultY;
     public boolean collisionOn = false;
 
     // TODO: Implement attacking functionality

@@ -7,6 +7,7 @@ import java.awt.*;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class AssetSetter implements Drawable {
 
@@ -14,20 +15,36 @@ public class AssetSetter implements Drawable {
     
     public int[][] objectMap;
     
-    Rectangle[] objects;
-    
-    Rectangle objectRectangle; // Just to represent objects visually
-    
+    public ArrayList<SuperObject> objects = new ArrayList<SuperObject>();
 
     public AssetSetter(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
         
-        loadObjects();
+        storeObjects();
     }
     
     
 
-    private void loadObjects() {
+    private void storeObjects() {
+		
+    	loadObjects();
+    	
+    	for (int row = 0; row < gamePanel.maxWorldRow; row++ ) {
+    		for (int col = 0; col < gamePanel.maxWorldCol; col++) {
+    			int object = objectMap[row][col];
+    			
+    			if (object == 0) {
+    				objects.add(new OBJ_Sign());
+    			}
+    			
+    		}
+    	}
+		
+	}
+
+
+
+	private void loadObjects() {
 		
     	objectMap = new int[gamePanel.maxWorldRow][gamePanel.maxWorldCol];
     	
@@ -56,81 +73,81 @@ public class AssetSetter implements Drawable {
 
 	@Override
     public void draw(Graphics2D g2) {
-		g2.setColor(new Color(0, 0, 139));
-		
-		boolean xBlocked = playerOnEdge("X");
-        boolean yBlocked = playerOnEdge("Y");
-		
-		for (int row = 0; row < gamePanel.maxWorldRow; row++) {
-			for (int col = 0; col < gamePanel.maxWorldCol; col++) {
-				
-				// Camera
-                int worldX = col * gamePanel.tileSize;
-                int worldY = row * gamePanel.tileSize;
-
-                int screenX;
-                int screenY;
-
-                if(xBlocked) {
-                    if(gamePanel.player.worldX < gamePanel.screenWidth) {
-                        screenX = worldX;
-                    } else {
-                        screenX = worldX - gamePanel.worldWidth + gamePanel.screenWidth;
-                    }
-                    gamePanel.player.screenXLocked = false;
-                } else {
-                    screenX = worldX - gamePanel.player.worldX + gamePanel.player.defaultScreenX;
-                    gamePanel.player.screenXLocked = true;
-                }
-
-                if(yBlocked) {
-                    if(gamePanel.player.worldY < gamePanel.screenHeight) {
-                        screenY = worldY;
-                    } else {
-                        screenY = worldY - gamePanel.worldHeight + gamePanel.screenHeight;
-                    }
-                    gamePanel.player.screenYLocked = false;
-                } else {
-                    screenY = worldY - gamePanel.player.worldY + gamePanel.player.defaultScreenY;
-                    gamePanel.player.screenYLocked = true;
-                }
-				
-				if (objectMap[row][col] != -1) {
-					g2.drawRect(screenX, screenY, gamePanel.tileSize, gamePanel.tileSize);
-					
-				}
-			}
-		}
+//		g2.setColor(new Color(0, 0, 139));
+//		
+//		boolean xBlocked = playerOnEdge("X");
+//        boolean yBlocked = playerOnEdge("Y");
+//		
+//		for (int row = 0; row < gamePanel.maxWorldRow; row++) {
+//			for (int col = 0; col < gamePanel.maxWorldCol; col++) {
+//				
+//				// Camera
+//                int worldX = col * gamePanel.tileSize;
+//                int worldY = row * gamePanel.tileSize;
+//
+//                int screenX;
+//                int screenY;
+//
+//                if(xBlocked) {
+//                    if(gamePanel.player.worldX < gamePanel.screenWidth) {
+//                        screenX = worldX;
+//                    } else {
+//                        screenX = worldX - gamePanel.worldWidth + gamePanel.screenWidth;
+//                    }
+//                    gamePanel.player.screenXLocked = false;
+//                } else {
+//                    screenX = worldX - gamePanel.player.worldX + gamePanel.player.defaultScreenX;
+//                    gamePanel.player.screenXLocked = true;
+//                }
+//
+//                if(yBlocked) {
+//                    if(gamePanel.player.worldY < gamePanel.screenHeight) {
+//                        screenY = worldY;
+//                    } else {
+//                        screenY = worldY - gamePanel.worldHeight + gamePanel.screenHeight;
+//                    }
+//                    gamePanel.player.screenYLocked = false;
+//                } else {
+//                    screenY = worldY - gamePanel.player.worldY + gamePanel.player.defaultScreenY;
+//                    gamePanel.player.screenYLocked = true;
+//                }
+//				
+//				if (objectMap[row][col] != -1) {
+//					g2.drawRect(screenX, screenY, gamePanel.tileSize, gamePanel.tileSize);
+//					
+//				}
+//			}
+//		}
 
     }
 	
-	private boolean playerOnEdge(String axis) {
-
-        int playerX = gamePanel.player.worldX;
-        int playerY = gamePanel.player.worldY;
-
-        switch(axis) {
-        case "X":
-            if(playerX < gamePanel.player.defaultScreenX) {
-                return true;
-            }
-            if(playerX > gamePanel.worldWidth - gamePanel.player.defaultScreenX - gamePanel.tileSize) {
-                return true;
-            }
-            break;
-        case "Y":
-            if(playerY < gamePanel.player.defaultScreenY) {
-                return true;
-            }
-            if(playerY > gamePanel.worldHeight - gamePanel.player.defaultScreenY - gamePanel.tileSize) {
-                return true;
-            }
-            break;
-        }
-
-        return false;
-    }
+//	private boolean playerOnEdge(String axis) {
+//
+//        int playerX = gamePanel.player.worldX;
+//        int playerY = gamePanel.player.worldY;
+//
+//        switch(axis) {
+//        case "X":
+//            if(playerX < gamePanel.player.defaultScreenX) {
+//                return true;
+//            }
+//            if(playerX > gamePanel.worldWidth - gamePanel.player.defaultScreenX - gamePanel.tileSize) {
+//                return true;
+//            }
+//            break;
+//        case "Y":
+//            if(playerY < gamePanel.player.defaultScreenY) {
+//                return true;
+//            }
+//            if(playerY > gamePanel.worldHeight - gamePanel.player.defaultScreenY - gamePanel.tileSize) {
+//                return true;
+//            }
+//            break;
+//        }
+//
+//        return false;
+//    }
 	
-	// TODO: think how to make each object act differently
+	// TODO: think how to load objects
 	
 }

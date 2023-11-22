@@ -27,7 +27,7 @@ public class TileManager implements Drawable {
     public SuperObject[] objects;
 
     // Just for debugging purposes (Displays Tile main.Collisions)
-    private boolean debugCollisions = false;
+    private boolean debugCollisions = true;
     private boolean debugObjects = true;
 
     public TileManager(GamePanel gamePanel) {

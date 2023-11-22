@@ -53,6 +53,10 @@ public class Player extends Entity implements Drawable {
         moving = false;
         attacking = false;
         collisionBox = new Rectangle(11, 22, 42, 42);
+        // for objects
+        collisionBoxDefaultX = collisionBox.x;
+        collisionBoxDefaultY = collisionBox.y;
+
     }
 
     public void getPlayerSprite() {
@@ -103,6 +107,9 @@ public class Player extends Entity implements Drawable {
             // Check collisions
             collisionOn = false;
             gamePanel.collisionChecker.checkTileCollision(this);
+            
+            // Check object collisions
+            int objIndex = gamePanel.collisionChecker.checkObject(this, true);
 
             // If collision is false the player can move
             if(!collisionOn) {

@@ -197,6 +197,62 @@ public class CollisionChecker {
 
         entity.collisionOn = entityCollision.intersects(tile1Collision) || entityCollision.intersects(tile2Collision);
     }
+    
+    // for objects
+    public int checkObject(Entity entity, boolean player) {
+    	int index = 999;
+    	
+    	for (int i = 0; i < gamePanel.assetSetter.objects.size(); i++) {
+    		
+    		if (gamePanel.assetSetter.objects.get(i) != null) {
+    			entity.collisionBox.x = entity.worldX +  entity.collisionBox.x;
+    			entity.collisionBox.y = entity.worldY +  entity.collisionBox.y;
+    			
+    			gamePanel.assetSetter.objects.get(i).solidArea.x = gamePanel.assetSetter.objects.get(i).worldX +
+    					gamePanel.assetSetter.objects.get(i).solidArea.x;
+    			gamePanel.assetSetter.objects.get(i).solidArea.y = gamePanel.assetSetter.objects.get(i).worldY +
+    					gamePanel.assetSetter.objects.get(i).solidArea.y;
+    			
+    			switch(entity.direction) {
+    			case "up":
+    				entity.collisionBox.y -= entity.speed;
+    				if (entity.collisionBox.intersects(gamePanel.assetSetter.objects.get(i).solidArea)) {
+    					System.out.println("up collision!");
+    				}
+    				break;
+    			case "down":
+    				entity.collisionBox.y += entity.speed;
+    				if (entity.collisionBox.intersects(gamePanel.assetSetter.objects.get(i).solidArea)) {
+    					System.out.println("down collision!");
+    				}
+    				break;
+    			case "left":
+    				entity.collisionBox.x -= entity.speed;
+    				if (entity.collisionBox.intersects(gamePanel.assetSetter.objects.get(i).solidArea)) {
+    					System.out.println("left collision!");
+    				}
+    				break;
+    			case "right":
+    				entity.collisionBox.x += entity.speed;
+    				if (entity.collisionBox.intersects(gamePanel.assetSetter.objects.get(i).solidArea)) {
+    					System.out.println("right collision!");
+    				}
+    				break;
+    			}
+    			
+    			entity.collisionBox.x = entity.collisionBoxDefaultX;
+    			entity.collisionBox.y = entity.collisionBoxDefaultY;
+    			gamePanel.assetSetter.objects.get(i).solidArea.x = gamePanel.assetSetter.objects.get(i).solidAreaDefaultX;
+    			gamePanel.assetSetter.objects.get(i).solidArea.y = gamePanel.assetSetter.objects.get(i).solidAreaDefaultY;
+    		}
+    		
+    		
+    		
+    	}
+    	
+    	return index;
+    	
+    }
 
     public void draw(Graphics2D g2) {
         g2.setColor(new Color(255, 0, 0, 100));
