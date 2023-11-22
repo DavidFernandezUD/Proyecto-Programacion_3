@@ -19,7 +19,9 @@ public class TitleScreen implements Drawable {
     public GamePanel gamePanel;
 
     // INDEX
-    public int selectionIndex = 0;
+    private boolean upToggled = false;
+    private boolean downToggled = false;
+    private int selectionIndex = 0;
 
     TitleScreen(GamePanel gamePanel) {
 
@@ -50,18 +52,26 @@ public class TitleScreen implements Drawable {
     }
 
     public void update() {
-        if(gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_W)) {
+
+        if(selectionIndex == 0 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+            gamePanel.titleScreenOn = false;
+        }
+
+        if(gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_W) != upToggled) {
+            upToggled = !upToggled;
             selectionIndex--;
             if(selectionIndex < 0) {
                 selectionIndex = 4;
             }
-        };
-        if(gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_S)) {
+        }
+
+        if(gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_S) != downToggled) {
+            downToggled = !downToggled;
             selectionIndex++;
             if(selectionIndex > 4) {
                 selectionIndex = 0;
             }
-        };
+        }
     }
 
     @Override

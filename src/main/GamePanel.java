@@ -86,11 +86,9 @@ public class GamePanel extends JPanel implements Runnable {
 
                 gamePaused = keyHandler.isKeyToggled(KeyEvent.VK_ESCAPE);
 
+                // TODO: Maybe manage the title screen without update method
                 if(titleScreenOn) {
                     titleScreen.update();
-                    if(titleScreen.selectionIndex == 0 && keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
-                        titleScreenOn = false;
-                    }
                 }
 
                 // Only updating the game state if the game isn't paused
