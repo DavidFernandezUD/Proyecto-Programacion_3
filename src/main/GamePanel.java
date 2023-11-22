@@ -88,7 +88,7 @@ public class GamePanel extends JPanel implements Runnable {
 
                 if(titleScreenOn) {
                     titleScreen.update();
-                    if(titleScreen.startSelected && keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+                    if(titleScreen.selectionIndex == 0 && keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
                         titleScreenOn = false;
                     }
                 }
