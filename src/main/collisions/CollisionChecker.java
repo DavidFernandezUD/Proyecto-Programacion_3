@@ -202,48 +202,48 @@ public class CollisionChecker {
     public int checkObject(Entity entity, boolean player) {
     	int index = 999;
     	
-    	for (int i = 0; i < gamePanel.assetSetter.objects.size(); i++) {
+    	for (int i = 0; i < gamePanel.obj.length; i++) {
     		
-    		if (gamePanel.assetSetter.objects.get(i) != null) {
+    		if (gamePanel.obj[i] != null) {
     			entity.collisionBox.x = entity.worldX +  entity.collisionBox.x;
     			entity.collisionBox.y = entity.worldY +  entity.collisionBox.y;
     			
-    			gamePanel.assetSetter.objects.get(i).solidArea.x = gamePanel.assetSetter.objects.get(i).worldX +
-    					gamePanel.assetSetter.objects.get(i).solidArea.x;
-    			gamePanel.assetSetter.objects.get(i).solidArea.y = gamePanel.assetSetter.objects.get(i).worldY +
-    					gamePanel.assetSetter.objects.get(i).solidArea.y;
+    			gamePanel.obj[i].solidArea.x = gamePanel.obj[i].worldX +
+    					gamePanel.obj[i].solidArea.x;
+    			gamePanel.obj[i].solidArea.y = gamePanel.obj[i].worldY +
+    					gamePanel.obj[i].solidArea.y;
     			
     			switch(entity.direction) {
     			case "up":
     				entity.collisionBox.y -= entity.speed;
-    				if (entity.collisionBox.intersects(gamePanel.assetSetter.objects.get(i).solidArea)) {
-    					System.out.println("up collision!");
+    				if (entity.collisionBox.intersects(gamePanel.obj[i].solidArea)) {
+    					System.out.println("Hello!");
     				}
     				break;
     			case "down":
     				entity.collisionBox.y += entity.speed;
-    				if (entity.collisionBox.intersects(gamePanel.assetSetter.objects.get(i).solidArea)) {
-    					System.out.println("down collision!");
+    				if (entity.collisionBox.intersects(gamePanel.obj[i].solidArea)) {
+    					System.out.println("Please read me from the front, not from the back.");
     				}
     				break;
     			case "left":
     				entity.collisionBox.x -= entity.speed;
-    				if (entity.collisionBox.intersects(gamePanel.assetSetter.objects.get(i).solidArea)) {
-    					System.out.println("left collision!");
+    				if (entity.collisionBox.intersects(gamePanel.obj[i].solidArea)) {
+    					System.out.println("Please read me from the front, not from the left.");
     				}
     				break;
     			case "right":
     				entity.collisionBox.x += entity.speed;
-    				if (entity.collisionBox.intersects(gamePanel.assetSetter.objects.get(i).solidArea)) {
-    					System.out.println("right collision!");
+    				if (entity.collisionBox.intersects(gamePanel.obj[i].solidArea)) {
+    					System.out.println("Please read me from the front, not from the right.");
     				}
     				break;
     			}
     			
     			entity.collisionBox.x = entity.collisionBoxDefaultX;
     			entity.collisionBox.y = entity.collisionBoxDefaultY;
-    			gamePanel.assetSetter.objects.get(i).solidArea.x = gamePanel.assetSetter.objects.get(i).solidAreaDefaultX;
-    			gamePanel.assetSetter.objects.get(i).solidArea.y = gamePanel.assetSetter.objects.get(i).solidAreaDefaultY;
+    			gamePanel.obj[i].solidArea.x = gamePanel.obj[i].solidAreaDefaultX;
+    			gamePanel.obj[i].solidArea.y = gamePanel.obj[i].solidAreaDefaultY;
     		}
     		
     		

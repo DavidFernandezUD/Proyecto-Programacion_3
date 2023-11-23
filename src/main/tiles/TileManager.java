@@ -23,12 +23,9 @@ public class TileManager implements Drawable {
 
     final int LAYERS = 4; // Amount of layers in a map
 
-    // TODO: Move this to AssetSetter
-    public SuperObject[] objects;
-
     // Just for debugging purposes (Displays Tile main.Collisions)
     private boolean debugCollisions = true;
-    private boolean debugObjects = true;
+    // TODO: implement object debugger
 
     public TileManager(GamePanel gamePanel) {
         
@@ -171,10 +168,6 @@ public class TileManager implements Drawable {
         // Drawing main.tile collisions
         if(debugCollisions) {
             gamePanel.collisionChecker.draw(g2);
-        }
-        
-        if(debugObjects) {
-            gamePanel.assetSetter.draw(g2);
         }
         
     }

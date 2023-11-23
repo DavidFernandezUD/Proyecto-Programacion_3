@@ -5,6 +5,7 @@ import main.collisions.CollisionChecker;
 import main.entities.EntityManager;
 import main.entities.Player;
 import main.objects.AssetSetter;
+import main.objects.SuperObject;
 import main.tiles.TileManager;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -40,6 +41,7 @@ public class GamePanel extends JPanel implements Runnable {
     public KeyHandler keyHandler = new KeyHandler();
     public MouseHandler mouseHandler = new MouseHandler();
     public Player player = new Player(this, keyHandler, mouseHandler);
+    public SuperObject obj[] = new SuperObject[10];
     public EntityManager entityManager = new EntityManager(this, player);
     public TileManager tileManager = new TileManager(this);
     public CollisionChecker collisionChecker = new CollisionChecker(this);
@@ -54,6 +56,10 @@ public class GamePanel extends JPanel implements Runnable {
         this.addKeyListener(keyHandler);
         this.addMouseListener(mouseHandler);
         this.setFocusable(true);
+    }
+    
+    public void setUpGame() {
+    	assetSetter.setObjects();
     }
 
     public void startGameThread() {
@@ -127,7 +133,11 @@ public class GamePanel extends JPanel implements Runnable {
         tileManager.draw(g2);
         
         // OBJECTS
-
+        for (int i = 0; i < obj.length; i++) {
+        	if (obj[i] != null) {
+        		obj[i].draw(g2, this);
+        	}
+        }
 
         // Entities
         entityManager.draw(g2);
