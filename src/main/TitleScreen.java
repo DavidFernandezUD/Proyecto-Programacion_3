@@ -3,8 +3,10 @@ package main;
 import main.interfaces.Drawable;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Objects;
 
 public class TitleScreen implements Drawable {
 
@@ -33,12 +35,11 @@ public class TitleScreen implements Drawable {
         // FONTS
         try {
             // Load the font from a file
-            InputStream is = getClass().getResourceAsStream("/res/fonts/digitany.ttf");
-            Font customFont = Font.createFont(Font.TRUETYPE_FONT, is);
-
+            Font customTitleFont = Font.createFont(Font.TRUETYPE_FONT, new File("src/main/res/fonts/Blackside.ttf"));
+            Font customOptionFont = Font.createFont(Font.TRUETYPE_FONT, new File("src/main/res/fonts/digitany.ttf"));
             // Create the title and option fonts using the custom font
-            titleFont = customFont;
-            optionFont = new Font("Arial", Font.PLAIN, 24);
+            titleFont = customTitleFont.deriveFont(Font.BOLD, 100);
+            optionFont = customOptionFont.deriveFont(Font.BOLD, 24);
 
         } catch (FontFormatException | IOException e) {
             // Fallback to default fonts if the custom font could not be loaded
@@ -81,7 +82,7 @@ public class TitleScreen implements Drawable {
         g2.setFont(titleFont);
         g2.setColor(fontColor);
         int titleX = (gamePanel.screenWidth - g2.getFontMetrics().stringWidth(title)) / 2;
-        int titleY = 150;
+        int titleY = 180;
         g2.drawString(title, titleX, titleY);
 
         // DRAWING NEW GAME BUTTON
