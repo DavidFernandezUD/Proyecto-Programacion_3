@@ -217,25 +217,45 @@ public class CollisionChecker {
     			case "up":
     				entity.collisionBox.y -= entity.speed;
     				if (entity.collisionBox.intersects(gamePanel.obj[i].solidArea)) {
-    					System.out.println("Hello!");
+    					if (gamePanel.obj[i].collision == true) {
+    						entity.collisionOn = true;
+    					}
+    					if (player == true) {
+    						index = i;
+    					}
     				}
     				break;
     			case "down":
     				entity.collisionBox.y += entity.speed;
     				if (entity.collisionBox.intersects(gamePanel.obj[i].solidArea)) {
-    					System.out.println("Please read me from the front, not from the back.");
+    					if (gamePanel.obj[i].collision == true) {
+    						entity.collisionOn = true;
+    					}
+    					if (player == true) {
+    						index = i;
+    					}
     				}
     				break;
     			case "left":
     				entity.collisionBox.x -= entity.speed;
     				if (entity.collisionBox.intersects(gamePanel.obj[i].solidArea)) {
-    					System.out.println("Please read me from the front, not from the left.");
+    					if (gamePanel.obj[i].collision == true) {
+    						entity.collisionOn = true;
+    					}
+    					if (player == true) {
+    						index = i;
+    					}
     				}
     				break;
     			case "right":
     				entity.collisionBox.x += entity.speed;
     				if (entity.collisionBox.intersects(gamePanel.obj[i].solidArea)) {
-    					System.out.println("Please read me from the front, not from the right.");
+    					if (gamePanel.obj[i].collision == true) {
+    						entity.collisionOn = true;
+    					}
+    					if (player == true) {
+    						index = i;
+    					}
     				}
     				break;
     			}

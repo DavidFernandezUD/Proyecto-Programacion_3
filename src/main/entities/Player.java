@@ -29,6 +29,8 @@ public class Player extends Entity implements Drawable {
     public boolean screenXLocked;
     public boolean screenYLocked;
 
+    // For objects
+    
     // Just for debugging purposes (Displays Collision Box)
     private boolean debug = false;
 
@@ -110,6 +112,7 @@ public class Player extends Entity implements Drawable {
             
             // Check object collisions
             int objIndex = gamePanel.collisionChecker.checkObject(this, true);
+            readObject(objIndex, this);
 
             // If collision is false the player can move
             if(!collisionOn) {
@@ -140,6 +143,25 @@ public class Player extends Entity implements Drawable {
             }
             spriteCounter = 0;
         }
+    }
+    
+    public void readObject(int i, Entity player) {  	
+    	
+    	
+    	
+    	if (i != 999) {
+    		String objectName = gamePanel.obj[i].name;
+    		
+    		switch (objectName) {
+    		case "Sign":
+    			// TODO: implement sign unique behavior
+//    			if (gamePanel.keyHandler.readObjectKeyTyped == true) {
+//    				System.out.println("Hola");
+//    				
+//    			}
+
+    		}
+    	}
     }
 
     @Override

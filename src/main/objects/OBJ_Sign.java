@@ -1,5 +1,6 @@
 package main.objects;
 
+import java.awt.Rectangle;
 
 public class OBJ_Sign extends SuperObject{
 	
@@ -7,7 +8,8 @@ public class OBJ_Sign extends SuperObject{
 		
 		name = "Sign";
 		
-		collision = true;
+		solidArea = new Rectangle(0, 0, 64, 115);
+
 		
 	}
 }

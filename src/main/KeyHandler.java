@@ -36,13 +36,16 @@ public class KeyHandler implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-        // Not Used
+    	
+    	// TODO: implement keyTyped to read objects
+   
     }
+    
 
     @Override
     public void keyPressed(KeyEvent e) {
         int keyCode = e.getKeyCode();
-
+    
         // Key Toggling
         if(!pressedKeys.contains(keyCode)) { // Only if the key wasn't already pressed it is toggled
             if(!keyToggleStates.containsKey(keyCode)) {
@@ -78,4 +81,5 @@ public class KeyHandler implements KeyListener {
                 keyCode == KeyEvent.VK_S ||
                 keyCode == KeyEvent.VK_D;
     }
+    
 }

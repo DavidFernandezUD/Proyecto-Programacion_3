@@ -12,7 +12,7 @@ public class SuperObject {
     public String name;
     public boolean collision = false;
     public int worldX, worldY;
-    public Rectangle solidArea = new Rectangle(0, 0, 64, 64); // if wanted, change this on each object's class
+    public Rectangle solidArea; 
     public int solidAreaDefaultX = 0;
     public int solidAreaDefaultY = 0;
     
@@ -27,7 +27,7 @@ public class SuperObject {
     			worldY + gamePanel.tileSize > gamePanel.player.worldY - gamePanel.player.screenY &&
     			worldY - gamePanel.tileSize < gamePanel.player.worldY + gamePanel.player.screenY) {
     		
-    		g2.fillRect(screenX, screenY, 64, 64);
+    		g2.fillRect(screenX, screenY, solidArea.width, solidArea.height);
     	}
     }
     
