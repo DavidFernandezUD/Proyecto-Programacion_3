@@ -33,6 +33,7 @@ public class GamePanel extends JPanel implements Runnable {
     // States
     public boolean gamePaused = false;
     public boolean titleScreenOn = true;
+    public boolean escToggled = false;
 
     // FPS
     public int FPS = 60;
@@ -47,6 +48,7 @@ public class GamePanel extends JPanel implements Runnable {
     public CollisionChecker collisionChecker = new CollisionChecker(this);
     public AssetSetter assetSetter = new AssetSetter(this);
     public TitleScreen titleScreen = new TitleScreen(this);
+    public PauseScreen pauseScreen = new PauseScreen(this);
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -90,11 +92,19 @@ public class GamePanel extends JPanel implements Runnable {
 
             if(delta >= drawInterval) {
 
-                gamePaused = keyHandler.isKeyToggled(KeyEvent.VK_ESCAPE);
+                // Checking if the escape key has been toggled
+                if (keyHandler.isKeyToggled(KeyEvent.VK_ESCAPE) != escToggled) {
+                    escToggled = keyHandler.isKeyToggled(KeyEvent.VK_ESCAPE);
+                    gamePaused = true;
+                }
 
                 // TODO: Maybe manage the title screen without update method
-                if(titleScreenOn) {
+                if (titleScreenOn) {
                     titleScreen.update();
+                }
+
+                if (gamePaused) {
+                    pauseScreen.update();
                 }
 
                 // Only updating the game state if the game isn't paused
@@ -146,6 +156,7 @@ public class GamePanel extends JPanel implements Runnable {
         if(gamePaused) {
             g2.setColor(new Color(100, 100, 100, 150));
             g2.fillRect(0, 0, maxScreenCol * tileSize, maxScreenRow * tileSize);
+            pauseScreen.draw(g2);
         }
 
         // TITLE SCREEN
