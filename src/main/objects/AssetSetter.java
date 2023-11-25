@@ -23,7 +23,7 @@ public class AssetSetter {
 		
     	gamePanel.obj[0] = new OBJ_Sign();
     	gamePanel.obj[0].worldX = 6 * gamePanel.tileSize;
-    	gamePanel.obj[0].worldY = 31 * gamePanel.tileSize;
+    	gamePanel.obj[0].worldY = 32 * gamePanel.tileSize;
 		
 	}
 }

@@ -11,6 +11,8 @@ public class KeyHandler implements KeyListener {
 
     // Stack is used to keep record of the last pressed keys in order
     private final Stack<Integer> pressedMoveKeys = new Stack<>();
+    
+    public boolean keyPressedE;
 
     public boolean isKeyPressed(int keyCode) {
         return pressedKeys.contains(keyCode);
@@ -37,8 +39,8 @@ public class KeyHandler implements KeyListener {
     @Override
     public void keyTyped(KeyEvent e) {
     	
-    	// TODO: implement keyTyped to read objects
-   
+ 
+    	
     }
     
 
@@ -67,6 +69,11 @@ public class KeyHandler implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         int keyCode = e.getKeyCode();
+        
+        if (e.getKeyCode() == KeyEvent.VK_E) {
+            keyPressedE = false;
+        }
+        
         pressedKeys.remove(keyCode);
 
         // Removing move and attack keys from their respective stacks
@@ -81,5 +88,6 @@ public class KeyHandler implements KeyListener {
                 keyCode == KeyEvent.VK_S ||
                 keyCode == KeyEvent.VK_D;
     }
+
     
 }

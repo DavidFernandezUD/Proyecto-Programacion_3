@@ -34,6 +34,8 @@ public class GamePanel extends JPanel implements Runnable {
     public boolean gamePaused = false;
     public boolean titleScreenOn = true;
     public boolean escToggled = false;
+    public boolean dialogState = false;
+    public boolean eToggled = false;
 
     // FPS
     public int FPS = 60;
@@ -49,6 +51,7 @@ public class GamePanel extends JPanel implements Runnable {
     public AssetSetter assetSetter = new AssetSetter(this);
     public TitleScreen titleScreen = new TitleScreen(this);
     public PauseScreen pauseScreen = new PauseScreen(this);
+    public DialogScreen dialogScreen = new DialogScreen(this);
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -97,6 +100,12 @@ public class GamePanel extends JPanel implements Runnable {
                     escToggled = keyHandler.isKeyToggled(KeyEvent.VK_ESCAPE);
                     gamePaused = true;
                 }
+                
+                if ((keyHandler.isKeyToggled(KeyEvent.VK_E) != eToggled) && player.onReadRectangle) {
+                    eToggled = keyHandler.isKeyToggled(KeyEvent.VK_E);
+                    dialogState = true;
+                    player.onReadRectangle = false;
+                }
 
                 // TODO: Maybe manage the title screen without update method
                 if (titleScreenOn) {
@@ -106,13 +115,18 @@ public class GamePanel extends JPanel implements Runnable {
                 if (gamePaused) {
                     pauseScreen.update();
                 }
+                
+                if (dialogState) {
+                    dialogScreen.update();
+                }
+
 
                 // Only updating the game state if the game isn't paused
-                if(!gamePaused && !titleScreenOn) {
+                if(!gamePaused && !titleScreenOn && !dialogState) {
                     // 1 UPDATE: Update information like location of items, mobs, character, etc.
                     update();
                 }
-
+                
                 // 2 DRAW: Draw the screen with the updated information
                 repaint(); // repaint() calls the paintComponent() method
 
@@ -162,6 +176,15 @@ public class GamePanel extends JPanel implements Runnable {
         // TITLE SCREEN
         if(titleScreenOn) {
             titleScreen.draw(g2);
+        }
+        
+        // DIALOG SCREEN
+        
+        if(dialogState) {
+        	dialogScreen.draw(g2);
+        	
+        	
+        	
         }
 
         g2.dispose(); // dispose helps to free some memory after the painting has ended

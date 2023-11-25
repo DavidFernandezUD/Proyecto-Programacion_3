@@ -15,6 +15,7 @@ import javax.imageio.ImageIO;
 import main.GamePanel;
 
 public class Player extends Entity implements Drawable {
+	public boolean onReadRectangle = false;
 
     KeyHandler keyHandler;
     MouseHandler mouseHandler;
@@ -154,12 +155,10 @@ public class Player extends Entity implements Drawable {
     		
     		switch (objectName) {
     		case "Sign":
-    			// TODO: implement sign unique behavior
-//    			if (gamePanel.keyHandler.readObjectKeyTyped == true) {
-//    				System.out.println("Hola");
-//    				
-//    			}
-
+    			// TODO: fix sign behavior
+    			
+    			onReadRectangle = true;
+				
     		}
     	}
     }
