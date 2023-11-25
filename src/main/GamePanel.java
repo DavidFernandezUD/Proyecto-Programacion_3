@@ -40,6 +40,7 @@ public class GamePanel extends JPanel implements Runnable {
     // FPS
     public int FPS = 60;
 
+    Sound sound = new Sound();
     public Thread gameThread;
     public KeyHandler keyHandler = new KeyHandler();
     public MouseHandler mouseHandler = new MouseHandler();
@@ -65,6 +66,8 @@ public class GamePanel extends JPanel implements Runnable {
     
     public void setUpGame() {
     	assetSetter.setObjects();
+    	
+//    	playMusic(0);
     }
 
     public void startGameThread() {
@@ -189,4 +192,17 @@ public class GamePanel extends JPanel implements Runnable {
 
         g2.dispose(); // dispose helps to free some memory after the painting has ended
     }
+    
+    public void playMusic(int i) {
+    	
+    	sound.setFile(i);
+    	sound.play();
+    	sound.loop();
+    	
+    }
+    public void stopMusic() {
+    	sound.stop();
+    }
+    
+    
 }
