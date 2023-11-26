@@ -35,7 +35,6 @@ public class GamePanel extends JPanel implements Runnable {
     public boolean titleScreenOn = true;
     public boolean escToggled = false;
     public boolean dialogState = false;
-    public boolean eToggled = false;
 
     // FPS
     public int FPS = 60;
@@ -67,7 +66,9 @@ public class GamePanel extends JPanel implements Runnable {
     public void setUpGame() {
     	assetSetter.setObjects();
     	
-//    	playMusic(0);
+    	if (titleScreenOn) {
+    		playMusic(0);
+    	}   	
     }
 
     public void startGameThread() {
@@ -104,11 +105,10 @@ public class GamePanel extends JPanel implements Runnable {
                     gamePaused = true;
                 }
                 
-                if ((keyHandler.isKeyToggled(KeyEvent.VK_E) != eToggled) && player.onReadRectangle) {
-                    eToggled = keyHandler.isKeyToggled(KeyEvent.VK_E);
+                if (keyHandler.isKeyPressed(KeyEvent.VK_E) && player.playerReading) {
                     dialogState = true;
-                    player.onReadRectangle = false;
                 }
+                
 
                 // TODO: Maybe manage the title screen without update method
                 if (titleScreenOn) {
@@ -120,6 +120,7 @@ public class GamePanel extends JPanel implements Runnable {
                 }
                 
                 if (dialogState) {
+                	
                     dialogScreen.update();
                 }
 
@@ -184,9 +185,7 @@ public class GamePanel extends JPanel implements Runnable {
         // DIALOG SCREEN
         
         if(dialogState) {
-        	dialogScreen.draw(g2);
-        	
-        	
+        	dialogScreen.draw(g2); 	
         	
         }
 
@@ -196,6 +195,7 @@ public class GamePanel extends JPanel implements Runnable {
     public void playMusic(int i) {
     	
     	sound.setFile(i);
+    	sound.setVolume(-20.0f);
     	sound.play();
     	sound.loop();
     	

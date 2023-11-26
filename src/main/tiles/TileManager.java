@@ -24,7 +24,7 @@ public class TileManager implements Drawable {
     final int LAYERS = 4; // Amount of layers in a map
 
     // Just for debugging purposes (Displays Tile main.Collisions)
-    private boolean debugCollisions = true;
+    private boolean debugCollisions = false;
     // TODO: implement object debugger
 
     public TileManager(GamePanel gamePanel) {

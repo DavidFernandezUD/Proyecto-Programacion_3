@@ -21,9 +21,6 @@ public class DialogScreen implements Drawable {
     // OPTIONS
     public GamePanel gamePanel;
 
-    // INDEX
-    private boolean upToggled = false;
-    private boolean downToggled = false;
 
     DialogScreen(GamePanel gamePanel) {
     		this.gamePanel = gamePanel;
@@ -63,7 +60,7 @@ public class DialogScreen implements Drawable {
 		int height = gamePanel.tileSize * 5;
 //		drawSubWindow(x, y, width, height);
 		
-		g2.setColor(Color.black);
+		g2.setColor(new Color(0, 0, 0, 160));
 		g2.fillRoundRect(x, y, width, height, 35, 35);
 		
 	}

@@ -1,6 +1,7 @@
 package main.collisions;
 
 import main.entities.Entity;
+import main.objects.SuperObject;
 import main.GamePanel;
 import java.awt.*;
 import java.io.BufferedReader;
@@ -205,6 +206,7 @@ public class CollisionChecker {
     	for (int i = 0; i < gamePanel.obj.length; i++) {
     		
     		if (gamePanel.obj[i] != null) {
+
     			entity.collisionBox.x = entity.worldX +  entity.collisionBox.x;
     			entity.collisionBox.y = entity.worldY +  entity.collisionBox.y;
     			
@@ -212,6 +214,7 @@ public class CollisionChecker {
     					gamePanel.obj[i].solidArea.x;
     			gamePanel.obj[i].solidArea.y = gamePanel.obj[i].worldY +
     					gamePanel.obj[i].solidArea.y;
+    			
     			
     			switch(entity.direction) {
     			case "up":
@@ -273,6 +276,32 @@ public class CollisionChecker {
     	return index;
     	
     }
+    
+    public boolean isPlayerAbleToRead(Entity player, SuperObject object) {
+    	
+    	boolean isAble = false;
+    	if (player.direction.equals("up")) {
+    		// Ajusta las coordenadas de los cuadros de colisión basándote en las posiciones en el mundo del objeto y el jugador
+            player.collisionBox.x = player.worldX + player.collisionBox.x;
+            player.collisionBox.y = player.worldY + player.collisionBox.y;
+
+            object.solidArea.x = object.worldX + object.solidArea.x;
+            object.solidArea.y = object.worldY + object.solidArea.y;
+
+            // Verifica si el jugador está dentro del rectángulo de colisión del objeto
+            isAble = object.solidArea.contains(player.collisionBox);
+    	}
+
+        // Restablece las coordenadas a sus valores originales
+        player.collisionBox.x = player.collisionBoxDefaultX;
+        player.collisionBox.y = player.collisionBoxDefaultY;
+
+        object.solidArea.x = object.solidAreaDefaultX;
+        object.solidArea.y = object.solidAreaDefaultY;
+
+        return isAble;
+    }
+
 
     public void draw(Graphics2D g2) {
         g2.setColor(new Color(255, 0, 0, 100));

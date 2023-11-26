@@ -10,7 +10,7 @@ public class OBJ_Sign extends SuperObject{
 		
 		name = "Sign";
 		
-		solidArea = new Rectangle(0, 0, 64, 38);
+		solidArea = new Rectangle(0, 0, 16*6, 64*2);
 		
 //		collision = true;
 
