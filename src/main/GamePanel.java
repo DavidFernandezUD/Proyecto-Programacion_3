@@ -120,7 +120,6 @@ public class GamePanel extends JPanel implements Runnable {
                 }
                 
                 if (dialogState) {
-                	
                     dialogScreen.update();
                 }
 
