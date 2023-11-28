@@ -43,9 +43,10 @@ public class GamePanel extends JPanel implements Runnable {
     public Thread gameThread;
     public KeyHandler keyHandler = new KeyHandler();
     public MouseHandler mouseHandler = new MouseHandler();
+    public GameManager gameManager = new GameManager(this);
     public Player player = new Player(this, keyHandler, mouseHandler);
     public SuperObject obj[] = new SuperObject[10];
-    public EntityManager entityManager = new EntityManager(this, player);
+    public EntityManager entityManager = new EntityManager(this, player, gameManager);
     public TileManager tileManager = new TileManager(this);
     public CollisionChecker collisionChecker = new CollisionChecker(this);
     public AssetSetter assetSetter = new AssetSetter(this);

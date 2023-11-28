@@ -54,6 +54,11 @@ public class PauseScreen implements Drawable{
 
         if(selectionIndex == 1 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
             gamePanel.gamePaused = false;
+            //TODO: SAVE GAME
+        }
+
+        if(selectionIndex == 2 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+            gamePanel.gamePaused = false;
             gamePanel.titleScreenOn = true;
         }
 
@@ -61,14 +66,14 @@ public class PauseScreen implements Drawable{
             upToggled = !upToggled;
             selectionIndex--;
             if(selectionIndex < 0) {
-                selectionIndex = 1;
+                selectionIndex = 2;
             }
         }
 
         if(gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_S) != downToggled) {
             downToggled = !downToggled;
             selectionIndex++;
-            if(selectionIndex > 1) {
+            if(selectionIndex > 2) {
                 selectionIndex = 0;
             }
         }
@@ -87,11 +92,18 @@ public class PauseScreen implements Drawable{
         g2.setColor(selectionIndex == 0 ? highlightColor : fontColor);
         g2.drawString("CONTINUE", startX, startY);
 
+        // DRAWING SAVE GAME BUTTON
+        g2.setFont(optionFont);
+        int saveX = (gamePanel.screenWidth - g2.getFontMetrics().stringWidth("SAVE GAME")) / 2;
+        int saveY = 360;
+        g2.setColor(selectionIndex == 1 ? highlightColor : fontColor);
+        g2.drawString("SAVE GAME", saveX, saveY);
+
         // DRAWING BACK TO TITLE BUTTON
         g2.setFont(optionFont);
         int continueX = (gamePanel.screenWidth - g2.getFontMetrics().stringWidth("CONTINUE GAME")) / 2;
-        int continueY = 360;
-        g2.setColor(selectionIndex == 1 ? highlightColor : fontColor);
+        int continueY = 400;
+        g2.setColor(selectionIndex == 2 ? highlightColor : fontColor);
         g2.drawString("BACK TO TITLE", continueX, continueY);
     }
 }
