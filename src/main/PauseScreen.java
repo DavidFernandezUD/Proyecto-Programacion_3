@@ -60,6 +60,11 @@ public class PauseScreen implements Drawable{
 
         // BACK TO TITLE
         if(selectionIndex == 2 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             gamePanel.gamePaused = false;
             gamePanel.titleScreenOn = true;
         }

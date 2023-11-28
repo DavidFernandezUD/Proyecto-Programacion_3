@@ -23,6 +23,7 @@ public class TitleScreen implements Drawable {
     private boolean downToggled = false;
     private boolean leftToggled = false;
     private boolean rightToggled = false;
+    private boolean enterToggled = false;
     private int selectionIndex = 0;
     private int selectionCol = 0;
 
@@ -66,7 +67,9 @@ public class TitleScreen implements Drawable {
                 gamePanel.titleScreenOn = false;
             }
 
-            if (selectionIndex == 1 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+            // CONTINUE
+            if (selectionIndex == 1 && gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER) != enterToggled) {
+                enterToggled = !enterToggled;
                 gamePanel.gameManager.loadGames();
                 gameLoad = true;
                 gameTitle = false;
@@ -80,7 +83,8 @@ public class TitleScreen implements Drawable {
         } else if (gameLoad) {
             
             // BACK
-            if(selectionCol == 2 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+            if(selectionCol == 2 && gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER) != enterToggled) {
+                enterToggled = !enterToggled;
                 gameLoad = false;
                 gameTitle = true;
             }
@@ -172,6 +176,7 @@ public class TitleScreen implements Drawable {
             g2.setColor(selectionIndex == 4 ? highlightColor : fontColor);
             g2.drawString("EXIT", exitX, exitY);
         }
+        
         else if (gameLoad) {
             // BACKGROUND
             g2.setColor(Color.BLACK);
