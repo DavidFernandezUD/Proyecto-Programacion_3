@@ -21,7 +21,10 @@ public class TitleScreen implements Drawable {
     // INDEX
     private boolean upToggled = false;
     private boolean downToggled = false;
+    private boolean leftToggled = false;
+    private boolean rightToggled = false;
     private int selectionIndex = 0;
+    private int selectionCol = 0;
 
     // STATES
     private boolean gameLoad = false;
@@ -51,39 +54,71 @@ public class TitleScreen implements Drawable {
 
         // COLORS
         fontColor = Color.WHITE;
-        highlightColor = Color.YELLOW;
+        highlightColor = Color.RED;
     }
 
     public void update() {
 
         if (gameTitle) {
+
+            // NEW GAME
             if(selectionIndex == 0 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
                 gamePanel.titleScreenOn = false;
             }
 
+            if (selectionIndex == 1 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+                gamePanel.gameManager.loadGames();
+                gameLoad = true;
+                gameTitle = false;
+            }
+
+            // EXIT
             if(selectionIndex == 4 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
                 System.exit(0);
             }
 
-            if(gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_W) != upToggled) {
-                upToggled = !upToggled;
-                selectionIndex--;
-                if(selectionIndex < 0) {
-                    selectionIndex = 4;
-                }
-            }
-
-            if(gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_S) != downToggled) {
-                downToggled = !downToggled;
-                selectionIndex++;
-                if(selectionIndex > 4) {
-                    selectionIndex = 0;
-                }
-            }
         } else if (gameLoad) {
-            //TODO: Load game screen
+            
+            // BACK
+            if(selectionCol == 2 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+                gameLoad = false;
+                gameTitle = true;
+            }
         }
 
+        // UP AND DOWN ARROW KEYS
+        if(gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_W) != upToggled) {
+            upToggled = !upToggled;
+            selectionIndex--;
+            if(selectionIndex < 0) {
+                selectionIndex = 4;
+            }
+        }
+
+        if(gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_S) != downToggled) {
+            downToggled = !downToggled;
+            selectionIndex++;
+            if(selectionIndex > 4) {
+                selectionIndex = 0;
+            }
+        }
+
+        // LEFT AND RIGHT ARROW KEYS
+        if(gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_A) != leftToggled) {
+            leftToggled = !leftToggled;
+            selectionCol--;
+            if(selectionCol < 0) {
+                selectionCol = 2;
+            }
+        }
+        
+        if(gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_D) != rightToggled) {
+            rightToggled = !rightToggled;
+            selectionCol++;
+            if(selectionCol > 2) {
+                selectionCol = 0;
+            }
+        }
     }
 
     @Override
@@ -91,7 +126,7 @@ public class TitleScreen implements Drawable {
 
         if(gameTitle) {
             
-            // DRAWING BACKGROUND
+            // BACKGROUND
             g2.setColor(Color.BLACK);
             g2.fillRect(0, 0, gamePanel.screenWidth, gamePanel.screenHeight);
 
@@ -138,7 +173,29 @@ public class TitleScreen implements Drawable {
             g2.drawString("EXIT", exitX, exitY);
         }
         else if (gameLoad) {
-            // TODO: Draw loading screen
+            // BACKGROUND
+            g2.setColor(Color.BLACK);
+            g2.fillRect(0, 0, gamePanel.screenWidth, gamePanel.screenHeight);
+
+            // Draw the saved games and delete options
+            g2.setFont(optionFont);
+            g2.setColor(fontColor);
+            int startX = gamePanel.screenWidth / 4;
+            int startY = 200;
+            int deleteX = gamePanel.screenWidth / 4 * 2;
+            int deleteY = startY;
+            int backX = gamePanel.screenWidth / 4 * 3;
+            int backY = startY;
+
+            for (int i = 0; i < 5; i++) {
+                g2.setColor(selectionIndex == i && selectionCol == 0? highlightColor : fontColor);
+                g2.drawString(gamePanel.gameManager.games.get(i).gameName, startX, startY + i * 50);
+                g2.setColor(selectionIndex == i && selectionCol == 1? highlightColor : fontColor);
+                g2.drawString("DELETE", deleteX, deleteY + i * 50);
+            }
+
+            g2.setColor(selectionCol == 2 ? highlightColor : fontColor);
+            g2.drawString("BACK", backX, backY);
         }
     }
 }

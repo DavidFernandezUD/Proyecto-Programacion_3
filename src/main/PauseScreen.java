@@ -43,20 +43,22 @@ public class PauseScreen implements Drawable{
 
         // COLORS
         fontColor = Color.WHITE;
-        highlightColor = Color.YELLOW;
+        highlightColor = Color.RED;
     }
 
     public void update() {
 
+        // CONTINUE
         if(selectionIndex == 0 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
             gamePanel.gamePaused = false;
         }
 
+        // SAVE GAME
         if(selectionIndex == 1 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
-            gamePanel.gamePaused = false;
-            //TODO: SAVE GAME
+            // gamePanel.gameManager.saveGame();
         }
 
+        // BACK TO TITLE
         if(selectionIndex == 2 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
             gamePanel.gamePaused = false;
             gamePanel.titleScreenOn = true;
@@ -82,7 +84,8 @@ public class PauseScreen implements Drawable{
     @Override
     public void draw(Graphics2D g2) {
         
-        g2.setColor(new Color(100, 100, 100, 150));
+        // DRAWING BACKGROUND
+        g2.setColor(new Color(0, 0, 0, 150));
         g2.fillRect(0, 0, gamePanel.maxScreenCol * gamePanel.tileSize, gamePanel.maxScreenRow * gamePanel.tileSize);
 
         // DRAWING CONTINUE BUTTON
