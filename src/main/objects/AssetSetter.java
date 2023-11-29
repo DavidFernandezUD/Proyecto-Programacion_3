@@ -15,9 +15,33 @@ public class AssetSetter {
 
     public void setObjects() {
 		
+    	// MAP 1
+    	
+    	// Signs
     	gamePanel.obj[0] = new OBJ_Sign();
     	gamePanel.obj[0].worldX = (6) * gamePanel.tileSize - gamePanel.tileSize/4;
     	gamePanel.obj[0].worldY = (31) * gamePanel.tileSize;
+    	
+    	gamePanel.obj[1] = new OBJ_Sign();
+    	gamePanel.obj[1].worldX = (28) * gamePanel.tileSize - gamePanel.tileSize/4;
+    	gamePanel.obj[1].worldY = (27) * gamePanel.tileSize;
+    	
+    	gamePanel.obj[2] = new OBJ_Sign();
+    	gamePanel.obj[2].worldX = (31) * gamePanel.tileSize - gamePanel.tileSize/4;
+    	gamePanel.obj[2].worldY = (11) * gamePanel.tileSize;
+    	
+    	gamePanel.obj[3] = new OBJ_Sign();
+    	gamePanel.obj[3].worldX = (18) * gamePanel.tileSize - gamePanel.tileSize/4;
+    	gamePanel.obj[3].worldY = (6) * gamePanel.tileSize;
+    	
+    	// Graves
+    	gamePanel.obj[4] = new OBJ_Grave();
+    	gamePanel.obj[4].worldX = (2) * gamePanel.tileSize - gamePanel.tileSize/4;
+    	gamePanel.obj[4].worldY = (26) * gamePanel.tileSize;
+    	
+    	gamePanel.obj[5] = new OBJ_Grave();
+    	gamePanel.obj[5].worldX = (1) * gamePanel.tileSize - gamePanel.tileSize/4;
+    	gamePanel.obj[5].worldY = (26) * gamePanel.tileSize;
 		
 	}
 }
