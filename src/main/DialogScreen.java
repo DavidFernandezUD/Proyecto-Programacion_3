@@ -1,5 +1,6 @@
 package main;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontFormatException;
@@ -9,14 +10,18 @@ import java.io.File;
 import java.io.IOException;
 
 import main.interfaces.Drawable;
+import main.objects.OBJ_Sign;
 
 public class DialogScreen implements Drawable {
 
+	OBJ_Sign signs = new OBJ_Sign();
 	 
     // SETTINGS
     private Font optionFont;
     private final Color fontColor;
     private final Color highlightColor;
+    
+    public String currentDialogue = "";
 
     // OPTIONS
     public GamePanel gamePanel;
@@ -48,8 +53,7 @@ public class DialogScreen implements Drawable {
             gamePanel.dialogState = false;
         }
 
-    }
-	
+    }	
 	
 	@Override
 	public void draw(Graphics2D g2) {
@@ -58,15 +62,28 @@ public class DialogScreen implements Drawable {
 		int y = gamePanel.tileSize / 2;
 		int width = gamePanel.screenWidth - (gamePanel.tileSize * 4);
 		int height = gamePanel.tileSize * 5;
-//		drawSubWindow(x, y, width, height);
+		drawSubWindow(x, y, width, height, g2);
 		
-		g2.setColor(new Color(0, 0, 0, 160));
+		x += gamePanel.tileSize;
+		y += gamePanel.tileSize;
+//		g2.drawString(signs.dialoge, x, y);
+		
+	}
+
+	public void drawSubWindow(int x, int y, int width, int height, Graphics2D g2) {
+		// TODO Auto-generated method stub
+		Color c = new Color(0, 0, 0, 210);
+		g2.setColor(c);
 		g2.fillRoundRect(x, y, width, height, 35, 35);
 		
+		c = fontColor;
+		g2.setColor(c);
+		g2.setStroke(new BasicStroke(5));
+		g2.drawRoundRect(x + 5, y + 5, width - 10, height - 10, 25, 25);
+		
+		
 	}
 	
-	public void drawSubWindow(int x, int y, int width, int height) {
 	
-	}
 
 }

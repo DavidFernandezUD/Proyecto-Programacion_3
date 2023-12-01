@@ -93,4 +93,6 @@ public abstract class Entity implements Drawable {
         int[] vector = getVector(ent1, ent2);
         return Math.sqrt(vector[0] * vector[0] + vector[1] * vector[1]);
     }
+    
+
 }

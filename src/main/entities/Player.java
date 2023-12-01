@@ -165,6 +165,7 @@ public class Player extends Entity implements Drawable {
 			switch (objectName) {
 			case "Sign":
 				playerReading = gamePanel.collisionChecker.isPlayerAbleToRead(player, gamePanel.obj[i]);
+				gamePanel.obj[i].speak();
 			case "Grave":
 				playerReading = gamePanel.collisionChecker.isPlayerAbleToRead(player, gamePanel.obj[i]);
 			}
