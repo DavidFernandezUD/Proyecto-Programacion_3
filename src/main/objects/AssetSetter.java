@@ -36,11 +36,11 @@ public class AssetSetter {
     	
     	// Graves
     	gamePanel.obj[4] = new OBJ_Grave();
-    	gamePanel.obj[4].worldX = (2) * gamePanel.tileSize - gamePanel.tileSize/4;
+    	gamePanel.obj[4].worldX = (2) * gamePanel.tileSize;
     	gamePanel.obj[4].worldY = (26) * gamePanel.tileSize;
     	
     	gamePanel.obj[5] = new OBJ_Grave();
-    	gamePanel.obj[5].worldX = (1) * gamePanel.tileSize - gamePanel.tileSize/4;
+    	gamePanel.obj[5].worldX = (1) * gamePanel.tileSize;
     	gamePanel.obj[5].worldY = (26) * gamePanel.tileSize;
 		
 	}
