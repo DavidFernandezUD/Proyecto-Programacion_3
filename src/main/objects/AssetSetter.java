@@ -43,10 +43,12 @@ public class AssetSetter {
     	gamePanel.obj[4] = new OBJ_Grave();
     	gamePanel.obj[4].worldX = (2) * gamePanel.tileSize;
     	gamePanel.obj[4].worldY = (26) * gamePanel.tileSize;
+    	((OBJ_Grave) gamePanel.obj[4]).text = "Aquí yace El Fary";
     	
     	gamePanel.obj[5] = new OBJ_Grave();
     	gamePanel.obj[5].worldX = (1) * gamePanel.tileSize;
     	gamePanel.obj[5].worldY = (26) * gamePanel.tileSize;
+    	((OBJ_Grave) gamePanel.obj[5]).text = "Aquí yace Frank Sinatra";
 		
 	}
 }

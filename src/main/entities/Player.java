@@ -1,6 +1,7 @@
 package main.entities;
 
 import main.interfaces.Drawable;
+import main.objects.OBJ_Grave;
 import main.objects.OBJ_Sign;
 import main.KeyHandler;
 import main.MouseHandler;
@@ -191,9 +192,12 @@ public class Player extends Entity implements Drawable {
 			case "Sign":
 				playerReading = gamePanel.collisionChecker.isPlayerAbleToRead(player, gamePanel.obj[i]);
 				gamePanel.dialogueScreen.currentDialogue = ((OBJ_Sign) gamePanel.obj[i]).text;
+				break;
 				
 			case "Grave":
 				playerReading = gamePanel.collisionChecker.isPlayerAbleToRead(player, gamePanel.obj[i]);
+				gamePanel.dialogueScreen.currentDialogue = ((OBJ_Grave) gamePanel.obj[i]).text;
+				break;
 			}
 			
 			

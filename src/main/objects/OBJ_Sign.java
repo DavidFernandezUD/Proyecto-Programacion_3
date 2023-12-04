@@ -2,12 +2,8 @@ package main.objects;
 
 import java.awt.Rectangle;
 
-import main.GamePanel;
-
-
 public class OBJ_Sign extends SuperObject{
 	
-	public GamePanel gamePanel;
 	public String text;
 	
 	public OBJ_Sign() {

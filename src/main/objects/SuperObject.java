@@ -9,8 +9,6 @@ import main.GamePanel;
 
 public class SuperObject {
 
-	String dialogues[] = new String[20];
-
 //	public String dialogue;
 	public String name;
 	public boolean collision = false;
