@@ -45,6 +45,7 @@ public class GamePanel extends JPanel implements Runnable {
     public MouseHandler mouseHandler = new MouseHandler();
     public GameManager gameManager = new GameManager(this);
     public FontManager fontManager = new FontManager();
+    public Hud hud = new Hud(this);
     public Player player = new Player(this, keyHandler, mouseHandler);
     public SuperObject obj[] = new SuperObject[10];
     public EntityManager entityManager = new EntityManager(this, player, gameManager);
@@ -130,6 +131,7 @@ public class GamePanel extends JPanel implements Runnable {
                 if(!gamePaused && !titleScreenOn && !dialogState) {
                     // 1 UPDATE: Update information like location of items, mobs, character, etc.
                     update();
+                    hud.update();
                 }
                 
                 // 2 DRAW: Draw the screen with the updated information
@@ -170,6 +172,9 @@ public class GamePanel extends JPanel implements Runnable {
 
         // Entities
         entityManager.draw(g2);
+
+        // HUD
+        hud.draw(g2);
 
         // PAUSE SCREEN
         if(gamePaused) {

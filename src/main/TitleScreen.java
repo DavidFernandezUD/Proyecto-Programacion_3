@@ -24,6 +24,7 @@ public class TitleScreen implements Drawable {
     // STATES
     private boolean gameLoad = false;
     private boolean gameTitle = true;
+    private boolean characterSelection = false;
 
     TitleScreen(GamePanel gamePanel) {
 
@@ -58,12 +59,20 @@ public class TitleScreen implements Drawable {
 
         } else if (gameLoad) {
             
+            // DELETE
+            if(selectionCol == 1 && gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER) != enterToggled) {
+                enterToggled = !enterToggled;
+                gamePanel.gameManager.deleteGame(selectionIndex);
+            }
+
             // BACK
             if(selectionCol == 2 && gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER) != enterToggled) {
                 enterToggled = !enterToggled;
                 gameLoad = false;
                 gameTitle = true;
             }
+        } else if (characterSelection) {
+            //TODO: Character Selection
         }
 
         // UP AND DOWN ARROW KEYS
@@ -72,14 +81,16 @@ public class TitleScreen implements Drawable {
             selectionIndex--;
             if(selectionIndex < 0) {
                 selectionIndex = 4;
-            }
+            } 
         }
 
         if(gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_S) != downToggled) {
             downToggled = !downToggled;
             selectionIndex++;
-            if(selectionIndex > 4) {
+            if(selectionIndex > 4 && gameTitle) {
                 selectionIndex = 0;
+            } else if (selectionIndex > gamePanel.gameManager.games.size() && gameLoad) {
+                selectionIndex = gamePanel.gameManager.games.size();
             }
         }
 
@@ -177,6 +188,10 @@ public class TitleScreen implements Drawable {
 
             g2.setColor(selectionCol == 2 ? FontManager.highlightColor : FontManager.fontColor);
             g2.drawString("BACK", backX, backY);
+        }
+
+        else if (characterSelection) {
+            //TODO: Character Selection
         }
     }
 }

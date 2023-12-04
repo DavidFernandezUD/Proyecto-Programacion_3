@@ -62,4 +62,8 @@ public class GameManager {
     public void loadGame(Integer index) {
         this.currentGame = games.get(index);
     }
+
+    public void deleteGame(Integer index) {
+        games.remove(games.get(index));
+    }
 }
