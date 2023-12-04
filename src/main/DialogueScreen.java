@@ -12,9 +12,7 @@ import java.io.IOException;
 import main.interfaces.Drawable;
 import main.objects.OBJ_Sign;
 
-public class DialogScreen implements Drawable {
-
-	OBJ_Sign signs = new OBJ_Sign();
+public class DialogueScreen implements Drawable {
 	 
     // SETTINGS
     private Font optionFont;
@@ -27,7 +25,7 @@ public class DialogScreen implements Drawable {
     public GamePanel gamePanel;
 
 
-    DialogScreen(GamePanel gamePanel) {
+    DialogueScreen(GamePanel gamePanel) {
     		this.gamePanel = gamePanel;
     		
     		// FONTS
@@ -50,7 +48,7 @@ public class DialogScreen implements Drawable {
     public void update() {
 
         if(gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
-            gamePanel.dialogState = false;
+            gamePanel.dialogueState = false;
         }
 
     }	
@@ -64,14 +62,18 @@ public class DialogScreen implements Drawable {
 		int height = gamePanel.tileSize * 5;
 		drawSubWindow(x, y, width, height, g2);
 		
+		g2.setFont(optionFont);
 		x += gamePanel.tileSize;
 		y += gamePanel.tileSize;
-//		g2.drawString(signs.dialoge, x, y);
+		for(String line: currentDialogue.split("\n")) {
+			g2.drawString(line, x, y);
+			y += 40;
+		}
+
 		
 	}
 
 	public void drawSubWindow(int x, int y, int width, int height, Graphics2D g2) {
-		// TODO Auto-generated method stub
 		Color c = new Color(0, 0, 0, 210);
 		g2.setColor(c);
 		g2.fillRoundRect(x, y, width, height, 35, 35);

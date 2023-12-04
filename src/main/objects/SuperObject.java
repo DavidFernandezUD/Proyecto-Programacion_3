@@ -39,9 +39,5 @@ public class SuperObject {
 
 		}
 	}
-	
-	public void speak() {
-		
-	}
 
 }

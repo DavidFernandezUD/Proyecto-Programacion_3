@@ -34,7 +34,7 @@ public class GamePanel extends JPanel implements Runnable {
     public boolean gamePaused = false;
     public boolean titleScreenOn = true;
     public boolean escToggled = false;
-    public boolean dialogState = false;
+    public boolean dialogueState = false;
 
     // FPS
     public int FPS = 60;
@@ -53,7 +53,7 @@ public class GamePanel extends JPanel implements Runnable {
     public AssetSetter assetSetter = new AssetSetter(this);
     public TitleScreen titleScreen = new TitleScreen(this);
     public PauseScreen pauseScreen = new PauseScreen(this);
-    public DialogScreen dialogScreen = new DialogScreen(this);
+    public DialogueScreen dialogueScreen = new DialogueScreen(this);
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -108,7 +108,7 @@ public class GamePanel extends JPanel implements Runnable {
                 }
                 
                 if (keyHandler.isKeyPressed(KeyEvent.VK_E) && player.playerReading) {
-                    dialogState = true;
+                    dialogueState = true;
                 }
                 
 
@@ -121,13 +121,13 @@ public class GamePanel extends JPanel implements Runnable {
                     pauseScreen.update();
                 }
                 
-                if (dialogState) {
-                    dialogScreen.update();
+                if (dialogueState) {
+                    dialogueScreen.update();
                 }
 
 
                 // Only updating the game state if the game isn't paused
-                if(!gamePaused && !titleScreenOn && !dialogState) {
+                if(!gamePaused && !titleScreenOn && !dialogueState) {
                     // 1 UPDATE: Update information like location of items, mobs, character, etc.
                     update();
                 }
@@ -185,8 +185,8 @@ public class GamePanel extends JPanel implements Runnable {
         
         // DIALOG SCREEN
         
-        if(dialogState) {
-        	dialogScreen.draw(g2); 	
+        if(dialogueState) {
+        	dialogueScreen.draw(g2); 	
         	
         }
 
