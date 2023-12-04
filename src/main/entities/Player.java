@@ -54,6 +54,10 @@ public class Player extends Entity implements Drawable {
 	// For objects
 	public boolean playerReading = false;
 
+	//Payer Status
+	public int health = 100;
+	public int stamina = 100;
+
 	// Just for debugging purposes (Displays Collision Box)
 	private boolean debug = false;
 
