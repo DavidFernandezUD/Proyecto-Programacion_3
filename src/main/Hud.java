@@ -14,7 +14,7 @@ public class Hud implements Drawable{
     public GamePanel gamePanel;
 
     //Data
-    int health;
+    int health = 90;
     int stamina;
     int maxStamina = 100;
     
@@ -46,7 +46,7 @@ public class Hud implements Drawable{
     }
 
     public void update() {
-        health = gamePanel.player.health;
+        //health = gamePanel.player.health;
         stamina = gamePanel.player.stamina;
     }
 
@@ -54,6 +54,9 @@ public class Hud implements Drawable{
     public void draw(Graphics2D g2) {
         for (int i = 0; i < health / 20; i++) {
             g2.drawImage(fullHeart, 50 + (i * heartWidth), 40, null);
+        }
+        if (health % 20 != 0) {
+            g2.drawImage(halfHeart, 50 + ((health / 20) * heartWidth), 40, null);
         }
     }
 }
