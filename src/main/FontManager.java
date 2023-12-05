@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class FontManager {
+    
     public static Font titleFont;
     public static Font optionFont;
     public static Color fontColor;
