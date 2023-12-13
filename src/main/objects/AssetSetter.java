@@ -53,11 +53,7 @@ public class AssetSetter {
     	// Chests
     	gamePanel.obj[6] = new OBJ_Chest();
     	gamePanel.obj[6].worldX = (21) * gamePanel.tileSize - gamePanel.tileSize/4;
-    	gamePanel.obj[6].worldY = (2) * gamePanel.tileSize;  	
-    	
-    	gamePanel.obj[7] = new OBJ_Chest();
-    	gamePanel.obj[7].worldX = (25) * gamePanel.tileSize - gamePanel.tileSize/4;
-    	gamePanel.obj[7].worldY = (27) * gamePanel.tileSize;  
+    	gamePanel.obj[6].worldY = (2) * gamePanel.tileSize;  	 
 		
 	}
 }

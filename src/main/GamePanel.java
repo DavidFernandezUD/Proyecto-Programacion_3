@@ -35,6 +35,8 @@ public class GamePanel extends JPanel implements Runnable {
     public boolean titleScreenOn = true;
     public boolean escToggled = false;
     public boolean dialogueState = false;
+    public boolean inventoryState = false;
+    public boolean iToggled = false;
 
     // FPS
     public int FPS = 60;
@@ -55,6 +57,7 @@ public class GamePanel extends JPanel implements Runnable {
     public TitleScreen titleScreen = new TitleScreen(this);
     public PauseScreen pauseScreen = new PauseScreen(this);
     public DialogueScreen dialogueScreen = new DialogueScreen(this);
+    public InventoryScreen inventoryScreen = new InventoryScreen(this);
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -108,11 +111,15 @@ public class GamePanel extends JPanel implements Runnable {
                     gamePaused = true;
                 }
                 
+                if (keyHandler.isKeyToggled(KeyEvent.VK_I) != iToggled) {
+                    iToggled = keyHandler.isKeyToggled(KeyEvent.VK_I);
+                    inventoryState = true;
+                }
+                
                 if (keyHandler.isKeyPressed(KeyEvent.VK_E) && player.playerReading) {
                     dialogueState = true;
                 }
                 
-
                 // TODO: Maybe manage the title screen without update method
                 if (titleScreenOn) {
                     titleScreen.update();
@@ -125,10 +132,14 @@ public class GamePanel extends JPanel implements Runnable {
                 if (dialogueState) {
                     dialogueScreen.update();
                 }
+                
+                if (inventoryState) {
+                	inventoryScreen.update();
+                }
 
 
                 // Only updating the game state if the game isn't paused
-                if(!gamePaused && !titleScreenOn && !dialogueState) {
+                if(!gamePaused && !titleScreenOn && !dialogueState && !inventoryState) {
                     // 1 UPDATE: Update information like location of items, mobs, character, etc.
                     update();
                     hud.update();
@@ -181,6 +192,10 @@ public class GamePanel extends JPanel implements Runnable {
             g2.setColor(new Color(100, 100, 100, 150));
             g2.fillRect(0, 0, maxScreenCol * tileSize, maxScreenRow * tileSize);
             pauseScreen.draw(g2);
+        }
+        
+        if(inventoryState) {
+        	inventoryScreen.draw(g2);
         }
 
         // TITLE SCREEN

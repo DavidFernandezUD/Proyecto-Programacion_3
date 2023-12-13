@@ -203,9 +203,7 @@ public class Player extends Entity implements Drawable {
 				gamePanel.dialogueScreen.currentDialogue = ((OBJ_Grave) gamePanel.obj[i]).text;
 				break;
 				
-			case "Chest":
-				playerReading = gamePanel.collisionChecker.isPlayerAbleToRead(player, gamePanel.obj[i]);
-				
+			case "Chest":			
 				// TODO: implement inventory
 			}
 			
