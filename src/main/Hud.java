@@ -1,5 +1,6 @@
 package main;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -14,9 +15,8 @@ public class Hud implements Drawable{
     public GamePanel gamePanel;
 
     //Data
-    int health = 90;
+    int health;
     int stamina;
-    int maxStamina = 100;
     
     //Heart Image
     int heartWidth = 40;
@@ -25,13 +25,14 @@ public class Hud implements Drawable{
     Image halfHeart;
 
     //Progress Bar
-    int progressBarWidth = 200;
+    int progressBarWidth = 180;
     int progressBarHeight = 20;
     int progressBarX = 50;
-    int progressBarY = 50;
+    int progressBarY = 100;
 
     public Hud(GamePanel gamePanel) {
         
+        // Load Heart Images
         this.gamePanel = gamePanel;
         try {
             BufferedImage IO1 = ImageIO.read(new File("src/main/res/hud/heart border sh.png"));
@@ -46,17 +47,44 @@ public class Hud implements Drawable{
     }
 
     public void update() {
-        //health = gamePanel.player.health;
+        health = gamePanel.player.health;
         stamina = gamePanel.player.stamina;
     }
 
     @Override
     public void draw(Graphics2D g2) {
+        // Draw Health
         for (int i = 0; i < health / 20; i++) {
             g2.drawImage(fullHeart, 50 + (i * heartWidth), 40, null);
         }
         if (health % 20 != 0) {
             g2.drawImage(halfHeart, 50 + ((health / 20) * heartWidth), 40, null);
         }
+
+        // Draw Stamina
+        int remaining = 5 - stamina ;
+        int x = progressBarX;
+        int y = progressBarY;
+        g2.setColor(Color.GREEN);
+        for (int i = 0; i < 5; i++) {
+            g2.fillRoundRect(x, y, progressBarWidth / 5, progressBarHeight, 10, 10);
+            x += progressBarWidth / 5 + 5;
+        }
+        if (remaining > 0) {
+            g2.fillRoundRect(x, y, (progressBarWidth / 5) * remaining / 20, progressBarHeight, 10, 10);
+        }
+
+        // Draw borders
+        x = progressBarX;
+        y = progressBarY;
+        g2.setColor(Color.WHITE);
+        for (int i = 0; i < 5; i++) {
+            g2.drawRoundRect(x, y, progressBarWidth / 5, progressBarHeight, 10, 10);
+            x += progressBarWidth / 5 + 5;
+        }
+        if (remaining > 0) {
+            g2.drawRoundRect(x, y, (progressBarWidth / 5) * remaining / 20, progressBarHeight, 10, 10);
+        }
     }
+
 }
