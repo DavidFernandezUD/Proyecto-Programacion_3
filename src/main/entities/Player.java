@@ -1,8 +1,8 @@
 package main.entities;
 
 import main.interfaces.Drawable;
-import main.objects.OBJ_Grave;
-import main.objects.OBJ_Sign;
+//import main.objects.OBJ_Grave;
+//import main.objects.OBJ_Sign;
 import main.KeyHandler;
 import main.MouseHandler;
 import main.Utility;
@@ -40,7 +40,6 @@ import main.GamePanel;
 
 public class Player extends Entity implements Drawable {
 
-
 	KeyHandler keyHandler;
 	MouseHandler mouseHandler;
 
@@ -57,7 +56,13 @@ public class Player extends Entity implements Drawable {
 	// For objects
 	public boolean playerReading = false;
 
-	//Payer Status
+	// For items
+	boolean hasWoodenSword = false;
+	boolean hasIronSword = false;
+	boolean hasGoldenSword = false;
+	boolean hasBloodySword = false;
+
+	// Payer Status
 	public int health = 90;
 	public int stamina = 5;
 	public int maxHealth = 100;
@@ -87,7 +92,8 @@ public class Player extends Entity implements Drawable {
 		moving = false;
 		attacking = false;
 		collisionBox = new Rectangle(11, 22, 42, 42);
-		// for objects
+
+		// For objects
 		collisionBoxDefaultX = collisionBox.x;
 		collisionBoxDefaultY = collisionBox.y;
 
@@ -141,13 +147,17 @@ public class Player extends Entity implements Drawable {
 				direction = "right";
 			}
 
-			// Check collisions
+			// CHECK TILE COLLISION
 			collisionOn = false;
 			gamePanel.collisionChecker.checkTileCollision(this);
 
+			// CHECK ITEM COLLISION
+			int itemIndex = gamePanel.collisionChecker.checkItem(this, true);
+			pickUpItem(itemIndex);
+
 			// Check object collisions
-			int objIndex = gamePanel.collisionChecker.checkObject(this, true);
-			readObject(objIndex, this);
+//			int objIndex = gamePanel.collisionChecker.checkObject(this, true);
+//			readObject(objIndex, this);
 
 			// If collision is false the player can move
 			if (!collisionOn) {
@@ -187,27 +197,79 @@ public class Player extends Entity implements Drawable {
 		}
 	}
 
-	public void readObject(int i, Entity player) {
+//	public void readObject(int i, Entity player) {
+//
+//		if (i != 999) {
+//			String objectName = gamePanel.obj[i].name;
+//
+//			switch (objectName) {
+//			case "Sign":
+//				playerReading = gamePanel.collisionChecker.isPlayerAbleToRead(player, gamePanel.obj[i]);
+//				gamePanel.dialogueScreen.currentDialogue = ((OBJ_Sign) gamePanel.obj[i]).text;
+//				break;
+//				
+//			case "Grave":
+//				playerReading = gamePanel.collisionChecker.isPlayerAbleToRead(player, gamePanel.obj[i]);
+//				gamePanel.dialogueScreen.currentDialogue = ((OBJ_Grave) gamePanel.obj[i]).text;
+//				break;
+//				
+//			case "Chest":			
+//				// TODO: implement inventory
+//			}
+//			
+//			
+//		}
+//	}
+
+	public void pickUpItem(int i) {
 
 		if (i != 999) {
-			String objectName = gamePanel.obj[i].name;
+			String objectName = gamePanel.items[i].name;
 
 			switch (objectName) {
-			case "Sign":
-				playerReading = gamePanel.collisionChecker.isPlayerAbleToRead(player, gamePanel.obj[i]);
-				gamePanel.dialogueScreen.currentDialogue = ((OBJ_Sign) gamePanel.obj[i]).text;
+			// SWORDS
+			// TODO: drop swords
+			case "Wooden Sword":
+
+				if (!hasBloodySword && !hasGoldenSword && !hasIronSword && !hasWoodenSword) {
+					hasWoodenSword = true;
+					gamePanel.items[i] = null;
+					System.out.println("Wooden Sword: " + hasWoodenSword);
+					break;
+				}
 				break;
-				
-			case "Grave":
-				playerReading = gamePanel.collisionChecker.isPlayerAbleToRead(player, gamePanel.obj[i]);
-				gamePanel.dialogueScreen.currentDialogue = ((OBJ_Grave) gamePanel.obj[i]).text;
+			case "Iron Sword":
+
+				if (!hasBloodySword && !hasGoldenSword && !hasIronSword) {
+					hasIronSword = true;
+					gamePanel.items[i] = null;
+					hasWoodenSword = false;
+					System.out.println("Iron Sword: " + hasIronSword);
+					break;
+				}
 				break;
-				
-			case "Chest":			
-				// TODO: implement inventory
+
+			case "Golden Sword":
+				if (!hasBloodySword && !hasGoldenSword ) {
+					hasGoldenSword = true;
+					gamePanel.items[i] = null;
+					hasWoodenSword = false;
+					hasIronSword = false;
+					break;
+				}
+				break;
+
+			case "Bloody Sword":
+				if (!hasBloodySword) {
+					hasBloodySword = true;
+					gamePanel.items[i] = null;
+					hasWoodenSword = false;
+					hasIronSword = false;
+					hasGoldenSword = false;
+					break;
+				}
+				break;
 			}
-			
-			
 		}
 	}
 

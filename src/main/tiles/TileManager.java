@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.Objects;
 import javax.imageio.ImageIO;
 import main.interfaces.Drawable;
+//import main.objects.SuperObject;
 import main.GamePanel;
 import main.Utility;
-import main.objects.SuperObject;
 
 public class TileManager implements Drawable {
     

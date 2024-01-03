@@ -1,11 +1,14 @@
 package main;
 
 import javax.swing.JPanel;
+
 import main.collisions.CollisionChecker;
 import main.entities.EntityManager;
 import main.entities.Player;
-import main.objects.AssetSetter;
-import main.objects.SuperObject;
+import main.items.ItemSetter;
+import main.items.SuperItem;
+//import main.objects.AssetSetter;
+//import main.objects.SuperObject;
 import main.tiles.TileManager;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -40,8 +43,15 @@ public class GamePanel extends JPanel implements Runnable {
 
     // FPS
     public int FPS = 60;
+    
+    // ITEMS
+//  public SuperObject obj[] = new SuperObject[10];
+//  public AssetSetter assetSetter = new AssetSetter(this);
+    public SuperItem items[] = new SuperItem[10];
+    public ItemSetter itemSetter = new ItemSetter(this);
 
     Sound sound = new Sound();
+    
     public Thread gameThread;
     public KeyHandler keyHandler = new KeyHandler();
     public MouseHandler mouseHandler = new MouseHandler();
@@ -49,14 +59,13 @@ public class GamePanel extends JPanel implements Runnable {
     public FontManager fontManager = new FontManager();
     public Hud hud = new Hud(this);
     public Player player = new Player(this, keyHandler, mouseHandler);
-    public SuperObject obj[] = new SuperObject[10];
     public EntityManager entityManager = new EntityManager(this, player, gameManager);
     public TileManager tileManager = new TileManager(this);
     public CollisionChecker collisionChecker = new CollisionChecker(this);
-    public AssetSetter assetSetter = new AssetSetter(this);
+    
     public TitleScreen titleScreen = new TitleScreen(this);
     public PauseScreen pauseScreen = new PauseScreen(this);
-    public DialogueScreen dialogueScreen = new DialogueScreen(this);
+//    public DialogueScreen dialogueScreen = new DialogueScreen(this);
     public InventoryScreen inventoryScreen = new InventoryScreen(this);
 
     public GamePanel() {
@@ -70,8 +79,11 @@ public class GamePanel extends JPanel implements Runnable {
     }
     
     public void setUpGame() {
-    	assetSetter.setObjects();
+    	// Sets items
+//    	assetSetter.setObjects();
+    	itemSetter.setItem();
     	
+    	// Plays music
     	if (titleScreenOn) {
 //    		playMusic(0);
     	}   	
@@ -129,9 +141,9 @@ public class GamePanel extends JPanel implements Runnable {
                     pauseScreen.update();
                 }
                 
-                if (dialogueState) {
-                    dialogueScreen.update();
-                }
+//                if (dialogueState) {
+//                    dialogueScreen.update();
+//                }
                 
                 if (inventoryState) {
                 	inventoryScreen.update();
@@ -175,11 +187,17 @@ public class GamePanel extends JPanel implements Runnable {
         tileManager.draw(g2);
         
         // OBJECTS
-        for (int i = 0; i < obj.length; i++) {
-        	if (obj[i] != null) {
-        		obj[i].draw(g2, this); 
+//        for (int i = 0; i < obj.length; i++) {
+//        	if (obj[i] != null) {
+//        		obj[i].draw(g2, this); 
+//        	}
+//        }
+        for (int i = 0; i < items.length; i++) {
+        	if (items[i] != null) {
+        		items[i].draw(g2, this);
         	}
         }
+        
 
         // Entities
         entityManager.draw(g2);
@@ -205,10 +223,10 @@ public class GamePanel extends JPanel implements Runnable {
         
         // DIALOG SCREEN
         
-        if(dialogueState) {
-        	dialogueScreen.draw(g2); 	
-        	
-        }
+//        if(dialogueState) {
+//        	dialogueScreen.draw(g2); 	
+//        	
+//        }
 
         g2.dispose(); // dispose helps to free some memory after the painting has ended
     }
