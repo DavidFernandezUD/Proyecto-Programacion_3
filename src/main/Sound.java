@@ -16,6 +16,7 @@ public class Sound {
 	public Sound() {
 		
 		soundURL[0] = getClass().getResource("/main/res/sounds/The Never Ending Story.wav");
+		soundURL[1] = getClass().getResource("/main/res/sounds/cursor.wav");
 		
 	}
 	

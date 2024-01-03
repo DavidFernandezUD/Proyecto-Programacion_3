@@ -73,7 +73,7 @@ public class GamePanel extends JPanel implements Runnable {
     	assetSetter.setObjects();
     	
     	if (titleScreenOn) {
-    		playMusic(0);
+//    		playMusic(0);
     	}   	
     }
 
@@ -219,6 +219,13 @@ public class GamePanel extends JPanel implements Runnable {
     	sound.setVolume(-20.0f);
     	sound.play();
     	sound.loop();
+    	
+    }
+    public void playSound(int i) {
+    	
+    	sound.setFile(i);
+    	sound.setVolume(-20.0f);
+    	sound.play();
     	
     }
     public void stopMusic() {
