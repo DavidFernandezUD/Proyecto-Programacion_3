@@ -43,6 +43,9 @@ public class Player extends Entity implements Drawable {
 	public int stamina = 5;
 	public final int MAX_HEALTH = 100;
 	public final int MAX_STAMINA = 5;
+	public int I_FRAMES = 60; // invulnerability frames
+	public int i_counter = 60;
+	public boolean invulnerable = true;
 
 	// Just for debugging purposes (Displays Collision Box)
 	private boolean debug = false;
@@ -171,6 +174,10 @@ public class Player extends Entity implements Drawable {
 			}
 			spriteCounter = 0;
 		}
+
+		// Invulnerability Frames
+		invulnerable = i_counter < I_FRAMES;
+		if(invulnerable) {i_counter++;}
 	}
 
 //	public void readObject(int i, Entity player) {
@@ -196,6 +203,18 @@ public class Player extends Entity implements Drawable {
 //			
 //		}
 //	}
+
+	public void damage(int damage) {
+		if(!gamePanel.player.invulnerable) {
+			i_counter = 0;
+			health -= damage;
+		}
+
+		// TODO: Make the player die when getting to 0 health points
+		if(health <= 0) {
+			health = MAX_HEALTH;
+		}
+	}
 
 	public void pickUpItem(int i) {
 

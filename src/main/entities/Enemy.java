@@ -12,7 +12,7 @@ import java.util.Objects;
 
 public class Enemy extends Entity implements Drawable {
 
-    private boolean debug = true;
+    private boolean debug = false;
     private ArrayList<PathFinder.Node> path = null;
 
     public Enemy(GamePanel gamePanel) {
@@ -53,9 +53,10 @@ public class Enemy extends Entity implements Drawable {
 
     public void update() {
 
-        int TRACKING_RANGE = 25; // Maximum tracking range in tiles
+        int TRACKING_RANGE = 20; // Maximum tracking range in tiles
         double distance = Entity.getDistance(this, gamePanel.player);
-        moving = distance > tileSize && distance < tileSize * TRACKING_RANGE;
+        // FIXME: Enemy continues moving animation after reaching target
+        moving = distance > 0 && distance < tileSize * TRACKING_RANGE;
 
         if(moving) {
 
@@ -81,7 +82,7 @@ public class Enemy extends Entity implements Drawable {
                             direction = "right";
                         }
                     } else {
-                        if(nextX < worldX) {
+                        if(nextY < worldY) {
                             direction = "up";
                         } else {
                             direction = "down";
@@ -104,6 +105,15 @@ public class Enemy extends Entity implements Drawable {
 					    worldX += speed;
 					    break;
 				}
+            }
+        }
+
+        // Attacking
+        attacking = false;
+        if(distance < tileSize) {
+            attacking = true;
+            if(collides(this, gamePanel.player)) {
+                gamePanel.player.damage(10);
             }
         }
 

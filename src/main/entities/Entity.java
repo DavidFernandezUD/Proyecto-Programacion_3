@@ -167,4 +167,22 @@ public abstract class Entity implements Drawable {
 			}
 		}
 	}
+
+    protected boolean collides(Entity ent1, Entity ent2) {
+        Rectangle collision1 = new Rectangle(
+                ent1.worldX + ent1.collisionBox.x,
+                ent1.worldY + ent1.collisionBox.y,
+                ent1.collisionBox.width,
+                ent1.collisionBox.height
+        );
+
+        Rectangle collision2 = new Rectangle(
+                ent2.worldX + ent2.collisionBox.x,
+                ent2.worldY + ent2.collisionBox.y,
+                ent2.collisionBox.width,
+                ent2.collisionBox.height
+        );
+
+        return collision1.intersects(collision2);
+    }
 }
