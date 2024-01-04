@@ -7,11 +7,13 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Enemy extends Entity implements Drawable {
 
-    private boolean debug = false;
+    private boolean debug = true;
+    private ArrayList<PathFinder.Node> path = null;
 
     public Enemy(GamePanel gamePanel) {
         super(gamePanel);
@@ -51,27 +53,57 @@ public class Enemy extends Entity implements Drawable {
 
     public void update() {
 
-        // TODO: THIS IS A PLACEHOLDER
+        int TRACKING_RANGE = 25; // Maximum tracking range in tiles
         double distance = Entity.getDistance(this, gamePanel.player);
-        moving = distance > tileSize && distance < tileSize * 6;
+        moving = distance > tileSize && distance < tileSize * TRACKING_RANGE;
 
         if(moving) {
 
-            // TODO: CHANGE THIS WITH A* ALGORITHM
-            direction = Entity.getDirection(this, gamePanel.player);
+            path = gamePanel.pathFinder.search(this, gamePanel.player);
 
-            // Check collisions
-            collisionOn = false;
-            gamePanel.collisionChecker.checkTileCollision(this);
+            if(path != null) {
 
-            // If collision is false the player can move
-            if(!collisionOn) {
-                switch(direction) {
-                    case "up": worldY -= speed; break;
-                    case "down": worldY += speed; break;
-                    case "left": worldX -= speed; break;
-                    case "right": worldX += speed; break;
+                int nextX = path.get(0).col * tileSize;
+                int nextY = path.get(0).row * tileSize;
+
+                direction = Entity.getDirection(this, path.get(0));
+
+                // Check collisions
+                collisionOn = false;
+                gamePanel.collisionChecker.checkTileCollision(this);
+
+                // Obstacle avoidance
+                if(collisionOn) {
+                    if(Objects.equals(direction, "up") || Objects.equals(direction, "down")) {
+                        if(nextX < worldX) {
+                            direction = "left";
+                        } else {
+                            direction = "right";
+                        }
+                    } else {
+                        if(nextX < worldX) {
+                            direction = "up";
+                        } else {
+                            direction = "down";
+                        }
+                    }
                 }
+
+                // Moving
+                switch (direction) {
+				    case "up":
+					    worldY -= speed;
+					    break;
+				    case "down":
+					    worldY += speed;
+					    break;
+				    case "left":
+					    worldX -= speed;
+					    break;
+				    case "right":
+					    worldX += speed;
+					    break;
+				}
             }
         }
 
@@ -118,10 +150,24 @@ public class Enemy extends Entity implements Drawable {
         // Drawing Player
         g2.drawImage(image, screenX, screenY, gamePanel.tileSize, gamePanel.tileSize, null);
 
-        // Drawing collision box
+        // Redrawing props if enemy is behind them
+		redrawProp(g2, this, screenX, screenY);
+
         if(debug) {
+
+            // Drawing Collision Box
             g2.setColor(new Color(255, 0, 0, 150));
             g2.fillRect(collisionBox.x + screenX, collisionBox.y + screenY, collisionBox.width, collisionBox.height);
+
+            // Drawing Path
+            if(path != null) {
+                g2.setColor(new Color(255, 144, 0, 150));
+                for(PathFinder.Node node : path) {
+                    screenX = node.col * tileSize - gamePanel.player.worldX + gamePanel.player.screenX;
+                    screenY = node.row * tileSize - gamePanel.player.worldY + gamePanel.player.screenY;
+                    g2.fillRect(screenX, screenY, tileSize, tileSize);
+                }
+            }
         }
     }
 

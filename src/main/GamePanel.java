@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 
 import main.collisions.CollisionChecker;
 import main.entities.EntityManager;
+import main.entities.PathFinder;
 import main.entities.Player;
 import main.items.ItemSetter;
 import main.items.SuperItem;
@@ -56,12 +57,13 @@ public class GamePanel extends JPanel implements Runnable {
     public KeyHandler keyHandler = new KeyHandler();
     public MouseHandler mouseHandler = new MouseHandler();
     public GameManager gameManager = new GameManager(this);
+    public TileManager tileManager = new TileManager(this);
+    public CollisionChecker collisionChecker = new CollisionChecker(this);
+    public PathFinder pathFinder = new PathFinder(this);
     public FontManager fontManager = new FontManager();
     public Hud hud = new Hud(this);
     public Player player = new Player(this, keyHandler, mouseHandler);
     public EntityManager entityManager = new EntityManager(this, player, gameManager);
-    public TileManager tileManager = new TileManager(this);
-    public CollisionChecker collisionChecker = new CollisionChecker(this);
     
     public TitleScreen titleScreen = new TitleScreen(this);
     public PauseScreen pauseScreen = new PauseScreen(this);
