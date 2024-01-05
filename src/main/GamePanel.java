@@ -55,18 +55,21 @@ public class GamePanel extends JPanel implements Runnable {
     public Thread gameThread;
     public KeyHandler keyHandler = new KeyHandler();
     public MouseHandler mouseHandler = new MouseHandler();
-    public GameManager gameManager = new GameManager(this);
     public FontManager fontManager = new FontManager();
     public Hud hud = new Hud(this);
     public Player player = new Player(this, keyHandler, mouseHandler);
-    public EntityManager entityManager = new EntityManager(this, player, gameManager);
+    public EntityManager entityManager = new EntityManager(this, player);
     public TileManager tileManager = new TileManager(this);
     public CollisionChecker collisionChecker = new CollisionChecker(this);
-    
+
     public TitleScreen titleScreen = new TitleScreen(this);
     public PauseScreen pauseScreen = new PauseScreen(this);
 //    public DialogueScreen dialogueScreen = new DialogueScreen(this);
     public InventoryScreen inventoryScreen = new InventoryScreen(this);
+
+    //GAME MANAGER
+    public Game currentGame = new Game(this);
+    public GameManager gameManager = new GameManager(this, currentGame);
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));

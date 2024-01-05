@@ -1,8 +1,6 @@
 package main.entities;
 
 import main.interfaces.Drawable;
-import main.Game;
-import main.GameManager;
 import main.GamePanel;
 
 import java.awt.*;
@@ -13,15 +11,13 @@ public class EntityManager implements Drawable {
 
     GamePanel gamePanel;
     Player player;
-    Game game;
 
-    private ArrayList<Entity> entities;
+    public ArrayList<Entity> entities;
 
-    public EntityManager(GamePanel gamePanel, Player player, GameManager gameManager) {
+    public EntityManager(GamePanel gamePanel, Player player) {
 
         this.gamePanel = gamePanel;
         this.player = player;
-        this.game = gameManager.currentGame;
 
         entities = new ArrayList<>();
         setEntities();

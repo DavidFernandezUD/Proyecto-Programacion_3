@@ -1,24 +1,27 @@
 package main;
 
 import java.util.ArrayList;
+
 import main.entities.Entity;
+import main.entities.Player;
 
 public class Game {
 
-    // Game data, at the moment very simple
+    // Game panel
+    public GamePanel gamePanel;
+
+    // Game data
+    public Integer gameCode;
     public String gameName;
-    public int playerPositionX;
-    public int playerPositionY;
-    public ArrayList<Entity> gameEntities;
+    public String date;
+    public Player player;
+    public ArrayList<Entity> entities;
 
-    public Game(String gameName, int playerPositionX, int playerPositionY) {
-        this.gameName = gameName;
-        this.playerPositionX = playerPositionX;
-        this.playerPositionY = playerPositionY;
+    public Game(GamePanel gamePanel) {
+        this.gamePanel = gamePanel;
+        this.gameName = "Game";
+        this.date = java.time.LocalDate.now().toString();
+        this.player = gamePanel.player;
+        this.entities = gamePanel.entityManager.entities;
     }
-
-    public String toString() {
-        return gameName + "," + playerPositionX + "," + playerPositionY;
-    }
-
 }

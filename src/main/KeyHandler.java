@@ -89,5 +89,11 @@ public class KeyHandler implements KeyListener {
                 keyCode == KeyEvent.VK_D;
     }
 
-    
+    public String getKeyPressed() {
+        if (!pressedKeys.isEmpty()) {
+            int keyCode = pressedKeys.iterator().next();
+            return KeyEvent.getKeyText(keyCode);
+        }
+        return null;
+    } 
 }

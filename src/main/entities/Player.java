@@ -6,7 +6,6 @@ import main.interfaces.Drawable;
 import main.KeyHandler;
 import main.MouseHandler;
 import main.Utility;
-import main.Weapon;
 
 import java.awt.Color;
 import java.awt.Composite;
@@ -63,7 +62,7 @@ public class Player extends Entity implements Drawable {
 	boolean hasBloodySword = false;
 
 	// Payer Status
-	public int health = 90;
+	public int health = 100;
 	public int stamina = 5;
 	public int maxHealth = 100;
 	public int maxStamina = 5;

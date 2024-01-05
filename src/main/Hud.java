@@ -53,6 +53,7 @@ public class Hud implements Drawable{
 
     @Override
     public void draw(Graphics2D g2) {
+        
         // Draw Health
         for (int i = 0; i < health / 20; i++) {
             g2.drawImage(fullHeart, 50 + (i * heartWidth), 40, null);

@@ -33,16 +33,7 @@ public class InventoryScreen implements Drawable {
 		this.gamePanel = gamePanel;
 
 		// FONTS
-		try {
-			// Load the font from a file
-			Font customOptionFont = Font.createFont(Font.TRUETYPE_FONT, new File("src/main/res/fonts/digitany.ttf"));
-			// Create the title and option fonts using the custom font
-			optionFont = customOptionFont.deriveFont(Font.BOLD, 24);
-
-		} catch (FontFormatException | IOException e) {
-			// Fallback to default fonts if the custom font could not be loaded
-			optionFont = new Font("Arial", Font.PLAIN, 24);
-		}
+		optionFont = FontManager.optionFont;
 
 		// COLORS
 		fontColor = Color.WHITE;
