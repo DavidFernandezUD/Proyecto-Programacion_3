@@ -8,8 +8,8 @@ import main.entities.PathFinder;
 import main.entities.Player;
 import main.items.ItemSetter;
 import main.items.SuperItem;
-//import main.objects.AssetSetter;
-//import main.objects.SuperObject;
+import main.objects.AssetSetter;
+import main.objects.SuperObject;
 import main.tiles.TileManager;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -45,9 +45,9 @@ public class GamePanel extends JPanel implements Runnable {
     // FPS
     public int FPS = 60;
     
-    // ITEMS
-//  public SuperObject obj[] = new SuperObject[10];
-//  public AssetSetter assetSetter = new AssetSetter(this);
+    // OBJECTS AND ITEMS
+    public SuperObject objects[] = new SuperObject[10];
+    public AssetSetter assetSetter = new AssetSetter(this);
     public SuperItem items[] = new SuperItem[10];
     public ItemSetter itemSetter = new ItemSetter(this);
 

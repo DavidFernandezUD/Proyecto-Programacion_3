@@ -12,6 +12,8 @@ public class ITEM_goldenSword extends SuperItem {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		description = "[" + name + "]\nIncreases damage by .";
 	}
 
 }

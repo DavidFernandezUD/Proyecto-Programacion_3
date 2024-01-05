@@ -15,6 +15,8 @@ public class SuperItem {
 	public Rectangle solidArea = new Rectangle(0, 0, 64, 64);
 	public int solidAreaDefaultX = 0;
 	public int solidAreaDefaultY = 0;
+	
+	public String description = "";
 
 	public void draw(Graphics2D g2, GamePanel gamePanel) {
 

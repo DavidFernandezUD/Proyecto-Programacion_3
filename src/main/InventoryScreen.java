@@ -109,6 +109,18 @@ public class InventoryScreen implements Drawable {
 		final int slotYStart = frameY + 20;
 		int slotX = slotXStart;
 		int slotY = slotYStart;
+		
+		// DRAW PLAYER'S ITEMS
+		for (int i = 0; i < gamePanel.player.inventory.size(); i++) {
+			g2.drawImage(gamePanel.player.inventory.get(i).image, slotX+8, slotY+8, null);
+			
+			slotX += gamePanel.tileSize;
+			
+			if (i == 4 || i == 9 || i == 14) {
+				slotX = slotXStart;
+				slotY += gamePanel.tileSize;
+			}
+		}
 
 		// CURSOR
 		int cursorX = slotXStart + (gamePanel.tileSize * slotCol);
@@ -120,7 +132,36 @@ public class InventoryScreen implements Drawable {
 		g2.setColor(fontColor);
 		g2.setStroke(new BasicStroke(3));
 		g2.drawRoundRect(cursorX, cursorY, cursorWidth, cursorHeight, 10, 10);
+		
+		// DESCRIPTION FRAME
+		int dFrameX = frameX;
+		int dFrameY = frameY + frameHeight;
+		int dFrameWidth = frameWidth;
+		int dFrameHeight = gamePanel.tileSize*3;
+		drawSubWindow(dFrameX, dFrameY, dFrameWidth, dFrameHeight, g2);
+		
+		// DRAW DESCRIPTION TEXT
+		int textX = dFrameX + 20;
+		int textY = dFrameY + gamePanel.tileSize;
+		g2.setFont(optionFont);
+		
+		int itemIndex = getItemIndexOnSlot();
+		
+		if (itemIndex < gamePanel.player.inventory.size()) {
+			
+			for (String line: gamePanel.player.inventory.get(itemIndex).description.split("\n")) {
+				g2.drawString(line, textX, textY);
+				textY += 32;
+			}
+			
+		}
+				
 
+	}
+	
+	public int getItemIndexOnSlot() {
+		int itemIndex = slotCol + (slotRow*5);
+		return itemIndex;
 	}
 
 	public void drawSubWindow(int x, int y, int width, int height, Graphics2D g2) {

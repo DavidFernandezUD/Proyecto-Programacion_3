@@ -12,6 +12,8 @@ public class ITEM_woodenSword extends SuperItem {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		description = "[" + name + "]\nIncreases damage by .";
 	}
 
 }
