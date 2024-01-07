@@ -105,7 +105,7 @@ public class PathFinder {
     }
 
     // Returns a list with the nodes in the path to get to the given node
-    // FIXME: RECURSIVE METHOD!!
+    // RECURSIVE METHOD!!
     private ArrayList<Node> getPath(Node node, ArrayList<Node> path) {
         if(node.prev == null) {
             return path; // The returned path excludes the first node

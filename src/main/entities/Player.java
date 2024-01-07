@@ -133,6 +133,10 @@ public class Player extends Entity implements Drawable {
 		// MOVING
 		if (keyHandler.isMoveKeyPressed()) {
 
+			// Past tile coordinates are stored to check for tile change
+			int pastCol = worldX / tileSize;
+			int pastRow = worldY / tileSize;
+
 			// If player has just started moving the spriteNum and counter is restarted
 			if (!moving) {
 				moving = true;
@@ -181,6 +185,12 @@ public class Player extends Entity implements Drawable {
 					break;
 				}
 			}
+
+			// Checking if the tile the players is at has changed
+			int currentCol = worldX / tileSize;
+			int currentRow = worldY / tileSize;
+            gamePanel.entityManager.playerChangedTile = (currentRow != pastRow) || (currentCol != pastCol);
+
 		} else {
 			moving = false;
 		}

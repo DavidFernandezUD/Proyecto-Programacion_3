@@ -14,6 +14,8 @@ public class Enemy extends Entity implements Drawable {
 
     private boolean debug = false;
     private ArrayList<PathFinder.Node> path = null;
+    private final int TRACKING_RANGE = 20; // Maximum tracking range in tiles
+    private boolean changedTile = true;
 
     public Enemy(GamePanel gamePanel) {
         super(gamePanel);
@@ -53,19 +55,28 @@ public class Enemy extends Entity implements Drawable {
 
     public void update() {
 
-        int TRACKING_RANGE = 20; // Maximum tracking range in tiles
         double distance = Entity.getDistance(this, gamePanel.player);
-        // FIXME: Enemy continues moving animation after reaching target
         moving = distance > 0 && distance < tileSize * TRACKING_RANGE;
 
         if(moving) {
 
-            path = gamePanel.pathFinder.search(this, gamePanel.player);
+            // Past tile coordinates are stored to check for tile change
+			int pastCol = worldX / tileSize;
+			int pastRow = worldY / tileSize;
+
+            // Path Only calculated if player changed tile
+            if(gamePanel.entityManager.playerChangedTile || changedTile) {
+                path = gamePanel.pathFinder.search(this, gamePanel.player);
+            }
 
             if(path != null) {
 
                 int nextX = path.get(0).col * tileSize;
                 int nextY = path.get(0).row * tileSize;
+
+                if(worldX == nextX && worldY == nextY) {
+                    path.remove(0);
+                }
 
                 direction = Entity.getDirection(this, path.get(0));
 
@@ -106,6 +117,12 @@ public class Enemy extends Entity implements Drawable {
 					    break;
 				}
             }
+
+            // Checking if the tile the players is at has changed
+			int currentCol = worldX / tileSize;
+			int currentRow = worldY / tileSize;
+            changedTile = (currentRow != pastRow) || (currentCol != pastCol);
+
         }
 
         // Attacking
@@ -180,6 +197,4 @@ public class Enemy extends Entity implements Drawable {
             }
         }
     }
-
-    // TODO: Add prop redrawing like with Player
 }
