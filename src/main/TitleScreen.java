@@ -112,7 +112,7 @@ public class TitleScreen implements Drawable {
             upToggled = !upToggled;
             selectionIndex--;
             if(selectionIndex < 0) {
-                selectionIndex = 4;
+                selectionIndex = 0;
             } 
         }
 
@@ -121,8 +121,10 @@ public class TitleScreen implements Drawable {
             selectionIndex++;
             if(selectionIndex > 4 && gameTitle) {
                 selectionIndex = 0;
-            } else if (selectionIndex > recentGames.size() && gameLoad) {
-                selectionIndex = recentGames.size();
+            } else if (selectionIndex > 5 && gameLoad) {
+                //selectionIndex = recentGames.size();
+            } else if (selectionIndex > 1 && newGame) {
+                selectionIndex = 0;
             }
         }
 
@@ -179,7 +181,7 @@ public class TitleScreen implements Drawable {
 
             // PAINTING gameName INSIDE THE INPUT BOX
             g2.setColor(Color.BLACK);
-            String gameName = "YNew game";
+            String gameName = "New game";
             int gameNameX = boxX + 5;
             int gameNameY = boxY + boxHeight - 10;
             g2.drawString(gameName, gameNameX, gameNameY);
