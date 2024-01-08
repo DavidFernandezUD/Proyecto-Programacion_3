@@ -68,8 +68,8 @@ public class CollisionChecker {
         collisions[5] = new Rectangle(0, 58, 64, 6);
 
         // Little trick to make the inner corner collisions
-        collisions[6] = new Rectangle(0, 0, 20, 24); // TODO: Implement Corner
-        collisions[7] = new Rectangle(44, 0, 20, 24); // TODO: Implement Corner
+        collisions[6] = new Rectangle(0, 0, 20, 24);
+        collisions[7] = new Rectangle(44, 0, 20, 24);
 
         collisions[8] = new Rectangle(0, 0, 32, 32);
         collisions[9] = new Rectangle(32, 0, 32, 32);
@@ -82,7 +82,6 @@ public class CollisionChecker {
         collisions[15] = new Rectangle(0, 32, 64, 32);
     }
 
-    // TODO: CLEAN THIS MESS
     public void checkTileCollision(Entity entity) {
 
         // Calculating the four edges of the collision box

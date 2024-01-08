@@ -129,7 +129,6 @@ public class InventoryScreen implements Drawable {
 		int dFrameY = frameY + frameHeight;
 		int dFrameWidth = frameWidth;
 		int dFrameHeight = gamePanel.tileSize*3;
-		drawSubWindow(dFrameX, dFrameY, dFrameWidth, dFrameHeight, g2);
 		
 		// DRAW DESCRIPTION TEXT
 		int textX = dFrameX + 20;
@@ -139,6 +138,8 @@ public class InventoryScreen implements Drawable {
 		int itemIndex = getItemIndexOnSlot();
 		
 		if (itemIndex < gamePanel.player.inventory.size()) {
+			
+			drawSubWindow(dFrameX, dFrameY, dFrameWidth, dFrameHeight, g2);
 			
 			for (String line: gamePanel.player.inventory.get(itemIndex).description.split("\n")) {
 				g2.drawString(line, textX, textY);

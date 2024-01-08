@@ -12,7 +12,8 @@ public class EntityManager implements Drawable {
     GamePanel gamePanel;
     Player player;
 
-    public ArrayList<Entity> entities;
+    private ArrayList<Entity> entities;
+    protected boolean playerChangedTile = true;
 
     public EntityManager(GamePanel gamePanel, Player player) {
 
