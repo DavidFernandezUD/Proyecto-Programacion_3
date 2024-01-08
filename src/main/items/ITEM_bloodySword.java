@@ -12,6 +12,9 @@ public class ITEM_bloodySword extends SuperItem {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		description = "[" + name + "]\nIncreases damage by .";
+		
 	}
 
 }

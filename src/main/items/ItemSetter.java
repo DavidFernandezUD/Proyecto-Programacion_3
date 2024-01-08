@@ -28,6 +28,27 @@ public class ItemSetter {
 		gamePanel.items[3] = new ITEM_bloodySword();
 		gamePanel.items[3].worldX = (28) * gamePanel.tileSize;
 		gamePanel.items[3].worldY = (32) * gamePanel.tileSize;
+		
+		gamePanel.items[4] = new ITEM_bow();
+		gamePanel.items[4].worldX = (29) * gamePanel.tileSize;
+		gamePanel.items[4].worldY = (32) * gamePanel.tileSize;
+		
+		gamePanel.items[5] = new ITEM_apple();
+		gamePanel.items[5].worldX = (25) * gamePanel.tileSize;
+		gamePanel.items[5].worldY = (31) * gamePanel.tileSize;
+		
+		gamePanel.items[6] = new ITEM_redPotion();
+		gamePanel.items[6].worldX = (26) * gamePanel.tileSize;
+		gamePanel.items[6].worldY = (31) * gamePanel.tileSize;
+		
+		gamePanel.items[7] = new ITEM_purplePotion();
+		gamePanel.items[7].worldX = (27) * gamePanel.tileSize;
+		gamePanel.items[7].worldY = (31) * gamePanel.tileSize;
+		
+		gamePanel.items[8] = new ITEM_shield();
+		gamePanel.items[8].worldX = (28) * gamePanel.tileSize;
+		gamePanel.items[8].worldY = (31) * gamePanel.tileSize;
+		
 	}
 	
 }

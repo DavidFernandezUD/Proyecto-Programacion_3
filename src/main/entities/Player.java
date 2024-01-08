@@ -1,38 +1,23 @@
 package main.entities;
 
 import main.interfaces.Drawable;
-//import main.objects.OBJ_Grave;
-//import main.objects.OBJ_Sign;
+import main.items.ITEM_apple;
+import main.items.ITEM_bloodySword;
+import main.items.ITEM_purplePotion;
+import main.items.ITEM_redPotion;
+import main.items.ITEM_shield;
+import main.items.SuperItem;
+import main.objects.SuperObject;
 import main.KeyHandler;
 import main.MouseHandler;
 import main.Utility;
-
 import java.awt.Color;
-import java.awt.Composite;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.GraphicsConfiguration;
-import java.awt.Image;
-import java.awt.Paint;
 import java.awt.Rectangle;
-import java.awt.RenderingHints;
-import java.awt.Shape;
-import java.awt.Stroke;
-import java.awt.RenderingHints.Key;
 import java.awt.event.KeyEvent;
-import java.awt.font.FontRenderContext;
-import java.awt.font.GlyphVector;
-import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
-import java.awt.image.BufferedImageOp;
-import java.awt.image.ImageObserver;
-import java.awt.image.RenderedImage;
-import java.awt.image.renderable.RenderableImage;
 import java.io.IOException;
-import java.text.AttributedCharacterIterator;
-import java.util.Map;
+import java.util.ArrayList;
 import java.util.Objects;
 import javax.imageio.ImageIO;
 import main.GamePanel;
@@ -44,6 +29,10 @@ public class Player extends Entity implements Drawable {
 
 	public final int defaultScreenX;
 	public final int defaultScreenY;
+	
+	// Inventory
+	public ArrayList<SuperItem> inventory = new ArrayList<>();
+	public final int maxInventorySize = 20;
 
 	// For camera locking
 	public int screenX;
@@ -60,12 +49,24 @@ public class Player extends Entity implements Drawable {
 	boolean hasIronSword = false;
 	boolean hasGoldenSword = false;
 	boolean hasBloodySword = false;
+	
+	boolean hasBow = false;
+	
+	boolean hasShield = false;
+	
+	int hasApple = 0;
+	int hasRedPotion = 0;
+	int hasPurplePotion = 0;
 
 	// Payer Status
 	public int health = 100;
 	public int stamina = 5;
-	public int maxHealth = 100;
-	public int maxStamina = 5;
+	public final int MAX_HEALTH = 100;
+	public final int MAX_STAMINA = 5;
+	public int I_FRAMES = 60; // invulnerability frames
+	public int i_counter = 60;
+	public boolean invulnerable = true;
+	
 
 	// Just for debugging purposes (Displays Collision Box)
 	private boolean debug = false;
@@ -81,6 +82,7 @@ public class Player extends Entity implements Drawable {
 
 		setDefaultValues();
 		getPlayerSprite();
+		setItems();
 	}
 
 	public void setDefaultValues() {
@@ -96,6 +98,14 @@ public class Player extends Entity implements Drawable {
 		collisionBoxDefaultX = collisionBox.x;
 		collisionBoxDefaultY = collisionBox.y;
 
+	}
+	
+	public void setItems() {
+		inventory.add(new ITEM_bloodySword());
+		inventory.add(new ITEM_shield());
+		inventory.add(new ITEM_apple());
+		inventory.add(new ITEM_redPotion());
+		inventory.add(new ITEM_purplePotion());
 	}
 
 	public void getPlayerSprite() {
@@ -155,8 +165,8 @@ public class Player extends Entity implements Drawable {
 			pickUpItem(itemIndex);
 
 			// Check object collisions
-//			int objIndex = gamePanel.collisionChecker.checkObject(this, true);
-//			readObject(objIndex, this);
+			// int objIndex = gamePanel.collisionChecker.checkObject(this, true);
+			// readObject(objIndex, this);
 
 			// If collision is false the player can move
 			if (!collisionOn) {
@@ -194,6 +204,10 @@ public class Player extends Entity implements Drawable {
 			}
 			spriteCounter = 0;
 		}
+
+		// Invulnerability Frames
+		invulnerable = i_counter < I_FRAMES;
+		if(invulnerable) {i_counter++;}
 	}
 
 //	public void readObject(int i, Entity player) {
@@ -220,6 +234,19 @@ public class Player extends Entity implements Drawable {
 //		}
 //	}
 
+	public void damage(int damage) {
+		if(!gamePanel.player.invulnerable) {
+			i_counter = 0;
+			health -= damage;
+		}
+
+		// TODO: Make the player die when getting to 0 health points
+		if(health <= 0) {
+			health = MAX_HEALTH;
+			gamePanel.gamePaused = true;
+		}
+	}
+
 	public void pickUpItem(int i) {
 
 		if (i != 999) {
@@ -233,7 +260,7 @@ public class Player extends Entity implements Drawable {
 				if (!hasBloodySword && !hasGoldenSword && !hasIronSword && !hasWoodenSword) {
 					hasWoodenSword = true;
 					gamePanel.items[i] = null;
-					System.out.println("Wooden Sword: " + hasWoodenSword);
+					System.out.println("You found a Wooden Sword!");
 					break;
 				}
 				break;
@@ -244,6 +271,7 @@ public class Player extends Entity implements Drawable {
 					gamePanel.items[i] = null;
 					hasWoodenSword = false;
 					System.out.println("Iron Sword: " + hasIronSword);
+					System.out.println("You found an Iron Sword!");
 					break;
 				}
 				break;
@@ -254,6 +282,7 @@ public class Player extends Entity implements Drawable {
 					gamePanel.items[i] = null;
 					hasWoodenSword = false;
 					hasIronSword = false;
+					System.out.println("You found a Golden Sword!");
 					break;
 				}
 				break;
@@ -265,10 +294,48 @@ public class Player extends Entity implements Drawable {
 					hasWoodenSword = false;
 					hasIronSword = false;
 					hasGoldenSword = false;
+					System.out.println("You found a Bloody Sword!");
+					break;
+				}
+				break;
+			
+			case "Bow":
+				if (!hasBow) {
+					hasBow = true;
+					gamePanel.items[i] = null;
+					System.out.println("You found a bow!");
+					break;
+				}
+				break;
+			case "Apple":
+				hasApple++;
+				gamePanel.items[i] = null;
+				health += 20;
+				System.out.println("Apple: " + hasApple);
+				break;
+				
+			case "Red Potion":
+				hasRedPotion++;
+				gamePanel.items[i] = null;
+				health += MAX_HEALTH/2;
+				System.out.println("Red potion: " + hasRedPotion);
+				break;
+			case "Purple Potion":
+				hasPurplePotion++;
+				gamePanel.items[i] = null;
+				health = MAX_HEALTH;
+				System.out.println("Purple potion: " + hasPurplePotion);
+				break;
+			case "Shield":
+				if (!hasBow) {
+					hasShield = true;
+					gamePanel.items[i] = null;
+					System.out.println("You found a shield!");
 					break;
 				}
 				break;
 			}
+			
 		}
 	}
 
@@ -300,56 +367,12 @@ public class Player extends Entity implements Drawable {
 		g2.drawImage(image, screenX, screenY, gamePanel.tileSize, gamePanel.tileSize, null);
 
 		// Redrawing props if player is behind them
-		redrawProp(g2);
+		redrawProp(g2, this, screenX, screenY);
 
 		// Drawing collision box
 		if (debug) {
 			g2.setColor(new Color(255, 0, 0, 150));
 			g2.fillRect(collisionBox.x + screenX, collisionBox.y + screenY, collisionBox.width, collisionBox.height);
-		}
-	}
-
-	private void redrawProp(Graphics2D g2) {
-
-		// Checking if the left and right tiles under the player are prop tiles
-		// The -1 is to avoid the lower main.tile to change to the next lower one when
-		// the player is just on the top edge of the main.tile
-		int propLeft = gamePanel.tileManager.map.get(3)[(worldY + tileSize - 1) / tileSize][worldX / tileSize];
-		int propRight = gamePanel.tileManager.map.get(3)[(worldY + tileSize - 1) / tileSize][(worldX + tileSize)
-				/ tileSize];
-
-		// Calculating offsets with respect to the player to redraw the tiles at that
-		// position
-		int offsetX = worldX % tileSize;
-		int offsetY = (worldY - 1) % tileSize + 1;
-
-		// Special cases
-		int COLUMN = 619;
-		int COLUMN_TOP = 595;
-		int STONE_THRESHOLD = 824; // All the stone props are above this value (we don't want to repaint them)
-
-		// Redrawing lower left main.tile (if necessary)
-		if (propLeft != -1 && propLeft < STONE_THRESHOLD) { //
-			g2.drawImage(gamePanel.tileManager.tiles[propLeft].image, screenX - offsetX, screenY + tileSize - offsetY,
-					gamePanel.tileSize, gamePanel.tileSize, null);
-
-			// If propLeft is a "column" the top part is automatically drawn on top too
-			if (propLeft == COLUMN) {
-				g2.drawImage(gamePanel.tileManager.tiles[COLUMN_TOP].image, screenX - offsetX, screenY - offsetY,
-						gamePanel.tileSize, gamePanel.tileSize, null);
-			}
-		}
-
-		// Redrawing lower right main.tile (if necessary)
-		if (propRight != -1 && propRight < STONE_THRESHOLD) {
-			g2.drawImage(gamePanel.tileManager.tiles[propRight].image, screenX + tileSize - offsetX,
-					screenY + tileSize - offsetY, gamePanel.tileSize, gamePanel.tileSize, null);
-
-			// If propRight is a "column" the top part is automatically drawn on top too
-			if (propRight == COLUMN) {
-				g2.drawImage(gamePanel.tileManager.tiles[COLUMN_TOP].image, screenX + tileSize - offsetX,
-						screenY - offsetY, gamePanel.tileSize, gamePanel.tileSize, null);
-			}
 		}
 	}
 }

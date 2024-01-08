@@ -12,6 +12,8 @@ public class ITEM_ironSword extends SuperItem {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		description = "[" + name + "]\nIncreases damage by .";
 	}
 
 }

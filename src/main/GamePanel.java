@@ -4,11 +4,12 @@ import javax.swing.JPanel;
 
 import main.collisions.CollisionChecker;
 import main.entities.EntityManager;
+import main.entities.PathFinder;
 import main.entities.Player;
 import main.items.ItemSetter;
 import main.items.SuperItem;
-//import main.objects.AssetSetter;
-//import main.objects.SuperObject;
+import main.objects.AssetSetter;
+import main.objects.SuperObject;
 import main.tiles.TileManager;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -44,9 +45,9 @@ public class GamePanel extends JPanel implements Runnable {
     // FPS
     public int FPS = 60;
     
-    // ITEMS
-//  public SuperObject obj[] = new SuperObject[10];
-//  public AssetSetter assetSetter = new AssetSetter(this);
+    // OBJECTS AND ITEMS
+    public SuperObject objects[] = new SuperObject[10];
+    public AssetSetter assetSetter = new AssetSetter(this);
     public SuperItem items[] = new SuperItem[10];
     public ItemSetter itemSetter = new ItemSetter(this);
 
@@ -59,8 +60,6 @@ public class GamePanel extends JPanel implements Runnable {
     public Hud hud = new Hud(this);
     public Player player = new Player(this, keyHandler, mouseHandler);
     public EntityManager entityManager = new EntityManager(this, player);
-    public TileManager tileManager = new TileManager(this);
-    public CollisionChecker collisionChecker = new CollisionChecker(this);
 
     public TitleScreen titleScreen = new TitleScreen(this);
     public PauseScreen pauseScreen = new PauseScreen(this);
@@ -70,6 +69,7 @@ public class GamePanel extends JPanel implements Runnable {
     //GAME MANAGER
     public Game currentGame = new Game(this);
     public GameManager gameManager = new GameManager(this, currentGame);
+    public Object pathFinder;
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
