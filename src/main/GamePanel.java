@@ -59,7 +59,7 @@ public class GamePanel extends JPanel implements Runnable {
     public MouseHandler mouseHandler = new MouseHandler();
     public FontManager fontManager = new FontManager();
     public CollisionChecker collisionChecker = new CollisionChecker(this);
-    public PathFinder pathfinder = new PathFinder(this);
+    public PathFinder pathFinder = new PathFinder(this);
     public Hud hud = new Hud(this);
     public Player player = new Player(this, keyHandler, mouseHandler);
     public EntityManager entityManager = new EntityManager(this, player);
@@ -72,7 +72,6 @@ public class GamePanel extends JPanel implements Runnable {
     //GAME MANAGER
     public Game currentGame = new Game(this);
     public GameManager gameManager = new GameManager(this, currentGame);
-    public Object pathFinder;
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));

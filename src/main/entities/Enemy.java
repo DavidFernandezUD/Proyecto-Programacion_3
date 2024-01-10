@@ -66,7 +66,7 @@ public class Enemy extends Entity implements Drawable {
 
             // Path Only calculated if player changed tile
             if (gamePanel.entityManager.playerChangedTile || changedTile) {
-                path = ((PathFinder) gamePanel.pathFinder).search(this, gamePanel.player);
+                path = gamePanel.pathFinder.search(this, gamePanel.player);
             }
 
             if(path != null) {
