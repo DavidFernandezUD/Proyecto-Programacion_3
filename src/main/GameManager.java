@@ -20,7 +20,7 @@ public class GameManager {
     public void saveGame() {
         try {
             Class.forName("org.sqlite.JDBC");
-            String url = "jdbc:sqlite:src/data base/DB.db";
+            String url = "jdbc:sqlite:src/main/dataBase/DB.db";
 
             try (Connection conn = DriverManager.getConnection(url)) { 
                 Statement stmt = conn.createStatement(); 
@@ -60,7 +60,7 @@ public class GameManager {
     public void loadGame(Integer code) {
         try {
             Class.forName("org.sqlite.JDBC");
-            String url = "jdbc:sqlite:src/data base/DB.db";
+            String url = "jdbc:sqlite:src/main/dataBase/DB.db";
 
             try (Connection conn = DriverManager.getConnection(url)) { 
                 Statement stmt = conn.createStatement(); 
@@ -102,7 +102,7 @@ public class GameManager {
     public void deleteGame(Integer code) {
         try {
             Class.forName("org.sqlite.JDBC");
-            String url = "jdbc:sqlite:src/data base/DB.db";
+            String url = "jdbc:sqlite:src/main/dataBase/DB.db";
 
             try (Connection conn = DriverManager.getConnection(url)) { 
                 Statement stmt = conn.createStatement(); 
@@ -132,7 +132,7 @@ public class GameManager {
         HashMap<Integer, String> recentGames = new HashMap<>();
         try {
             Class.forName("org.sqlite.JDBC");
-            String url = "jdbc:sqlite:src/data base/DB.db";
+            String url = "jdbc:sqlite:src/main/dataBase/DB.db";
 
             try (Connection conn = DriverManager.getConnection(url)) { 
                 Statement stmt = conn.createStatement(); 
