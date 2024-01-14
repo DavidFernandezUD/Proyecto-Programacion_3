@@ -124,7 +124,7 @@ public class Enemy extends Entity implements Drawable {
         // Attacking
         attacking = false;
         if(distance < tileSize) {
-            attacking = false;
+            attacking = true;
             if(collides(this, gamePanel.player)) {
                 gamePanel.player.damage(10);
             }
