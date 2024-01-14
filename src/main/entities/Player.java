@@ -3,6 +3,8 @@ package main.entities;
 import main.interfaces.Drawable;
 import main.items.ITEM_apple;
 import main.items.ITEM_bloodySword;
+import main.items.ITEM_goldenSword;
+import main.items.ITEM_ironSword;
 import main.items.ITEM_purplePotion;
 import main.items.ITEM_redPotion;
 import main.items.ITEM_shield;
@@ -46,10 +48,12 @@ public class Player extends Entity implements Drawable {
 	public boolean playerReading = false;
 
 	// For items
-	boolean hasWoodenSword = false;
-	boolean hasIronSword = false;
-	boolean hasGoldenSword = false;
-	boolean hasBloodySword = false;
+	public SuperItem[] weapons = {null, null, null};
+	
+	public boolean hasWoodenSword = false;
+	public boolean hasIronSword = false;
+	public boolean hasGoldenSword = false;
+	public boolean hasBloodySword = false;
 
 	boolean hasBow = false;
 
@@ -264,99 +268,123 @@ public class Player extends Entity implements Drawable {
 			switch (objectName) {
 			case "Wooden Sword":
 				if (!hasBloodySword && !hasGoldenSword && !hasIronSword && !hasWoodenSword) {
-
-					if (inventory.size() != maxInventorySize) {
-						inventory.add(gamePanel.items[i]);
-						hasWoodenSword = true;
-						gamePanel.items[i] = null;
-						System.out.println("You found a Wooden Sword!");
-						break;
-					}
-
+					weapons[0] = gamePanel.items[i];
+					hasWoodenSword = true;
+					gamePanel.items[i] = null;
+					System.out.println("You found a Wooden Sword!");
 					break;
 				}
 				break;
-			case "Iron Sword":
-				
-				if (gamePanel.player.inventory.size() == 0) {
-					inventory.add(gamePanel.items[i]);
-					hasIronSword = true;
-					gamePanel.items[i] = null;
-					System.out.println("You found an Iron Sword!");
-					break;
-				} else if (!hasBloodySword && !hasGoldenSword && !hasIronSword) {
-					
+			case "Iron Sword":			
+				if (!hasBloodySword && !hasGoldenSword && !hasIronSword) {
 					if (hasWoodenSword) {
-						for (int s = 0; s < gamePanel.player.inventory.size(); s++) {
-							if (gamePanel.player.inventory.get(s) instanceof ITEM_woodenSword) {	
-								ITEM_woodenSword ws = (ITEM_woodenSword) gamePanel.player.inventory.get(s);
-								gamePanel.player.inventory.set(s, gamePanel.items[i]);
-								hasIronSword = true;
-								hasWoodenSword = false;
-								gamePanel.items[i] = ws;								
-								System.out.println("You found an Iron Sword!");
-								break;				
-							}
-						}
+						ITEM_woodenSword ws = (ITEM_woodenSword) weapons[0];
+						weapons[0] = gamePanel.items[i];
+						hasIronSword = true;
+						hasWoodenSword = false;
+						ws.worldX = gamePanel.items[i].worldX;
+						ws.worldY = gamePanel.items[i].worldY;
+						gamePanel.items[i] = ws;								
+						System.out.println("You found an Iron Sword!");
+						break;				
+					} else {
+						weapons[0] = gamePanel.items[i];
+						hasIronSword = true;
+						gamePanel.items[i] = null;
+						System.out.println("You found an Iron Sword!");
 						break;
 					}
-					break;
-					
-
-//					if (inventory.size() != maxInventorySize) {
-//						inventory.add(gamePanel.items[i]);
-//						hasIronSword = true;
-//						gamePanel.items[i] = null;
-//						hasWoodenSword = false;
-//						System.out.println("Iron Sword: " + hasIronSword);
-//						System.out.println("You found an Iron Sword!");
-//						break;
-//					}
-				}
+				}	
+				break;
 
 			case "Golden Sword":
 				if (!hasBloodySword && !hasGoldenSword) {
-
-					if (inventory.size() != maxInventorySize) {
-						inventory.add(gamePanel.items[i]);
+					if (hasWoodenSword) {
+						ITEM_woodenSword ws = (ITEM_woodenSword) weapons[0];
+						weapons[0] = gamePanel.items[i];
+						hasGoldenSword = true;
+						hasWoodenSword = false;
+						ws.worldX = gamePanel.items[i].worldX;
+						ws.worldY = gamePanel.items[i].worldY;
+						gamePanel.items[i] = ws;								
+						System.out.println("You found a Golden Sword!");
+						break;				
+					} else if (hasIronSword) {
+						ITEM_ironSword is = (ITEM_ironSword) weapons[0];
+						weapons[0] = gamePanel.items[i];
+						hasGoldenSword = true;
+						hasIronSword = false;
+						is.worldX = gamePanel.items[i].worldX;
+						is.worldY = gamePanel.items[i].worldY;
+						gamePanel.items[i] = is;								
+						System.out.println("You found a Golden Sword!");
+						break;	
+					} else {
+						weapons[0] = gamePanel.items[i];
 						hasGoldenSword = true;
 						gamePanel.items[i] = null;
-						hasWoodenSword = false;
-						hasIronSword = false;
 						System.out.println("You found a Golden Sword!");
 						break;
 					}
-					break;
-				}
+				}	
 				break;
 
 			case "Bloody Sword":
 				if (!hasBloodySword) {
-
-					if (inventory.size() != maxInventorySize) {
-						inventory.add(gamePanel.items[i]);
+					if (hasWoodenSword) {
+						ITEM_woodenSword ws = (ITEM_woodenSword) weapons[0];
+						weapons[0] = gamePanel.items[i];
+						hasBloodySword = true;
+						hasWoodenSword = false;
+						ws.worldX = gamePanel.items[i].worldX;
+						ws.worldY = gamePanel.items[i].worldY;
+						gamePanel.items[i] = ws;								
+						System.out.println("You found a Bloody Sword!");
+						break;				
+					} else if (hasIronSword) {
+						ITEM_ironSword is = (ITEM_ironSword) weapons[0];
+						weapons[0] = gamePanel.items[i];
+						hasBloodySword = true;
+						hasIronSword = false;
+						is.worldX = gamePanel.items[i].worldX;
+						is.worldY = gamePanel.items[i].worldY;
+						gamePanel.items[i] = is;								
+						System.out.println("You found a Bloody Sword!");
+						break;							
+					} else if (hasGoldenSword) {					
+						ITEM_goldenSword gs = (ITEM_goldenSword) weapons[0];
+						weapons[0] = gamePanel.items[i];
+						hasBloodySword = true;
+						hasGoldenSword = false;
+						gs.worldX = gamePanel.items[i].worldX;
+						gs.worldY = gamePanel.items[i].worldY;
+						gamePanel.items[i] = gs;								
+						System.out.println("You found a Bloody Sword!");
+						break;	
+					} else {
+						weapons[0] = gamePanel.items[i];
 						hasBloodySword = true;
 						gamePanel.items[i] = null;
-						hasWoodenSword = false;
-						hasIronSword = false;
-						hasGoldenSword = false;
 						System.out.println("You found a Bloody Sword!");
 						break;
 					}
+				}	
+				break;			
+			case "Shield":
+				if (!hasShield) {
+					weapons[1] = gamePanel.items[i];
+					hasShield = true;
+					gamePanel.items[i] = null;
+					System.out.println("You found a shield!");
 					break;
 				}
 				break;
-
 			case "Bow":
 				if (!hasBow) {
-
-					if (inventory.size() != maxInventorySize) {
-						inventory.add(gamePanel.items[i]);
-						hasBow = true;
-						gamePanel.items[i] = null;
-						System.out.println("You found a bow!");
-						break;
-					}
+					weapons[2] = gamePanel.items[i];
+					hasBow = true;
+					gamePanel.items[i] = null;
+					System.out.println("You found a bow!");
 					break;
 				}
 				break;
@@ -393,19 +421,6 @@ public class Player extends Entity implements Drawable {
 					health = MAX_HEALTH;
 					System.out.println("Purple potion: " + hasPurplePotion);
 					break;
-				}
-				break;
-			case "Shield":
-				if (!hasShield) {
-					if (inventory.size() != maxInventorySize) {
-						inventory.add(gamePanel.items[i]);
-						hasShield = true;
-						gamePanel.items[i] = null;
-						System.out.println("You found a shield!");
-						break;
-					}
-					break;
-
 				}
 				break;
 			}
