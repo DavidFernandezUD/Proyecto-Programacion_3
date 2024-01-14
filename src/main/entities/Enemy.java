@@ -74,10 +74,6 @@ public class Enemy extends Entity implements Drawable {
                 int nextX = path.get(0).col * tileSize;
                 int nextY = path.get(0).row * tileSize;
 
-                if(worldX == nextX && worldY == nextY) {
-                    path.remove(0);
-                }
-
                 direction = Entity.getDirection(this, path.get(0));
 
                 // Check collisions
