@@ -90,7 +90,7 @@ public class InventoryScreen implements Drawable {
 
 		// FRAME
 		int frameX = gamePanel.tileSize * 9;
-		int frameY = gamePanel.tileSize;
+		int frameY = gamePanel.tileSize * 3;
 		int frameWidth = gamePanel.tileSize * 6;
 		int frameHeight = gamePanel.tileSize * 5;
 		drawSubWindow(frameX, frameY, frameWidth, frameHeight, g2);
@@ -124,6 +124,30 @@ public class InventoryScreen implements Drawable {
 		g2.setStroke(new BasicStroke(3));
 		g2.drawRoundRect(cursorX, cursorY, cursorWidth, cursorHeight, 10, 10);
 		
+		// WEAPONS FRAME
+		int wFrameX = gamePanel.tileSize * 9;
+		int wFrameY = gamePanel.tileSize;
+		int wFrameWidth = gamePanel.tileSize * 4;
+		int wFrameHeight = gamePanel.tileSize * 2;
+		drawSubWindow(wFrameX, wFrameY, wFrameWidth, wFrameHeight, g2);
+
+		// WEAPONS SLOT
+		final int wSlotXStart = wFrameX + 20;
+		final int wSlotYStart = wFrameY + 20;
+		int wSlotX = wSlotXStart;
+		int wSlotY = wSlotYStart;
+		
+		// DRAW PLAYER'S WEAPONS
+		if (gamePanel.player.weapons[0] != null) {
+			g2.drawImage(gamePanel.player.weapons[0].image, wSlotX+8, wSlotY+8, null);
+		}
+		if (gamePanel.player.weapons[1] != null) {
+			g2.drawImage(gamePanel.player.weapons[1].image, wSlotX+8 + gamePanel.tileSize, wSlotY+8, null);
+		}
+		if (gamePanel.player.weapons[2] != null) {
+			g2.drawImage(gamePanel.player.weapons[2].image, wSlotX+8 + 2*gamePanel.tileSize, wSlotY+8, null);
+		}
+
 		// DESCRIPTION FRAME
 		int dFrameX = frameX;
 		int dFrameY = frameY + frameHeight;
