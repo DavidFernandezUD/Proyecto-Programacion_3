@@ -7,7 +7,7 @@ import java.util.*;
 public class KeyHandler implements KeyListener {
 
 	private final Set<Integer> pressedKeys = new HashSet<>();
-	private final Map<Integer, Boolean> keyToggleStates = new HashMap<>();
+	public final Map<Integer, Boolean> keyToggleStates = new HashMap<>();
 
 	// Stack is used to keep record of the last pressed keys in order
 	private final Stack<Integer> pressedMoveKeys = new Stack<>();

@@ -3,12 +3,10 @@ package main;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.FontFormatException;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.IOException;
 
+import main.assets.SuperAsset;
 import main.interfaces.Drawable;
 
 public class InventoryScreen implements Drawable {
@@ -77,11 +75,24 @@ public class InventoryScreen implements Drawable {
 				slotCol++;
 				gamePanel.playSound(1);
 			}
-
+		}
+		
+		// Dialogue cannot be opened while inventory screen
+		if (gamePanel.inventoryState) {
+			gamePanel.player.playerReading = false;
 		}
 
-		if (gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+		if (!gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_I)) {
 			gamePanel.inventoryState = false;
+			// When the inventory is closed the player can read again					
+			for (SuperAsset sa: gamePanel.assets) {
+				if (sa != null) {
+					if (gamePanel.collisionChecker.isPlayerAbleToRead(gamePanel.player, sa)) {
+						gamePanel.player.playerReading = true;
+						break;
+					}
+				}
+			}
 		}
 	}
 

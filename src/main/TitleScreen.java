@@ -62,6 +62,13 @@ public class TitleScreen implements Drawable {
             if(selectionIndex == 4 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
                 System.exit(0);
             }
+            
+            // Inventory cannot be opened while title screen
+            if (gamePanel.titleState) {
+    			if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_I)) {
+    				gamePanel.keyHandler.keyToggleStates.put(KeyEvent.VK_I, false);
+    			}
+    		}
 
         } else if (newGame) {
             
@@ -82,8 +89,8 @@ public class TitleScreen implements Drawable {
             // SUBMIT
             if(selectionIndex == 1 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
                 gamePanel.currentGame.gameName = gameName;
-                gamePanel.gamePaused = false;
-                gamePanel.titleScreenOn = false;
+                gamePanel.pauseState = false;
+                gamePanel.titleState = false;
             }
 
         } else if (gameLoad) {

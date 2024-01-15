@@ -25,7 +25,7 @@ public class PauseScreen implements Drawable{
 
         // CONTINUE
         if(selectionIndex == 0 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
-            gamePanel.gamePaused = false;
+            gamePanel.pauseState = false;
         }
 
         // SAVE GAME
@@ -40,8 +40,8 @@ public class PauseScreen implements Drawable{
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            gamePanel.gamePaused = false;
-            gamePanel.titleScreenOn = true;
+            gamePanel.pauseState = false;
+            gamePanel.titleState = true;
         }
 
         if(gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_W) != upToggled) {

@@ -42,12 +42,11 @@ public class GamePanel extends JPanel implements Runnable {
 	public InventoryScreen inventoryScreen = new InventoryScreen(this);
 
 	// STATES
-	public boolean gamePaused = false;
-	public boolean titleScreenOn = true;
+	public boolean titleState = true;
+	public boolean pauseState = false;
 	public boolean escToggled = false;
 	public boolean dialogueState = false;
 	public boolean inventoryState = false;
-	public boolean iToggled = false;
 
 	// FPS
 	public int FPS = 60;
@@ -95,7 +94,7 @@ public class GamePanel extends JPanel implements Runnable {
 		itemSetter.setItem();
 
 		// Plays music
-		if (titleScreenOn) {
+		if (titleState) {
 //    		playMusic(0);
 		}
 	}
@@ -130,29 +129,32 @@ public class GamePanel extends JPanel implements Runnable {
 				// Checking if the escape key has been toggled
 				if (keyHandler.isKeyToggled(KeyEvent.VK_ESCAPE) != escToggled) {
 					escToggled = keyHandler.isKeyToggled(KeyEvent.VK_ESCAPE);
-					gamePaused = true;
+					pauseState = true;
 				}
 				
 				// ASSETS & DIALOGUE SCREEN
-				if (keyHandler.isKeyToggled(KeyEvent.VK_ENTER) && player.playerReading) {
-                    dialogueState = true;
+				if (keyHandler.isKeyToggled(KeyEvent.VK_ENTER)) {
+					if (!player.playerReading) {
+						keyHandler.keyToggleStates.put(KeyEvent.VK_ENTER, false);
+					} else {
+						dialogueState = true;
+					}				
                 }
                 if (dialogueState) {
                     dialogueScreen.update();
                 }
 
 				// INVENTORY
-				if (keyHandler.isKeyToggled(KeyEvent.VK_I) != iToggled) {
-					iToggled = keyHandler.isKeyToggled(KeyEvent.VK_I);
+				if (keyHandler.isKeyToggled(KeyEvent.VK_I)) {
 					inventoryState = true;
 				}		
 
 				// TODO: Maybe manage the title screen without update method
-				if (titleScreenOn) {
+				if (titleState) {
 					titleScreen.update();
 				}
 
-				if (gamePaused) {
+				if (pauseState) {
 					pauseScreen.update();
 				}
 
@@ -161,7 +163,7 @@ public class GamePanel extends JPanel implements Runnable {
 				}
 
 				// Only updating the game state if the game isn't paused
-				if (!gamePaused && !titleScreenOn && !dialogueState && !inventoryState) {
+				if (!pauseState && !titleState && !dialogueState && !inventoryState) {
 					// 1 UPDATE: Update information like location of items, mobs, character, etc.
 					update();
 					hud.update();
@@ -217,7 +219,7 @@ public class GamePanel extends JPanel implements Runnable {
 		hud.draw(g2);
 
 		// PAUSE SCREEN
-		if (gamePaused) {
+		if (pauseState) {
 			g2.setColor(new Color(100, 100, 100, 150));
 			g2.fillRect(0, 0, maxScreenCol * tileSize, maxScreenRow * tileSize);
 			pauseScreen.draw(g2);
@@ -235,7 +237,7 @@ public class GamePanel extends JPanel implements Runnable {
 		}
 
 		// TITLE SCREEN
-		if (titleScreenOn) {
+		if (titleState) {
 			titleScreen.draw(g2);
 		}
 

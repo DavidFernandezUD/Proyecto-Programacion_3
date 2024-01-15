@@ -16,7 +16,7 @@ public class SuperAsset {
 	public int solidAreaDefaultX = 0;
 	public int solidAreaDefaultY = 0;
 
-	public boolean debug = true;
+	public boolean debug = false;
 
 	public void draw(Graphics2D g2, GamePanel gamePanel) {
 		g2.setColor(new Color(0, 0, 139, 127));

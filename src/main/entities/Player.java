@@ -223,7 +223,7 @@ public class Player extends Entity implements Drawable {
 		// TODO: Make the player die when getting to 0 health points
 		if (health <= 0) {
 			health = MAX_HEALTH;
-			gamePanel.gamePaused = true;
+			gamePanel.pauseState = true;
 		}
 	}
 	
@@ -232,12 +232,12 @@ public class Player extends Entity implements Drawable {
 		if (i != 999) {
 			String assetName = gamePanel.assets[i].name;
 			switch (assetName) {
-			case "Sign":
+			case "Sign":		
 				playerReading = gamePanel.collisionChecker.isPlayerAbleToRead(player, gamePanel.assets[i]);
 				gamePanel.dialogueScreen.currentDialogue = ((ASSET_Sign) gamePanel.assets[i]).text;
 				break;			
 			case "Grave":
-				playerReading = gamePanel.collisionChecker.isPlayerAbleToRead(player, gamePanel.assets[i]);
+				playerReading = gamePanel.collisionChecker.isPlayerAbleToRead(player, gamePanel.assets[i]);		
 				gamePanel.dialogueScreen.currentDialogue = ((ASSET_Grave) gamePanel.assets[i]).text;
 				break;
 			}			

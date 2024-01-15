@@ -9,6 +9,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 
+import main.assets.SuperAsset;
 import main.interfaces.Drawable;
 
 public class DialogueScreen implements Drawable {
@@ -44,8 +45,23 @@ public class DialogueScreen implements Drawable {
 	}
 
 	public void update() {
-		if (!gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER)) {
+		// Inventory cannot be opened while dialogue screen
+		if (gamePanel.dialogueState) {
+			gamePanel.inventoryState = false;
+			if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_I)) {
+				gamePanel.keyHandler.keyToggleStates.put(KeyEvent.VK_I, false);
+			}
+		}
+
+		if (gamePanel.player.playerReading && !gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER)) {
+			for (SuperAsset sa : gamePanel.assets) {
+				if (gamePanel.collisionChecker.isPlayerAbleToRead(gamePanel.player, sa)) {
+					gamePanel.dialogueState = false;
+					return;
+				}
+			}
 			gamePanel.dialogueState = false;
+			gamePanel.player.playerReading = false;
 		}
 	}
 
