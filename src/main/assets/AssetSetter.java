@@ -17,15 +17,11 @@ public class AssetSetter {
     	gamePanel.assets[0].worldX = (6) * gamePanel.tileSize - gamePanel.tileSize/4;
     	gamePanel.assets[0].worldY = (31) * gamePanel.tileSize;
     	((ASSET_Sign) gamePanel.assets[0]).text = "¡Si puedes leer esto el commit ha sido todo \nun éxito 1!";
-    	
-    	
-//    	gamePanel.assets[1] = new ASSET_Sign();
-//    	gamePanel.assets[1].worldX = (28) * gamePanel.tileSize - gamePanel.tileSize/4;
-//    	gamePanel.assets[1].worldY = (27) * gamePanel.tileSize;
-//    	((ASSET_Sign) gamePanel.assets[1]).text = "¡Si puedes leer esto el commit ha sido todo \nun éxito 2!";
-    	gamePanel.assets[1] = new ASSET_Chest();
+ 	
+    	gamePanel.assets[1] = new ASSET_Sign();
     	gamePanel.assets[1].worldX = (28) * gamePanel.tileSize - gamePanel.tileSize/4;
-    	gamePanel.assets[1].worldY = (27) * gamePanel.tileSize;  	
+    	gamePanel.assets[1].worldY = (27) * gamePanel.tileSize;
+    	((ASSET_Sign) gamePanel.assets[1]).text = "¡Si puedes leer esto el commit ha sido todo \nun éxito 2!";	
     	
     	gamePanel.assets[2] = new ASSET_Sign();
     	gamePanel.assets[2].worldX = (31) * gamePanel.tileSize - gamePanel.tileSize/4;
