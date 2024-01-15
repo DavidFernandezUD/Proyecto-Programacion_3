@@ -2,9 +2,7 @@ package main;
 
 import main.entities.Enemy;
 
-import java.awt.List;
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class GameManager {

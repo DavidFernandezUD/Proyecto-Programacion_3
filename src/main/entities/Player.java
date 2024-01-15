@@ -1,19 +1,16 @@
 package main.entities;
 
 import main.interfaces.Drawable;
-import main.items.ITEM_apple;
-import main.items.ITEM_bloodySword;
 import main.items.ITEM_goldenSword;
 import main.items.ITEM_ironSword;
-import main.items.ITEM_purplePotion;
-import main.items.ITEM_redPotion;
-import main.items.ITEM_shield;
 import main.items.ITEM_woodenSword;
 import main.items.SuperItem;
-import main.objects.SuperObject;
 import main.KeyHandler;
 import main.MouseHandler;
 import main.Utility;
+import main.assets.ASSET_Grave;
+import main.assets.ASSET_Sign;
+
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -22,6 +19,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
+
 import javax.imageio.ImageIO;
 import main.GamePanel;
 
@@ -33,9 +31,22 @@ public class Player extends Entity implements Drawable {
 	public final int defaultScreenX;
 	public final int defaultScreenY;
 
-	// Inventory
+	// FOR ASSETS (If the player can read the asset)
+	public boolean playerReading = false;
+	
+	// FOR ITEMS (Inventory)
 	public ArrayList<SuperItem> inventory = new ArrayList<>();
 	public final int maxInventorySize = 20;
+	public SuperItem[] weapons = {null, null, null};
+	public boolean hasWoodenSword = false;
+	public boolean hasIronSword = false;
+	public boolean hasGoldenSword = false;
+	public boolean hasBloodySword = false;
+	boolean hasBow = false;
+	boolean hasShield = false;
+	int hasApple = 0;
+	int hasRedPotion = 0;
+	int hasPurplePotion = 0;
 
 	// For camera locking
 	public int screenX;
@@ -44,21 +55,6 @@ public class Player extends Entity implements Drawable {
 	public boolean screenXLocked;
 	public boolean screenYLocked;
 
-	// For items
-	public SuperItem[] weapons = {null, null, null};
-	
-	public boolean hasWoodenSword = false;
-	public boolean hasIronSword = false;
-	public boolean hasGoldenSword = false;
-	public boolean hasBloodySword = false;
-
-	boolean hasBow = false;
-
-	boolean hasShield = false;
-
-	int hasApple = 0;
-	int hasRedPotion = 0;
-	int hasPurplePotion = 0;
 
 	// Payer Status
 	public int health = 100;
@@ -94,6 +90,9 @@ public class Player extends Entity implements Drawable {
 		moving = false;
 		attacking = false;
 		collisionBox = new Rectangle(11, 22, 42, 42);
+		// FOR ASSETS
+		collisionBoxDefaultX = collisionBox.x;
+		collisionBoxDefaultY = collisionBox.y;
 
 	}
 
@@ -157,12 +156,13 @@ public class Player extends Entity implements Drawable {
 			collisionOn = false;
 			gamePanel.collisionChecker.checkTileCollision(this);
 
+			// CHECK ASSET COLLISIONS
+			int assetIndex = gamePanel.collisionChecker.checkAsset(this, true);
+			readAsset(assetIndex, this);
+			
 			// CHECK ITEM COLLISION
 			int itemIndex = gamePanel.collisionChecker.checkItem(this, true);
 			pickUpItem(itemIndex);
-			
-			// CHECK EVENT 
-			gamePanel.eventHandler.checkEvent();
 			
 			// If collision is false the player can move
 			if (!collisionOn) {
@@ -226,14 +226,32 @@ public class Player extends Entity implements Drawable {
 			gamePanel.gamePaused = true;
 		}
 	}
-
+	
+	//FOR ASSETS
+	public void readAsset(int i, Entity player) {
+		if (i != 999) {
+			String assetName = gamePanel.assets[i].name;
+			switch (assetName) {
+			case "Sign":
+				playerReading = gamePanel.collisionChecker.isPlayerAbleToRead(player, gamePanel.assets[i]);
+				gamePanel.dialogueScreen.currentDialogue = ((ASSET_Sign) gamePanel.assets[i]).text;
+				break;			
+			case "Grave":
+				playerReading = gamePanel.collisionChecker.isPlayerAbleToRead(player, gamePanel.assets[i]);
+				gamePanel.dialogueScreen.currentDialogue = ((ASSET_Grave) gamePanel.assets[i]).text;
+				break;
+			}			
+		}
+	}
+	
+	// FOR ITEMS
 	public void pickUpItem(int i) {
 
 		if (i != 999) {
 
-			String objectName = gamePanel.items[i].name;
+			String AssetName = gamePanel.items[i].name;
 
-			switch (objectName) {
+			switch (AssetName) {
 			case "Wooden Sword":
 				if (!hasBloodySword && !hasGoldenSword && !hasIronSword && !hasWoodenSword) {
 					weapons[0] = gamePanel.items[i];

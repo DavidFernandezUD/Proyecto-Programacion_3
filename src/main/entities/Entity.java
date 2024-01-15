@@ -27,7 +27,7 @@ public abstract class Entity implements Drawable {
 
     public Rectangle collisionBox;
     
-    // For items
+    // FOR ITEMS AND ASSETS
     public int collisionBoxDefaultX, collisionBoxDefaultY;
     public boolean collisionOn = false;
 

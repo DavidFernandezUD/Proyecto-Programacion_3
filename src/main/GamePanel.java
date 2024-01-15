@@ -2,13 +2,14 @@ package main;
 
 import javax.swing.JPanel;
 
+import main.assets.AssetSetter;
+import main.assets.SuperAsset;
 import main.collisions.CollisionChecker;
 import main.entities.EntityManager;
 import main.entities.PathFinder;
 import main.entities.Player;
 import main.items.ItemSetter;
 import main.items.SuperItem;
-import main.objects.SuperObject;
 import main.tiles.TileManager;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -16,6 +17,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
+@SuppressWarnings("serial")
 public class GamePanel extends JPanel implements Runnable {
 
 	// SCREEN SETTINGS
@@ -50,7 +52,9 @@ public class GamePanel extends JPanel implements Runnable {
 	// FPS
 	public int FPS = 60;
 
-	// OBJECTS AND ITEMS
+	// ASSETS AND ITEMS
+	public SuperAsset assets[] = new SuperAsset[10];
+	public AssetSetter assetSetter = new AssetSetter(this);
 	public SuperItem items[] = new SuperItem[10];
 	public ItemSetter itemSetter = new ItemSetter(this);
 
@@ -85,6 +89,8 @@ public class GamePanel extends JPanel implements Runnable {
 	}
 
 	public void setUpGame() {
+		// Sets assets
+		assetSetter.setAssets();
 		// Sets items
 		itemSetter.setItem();
 
@@ -126,11 +132,20 @@ public class GamePanel extends JPanel implements Runnable {
 					escToggled = keyHandler.isKeyToggled(KeyEvent.VK_ESCAPE);
 					gamePaused = true;
 				}
+				
+				// ASSETS & DIALOGUE SCREEN
+				if (keyHandler.isKeyToggled(KeyEvent.VK_ENTER) && player.playerReading) {
+                    dialogueState = true;
+                }
+                if (dialogueState) {
+                    dialogueScreen.update();
+                }
 
+				// INVENTORY
 				if (keyHandler.isKeyToggled(KeyEvent.VK_I) != iToggled) {
 					iToggled = keyHandler.isKeyToggled(KeyEvent.VK_I);
 					inventoryState = true;
-				}			
+				}		
 
 				// TODO: Maybe manage the title screen without update method
 				if (titleScreenOn) {
@@ -140,11 +155,6 @@ public class GamePanel extends JPanel implements Runnable {
 				if (gamePaused) {
 					pauseScreen.update();
 				}
-
-				// DIALOGUE SCREEN
-                if (dialogueState) {
-                    dialogueScreen.update();
-                }
 
 				if (inventoryState) {
 					inventoryScreen.update();
@@ -186,6 +196,13 @@ public class GamePanel extends JPanel implements Runnable {
 		// TILES
 		tileManager.draw(g2);
 		
+		// ASSETS
+        for (int i = 0; i < assets.length; i++) {
+        	if (assets[i] != null) {
+        		assets[i].draw(g2, this); 
+        	}
+        }
+		
 		// ITEMS
 		for (int i = 0; i < items.length; i++) {
 			if (items[i] != null) {
@@ -205,6 +222,12 @@ public class GamePanel extends JPanel implements Runnable {
 			g2.fillRect(0, 0, maxScreenCol * tileSize, maxScreenRow * tileSize);
 			pauseScreen.draw(g2);
 		}
+		
+
+		// DIALOGUE SCREEN
+        if(dialogueState) {
+        	dialogueScreen.draw(g2); 	      	
+        }
 
 		// INVENTORY SCREEN
 		if (inventoryState) {
@@ -215,11 +238,6 @@ public class GamePanel extends JPanel implements Runnable {
 		if (titleScreenOn) {
 			titleScreen.draw(g2);
 		}
-
-		// DIALOGUE SCREEN
-        if(dialogueState) {
-        	dialogueScreen.draw(g2); 	      	
-        }
 
 		g2.dispose(); // dispose helps to free some memory after the painting has ended
 	}

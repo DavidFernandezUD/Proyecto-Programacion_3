@@ -1,10 +1,10 @@
-package main.objects;
+package main.assets;
 
 import java.awt.Rectangle;
 
-public class OBJ_Chest extends SuperObject {
+public class ASSET_Chest extends SuperAsset {
 	
-	public OBJ_Chest() {
+	public ASSET_Chest() {
 		
 		name = "Chest";
 		
