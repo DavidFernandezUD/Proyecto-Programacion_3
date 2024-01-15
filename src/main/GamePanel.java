@@ -2,6 +2,7 @@ package main;
 
 import javax.swing.JPanel;
 
+import main.assets.ASSET_Chest;
 import main.assets.AssetSetter;
 import main.assets.SuperAsset;
 import main.collisions.CollisionChecker;
@@ -40,6 +41,7 @@ public class GamePanel extends JPanel implements Runnable {
 	public PauseScreen pauseScreen = new PauseScreen(this);
 	public DialogueScreen dialogueScreen = new DialogueScreen(this);
 	public InventoryScreen inventoryScreen = new InventoryScreen(this);
+	public ChestScreen chestScreen = new ChestScreen(this);
 
 	// STATES
 	public boolean titleState = true;
@@ -47,6 +49,7 @@ public class GamePanel extends JPanel implements Runnable {
 	public boolean escToggled = false;
 	public boolean dialogueState = false;
 	public boolean inventoryState = false;
+	public boolean chestState = false;
 
 	// FPS
 	public int FPS = 60;
@@ -137,17 +140,38 @@ public class GamePanel extends JPanel implements Runnable {
 					if (!player.playerReading) {
 						keyHandler.keyToggleStates.put(KeyEvent.VK_ENTER, false);
 					} else {
-						dialogueState = true;
+						SuperAsset supA = null;
+						for (SuperAsset sa: assets) {
+							if (sa != null) {
+								if (collisionChecker.isPlayerAbleToRead(player, sa)) {
+									supA = sa;
+									break;
+								}
+							}
+						}
+						if (supA != null) {
+							if (supA instanceof ASSET_Chest) {
+								chestState = true;
+							} else {
+								dialogueState = true;
+							}
+						}
 					}				
                 }
                 if (dialogueState) {
                     dialogueScreen.update();
+                }
+                if (chestState) {
+                	chestScreen.update();
                 }
 
 				// INVENTORY
 				if (keyHandler.isKeyToggled(KeyEvent.VK_I)) {
 					inventoryState = true;
 				}		
+				if (inventoryState) {
+					inventoryScreen.update();
+				}
 
 				// TODO: Maybe manage the title screen without update method
 				if (titleState) {
@@ -158,12 +182,9 @@ public class GamePanel extends JPanel implements Runnable {
 					pauseScreen.update();
 				}
 
-				if (inventoryState) {
-					inventoryScreen.update();
-				}
 
 				// Only updating the game state if the game isn't paused
-				if (!pauseState && !titleState && !dialogueState && !inventoryState) {
+				if (!pauseState && !titleState && !dialogueState && !inventoryState && !chestState) {
 					// 1 UPDATE: Update information like location of items, mobs, character, etc.
 					update();
 					hud.update();
@@ -234,6 +255,11 @@ public class GamePanel extends JPanel implements Runnable {
 		// INVENTORY SCREEN
 		if (inventoryState) {
 			inventoryScreen.draw(g2);
+		}
+		
+		// CHEST SCREEN 
+		if (chestState) {
+			chestScreen.draw(g2);
 		}
 
 		// TITLE SCREEN
