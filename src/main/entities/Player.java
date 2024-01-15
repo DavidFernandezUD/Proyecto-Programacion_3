@@ -44,9 +44,6 @@ public class Player extends Entity implements Drawable {
 	public boolean screenXLocked;
 	public boolean screenYLocked;
 
-	// For objects
-	public boolean playerReading = false;
-
 	// For items
 	public SuperItem[] weapons = {null, null, null};
 	
@@ -97,10 +94,6 @@ public class Player extends Entity implements Drawable {
 		moving = false;
 		attacking = false;
 		collisionBox = new Rectangle(11, 22, 42, 42);
-
-		// For objects
-		collisionBoxDefaultX = collisionBox.x;
-		collisionBoxDefaultY = collisionBox.y;
 
 	}
 
@@ -167,11 +160,10 @@ public class Player extends Entity implements Drawable {
 			// CHECK ITEM COLLISION
 			int itemIndex = gamePanel.collisionChecker.checkItem(this, true);
 			pickUpItem(itemIndex);
-
-			// Check object collisions
-			// int objIndex = gamePanel.collisionChecker.checkObject(this, true);
-			// readObject(objIndex, this);
-
+			
+			// CHECK EVENT 
+			gamePanel.eventHandler.checkEvent();
+			
 			// If collision is false the player can move
 			if (!collisionOn) {
 				switch (direction) {
@@ -221,30 +213,6 @@ public class Player extends Entity implements Drawable {
 			i_counter++;
 		}
 	}
-
-//	public void readObject(int i, Entity player) {
-//
-//		if (i != 999) {
-//			String objectName = gamePanel.obj[i].name;
-//
-//			switch (objectName) {
-//			case "Sign":
-//				playerReading = gamePanel.collisionChecker.isPlayerAbleToRead(player, gamePanel.obj[i]);
-//				gamePanel.dialogueScreen.currentDialogue = ((OBJ_Sign) gamePanel.obj[i]).text;
-//				break;
-//				
-//			case "Grave":
-//				playerReading = gamePanel.collisionChecker.isPlayerAbleToRead(player, gamePanel.obj[i]);
-//				gamePanel.dialogueScreen.currentDialogue = ((OBJ_Grave) gamePanel.obj[i]).text;
-//				break;
-//				
-//			case "Chest":			
-//				// TODO: implement inventory
-//			}
-//			
-//			
-//		}
-//	}
 
 	public void damage(int damage) {
 		if (!gamePanel.player.invulnerable) {
