@@ -12,8 +12,11 @@ import main.items.ITEM_purplePotion;
 import main.items.ITEM_redPotion;
 import main.items.SuperItem;
 
-/** Drawable player inventory GUI component.
- * @author marcos.martinez@opendeusto.es*/
+/**
+ * Drawable player inventory GUI component.
+ * 
+ * @author marcos.martinez@opendeusto.es
+ */
 public class InventoryScreen implements Drawable {
 
 	private boolean upToggled = false;
@@ -33,7 +36,7 @@ public class InventoryScreen implements Drawable {
 	// OPTIONS
 	public GamePanel gamePanel;
 
-	/** Create a InventoryScreen object.*/
+	/** Create a InventoryScreen object. */
 	InventoryScreen(GamePanel gamePanel) {
 		this.gamePanel = gamePanel;
 
@@ -46,9 +49,11 @@ public class InventoryScreen implements Drawable {
 
 	}
 
-	/** Updates the state of the inventory based on player input.
-	 * Player can use movement keys to move across the slots in
-	 * the inventory window, and interact with them.*/
+	/**
+	 * Updates the state of the inventory based on player input. Player can use
+	 * movement keys to move across the slots in the inventory window, and interact
+	 * with them.
+	 */
 	public void update() {
 
 		if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_W) != upToggled) {
@@ -86,7 +91,7 @@ public class InventoryScreen implements Drawable {
 				gamePanel.playSound(1);
 			}
 		}
-		
+
 		// Dialogue cannot be opened while inventory screen
 		if (gamePanel.inventoryState) {
 			gamePanel.player.playerReading = false;
@@ -94,8 +99,8 @@ public class InventoryScreen implements Drawable {
 
 		if (!gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_I)) {
 			gamePanel.inventoryState = false;
-			// When the inventory is closed the player can read again					
-			for (SuperAsset sa: gamePanel.assets) {
+			// When the inventory is closed the player can read again
+			for (SuperAsset sa : gamePanel.assets) {
 				if (sa != null) {
 					if (gamePanel.collisionChecker.isPlayerAbleToRead(gamePanel.player, sa)) {
 						gamePanel.player.playerReading = true;
@@ -105,17 +110,17 @@ public class InventoryScreen implements Drawable {
 			}
 		}
 		// Select items
-		if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER)  != selectToggled) {
+		if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER) != selectToggled) {
 			selectToggled = !selectToggled;
 			selectItem();
 		}
 	}
-	
-	/** Selects item from the inventory*/
+
+	/** Selects item from the inventory. */
 	public void selectItem() {
-		int itemIndex = getItemIndexOnSlot();	
+		int itemIndex = getItemIndexOnSlot();
 		if (itemIndex < gamePanel.player.inventory.size()) {
-			SuperItem selectedItem = gamePanel.player.inventory.get(itemIndex);			
+			SuperItem selectedItem = gamePanel.player.inventory.get(itemIndex);
 			if (selectedItem instanceof ITEM_apple) {
 				gamePanel.playSound(3);
 				gamePanel.playSound(2);
@@ -135,12 +140,15 @@ public class InventoryScreen implements Drawable {
 				gamePanel.player.health = gamePanel.player.MAX_HEALTH;
 				gamePanel.player.inventory.remove(itemIndex);
 			}
-			
+
 		}
 	}
 
-	/** Draws the inventory window in a given Graphics2D object.
-	 * @param g2 Graphisc2D object where the inventory window will be drawn into.*/
+	/**
+	 * Draws the inventory window in a given Graphics2D object.
+	 * 
+	 * @param g2 Graphisc2D object where the inventory window will be drawn into.
+	 */
 	@Override
 	public void draw(Graphics2D g2) {
 
@@ -156,13 +164,13 @@ public class InventoryScreen implements Drawable {
 		final int slotYStart = frameY + 20;
 		int slotX = slotXStart;
 		int slotY = slotYStart;
-		
+
 		// DRAW PLAYER'S ITEMS
 		for (int i = 0; i < gamePanel.player.inventory.size(); i++) {
-			g2.drawImage(gamePanel.player.inventory.get(i).image, slotX+8, slotY+8, null);
-			
+			g2.drawImage(gamePanel.player.inventory.get(i).image, slotX + 8, slotY + 8, null);
+
 			slotX += gamePanel.tileSize;
-			
+
 			if (i == 4 || i == 9 || i == 14) {
 				slotX = slotXStart;
 				slotY += gamePanel.tileSize;
@@ -179,7 +187,7 @@ public class InventoryScreen implements Drawable {
 		g2.setColor(fontColor);
 		g2.setStroke(new BasicStroke(3));
 		g2.drawRoundRect(cursorX, cursorY, cursorWidth, cursorHeight, 10, 10);
-		
+
 		// WEAPONS FRAME
 		int wFrameX = gamePanel.tileSize * 9;
 		int wFrameY = gamePanel.tileSize;
@@ -192,60 +200,65 @@ public class InventoryScreen implements Drawable {
 		final int wSlotYStart = wFrameY + 20;
 		int wSlotX = wSlotXStart;
 		int wSlotY = wSlotYStart;
-		
+
 		// DRAW PLAYER'S WEAPONS
 		if (gamePanel.player.weapons[0] != null) {
-			g2.drawImage(gamePanel.player.weapons[0].image, wSlotX+8, wSlotY+8, null);
+			g2.drawImage(gamePanel.player.weapons[0].image, wSlotX + 8, wSlotY + 8, null);
 		}
 		if (gamePanel.player.weapons[1] != null) {
-			g2.drawImage(gamePanel.player.weapons[1].image, wSlotX+8 + gamePanel.tileSize, wSlotY+8, null);
+			g2.drawImage(gamePanel.player.weapons[1].image, wSlotX + 8 + gamePanel.tileSize, wSlotY + 8, null);
 		}
 		if (gamePanel.player.weapons[2] != null) {
-			g2.drawImage(gamePanel.player.weapons[2].image, wSlotX+8 + 2*gamePanel.tileSize, wSlotY+8, null);
+			g2.drawImage(gamePanel.player.weapons[2].image, wSlotX + 8 + 2 * gamePanel.tileSize, wSlotY + 8, null);
 		}
 
 		// DESCRIPTION FRAME
 		int dFrameX = frameX;
 		int dFrameY = frameY + frameHeight;
 		int dFrameWidth = frameWidth;
-		int dFrameHeight = gamePanel.tileSize*3;
-		
+		int dFrameHeight = gamePanel.tileSize * 3;
+
 		// DRAW DESCRIPTION TEXT
 		int textX = dFrameX + 20;
 		int textY = dFrameY + gamePanel.tileSize;
 		g2.setFont(optionFont);
-		
+
 		int itemIndex = getItemIndexOnSlot();
-		
+
 		if (itemIndex < gamePanel.player.inventory.size()) {
-			
+
 			drawSubWindow(dFrameX, dFrameY, dFrameWidth, dFrameHeight, g2);
-			
-			for (String line: gamePanel.player.inventory.get(itemIndex).description.split("\n")) {
+
+			for (String line : gamePanel.player.inventory.get(itemIndex).description.split("\n")) {
 				g2.drawString(line, textX, textY);
 				textY += 32;
 			}
-			
+
 		}
-				
 
 	}
 
-	/** Helper method that returns the flattened index of the
-	 * inventory array from the selected row and column.
-	 * @return the index of the selected item in the inventory.*/
+	/**
+	 * Helper method that returns the flattened index of the inventory array from
+	 * the selected row and column.
+	 * 
+	 * @return the index of the selected item in the inventory.
+	 */
 	public int getItemIndexOnSlot() {
-		int itemIndex = slotCol + (slotRow*5);
+		int itemIndex = slotCol + (slotRow * 5);
 		return itemIndex;
 	}
 
-	/** Helper method that draws the main frame of the inventory,
-	 * where the item slots will then be drawn on top of.
+	/**
+	 * Helper method that draws the main frame of the inventory, where the item
+	 * slots will then be drawn on top of.
+	 * 
 	 * @param x      The x coordinate of the inventory.
-	 * @param y 	 The y coordinate of the inventory.
+	 * @param y      The y coordinate of the inventory.
 	 * @param width  Width of the inventory frame.
 	 * @param height Height of the inventory frame.
-	 * @param g2	 Graphics2D where the frame will be drawn into.*/
+	 * @param g2     Graphics2D where the frame will be drawn into.
+	 */
 	private void drawSubWindow(int x, int y, int width, int height, Graphics2D g2) {
 		Color c = new Color(0, 0, 0, 210);
 		g2.setColor(c);

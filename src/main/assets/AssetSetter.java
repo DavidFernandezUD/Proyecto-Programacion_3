@@ -1,6 +1,10 @@
 package main.assets;
 
 import main.GamePanel;
+import main.items.ITEM_apple;
+import main.items.ITEM_purplePotion;
+import main.items.ITEM_redPotion;
+import main.items.SuperItem;
 
 /** Manages main.assets and places them in the map.
  * @author marcos.martinez@opendeusto.es*/
@@ -27,9 +31,11 @@ public class AssetSetter {
 //    	gamePanel.assets[1].worldX = (28) * gamePanel.tileSize - gamePanel.tileSize/4;
 //    	gamePanel.assets[1].worldY = (27) * gamePanel.tileSize;
 //    	((ASSET_Sign) gamePanel.assets[1]).text = "¡Si puedes leer esto el commit ha sido todo \nun éxito 2!";
-    	gamePanel.assets[1] = new ASSET_Chest();
+    	ASSET_Chest chest = new ASSET_Chest();
+    	chest.setItems(new SuperItem[] {new ITEM_apple(), new ITEM_apple(), new ITEM_apple(), new ITEM_apple(), new ITEM_apple(), new ITEM_redPotion(), new ITEM_purplePotion()});
+    	gamePanel.assets[1] = chest;
     	gamePanel.assets[1].worldX = (28) * gamePanel.tileSize - gamePanel.tileSize/4;
-    	gamePanel.assets[1].worldY = (27) * gamePanel.tileSize;
+    	gamePanel.assets[1].worldY = (27) * gamePanel.tileSize; 	
     	
     	gamePanel.assets[2] = new ASSET_Sign();
     	gamePanel.assets[2].worldX = (31) * gamePanel.tileSize - gamePanel.tileSize/4;

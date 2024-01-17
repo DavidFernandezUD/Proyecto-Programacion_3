@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
+import main.assets.ASSET_Chest;
 import main.assets.SuperAsset;
 
 /** Drawable chest inventory GUI component.
@@ -45,7 +46,6 @@ public class ChestScreen implements Drawable {
 	public void update() {
 		if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_W) != upToggled) {
 			upToggled = !upToggled;
-
 			if (slotRow != 0) {
 				slotRow--;
 				gamePanel.playSound(1);
@@ -54,7 +54,9 @@ public class ChestScreen implements Drawable {
 		}
 		if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_A) != leftToggled) {
 			leftToggled = !leftToggled;
-
+			if (slotCol == 6) {
+				slotCol -= 1;
+			}
 			if (slotCol != 0) {
 				slotCol--;
 				gamePanel.playSound(1);
@@ -63,21 +65,22 @@ public class ChestScreen implements Drawable {
 		}
 		if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_S) != downToggled) {
 			downToggled = !downToggled;
-
 			if (slotRow != 3) {
 				slotRow++;
 				gamePanel.playSound(1);
 			}
-
 		}
 		if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_D) != rightToggled) {
 			rightToggled = !rightToggled;
-
-			if (slotCol != 4) {
+			if (slotCol == 4) {
+				slotCol += 1;
+			}		
+			if (slotCol != 10) {
 				slotCol++;
 				gamePanel.playSound(1);
 			}
-		}		
+		}	
+		// Inventory cannot be opened while chest screen
 		if (gamePanel.chestState) {
 			gamePanel.inventoryState = false;
 			if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_I)) {
@@ -116,8 +119,19 @@ public class ChestScreen implements Drawable {
 		int slotY = slotYStart;
 		
 		// DRAW PLAYER'S ITEMS
-		for (int i = 0; i < gamePanel.player.inventory.size(); i++) {
-			g2.drawImage(gamePanel.player.inventory.get(i).image, slotX+8, slotY+8, null);
+		ASSET_Chest chest = null;
+		for (SuperAsset sa : gamePanel.assets) {
+			if (sa != null) {
+				if (gamePanel.collisionChecker.isPlayerAbleToRead(gamePanel.player, sa)) {
+					if (sa instanceof ASSET_Chest) {
+						chest = (ASSET_Chest) sa;
+					}
+				}
+			}
+		}
+		
+		for (int i = 0; i < chest.chestItems.size(); i++) {
+			g2.drawImage(chest.chestItems.get(i).image, slotX+8, slotY+8, null);
 			
 			slotX += gamePanel.tileSize;
 			
@@ -151,11 +165,11 @@ public class ChestScreen implements Drawable {
 		
 		int itemIndex = getItemIndexOnSlot();
 		
-		if (itemIndex < gamePanel.player.inventory.size()) {
+		if (itemIndex < chest.chestItems.size()) {
 			
 			drawSubWindow(dFrameX, dFrameY, dFrameWidth, dFrameHeight, g2);
 			
-			for (String line: gamePanel.player.inventory.get(itemIndex).description.split("\n")) {
+			for (String line: chest.chestItems.get(itemIndex).description.split("\n")) {
 				g2.drawString(line, textX, textY);
 				textY += 32;
 			}			
