@@ -17,7 +17,9 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Properties;
 import java.util.logging.*;
 
 /** Main class of the game. Contains all the manager classes
@@ -99,14 +101,17 @@ public class GamePanel extends JPanel implements Runnable {
 		this.setFocusable(true);
 
 		try {
-			logger.setLevel(Level.ALL);
+			Properties properties = new Properties();
+			properties.load(new FileInputStream("src/logs/log_config.properties"));
+
+			setLoggerLevel(logger, properties.getProperty("logger_level"));
 
 			Handler h1 = new StreamHandler(System.out, new SimpleFormatter());
-			h1.setLevel(Level.ALL);
+			setHandlerLevel(h1, properties.getProperty("console_logger"));
 			logger.addHandler(h1);
 
 			Handler h2 = new FileHandler("src/logs/program_log.log.xml");
-			h2.setLevel(Level.INFO);
+			setHandlerLevel(h2, properties.getProperty("file_logger"));
 			logger.addHandler(h2);
 
 		} catch(IOException e) {
@@ -114,6 +119,66 @@ public class GamePanel extends JPanel implements Runnable {
 		}
 
 		logger.log(Level.INFO, "Game Started");
+	}
+
+	/** Sets the level of a logger based on a string
+	 * representing the level.
+	 * @param logger Logger to modify.
+	 * @param level String representing desired level ("ALL", "WARNING",...)*/
+	private void setLoggerLevel(Logger logger, String level) {
+		switch(level) {
+				case "ALL":
+					logger.setLevel(Level.ALL);
+					break;
+				case "FINEST":
+					logger.setLevel(Level.FINEST);
+					break;
+				case "FINER":
+					logger.setLevel(Level.FINER);
+					break;
+				case "FINE":
+					logger.setLevel(Level.FINE);
+					break;
+				case "INFO":
+					logger.setLevel(Level.INFO);
+					break;
+				case "WARNING":
+					logger.setLevel(Level.WARNING);
+					break;
+				case "SEVERE":
+					logger.setLevel(Level.SEVERE);
+					break;
+		}
+	}
+
+	/** Sets the level of a logghandler based on
+	 * a string representing the level.
+	 * @param handler Handler to modify.
+	 * @param level String representing desired level ("ALL", "WARNING",...)*/
+	private void setHandlerLevel(Handler handler, String level) {
+		switch(level) {
+				case "ALL":
+					handler.setLevel(Level.ALL);
+					break;
+				case "FINEST":
+					handler.setLevel(Level.FINEST);
+					break;
+				case "FINER":
+					handler.setLevel(Level.FINER);
+					break;
+				case "FINE":
+					handler.setLevel(Level.FINE);
+					break;
+				case "INFO":
+					handler.setLevel(Level.INFO);
+					break;
+				case "WARNING":
+					handler.setLevel(Level.WARNING);
+					break;
+				case "SEVERE":
+					handler.setLevel(Level.SEVERE);
+					break;
+		}
 	}
 
 	/** Initializes main.assets, main.items and the music of the game.

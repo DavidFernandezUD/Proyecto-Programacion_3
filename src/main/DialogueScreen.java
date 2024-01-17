@@ -41,7 +41,7 @@ public class DialogueScreen implements Drawable {
 			// Fallback to default fonts if the custom font could not be loaded
 			optionFont = new Font("Arial", Font.PLAIN, 24);
 
-			gamePanel.logger.log(Level.WARNING, "Dialog Font Failed Loading", e);
+			GamePanel.logger.log(Level.WARNING, "Dialog Font Failed Loading", e);
 		}
 
 		// COLORS
