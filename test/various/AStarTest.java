@@ -1,4 +1,4 @@
-package test.AStarTest;
+package various;
 
 import javax.swing.*;
 import java.awt.*;

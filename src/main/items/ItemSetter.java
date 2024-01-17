@@ -1,9 +1,8 @@
 package main.items;
 
 import main.GamePanel;
-import main.entities.Player;
 
-/** Class that sets the items across the map.
+/** Class that sets the main.items across the map.
  * @author marcos.martinez@opendeusto.es*/
 public class ItemSetter {
 	
@@ -14,7 +13,7 @@ public class ItemSetter {
 		this.gamePanel = gamePanel;
 	}
 
-	/** Sets items in default positions*/
+	/** Sets main.items in default positions*/
 	public void setItem () {
 		
 		gamePanel.items[0] = new ITEM_woodenSword();

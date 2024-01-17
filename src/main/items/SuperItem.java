@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 
 import main.GamePanel;
 
-/** Base class for items.
+/** Base class for main.items.
  * @author marcos.martinez@opendeusto.es*/
 public class SuperItem {
 
@@ -20,7 +20,7 @@ public class SuperItem {
 	
 	public String description = "";
 
-	/** Draws items into given Graphics2D object.*/
+	/** Draws main.items into given Graphics2D object.*/
 	public void draw(Graphics2D g2, GamePanel gamePanel) {
 
 		int screenX = worldX - gamePanel.player.worldX + gamePanel.player.screenX;

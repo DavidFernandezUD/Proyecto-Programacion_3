@@ -2,7 +2,6 @@ package main.entities;
 
 import main.GamePanel;
 
-import java.rmi.UnexpectedException;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
@@ -40,7 +39,7 @@ public class PathFinder {
         resetNodes();
     }
 
-    /** Returns a Node list with the path between two entities.
+    /** Returns a Node list with the path between two main.entities.
      * @param origin Origin entity.
      * @param destination Destination entity.
      * @return ArrayList of Nodes with the path from origin to destination or

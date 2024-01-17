@@ -93,12 +93,12 @@ public class GamePanel extends JPanel implements Runnable {
 		this.setFocusable(true);
 	}
 
-	/** Initializes assets, items and the music of the game.
+	/** Initializes main.assets, main.items and the music of the game.
 	 * @author marcos.martinez@opendeusto.es*/
 	public void setUpGame() {
-		// Sets assets
+		// Sets main.assets
 		assetSetter.setAssets();
-		// Sets items
+		// Sets main.items
 		itemSetter.setItem();
 
 		// Plays music
@@ -115,7 +115,7 @@ public class GamePanel extends JPanel implements Runnable {
 
 	/** Runs the game loop of the game. The game loop constantly
 	 * repeats the updating and drawing of all the components of
-	 * the game, including entities, tiles, objects, etc.*/
+	 * the game, including main.entities, tiles, objects, etc.*/
 	@Override
 	public void run() {
 		double drawInterval = 1000000000. / FPS; // Nanoseconds per frame
@@ -193,7 +193,7 @@ public class GamePanel extends JPanel implements Runnable {
 
 				// Only updating the game state if the game isn't paused
 				if (!pauseState && !titleState && !dialogueState && !inventoryState && !chestState) {
-					// 1 UPDATE: Update information like location of items, mobs, character, etc.
+					// 1 UPDATE: Update information like location of main.items, mobs, character, etc.
 					update();
 					hud.update();
 				}

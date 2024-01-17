@@ -2,7 +2,7 @@ package main.assets;
 
 import main.GamePanel;
 
-/** Manages assets and places them in the map.
+/** Manages main.assets and places them in the map.
  * @author marcos.martinez@opendeusto.es*/
 public class AssetSetter {
 
@@ -13,7 +13,7 @@ public class AssetSetter {
         this.gamePanel = gamePanel;
     }
 
-	/** Stores the assets in the assets array and manually locates
+	/** Stores the main.assets in the main.assets array and manually locates
 	 * them around the map.*/
     public void setAssets() {
 

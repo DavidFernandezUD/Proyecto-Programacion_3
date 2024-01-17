@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-/** Class that manages all the entities inside the game.
+/** Class that manages all the main.entities inside the game.
  * @author david.f@opendeusto.es*/
 public class EntityManager implements Drawable {
 
@@ -32,8 +32,8 @@ public class EntityManager implements Drawable {
 
     }
 
-    /** Loads entities from file and stores player
-     * and entities in an entity list.*/
+    /** Loads main.entities from file and stores player
+     * and main.entities in an entity list.*/
     private void setEntities() {
 
         // Player
@@ -57,7 +57,7 @@ public class EntityManager implements Drawable {
 		}
     }
 
-    /** Updates all the entities in the entity list.*/
+    /** Updates all the main.entities in the entity list.*/
     public void update() {
 
         for(Entity entity : entities) {
@@ -66,7 +66,7 @@ public class EntityManager implements Drawable {
 
     }
 
-    /** Draws entities in correct order.*/
+    /** Draws main.entities in correct order.*/
     @Override
     public void draw(Graphics2D g2) {
 

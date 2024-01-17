@@ -6,7 +6,7 @@ import main.GamePanel;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-/** Base class for entities.
+/** Base class for main.entities.
  * @author david.f@opendeusto.es*/
 public abstract class Entity implements Drawable {
 
@@ -73,7 +73,7 @@ public abstract class Entity implements Drawable {
         };
     }
 
-    /** Returns a vector between two entities.
+    /** Returns a vector between two main.entities.
      * @param ent1 First entity.
      * @param ent2 Second entity.
      * @return an int array representing the vector between ent1 and ent2.*/
@@ -89,7 +89,7 @@ public abstract class Entity implements Drawable {
         return new int[] {node.col * ent.tileSize - ent.worldX, ent.worldY - node.row * ent.tileSize};
     }
 
-    /** Returns the angle in degrees between two entities.
+    /** Returns the angle in degrees between two main.entities.
      * @param ent1 First entity.
      * @param ent2 Second entity.
      * @return degrees between ent1 and ent2.*/
@@ -144,7 +144,7 @@ public abstract class Entity implements Drawable {
         }
     }
 
-    /** Returns the Euclidean distance between two entities.
+    /** Returns the Euclidean distance between two main.entities.
      * @param ent1 First entity.
      * @param ent2 Second entity.
      * @return Euclidean distance between ent1 and ent2.*/
@@ -162,7 +162,7 @@ public abstract class Entity implements Drawable {
         return Math.sqrt(vector[0] * vector[0] + vector[1] * vector[1]);
     }
 
-    /** Utility method for redrawing props on top of entities
+    /** Utility method for redrawing props on top of main.entities
      * when the prop is in front of the actual entity.
      * @param g2 Graphics2D objet to draw the prop into.
      * @param entity Entity to check for prop occlusion.
@@ -213,10 +213,10 @@ public abstract class Entity implements Drawable {
 		}
 	}
 
-    /** Returns whether two entities are colliding.
+    /** Returns whether two main.entities are colliding.
      * @param ent1 First entity.
      * @param ent2 Second entity.
-     * @return true if the two entities collide.*/
+     * @return true if the two main.entities collide.*/
     protected boolean collides(Entity ent1, Entity ent2) {
         Rectangle collision1 = new Rectangle(
                 ent1.worldX + ent1.collisionBox.x,

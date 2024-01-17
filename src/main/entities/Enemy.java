@@ -86,7 +86,7 @@ public class Enemy extends Entity implements Drawable {
 
                 direction = Entity.getDirection(this, path.get(0));
 
-                // Check collisions
+                // Check main.collisions
                 collisionOn = false;
                 gamePanel.collisionChecker.checkTileCollision(this);
 

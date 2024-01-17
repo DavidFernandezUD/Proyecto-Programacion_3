@@ -165,7 +165,7 @@ public class TileManager implements Drawable {
             }
         }
 
-        // Drawing main.tile collisions
+        // Drawing main.tile main.collisions
         if(debugCollisions) {
             gamePanel.collisionChecker.draw(g2);
         }

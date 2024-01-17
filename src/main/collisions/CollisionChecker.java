@@ -9,8 +9,8 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-/** Class that manages collisions between the environment
- * and the entities in it.
+/** Class that manages main.collisions between the environment
+ * and the main.entities in it.
  * @author david.f@opendeusto.es*/
 public class CollisionChecker {
 
@@ -60,7 +60,7 @@ public class CollisionChecker {
 			e.printStackTrace();
 		}
 
-		// Custom collisions
+		// Custom main.collisions
 		collisions = new Rectangle[16];
 
 		collisions[0] = new Rectangle(0, 0, 64, 64);
@@ -73,7 +73,7 @@ public class CollisionChecker {
 		collisions[4] = new Rectangle(0, 0, 64, 6);
 		collisions[5] = new Rectangle(0, 58, 64, 6);
 
-		// Little trick to make the inner corner collisions
+		// Little trick to make the inner corner main.collisions
 		collisions[6] = new Rectangle(0, 0, 20, 24);
 		collisions[7] = new Rectangle(44, 0, 20, 24);
 
@@ -88,7 +88,7 @@ public class CollisionChecker {
 		collisions[15] = new Rectangle(0, 32, 64, 32);
 	}
 
-	/** Checks for collisions between an entity and the two tiles
+	/** Checks for main.collisions between an entity and the two tiles
 	 * in the direction it is moving in. If a collision is detected
 	 * collisionOn is set to true for that entity.*/
 	public void checkTileCollision(Entity entity) {
@@ -187,7 +187,7 @@ public class CollisionChecker {
 		entity.collisionOn = entityCollision.intersects(tile1Collision) || entityCollision.intersects(tile2Collision);
 	}
 
-	/** Checks for collisions with assets, in order
+	/** Checks for main.collisions with main.assets, in order
 	 * to engage in interaction with them.
 	 * @return The index of the asset, the entity is in range of.*/
 	public int checkAsset(Entity entity, boolean player) {

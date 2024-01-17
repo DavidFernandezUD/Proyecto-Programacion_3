@@ -109,7 +109,7 @@ public class Player extends Entity implements Drawable {
 
 	}
 
-	/** Sets the items of the player.
+	/** Sets the main.items of the player.
 	 * @author marcos.martinez@opendeusto.es*/
 	public void setItems() {
 
@@ -268,7 +268,7 @@ public class Player extends Entity implements Drawable {
 	}
 	
 	/** Picks an item specified by an id if no higher tier
-	 * items are owned by the player.
+	 * main.items are owned by the player.
 	 * @author marcos.martinez@opendeusto.es*/
 	public void pickUpItem(int i) {
 
