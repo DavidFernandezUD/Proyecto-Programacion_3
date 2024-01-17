@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.logging.Level;
 import javax.imageio.ImageIO;
 import main.Drawable;
 //import main.objects.SuperObject;
@@ -69,7 +70,7 @@ public class TileManager implements Drawable {
             }
 
         } catch(IOException e) {
-            e.printStackTrace();
+            GamePanel.logger.log(Level.SEVERE, "Failed Loading Tile Sprite Sheet", e);
         }
     }
 
@@ -108,7 +109,7 @@ public class TileManager implements Drawable {
                 }
 
             } catch (Exception e) {
-                e.printStackTrace();
+                GamePanel.logger.log(Level.SEVERE, "Failed Loading Tile Maps", e);
             }
         }
     }

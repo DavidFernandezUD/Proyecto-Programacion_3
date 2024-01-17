@@ -4,6 +4,7 @@ import main.entities.Enemy;
 
 import java.sql.*;
 import java.util.HashMap;
+import java.util.logging.Level;
 
 /** Class to manage game files in a database
  * @author juanjose.restrepo@opendeusto.es*/
@@ -53,10 +54,10 @@ public class GameManager {
                 conn.close();
 
             } catch (SQLException e) {
-                System.out.println("ERROR: " + e.getMessage());
+                gamePanel.logger.log(Level.SEVERE, "SQLite connection failed: " + e.getMessage());
             }
         } catch (ClassNotFoundException e) {
-            System.out.println("SQLite driver not found: " + e.getMessage());
+            gamePanel.logger.log(Level.SEVERE, "SQLite driver not found: " + e.getMessage());
         }
     }
 
@@ -99,10 +100,10 @@ public class GameManager {
                 conn.close();
 
             } catch (SQLException e) {
-                System.out.println("ERROR: " + e.getMessage());
+                gamePanel.logger.log(Level.SEVERE, "SQLite connection failed: " + e.getMessage());
             }
         } catch (ClassNotFoundException e) {
-            System.out.println("SQLite driver not found: " + e.getMessage());
+            gamePanel.logger.log(Level.SEVERE, "SQLite driver not found: " + e.getMessage());
         }
     }
 
@@ -129,10 +130,10 @@ public class GameManager {
                 conn.close();
 
             } catch (SQLException e) {
-                System.out.println("ERROR: " + e.getMessage());
+                gamePanel.logger.log(Level.SEVERE, "SQLite connection failed: " + e.getMessage());
             }
         } catch (ClassNotFoundException e) {
-            System.out.println("SQLite driver not found: " + e.getMessage());
+            gamePanel.logger.log(Level.SEVERE, "SQLite driver not found: " + e.getMessage());
         }
     }
 
@@ -158,10 +159,10 @@ public class GameManager {
                 conn.close();
 
             } catch (SQLException e) {
-                System.out.println("ERROR: " + e.getMessage());
+                gamePanel.logger.log(Level.SEVERE, "SQLite connection failed: " + e.getMessage());
             }
         } catch (ClassNotFoundException e) {
-            System.out.println("SQLite driver not found: " + e.getMessage());
+            gamePanel.logger.log(Level.SEVERE, "SQLite driver not found: " + e.getMessage());
         }
         return recentGames;
     }

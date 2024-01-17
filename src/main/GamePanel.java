@@ -17,6 +17,8 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.util.logging.*;
 
 /** Main class of the game. Contains all the manager classes
  * and is usually passed as a parameter to the manager classes
@@ -25,6 +27,9 @@ import java.awt.event.KeyEvent;
  * @author david.f@opendeusto.es*/
 @SuppressWarnings("serial")
 public class GamePanel extends JPanel implements Runnable {
+
+	// LOGGER
+	public static Logger logger = Logger.getLogger(GamePanel.class.getName());
 
 	// SCREEN SETTINGS
 	final int originalTileSize = 32; // 16x16 tiles
@@ -86,11 +91,29 @@ public class GamePanel extends JPanel implements Runnable {
 
 	/** Creates a GamePamel.*/
 	public GamePanel() {
+
 		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
 		this.setBackground(Color.BLACK);
 		this.setDoubleBuffered(true);
 		this.addKeyListener(keyHandler);
 		this.setFocusable(true);
+
+		try {
+			logger.setLevel(Level.ALL);
+
+			Handler h1 = new StreamHandler(System.out, new SimpleFormatter());
+			h1.setLevel(Level.ALL);
+			logger.addHandler(h1);
+
+			Handler h2 = new FileHandler("src/logs/program_log.log.xml");
+			h2.setLevel(Level.INFO);
+			logger.addHandler(h2);
+
+		} catch(IOException e) {
+			logger.log(Level.SEVERE, "Logger Handler Failed", e);
+		}
+
+		logger.log(Level.INFO, "Game Started");
 	}
 
 	/** Initializes main.assets, main.items and the music of the game.
@@ -111,6 +134,8 @@ public class GamePanel extends JPanel implements Runnable {
 	public void startGameThread() {
 		gameThread = new Thread(this);
 		gameThread.start();
+
+		logger.log(Level.INFO, "Game Thread Started");
 	}
 
 	/** Runs the game loop of the game. The game loop constantly
@@ -290,6 +315,8 @@ public class GamePanel extends JPanel implements Runnable {
 		sound.setVolume(-20.0f);
 		sound.play();
 		sound.loop();
+
+		logger.log(Level.INFO, "Playing Music");
 
 	}
 

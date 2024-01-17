@@ -3,6 +3,7 @@ package main;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
+import java.util.logging.Level;
 
 /** Drawable pause screen GUI component.
  * @author juanjose.restrepo@opendeusto.es*/
@@ -40,7 +41,7 @@ public class PauseScreen implements Drawable{
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                gamePanel.logger.log(Level.SEVERE, "Thread.sleep() Failed", e);
             }
             gamePanel.pauseState = false;
             gamePanel.titleState = true;

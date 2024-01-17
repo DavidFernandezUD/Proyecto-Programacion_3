@@ -1,12 +1,10 @@
 package main.entities;
 
-import main.Drawable;
+import main.*;
 import main.items.ITEM_goldenSword;
 import main.items.ITEM_ironSword;
 import main.items.ITEM_woodenSword;
 import main.items.SuperItem;
-import main.KeyHandler;
-import main.Utility;
 import main.assets.ASSET_Grave;
 import main.assets.ASSET_Sign;
 
@@ -18,9 +16,9 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.logging.Level;
 
 import javax.imageio.ImageIO;
-import main.GamePanel;
 
 /** Main player class.
  * @author david.f@opendeusto.es*/
@@ -82,6 +80,9 @@ public class Player extends Entity implements Drawable {
 		setDefaultValues();
 		getPlayerSprite();
 		setItems();
+
+		GamePanel.logger.log(Level.INFO, "Player Created at");
+
 	}
 
 	/** Returns a now Player object if a previous one didn't already
@@ -134,7 +135,7 @@ public class Player extends Entity implements Drawable {
 					.read(Objects.requireNonNull(getClass().getResourceAsStream("/main/res/player/attack1.png")));
 			attackSprites = util.scaleImage(attackSprites, tileSize * 4, tileSize * 4);
 		} catch (IOException e) {
-			e.printStackTrace();
+			GamePanel.logger.log(Level.SEVERE, "Failed Loading Player Sprites", e);
 		}
 	}
 

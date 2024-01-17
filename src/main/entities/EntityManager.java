@@ -1,6 +1,7 @@
 package main.entities;
 
 import main.Drawable;
+import main.Game;
 import main.GamePanel;
 
 import java.awt.*;
@@ -9,6 +10,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.logging.Level;
 
 /** Class that manages all the main.entities inside the game.
  * @author david.f@opendeusto.es*/
@@ -53,7 +55,7 @@ public class EntityManager implements Drawable {
                         Integer.parseInt(cords[1])));
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+            GamePanel.logger.log(Level.SEVERE, "failed Loading Entities", e);
 		}
     }
 

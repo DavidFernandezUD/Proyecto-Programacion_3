@@ -8,6 +8,7 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
 
 import main.assets.SuperAsset;
 
@@ -39,6 +40,8 @@ public class DialogueScreen implements Drawable {
 		} catch (FontFormatException | IOException e) {
 			// Fallback to default fonts if the custom font could not be loaded
 			optionFont = new Font("Arial", Font.PLAIN, 24);
+
+			gamePanel.logger.log(Level.WARNING, "Dialog Font Failed Loading", e);
 		}
 
 		// COLORS

@@ -8,6 +8,7 @@ import java.awt.*;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.logging.Level;
 
 /** Class that manages main.collisions between the environment
  * and the main.entities in it.
@@ -57,7 +58,7 @@ public class CollisionChecker {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			GamePanel.logger.log(Level.SEVERE, "Failed Loading Collisions", e);
 		}
 
 		// Custom main.collisions

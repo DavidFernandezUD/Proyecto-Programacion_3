@@ -6,6 +6,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
 import javax.imageio.ImageIO;
 
 /** Drawable HUD GUI component.
@@ -42,8 +43,7 @@ public class Hud implements Drawable{
             BufferedImage IO2 = ImageIO.read(new File("src/main/res/hud/heart border half.png"));
             this.halfHeart = IO2.getScaledInstance(heartWidth, heartHeight, Image.SCALE_SMOOTH);
         } catch (IOException e) {
-            System.out.println("ERORR LOADING HEART IMAGE");
-            e.printStackTrace();
+            gamePanel.logger.log(Level.SEVERE, "Failed Loading Heart Sprites", e);
         }
 
     }

@@ -1,6 +1,7 @@
 package main.entities;
 
 import main.Drawable;
+import main.Game;
 import main.GamePanel;
 import main.Utility;
 import javax.imageio.ImageIO;
@@ -9,6 +10,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.logging.Level;
 
 /** Enemy class.
  * @author david.f@opendeusto.es*/
@@ -29,6 +31,8 @@ public class Enemy extends Entity implements Drawable {
         worldY = gamePanel.tileSize * y;
         setDefaultValues();
         getEnemySprite();
+
+        GamePanel.logger.log(Level.INFO, "Enemy Created at " + x + ", " + y);
     }
 
     /** Initializes the state of the enemy after creation.*/
@@ -57,7 +61,7 @@ public class Enemy extends Entity implements Drawable {
             attackSprites = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/main/res/enemy/attack1.png")));
             attackSprites = util.scaleImage(attackSprites, tileSize * 4, tileSize * 4);
         } catch(IOException e) {
-            e.printStackTrace();
+            GamePanel.logger.log(Level.SEVERE, "Failed Loading Enemy Sprites", e);
         }
     }
 

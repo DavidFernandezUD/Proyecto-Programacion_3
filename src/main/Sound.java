@@ -1,6 +1,7 @@
 package main;
 
 import java.net.URL;
+import java.util.logging.Level;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -36,7 +37,7 @@ public class Sound {
 			 gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			GamePanel.logger.log(Level.SEVERE, "Failed Loading Sound", e);
 		}
 		
 	}

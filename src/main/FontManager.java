@@ -3,6 +3,7 @@ package main;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
 
 /** Helper class to manage the different fonts used in the game.
  * @author juanjose.restrepo@opendeusto.es*/
@@ -29,6 +30,8 @@ public class FontManager {
             // Fallback to default fonts if the custom font could not be loaded
             titleFont = new Font("Arial", Font.BOLD, 100);
             optionFont = new Font("Arial", Font.PLAIN, 24);
+
+            GamePanel.logger.log(Level.SEVERE, "Failed Loading Font, Fonts Set to Default", e);
         }
 
         // COLORS
