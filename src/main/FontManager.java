@@ -4,6 +4,8 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
+/** Helper class to manage the different fonts used in the game.
+ * @author juanjose.restrepo@opendeusto.es*/
 public class FontManager {
     
     public static Font titleFont;
@@ -11,6 +13,8 @@ public class FontManager {
     public static Color fontColor;
     public static Color highlightColor;
 
+    /** Constructor for FontManager. Initializer the default
+     * fonts used all around the project.*/
     public FontManager() {
         // DEFAULT FONTS
         try {

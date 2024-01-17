@@ -2,6 +2,8 @@ package main.assets;
 
 import java.awt.Rectangle;
 
+/** Grave asset.
+ * @author marcos.martinez@opendeusto.es*/
 public class ASSET_Grave extends SuperAsset {
 	
 	public String text;

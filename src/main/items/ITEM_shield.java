@@ -2,6 +2,8 @@ package main.items;
 
 import javax.imageio.ImageIO;
 
+/** Shield item.
+ * @author marcos.martinez@opendeusto.es*/
 public class ITEM_shield extends SuperItem {
 	
 	public ITEM_shield() {

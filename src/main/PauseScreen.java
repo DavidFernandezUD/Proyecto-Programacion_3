@@ -4,8 +4,8 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
-import main.interfaces.Drawable;
-
+/** Drawable pause screen GUI component.
+ * @author juanjose.restrepo@opendeusto.es*/
 public class PauseScreen implements Drawable{
     
     // GAME PANEL
@@ -16,11 +16,13 @@ public class PauseScreen implements Drawable{
     private boolean downToggled = false;
     private int selectionIndex = 0;
 
+    /** Creates a PauseScreen component.*/
     PauseScreen(GamePanel gamePanel) {
 
         this.gamePanel = gamePanel;
     }
 
+    /** Updates the state of the pause screen based on user keyboard input.*/
     public void update() {
 
         // CONTINUE
@@ -61,6 +63,8 @@ public class PauseScreen implements Drawable{
         }
     }
 
+    /** Draws the pause screen in a given Graphics2D object.
+     * @param g2 Graphics2D object where the pause screen will be drawn into.*/
     @Override
     public void draw(Graphics2D g2) {
         

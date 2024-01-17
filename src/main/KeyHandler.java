@@ -4,6 +4,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.*;
 
+/** Class that manages keyboard user input, and provides
+ * multiple methods to facilitate their use.
+ * @author david.f@opendeusto.es*/
 public class KeyHandler implements KeyListener {
 
 	private final Set<Integer> pressedKeys = new HashSet<>();
@@ -14,10 +17,17 @@ public class KeyHandler implements KeyListener {
 
 	public boolean keyPressedE;
 
+	/** Returns true if the specified key is being pressed.
+	 * @param keyCode Key Code of the key that is being checked.
+	 * @return true if the key is being pressed, false waterways.*/
 	public boolean isKeyPressed(int keyCode) {
 		return pressedKeys.contains(keyCode);
 	}
 
+	/** Returns true if a key is the last "move key" (a, w, s, d)
+	 * that has been pressed.
+	 * @param keyCode Key Code of the key that is being checked.
+	 * @return true if the last move key pressed is the keyCode.*/
 	public boolean isLastMoveKeyPressed(int keyCode) {
 		if (!pressedMoveKeys.isEmpty()) {
 			return keyCode == pressedMoveKeys.lastElement();
@@ -25,11 +35,18 @@ public class KeyHandler implements KeyListener {
 		return false;
 	}
 
+	/** Returns true if a "move key" (a, w, s, d) is being pressed.
+	 * @return true if a move key is pressed.*/
 	public boolean isMoveKeyPressed() {
 		return pressedKeys.contains(KeyEvent.VK_W) || pressedKeys.contains(KeyEvent.VK_A)
 				|| pressedKeys.contains(KeyEvent.VK_S) || pressedKeys.contains(KeyEvent.VK_D);
 	}
 
+	/** Returns the toggle state of a given key. The toggle state of each key
+	 * is stored as a boolean, and switches its value just when that key is pressed
+	 * down again.
+	 * @param keyCode Key Code of the key that is being checked.
+	 * @return the toggle state of the given key.*/
 	public boolean isKeyToggled(int keyCode) {
 		return keyToggleStates.getOrDefault(keyCode, false);
 	}
@@ -37,6 +54,7 @@ public class KeyHandler implements KeyListener {
 	@Override
 	public void keyTyped(KeyEvent e) {
 	}
+
 
 	@Override
 	public void keyPressed(KeyEvent e) {
@@ -82,6 +100,9 @@ public class KeyHandler implements KeyListener {
 				|| keyCode == KeyEvent.VK_D;
 	}
 
+	/** Returns the character represented by the last pressed key.
+	 * @return The last pressed character.
+	 * @author juanjose.restrepo@opendeusto.es*/
 	public String getKeyPressed() {
 		if (!pressedKeys.isEmpty()) {
 			int keyCode = pressedKeys.iterator().next();

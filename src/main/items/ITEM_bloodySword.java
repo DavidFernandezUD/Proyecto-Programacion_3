@@ -2,6 +2,8 @@ package main.items;
 
 import javax.imageio.ImageIO;
 
+/** Bloody Sword item.
+ * @author marcos.martinez@opendeusto.es*/
 public class ITEM_bloodySword extends SuperItem {
 	
 	public ITEM_bloodySword() {

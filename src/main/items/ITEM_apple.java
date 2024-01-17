@@ -2,6 +2,8 @@ package main.items;
 
 import javax.imageio.ImageIO;
 
+/** Apple item.
+ * @author marcos.martinez@opendeusto.es*/
 public class ITEM_apple extends SuperItem {
 	
 	public ITEM_apple() {

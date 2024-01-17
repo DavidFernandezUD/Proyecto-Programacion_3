@@ -1,11 +1,11 @@
 package main;
 
-import main.interfaces.Drawable;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
-import java.util.Map;
 
+/** Drawable title screen GUI component.
+ * @author juanjose.restrepo@opendeusto.es*/
 public class TitleScreen implements Drawable {
 
     // SETTINGS
@@ -32,6 +32,7 @@ public class TitleScreen implements Drawable {
     // LIST OF RECENT GAMES
     private HashMap<Integer, String> recentGames;
 
+    /** Creates a title screen component.*/
     TitleScreen(GamePanel gamePanel) {
 
         this.gamePanel = gamePanel;
@@ -41,6 +42,8 @@ public class TitleScreen implements Drawable {
 
     }
 
+    /** Updates the state of the title screen based on user keyboard
+     * input.*/
     public void update() {
 
         if (gameTitle) {
@@ -153,6 +156,8 @@ public class TitleScreen implements Drawable {
         }
     }
 
+    /** Draws the title screen on a given Graphics2D object.
+     * @param g2 Graphics2D object where the title screen will be drawn into.*/
     @Override
     public void draw(Graphics2D g2) {
 

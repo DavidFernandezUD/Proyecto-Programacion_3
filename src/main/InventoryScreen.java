@@ -7,8 +7,9 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
 import main.assets.SuperAsset;
-import main.interfaces.Drawable;
 
+/** Drawable player inventory GUI component.
+ * @author marcos.martinez@opendeusto.es*/
 public class InventoryScreen implements Drawable {
 
 	private boolean upToggled = false;
@@ -27,6 +28,7 @@ public class InventoryScreen implements Drawable {
 	// OPTIONS
 	public GamePanel gamePanel;
 
+	/** Create a InventoryScreen object.*/
 	InventoryScreen(GamePanel gamePanel) {
 		this.gamePanel = gamePanel;
 
@@ -39,6 +41,9 @@ public class InventoryScreen implements Drawable {
 
 	}
 
+	/** Updates the state of the inventory based on player input.
+	 * Player can use movement keys to move across the slots in
+	 * the inventory window, and interact with them.*/
 	public void update() {
 
 		if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_W) != upToggled) {
@@ -96,6 +101,8 @@ public class InventoryScreen implements Drawable {
 		}
 	}
 
+	/** Draws the inventory window in a given Graphics2D object.
+	 * @param g2 Graphisc2D object where the inventory window will be drawn into.*/
 	@Override
 	public void draw(Graphics2D g2) {
 
@@ -185,13 +192,23 @@ public class InventoryScreen implements Drawable {
 				
 
 	}
-	
-	public int getItemIndexOnSlot() {
+
+	/** Helper method that returns the flattened index of the
+	 * inventory array from the selected row and column.
+	 * @return the index of the selected item in the inventory.*/
+	private int getItemIndexOnSlot() {
 		int itemIndex = slotCol + (slotRow*5);
 		return itemIndex;
 	}
 
-	public void drawSubWindow(int x, int y, int width, int height, Graphics2D g2) {
+	/** Helper method that draws the main frame of the inventory,
+	 * where the item slots will then be drawn on top of.
+	 * @param x      The x coordinate of the inventory.
+	 * @param y 	 The y coordinate of the inventory.
+	 * @param width  Width of the inventory frame.
+	 * @param height Height of the inventory frame.
+	 * @param g2	 Graphics2D where the frame will be drawn into.*/
+	private void drawSubWindow(int x, int y, int width, int height, Graphics2D g2) {
 		Color c = new Color(0, 0, 0, 210);
 		g2.setColor(c);
 		g2.fillRoundRect(x, y, width, height, 35, 35);

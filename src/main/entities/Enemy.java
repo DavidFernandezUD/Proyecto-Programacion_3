@@ -1,6 +1,6 @@
 package main.entities;
 
-import main.interfaces.Drawable;
+import main.Drawable;
 import main.GamePanel;
 import main.Utility;
 import javax.imageio.ImageIO;
@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/** Enemy class.
+ * @author david.f@opendeusto.es*/
 public class Enemy extends Entity implements Drawable {
 
     private boolean debug = false;
@@ -17,16 +19,21 @@ public class Enemy extends Entity implements Drawable {
     private final int TRACKING_RANGE = 20; // Maximum tracking range in tiles
     private boolean changedTile = true;
 
-    public Enemy(GamePanel gamePanel) {
+    /** Creates an enemy at a given position.
+     * @param x Position in the x axes in tiles.
+     * @param y Position in the y axes in tiles.*/
+    public Enemy(GamePanel gamePanel, int x, int y) {
         super(gamePanel);
 
+        worldX = gamePanel.tileSize * x;
+        worldY = gamePanel.tileSize * y;
         setDefaultValues();
         getEnemySprite();
     }
 
+    /** Initializes the state of the enemy after creation.*/
     public void setDefaultValues() {
-        worldX = gamePanel.tileSize * 22;
-        worldY = gamePanel.tileSize * 34;
+
         speed = 2;
         direction = "down";
         moving = true;
@@ -34,6 +41,7 @@ public class Enemy extends Entity implements Drawable {
         collisionBox = new Rectangle(11, 22, 42, 42);
     }
 
+    /** Loads the sprite sheets of the enemy.*/
     public void getEnemySprite() {
 
         // For image scaling and optimization
@@ -53,6 +61,8 @@ public class Enemy extends Entity implements Drawable {
         }
     }
 
+    /** Updates the state of the enemy. Searches for player if in range
+     * and starts tracking it.*/
     public void update() {
 
         double distance = Entity.getDistance(this, gamePanel.player);
@@ -142,6 +152,8 @@ public class Enemy extends Entity implements Drawable {
         }
     }
 
+    /** Draws the enemy on a given Graphics2D object.
+     * @param g2 Graphics2D object the enemy will be drawn into.*/
     @Override
     public void draw(Graphics2D g2) {
 

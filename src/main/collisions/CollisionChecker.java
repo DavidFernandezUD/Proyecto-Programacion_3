@@ -9,6 +9,9 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+/** Class that manages collisions between the environment
+ * and the entities in it.
+ * @author david.f@opendeusto.es*/
 public class CollisionChecker {
 
 	GamePanel gamePanel;
@@ -22,6 +25,7 @@ public class CollisionChecker {
 	Rectangle tile1Collision;
 	Rectangle tile2Collision;
 
+	/** Creates a collision checker object.*/
 	public CollisionChecker(GamePanel gamePanel) {
 
 		this.gamePanel = gamePanel;
@@ -32,6 +36,7 @@ public class CollisionChecker {
 		tile2Collision = new Rectangle();
 	}
 
+	/** Loads the collision map from a file*/
 	private void loadCollisions() {
 
 		collisionMap = new int[gamePanel.maxWorldRow][gamePanel.maxWorldCol];
@@ -83,6 +88,9 @@ public class CollisionChecker {
 		collisions[15] = new Rectangle(0, 32, 64, 32);
 	}
 
+	/** Checks for collisions between an entity and the two tiles
+	 * in the direction it is moving in. If a collision is detected
+	 * collisionOn is set to true for that entity.*/
 	public void checkTileCollision(Entity entity) {
 
 		// Calculating the four edges of the collision box
@@ -179,7 +187,9 @@ public class CollisionChecker {
 		entity.collisionOn = entityCollision.intersects(tile1Collision) || entityCollision.intersects(tile2Collision);
 	}
 
-	// FOR ASSETS
+	/** Checks for collisions with assets, in order
+	 * to engage in interaction with them.
+	 * @return The index of the asset, the entity is in range of.*/
 	public int checkAsset(Entity entity, boolean player) {
 		int index = 999;
 		for (int i = 0; i < gamePanel.assets.length; i++) {
@@ -244,7 +254,8 @@ public class CollisionChecker {
 		return index;
 	}
 
-	// FOR ASSETS (If the player can read the asset)
+	/** Returns true if the entity is at reading distance from a readable asset.
+	 * @returns true if asset is readable from current entity position.*/
 	public boolean isPlayerAbleToRead(Entity player, SuperAsset asset) {
 		boolean isAble = false;
 		if (player.direction.equals("up")) {
@@ -267,7 +278,8 @@ public class CollisionChecker {
 		return isAble;
 	}
 
-	// FOR ITEMS
+	/** Returns the index of the pick able item in reach.
+	 * @returns index of clickable item.*/
 	public int checkItem(Entity entity, boolean player) {
 		int index = 999;
 		for (int i = 0; i < gamePanel.items.length; i++) {
@@ -331,6 +343,9 @@ public class CollisionChecker {
 		return index;
 	}
 
+
+	/** Draws graphic representations of the collision boxes
+	 * for debugging purposes.*/
 	public void draw(Graphics2D g2) {
 		g2.setColor(new Color(255, 0, 0, 100));
 		g2.fillRect(tile1Collision.x - gamePanel.player.worldX + gamePanel.player.screenX,

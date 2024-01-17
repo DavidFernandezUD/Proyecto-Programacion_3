@@ -2,6 +2,8 @@ package main.items;
 
 import javax.imageio.ImageIO;
 
+/** Red Potion item.
+ * @author marcos.martinez@opendeusto.es*/
 public class ITEM_redPotion extends SuperItem {
 	
 	public ITEM_redPotion() {

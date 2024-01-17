@@ -7,8 +7,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import main.interfaces.Drawable;
 
+/** Drawable HUD GUI component.
+ * @author juanjose.restrepo@opendeusto.es*/
 public class Hud implements Drawable{
 
     //GamePanel
@@ -30,6 +31,7 @@ public class Hud implements Drawable{
     int progressBarX = 50;
     int progressBarY = 100;
 
+    /** Creates a HUD component.*/
     public Hud(GamePanel gamePanel) {
         
         // Load Heart Images
@@ -46,11 +48,14 @@ public class Hud implements Drawable{
 
     }
 
+    /** Updates the HUD based on players stamina and health*/
     public void update() {
         health = gamePanel.player.health;
         stamina = gamePanel.player.stamina;
     }
 
+    /** Draws the HUD on a given Graphics2D object.
+     * @param g2 Graphics2D object where the HUD will be drawn into.*/
     @Override
     public void draw(Graphics2D g2) {
         

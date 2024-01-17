@@ -2,6 +2,8 @@ package main.items;
 
 import javax.imageio.ImageIO;
 
+/** Purple Potion item.
+ * @author marcos.martinez@opendeusto.es*/
 public class ITEM_purplePotion extends SuperItem {
 	
 	public ITEM_purplePotion() {

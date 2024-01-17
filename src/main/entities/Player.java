@@ -1,12 +1,11 @@
 package main.entities;
 
-import main.interfaces.Drawable;
+import main.Drawable;
 import main.items.ITEM_goldenSword;
 import main.items.ITEM_ironSword;
 import main.items.ITEM_woodenSword;
 import main.items.SuperItem;
 import main.KeyHandler;
-import main.MouseHandler;
 import main.Utility;
 import main.assets.ASSET_Grave;
 import main.assets.ASSET_Sign;
@@ -23,10 +22,13 @@ import java.util.Objects;
 import javax.imageio.ImageIO;
 import main.GamePanel;
 
+/** Main player class.
+ * @author david.f@opendeusto.es*/
 public class Player extends Entity implements Drawable {
 
-	KeyHandler keyHandler;
-	MouseHandler mouseHandler;
+
+	private static Player instance;
+	private KeyHandler keyHandler;
 
 	public final int defaultScreenX;
 	public final int defaultScreenY;
@@ -68,11 +70,11 @@ public class Player extends Entity implements Drawable {
 	// Just for debugging purposes (Displays Collision Box)
 	private boolean debug = false;
 
-	public Player(GamePanel gamePanel, KeyHandler keyHandler, MouseHandler mouseHandler) {
+	/** Creates a new player object with a keyHandler to manage user input.*/
+	private Player(GamePanel gamePanel, KeyHandler keyHandler) {
 		super(gamePanel);
 
 		this.keyHandler = keyHandler;
-		this.mouseHandler = mouseHandler;
 
 		defaultScreenX = (gamePanel.screenWidth / 2) - (gamePanel.tileSize / 2);
 		defaultScreenY = (gamePanel.screenHeight / 2) - (gamePanel.tileSize / 2);
@@ -82,6 +84,17 @@ public class Player extends Entity implements Drawable {
 		setItems();
 	}
 
+	/** Returns a now Player object if a previous one didn't already
+	 * exist, other-ways returns the previous instance.*/
+	public static Player getInstance(GamePanel gamePanel, KeyHandler keyHandler) {
+		if(instance == null) {
+			instance = new Player(gamePanel, keyHandler);
+		}
+		return instance;
+	}
+
+	/** Initializes the player state and position with
+	 * default values.*/
 	public void setDefaultValues() {
 		worldX = gamePanel.tileSize * 25;
 		worldY = gamePanel.tileSize * 35;
@@ -96,10 +109,13 @@ public class Player extends Entity implements Drawable {
 
 	}
 
+	/** Sets the items of the player.
+	 * @author marcos.martinez@opendeusto.es*/
 	public void setItems() {
 
 	}
 
+	/** Loads spriteSheets of the player.*/
 	public void getPlayerSprite() {
 
 		// For image scaling and optimization
@@ -122,8 +138,8 @@ public class Player extends Entity implements Drawable {
 		}
 	}
 
-	// TODO: Rethink this method
-	// FIXME: Fix direction bug when attacking
+	/** Updates the state of the player based on user input,
+	 * and other external factors.*/
 	public void update() {
 
 		// MOVING
@@ -192,8 +208,6 @@ public class Player extends Entity implements Drawable {
 		}
 
 		// ATTACKING
-		// FIXME: Fix attacking
-		attacking = mouseHandler.isAttackPressed();
 
 		spriteCounter += (attacking ? 2 : 1); // Attack animation runs faster than moving and idle
 
@@ -214,6 +228,10 @@ public class Player extends Entity implements Drawable {
 		}
 	}
 
+	/** Subtracts the specified amount from the players' health
+	 * if the player is vulnerable. After receiving damage ane time
+	 * the player has a certain amount of invulnerability frames until
+	 * it can again receive damage.*/
 	public void damage(int damage) {
 		if (!gamePanel.player.invulnerable) {
 			i_counter = 0;
@@ -227,7 +245,9 @@ public class Player extends Entity implements Drawable {
 		}
 	}
 	
-	//FOR ASSETS
+	/** Enables reading of readable objects if they are in reach of the
+	 * player.
+	 * @author marcos.martinez@opendeusto.es*/
 	public void readAsset(int i, Entity player) {
 		if (i != 999) {
 			String assetName = gamePanel.assets[i].name;
@@ -247,7 +267,9 @@ public class Player extends Entity implements Drawable {
 		}
 	}
 	
-	// FOR ITEMS
+	/** Picks an item specified by an id if no higher tier
+	 * items are owned by the player.
+	 * @author marcos.martinez@opendeusto.es*/
 	public void pickUpItem(int i) {
 
 		if (i != 999) {
@@ -417,6 +439,8 @@ public class Player extends Entity implements Drawable {
 		}
 	}
 
+	/** Draws the player on a given Graphics2D object.
+	 * @param g2 Graphics2D object where the player will be drawn.*/
 	@Override
 	public void draw(Graphics2D g2) {
 

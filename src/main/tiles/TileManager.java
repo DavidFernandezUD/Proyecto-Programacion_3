@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Objects;
 import javax.imageio.ImageIO;
-import main.interfaces.Drawable;
+import main.Drawable;
 //import main.objects.SuperObject;
 import main.GamePanel;
 import main.Utility;

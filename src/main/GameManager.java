@@ -5,16 +5,21 @@ import main.entities.Enemy;
 import java.sql.*;
 import java.util.HashMap;
 
+/** Class to manage game files in a database
+ * @author juanjose.restrepo@opendeusto.es*/
 public class GameManager {
 
     public GamePanel gamePanel;
     public Game currentGame;
 
+    /** Creates a game manager given the current game state.
+     * @param currentGame Current state of the game.*/
     public GameManager(GamePanel gamePanel, Game currentGame) {
         this.gamePanel = gamePanel;
         this.currentGame = currentGame;
     }
 
+    /** Saves the state of the game in a database.*/
     public void saveGame() {
         try {
             Class.forName("org.sqlite.JDBC");
@@ -55,6 +60,9 @@ public class GameManager {
         }
     }
 
+    /** Loads a previously stored game, with a given
+     * name code from a database.
+     * @param code Code of the game to ve loaded.*/
     public void loadGame(Integer code) {
         try {
             Class.forName("org.sqlite.JDBC");
@@ -78,9 +86,10 @@ public class GameManager {
                 //currentGame.player.item = rs.getString("ITEM");
 
                 //LOAD ENTITIES
+                // TODO: Store position ionformation for the enemies and load it back here
                 rs = stmt.executeQuery("SELECT * FROM ENTITIES WHERE GAME_CODE = '" + currentGame.gameCode + "';");
                 while (rs.next()) {
-                    Enemy enemy = new Enemy(gamePanel);
+                    Enemy enemy = new Enemy(gamePanel, -666, -666); // This must be updated
                     enemy.worldX = rs.getInt("POSX");
                     enemy.worldY = rs.getInt("POSY");
                     currentGame.entities.add(enemy);
@@ -97,6 +106,8 @@ public class GameManager {
         }
     }
 
+    /** Deletes a game with a given code from a database.
+     * @param code Code of the game to be deleted.*/
     public void deleteGame(Integer code) {
         try {
             Class.forName("org.sqlite.JDBC");
@@ -125,6 +136,8 @@ public class GameManager {
         }
     }
 
+    /** Returns a map with the codes of the most recent 5 games and their names.
+     * @return  a HashMap with the codes and names of the recent games.*/
     public HashMap<Integer, String> loadRecentGames() {
         
         HashMap<Integer, String> recentGames = new HashMap<>();

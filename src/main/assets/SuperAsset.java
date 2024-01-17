@@ -6,6 +6,8 @@ import java.awt.Rectangle;
 
 import main.GamePanel;
 
+/** Base class for asset objects.
+ * @author marcos.martinez@opendeusto.es*/
 public class SuperAsset {
 
 //	public String dialogue;
@@ -18,6 +20,7 @@ public class SuperAsset {
 
 	public boolean debug = false;
 
+	/** Draws interaction bow of assets for debugging purposes.*/
 	public void draw(Graphics2D g2, GamePanel gamePanel) {
 		g2.setColor(new Color(0, 0, 139, 127));
 		int screenX = worldX - gamePanel.player.worldX + gamePanel.player.screenX;

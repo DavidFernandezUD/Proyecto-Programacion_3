@@ -10,8 +10,9 @@ import java.io.File;
 import java.io.IOException;
 
 import main.assets.SuperAsset;
-import main.interfaces.Drawable;
 
+/** Drawable dialog screen GUI component.
+ * @author marcos.martinez@opendeusto.es*/
 public class DialogueScreen implements Drawable {
 
 	// SETTINGS
@@ -24,6 +25,7 @@ public class DialogueScreen implements Drawable {
 	// OPTIONS
 	public GamePanel gamePanel;
 
+	/** Constructor for Dialog screen.*/
 	DialogueScreen(GamePanel gamePanel) {
 		this.gamePanel = gamePanel;
 
@@ -44,6 +46,7 @@ public class DialogueScreen implements Drawable {
 		highlightColor = Color.YELLOW;
 	}
 
+	/** Updates the state of the game via the gamePanel.*/
 	public void update() {
 		// Inventory cannot be opened while dialogue screen
 		if (gamePanel.dialogueState) {
@@ -65,6 +68,8 @@ public class DialogueScreen implements Drawable {
 		}
 	}
 
+	/** Draws a dialog screen.
+	 * @param g2 Graphics2D object to draw the dialog to.*/
 	@Override
 	public void draw(Graphics2D g2) {
 		int x = gamePanel.tileSize * 2;
@@ -81,7 +86,13 @@ public class DialogueScreen implements Drawable {
 		}
 	}
 
-	public void drawSubWindow(int x, int y, int width, int height, Graphics2D g2) {
+	/** Helper method that draws the main frame of a dialog window.
+	 * @param x      The x coordinate of dialog window.
+	 * @param y 	 The y coordinate of dialog window.
+	 * @param width  Width of the dialog window.
+	 * @param height Height of the dialog window.
+	 * @param g2	 Graphics2D where the dialog window will be drawn into.*/
+	private void drawSubWindow(int x, int y, int width, int height, Graphics2D g2) {
 		Color c = new Color(0, 0, 0, 210);
 		g2.setColor(c);
 		g2.fillRoundRect(x, y, width, height, 35, 35);

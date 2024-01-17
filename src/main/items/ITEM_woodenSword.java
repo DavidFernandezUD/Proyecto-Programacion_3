@@ -2,6 +2,8 @@ package main.items;
 
 import javax.imageio.ImageIO;
 
+/** Wooden Sword item.
+ * @author marcos.martinez@opendeusto.es*/
 public class ITEM_woodenSword extends SuperItem {
 	
 	public ITEM_woodenSword() {

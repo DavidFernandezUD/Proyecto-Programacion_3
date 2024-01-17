@@ -6,6 +6,8 @@ import java.rmi.UnexpectedException;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
+/** A* pathfinding algorithm implementation.
+ * @author david.f@opendeusto.es*/
 public class PathFinder {
 
     private Node[][] map;
@@ -13,11 +15,14 @@ public class PathFinder {
 
     GamePanel gamePanel;
 
+    /** Creates PathFinder object.*/
     public PathFinder(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
         loadMap();
     }
 
+    /** Loads the collision map into a node representation
+     * for the algorithm to work.*/
     public void loadMap() {
 
         if(map == null) {
@@ -35,6 +40,11 @@ public class PathFinder {
         resetNodes();
     }
 
+    /** Returns a Node list with the path between two entities.
+     * @param origin Origin entity.
+     * @param destination Destination entity.
+     * @return ArrayList of Nodes with the path from origin to destination or
+     * null if no path exists.*/
     public ArrayList<Node> search(Entity origin, Entity destination) {
 
         resetNodes(); // Resetting modes from last search
@@ -67,6 +77,12 @@ public class PathFinder {
         return null;
     }
 
+    /** Helper method that returns a list with the available neighbouring
+     * nodes of a given node. It also updates the visited state, previous node
+     * and costs of the new available nodes.
+     * @param current Current node.
+     * @param end Destination node.
+     * @return List of not solid, unvisited neighbour nodes.*/
     private ArrayList<Node> getOption(Node current, Node end) {
         ArrayList<Node> options = new ArrayList<>();
         for(int[] direction : DIRECTIONS) {
@@ -90,22 +106,44 @@ public class PathFinder {
         return options;
     }
 
+    /** Helper method that checks if a pair of coordinates are
+     * within the bounds of the node map.
+     * @param row Row index to access.
+     * @param col Column index to access.
+     * @return true if the indicated coordinates are in bounds of the
+     * map.*/
     private boolean inBounds(int row, int col) {
         return row < map.length && row >= 0 && col < map[0].length && col >= 0;
     }
 
-    // Manhattan Distance heuristic
+    /** Calculates Manhattan distance heuristic between a and b.
+     * @param aRow Row of point a.
+     * @param aCol Column of point a.
+     * @param bRow Row of point b.
+     * @param bCol Column of point b.
+     * @return Manhattan distance between points a and b.*/
     private double manhattanDistance(int aRow, int aCol, int bRow, int bCol) {
         return Math.abs(aRow - bRow) + Math.abs(aCol - bCol);
     }
 
-    // Euclidean Distance Heuristic
+    /** Calculates Manhattan distance heuristic between a and b.
+     * @param aRow Row of point a.
+     * @param aCol Column of point a.
+     * @param bRow Row of point b.
+     * @param bCol Column of point b.
+     * @return Manhattan distance between points a and b.*/
     private double euclideanDistance(int aRow, int aCol, int bRow, int bCol) {
         return Math.sqrt((aRow - bRow) * (aRow - bRow) + (aCol - bCol) * (aCol - bCol));
     }
 
-    // Returns a list with the nodes in the path to get to the given node
-    // RECURSIVE METHOD!!
+    /** Recursively backtracks the previous node of the
+     * destination node and adds it to a list, finally returning
+     * a list with the path from the origin to the destination.
+     * @param node Current node.
+     * @param path Path from the current node to the destination node
+     * excluding current node.
+     * @returns the list with the path from origin to destination
+     * excluding origin node.*/
     private ArrayList<Node> getPath(Node node, ArrayList<Node> path) {
         if(node.prev == null) {
             return path; // The returned path excludes the first node
@@ -114,8 +152,8 @@ public class PathFinder {
         return getPath(node.prev, path);
     }
 
-    // Resets all nodes cost, visited status and prev node
-    // TODO: Avoid resetting the hCost if the destination hasn't changed between searches
+    /** Helper method that resets all nodes cost,
+     * visited status and prev node.*/
     private void resetNodes() {
         for(Node[] row : map) {
             for(Node node : row) {
@@ -127,6 +165,8 @@ public class PathFinder {
         }
     }
 
+    /** Node class for A* algorithm.
+     * @author david.f@opendeusto.es*/
     public class Node implements Comparable<Node> {
 
         int row;
@@ -137,23 +177,40 @@ public class PathFinder {
         double hCost;
         Node prev;
 
+        /** Creates a Node with a given position and solid state.
+         * @param row Row of the node.
+         * @param col Column of the node.
+         * @param solid True if the node has a collision.*/
         Node(int row, int col, boolean solid) {
             this.row = row;
             this.col = col;
             this.solid = solid;
         }
 
+        /** Sets the g and h cost of the node. g is the known
+         * cost at that node, or the nodes from it to the origin,
+         * and h is the cost predicted by the heuristic.
+         * @param g Known cost.
+         * @param h Heuristic cost.
+         * @return itself to allow method chaining.*/
         protected Node setCost(double g, double h) {
             this.gCost = g;
             this.hCost = h;
             return this;
         }
 
+        /** Marks the node as visited, to avoid
+         * visiting it again.
+         * @return itself to allow method chaining.*/
         protected Node setVisited() {
             this.visited = true;
             return this;
         }
 
+        /** Sets the previous node to allow backtracking the
+         * path after the algorithm has found the path.
+         * @param prev Previous node.
+         * @return itself to allow method chaining.*/
         protected Node setPrev(Node prev) {
             this.prev = prev;
             return this;

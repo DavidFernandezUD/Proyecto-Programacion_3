@@ -1,11 +1,13 @@
 package main.entities;
 
-import main.interfaces.Drawable;
+import main.Drawable;
 import main.GamePanel;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+/** Base class for entities.
+ * @author david.f@opendeusto.es*/
 public abstract class Entity implements Drawable {
 
     GamePanel gamePanel;
@@ -38,11 +40,18 @@ public abstract class Entity implements Drawable {
         this.tileSize = gamePanel.tileSize;
     }
 
+    /** Updates the state of the entity.*/
     public abstract void update();
 
+    /** Draws the entity on a given Graphics2D object.
+     * @param g2 Graphics2D object the entity will be drawn into.*/
     @Override
     public abstract void draw(Graphics2D g2);
 
+    /** Returns the proper spriteSheet for an entity depending
+     * on it's state and moving direction.
+     * @param direction Direction the entity is moving to.
+     * @return The spriteSheet related with the state and direction.*/
     protected BufferedImage getSprite(String direction) {
 
         BufferedImage spriteSheet;
@@ -64,25 +73,44 @@ public abstract class Entity implements Drawable {
         };
     }
 
-    // Used to get the vector between two entities
+    /** Returns a vector between two entities.
+     * @param ent1 First entity.
+     * @param ent2 Second entity.
+     * @return an int array representing the vector between ent1 and ent2.*/
     protected static int[] getVector(Entity ent1, Entity ent2) {
         return new int[] {ent2.worldX - ent1.worldX, ent1.worldY - ent2.worldY};
     }
 
+    /** Returns a vector between an entity and a pathFinder Node.
+     * @param ent Entity.
+     * @param node Node.
+     * @return an int array representing the vector between ent and node.*/
     protected static int[] getVector(Entity ent, PathFinder.Node node) {
         return new int[] {node.col * ent.tileSize - ent.worldX, ent.worldY - node.row * ent.tileSize};
     }
 
-    // Used to get the direction of one main.entity with respect to another in degrees
+    /** Returns the angle in degrees between two entities.
+     * @param ent1 First entity.
+     * @param ent2 Second entity.
+     * @return degrees between ent1 and ent2.*/
     protected static double getAngle(Entity ent1, Entity ent2) {
         return Math.toDegrees(Math.atan2(ent2.worldX - ent1.worldX, ent1.worldY - ent2.worldY));
     }
 
+    /** Returns the angle in degrees between an entity
+     * and a pathfinder Node.
+     * @param ent Entity.
+     * @param node Node.
+     * @return degrees between ent and node.*/
     protected static double getAngle(Entity ent, PathFinder.Node node) {
         return Math.toDegrees(Math.atan2(node.col * ent.tileSize - ent.worldX, ent.worldY - node.row * ent.tileSize));
     }
 
-    // Used to get the cardinal direction of a main.entity with respect to another
+    /** Used to get the cardinal direction (up, down, left, right) of an entity
+     * with respect to another.
+     * @param ent1 First entity.
+     * @param ent2 Second entity.
+     * @return direction ent2 is at from ent1's perspective .*/
     protected static String getDirection(Entity ent1, Entity ent2) {
         double angle = getAngle(ent1, ent2);
 
@@ -97,6 +125,11 @@ public abstract class Entity implements Drawable {
         }
     }
 
+    /** Used to get the cardinal direction (up, down, left, right) of an entity
+     * with respect to a pathfinder Node.
+     * @param ent Entity.
+     * @param node Node.
+     * @return direction node is at from ent1's perspective .*/
     protected static String getDirection(Entity ent, PathFinder.Node node) {
         double angle = getAngle(ent, node);
 
@@ -111,18 +144,30 @@ public abstract class Entity implements Drawable {
         }
     }
 
-    // Returns euclidean distance between two entities
+    /** Returns the Euclidean distance between two entities.
+     * @param ent1 First entity.
+     * @param ent2 Second entity.
+     * @return Euclidean distance between ent1 and ent2.*/
     protected static double getDistance(Entity ent1, Entity ent2) {
         int[] vector = getVector(ent1, ent2);
         return Math.sqrt(vector[0] * vector[0] + vector[1] * vector[1]);
     }
 
+    /** Returns the Euclidean distance between an entity and a pathfinder Node.
+     * @param ent Entity.
+     * @param node Node.
+     * @return Euclidean distance between ent and node.*/
     protected static double getDistance(Entity ent, PathFinder.Node node) {
         int[] vector = getVector(ent, node);
         return Math.sqrt(vector[0] * vector[0] + vector[1] * vector[1]);
     }
 
-    // Utility method for redrawing props on top of entities
+    /** Utility method for redrawing props on top of entities
+     * when the prop is in front of the actual entity.
+     * @param g2 Graphics2D objet to draw the prop into.
+     * @param entity Entity to check for prop occlusion.
+     * @param screenX Calculated screen x coordinates of the entity.
+     * @param screenY Calculated screen y coordinates of the entity.*/
     protected void redrawProp(Graphics2D g2, Entity entity, int screenX, int screenY) {
 
 		// Checking if the left and right tiles under the player are prop tiles
@@ -168,6 +213,10 @@ public abstract class Entity implements Drawable {
 		}
 	}
 
+    /** Returns whether two entities are colliding.
+     * @param ent1 First entity.
+     * @param ent2 Second entity.
+     * @return true if the two entities collide.*/
     protected boolean collides(Entity ent1, Entity ent2) {
         Rectangle collision1 = new Rectangle(
                 ent1.worldX + ent1.collisionBox.x,

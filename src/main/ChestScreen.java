@@ -7,8 +7,9 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
 import main.assets.SuperAsset;
-import main.interfaces.Drawable;
 
+/** Drawable chest inventory GUI component.
+ * @author marcos.martinez@opendeusto.es*/
 public class ChestScreen implements Drawable {
 
 	private boolean upToggled = false;
@@ -26,7 +27,8 @@ public class ChestScreen implements Drawable {
 
 	// OPTIONS
 	public GamePanel gamePanel;
-	
+
+	/** Constructor for ChestScreen.*/
 	ChestScreen(GamePanel gamePanel) {
 		this.gamePanel = gamePanel;
 
@@ -37,7 +39,9 @@ public class ChestScreen implements Drawable {
 		fontColor = Color.WHITE;
 		highlightColor = Color.YELLOW;
 	}
-	
+
+	/** Updates the inventory in response to user input,
+	 * and triggers sounds when necessary.*/
 	public void update() {
 		if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_W) != upToggled) {
 			upToggled = !upToggled;
@@ -86,7 +90,9 @@ public class ChestScreen implements Drawable {
 			gamePanel.player.playerReading = false;
 		}
 	}
-	
+
+	/** Draws a graphical representation of the chests inventory.
+	 * @param g2 Graphics2D object to draw the inventory to.*/
 	@Override
 	public void draw(Graphics2D g2) {
 		// FRAME
@@ -125,13 +131,23 @@ public class ChestScreen implements Drawable {
 		g2.setStroke(new BasicStroke(3));
 		g2.drawRoundRect(cursorX, cursorY, cursorWidth, cursorHeight, 10, 10);
 	}
-	
-	public int getItemIndexOnSlot() {
+
+	/** Helper method that flattens row col indexes
+	 * into a single index.
+	 * @return Flattened index.*/
+	private int getItemIndexOnSlot() {
 		int itemIndex = slotCol + (slotRow*5);
 		return itemIndex;
 	}
-	
-	public void drawSubWindow(int x, int y, int width, int height, Graphics2D g2) {
+
+	/** Helper method that draws the main frame of the inventory,
+	 * where the item slots will then be drawn on top of.
+	 * @param x      The x coordinate of the inventory.
+	 * @param y 	 The y coordinate of the inventory.
+	 * @param width  Width of the inventory frame.
+	 * @param height Height of the inventory frame.
+	 * @param g2	 Graphics2D where the frame will be drawn into.*/
+	private void drawSubWindow(int x, int y, int width, int height, Graphics2D g2) {
 		Color c = new Color(0, 0, 0, 210);
 		g2.setColor(c);
 		g2.fillRoundRect(x, y, width, height, 35, 35);
