@@ -215,7 +215,6 @@ public class GamePanel extends JPanel implements Runnable {
 					pauseScreen.update();
 				}
 
-
 				// Only updating the game state if the game isn't paused
 				if (!pauseState && !titleState && !dialogueState && !inventoryState && !chestState) {
 					// 1 UPDATE: Update information like location of main.items, mobs, character, etc.
@@ -281,7 +280,6 @@ public class GamePanel extends JPanel implements Runnable {
 			g2.fillRect(0, 0, maxScreenCol * tileSize, maxScreenRow * tileSize);
 			pauseScreen.draw(g2);
 		}
-		
 
 		// DIALOGUE SCREEN
         if(dialogueState) {

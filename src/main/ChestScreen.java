@@ -77,7 +77,13 @@ public class ChestScreen implements Drawable {
 				slotCol++;
 				gamePanel.playSound(1);
 			}
-		}
+		}		
+		if (gamePanel.chestState) {
+			gamePanel.inventoryState = false;
+			if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_I)) {
+				gamePanel.keyHandler.keyToggleStates.put(KeyEvent.VK_I, false);
+			}
+		}	
 		// TODO: Add close button on chest
 		if (gamePanel.player.playerReading && !gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER)) {
 			for (SuperAsset sa : gamePanel.assets) {
@@ -101,6 +107,7 @@ public class ChestScreen implements Drawable {
 		int frameWidth = gamePanel.tileSize * 6;
 		int frameHeight = gamePanel.tileSize * 5;
 		drawSubWindow(frameX, frameY, frameWidth, frameHeight, g2);
+		drawInventory(g2);
 
 		// SLOT
 		final int slotXStart = frameX + 20;
@@ -130,6 +137,29 @@ public class ChestScreen implements Drawable {
 		g2.setColor(fontColor);
 		g2.setStroke(new BasicStroke(3));
 		g2.drawRoundRect(cursorX, cursorY, cursorWidth, cursorHeight, 10, 10);
+		
+		// DESCRIPTION FRAME
+		int dFrameX = frameX;
+		int dFrameY = frameY + frameHeight;
+		int dFrameWidth = frameWidth;
+		int dFrameHeight = gamePanel.tileSize*3;
+		
+		// DRAW DESCRIPTION TEXT
+		int textX = dFrameX + 20;
+		int textY = dFrameY + gamePanel.tileSize;
+		g2.setFont(optionFont);
+		
+		int itemIndex = getItemIndexOnSlot();
+		
+		if (itemIndex < gamePanel.player.inventory.size()) {
+			
+			drawSubWindow(dFrameX, dFrameY, dFrameWidth, dFrameHeight, g2);
+			
+			for (String line: gamePanel.player.inventory.get(itemIndex).description.split("\n")) {
+				g2.drawString(line, textX, textY);
+				textY += 32;
+			}			
+		}
 	}
 
 	/** Helper method that flattens row col indexes
@@ -158,5 +188,92 @@ public class ChestScreen implements Drawable {
 		g2.drawRoundRect(x + 5, y + 5, width - 10, height - 10, 25, 25);
 
 	}
+	
+	/** Draws the inventory window in a given Graphics2D object.
+	 * @param g2 Graphisc2D object where the inventory window will be drawn into.*/
+	public void drawInventory(Graphics2D g2) {
 
+		// FRAME
+		int frameX = gamePanel.tileSize * 9;
+		int frameY = gamePanel.tileSize * 3;
+		int frameWidth = gamePanel.tileSize * 6;
+		int frameHeight = gamePanel.tileSize * 5;
+		drawSubWindow(frameX, frameY, frameWidth, frameHeight, g2);
+
+		// SLOT
+		final int slotXStart = frameX + 20;
+		final int slotYStart = frameY + 20;
+		int slotX = slotXStart;
+		int slotY = slotYStart;
+		
+		// DRAW PLAYER'S ITEMS
+		for (int i = 0; i < gamePanel.player.inventory.size(); i++) {
+			g2.drawImage(gamePanel.player.inventory.get(i).image, slotX+8, slotY+8, null);
+			
+			slotX += gamePanel.tileSize;
+			
+			if (i == 4 || i == 9 || i == 14) {
+				slotX = slotXStart;
+				slotY += gamePanel.tileSize;
+			}
+		}
+
+		// CURSOR
+//		int cursorX = slotXStart + (gamePanel.tileSize * slotCol);
+//		int cursorY = slotYStart + (gamePanel.tileSize * slotRow);
+//		int cursorWidth = gamePanel.tileSize;
+//		int cursorHeight = gamePanel.tileSize;
+
+		// DRAW CURSOR
+//		g2.setColor(fontColor);
+//		g2.setStroke(new BasicStroke(3));
+//		g2.drawRoundRect(cursorX, cursorY, cursorWidth, cursorHeight, 10, 10);
+		
+		// WEAPONS FRAME
+		int wFrameX = gamePanel.tileSize * 9;
+		int wFrameY = gamePanel.tileSize;
+		int wFrameWidth = gamePanel.tileSize * 4;
+		int wFrameHeight = gamePanel.tileSize * 2;
+		drawSubWindow(wFrameX, wFrameY, wFrameWidth, wFrameHeight, g2);
+
+		// WEAPONS SLOT
+		final int wSlotXStart = wFrameX + 20;
+		final int wSlotYStart = wFrameY + 20;
+		int wSlotX = wSlotXStart;
+		int wSlotY = wSlotYStart;
+		
+		// DRAW PLAYER'S WEAPONS
+		if (gamePanel.player.weapons[0] != null) {
+			g2.drawImage(gamePanel.player.weapons[0].image, wSlotX+8, wSlotY+8, null);
+		}
+		if (gamePanel.player.weapons[1] != null) {
+			g2.drawImage(gamePanel.player.weapons[1].image, wSlotX+8 + gamePanel.tileSize, wSlotY+8, null);
+		}
+		if (gamePanel.player.weapons[2] != null) {
+			g2.drawImage(gamePanel.player.weapons[2].image, wSlotX+8 + 2*gamePanel.tileSize, wSlotY+8, null);
+		}
+
+		// DESCRIPTION FRAME
+//		int dFrameX = frameX;
+//		int dFrameY = frameY + frameHeight;
+//		int dFrameWidth = frameWidth;
+//		int dFrameHeight = gamePanel.tileSize*3;
+		
+		// DRAW DESCRIPTION TEXT
+//		int textX = dFrameX + 20;
+//		int textY = dFrameY + gamePanel.tileSize;
+//		g2.setFont(optionFont);
+//		
+//		int itemIndex = getItemIndexOnSlot();
+//		
+//		if (itemIndex < gamePanel.player.inventory.size()) {
+//			
+//			drawSubWindow(dFrameX, dFrameY, dFrameWidth, dFrameHeight, g2);
+//			
+//			for (String line: gamePanel.player.inventory.get(itemIndex).description.split("\n")) {
+//				g2.drawString(line, textX, textY);
+//				textY += 32;
+//			}			
+//		}
+	}
 }
