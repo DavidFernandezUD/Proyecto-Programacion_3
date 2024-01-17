@@ -18,10 +18,16 @@ public class Sound {
 
 	/** Creates a Sound object and loads the URLs of the used sound files in an array.*/
 	public Sound() {
-		
+		// Main song
 		soundURL[0] = getClass().getResource("/main/res/sounds/The Never Ending Story.wav");
+		// Inventory cursor sound
 		soundURL[1] = getClass().getResource("/main/res/sounds/cursor.wav");
-		
+		// Healing sound
+		soundURL[2] = getClass().getResource("/main/res/sounds/healing.wav");
+		// Apple eating sound
+		soundURL[3] = getClass().getResource("/main/res/sounds/apple-bite.wav");
+		// Potion drinking sound
+		soundURL[4] = getClass().getResource("/main/res/sounds/potion-drink.wav");
 	}
 
 	/** Selects the stored audio file at a specified index

@@ -7,6 +7,10 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
 import main.assets.SuperAsset;
+import main.items.ITEM_apple;
+import main.items.ITEM_purplePotion;
+import main.items.ITEM_redPotion;
+import main.items.SuperItem;
 
 /** Drawable player inventory GUI component.
  * @author marcos.martinez@opendeusto.es*/
@@ -16,6 +20,7 @@ public class InventoryScreen implements Drawable {
 	private boolean downToggled = false;
 	private boolean leftToggled = false;
 	private boolean rightToggled = false;
+	private boolean selectToggled = false;
 
 	// SETTINGS
 	private Font optionFont;
@@ -98,6 +103,39 @@ public class InventoryScreen implements Drawable {
 					}
 				}
 			}
+		}
+		// Select items
+		if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER)  != selectToggled) {
+			selectToggled = !selectToggled;
+			selectItem();
+		}
+	}
+	
+	/** Selects item from the inventory*/
+	public void selectItem() {
+		int itemIndex = getItemIndexOnSlot();	
+		if (itemIndex < gamePanel.player.inventory.size()) {
+			SuperItem selectedItem = gamePanel.player.inventory.get(itemIndex);			
+			if (selectedItem instanceof ITEM_apple) {
+				gamePanel.playSound(3);
+				gamePanel.playSound(2);
+				gamePanel.hud.update();
+				gamePanel.player.health += 20;
+				gamePanel.player.inventory.remove(itemIndex);
+			} else if (selectedItem instanceof ITEM_redPotion) {
+				gamePanel.playSound(4);
+				gamePanel.playSound(2);
+				gamePanel.hud.update();
+				gamePanel.player.health += gamePanel.player.MAX_HEALTH / 2;
+				gamePanel.player.inventory.remove(itemIndex);
+			} else if (selectedItem instanceof ITEM_purplePotion) {
+				gamePanel.playSound(4);
+				gamePanel.playSound(2);
+				gamePanel.hud.update();
+				gamePanel.player.health = gamePanel.player.MAX_HEALTH;
+				gamePanel.player.inventory.remove(itemIndex);
+			}
+			
 		}
 	}
 
@@ -196,7 +234,7 @@ public class InventoryScreen implements Drawable {
 	/** Helper method that returns the flattened index of the
 	 * inventory array from the selected row and column.
 	 * @return the index of the selected item in the inventory.*/
-	private int getItemIndexOnSlot() {
+	public int getItemIndexOnSlot() {
 		int itemIndex = slotCol + (slotRow*5);
 		return itemIndex;
 	}

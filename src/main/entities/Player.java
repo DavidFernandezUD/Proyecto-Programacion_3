@@ -1,6 +1,7 @@
 package main.entities;
 
 import main.*;
+import main.items.ITEM_apple;
 import main.items.ITEM_goldenSword;
 import main.items.ITEM_ironSword;
 import main.items.ITEM_woodenSword;
@@ -478,4 +479,5 @@ public class Player extends Entity implements Drawable {
 			g2.fillRect(collisionBox.x + screenX, collisionBox.y + screenY, collisionBox.width, collisionBox.height);
 		}
 	}
+
 }

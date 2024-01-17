@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2024-01-17T10:46:59.689328500Z</date>
-  <millis>1705488419689</millis>
-  <nanos>328500</nanos>
+  <date>2024-01-17T12:11:57.969232800Z</date>
+  <millis>1705493517969</millis>
+  <nanos>232800</nanos>
   <sequence>5</sequence>
   <logger>main.GamePanel</logger>
   <level>INFO</level>
@@ -14,9 +14,9 @@
   <message>Game Started</message>
 </record>
 <record>
-  <date>2024-01-17T10:46:59.859188Z</date>
-  <millis>1705488419859</millis>
-  <nanos>188000</nanos>
+  <date>2024-01-17T12:11:58.133791400Z</date>
+  <millis>1705493518133</millis>
+  <nanos>791400</nanos>
   <sequence>6</sequence>
   <logger>main.GamePanel</logger>
   <level>INFO</level>

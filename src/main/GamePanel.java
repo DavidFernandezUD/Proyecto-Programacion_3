@@ -169,7 +169,7 @@ public class GamePanel extends JPanel implements Runnable {
 				
 				// ASSETS & DIALOGUE SCREEN
 				if (keyHandler.isKeyToggled(KeyEvent.VK_ENTER)) {
-					if (!player.playerReading) {
+					if (!player.playerReading && !inventoryState) {
 						keyHandler.keyToggleStates.put(KeyEvent.VK_ENTER, false);
 					} else {
 						SuperAsset supA = null;
