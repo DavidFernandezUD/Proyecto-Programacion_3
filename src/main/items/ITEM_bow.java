@@ -18,7 +18,7 @@ public class ITEM_bow extends SuperItem {
 			GamePanel.logger.log(Level.SEVERE, "Failed Loading Bow Sprite", e);
 		}
 		
-		description = "[" + name + "]\nEach arrow does  damage.";
+		description = "[" + name + "]\nEach arrow does\ndamage.";
 		
 	}
 

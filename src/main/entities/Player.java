@@ -43,8 +43,8 @@ public class Player extends Entity implements Drawable {
 	public boolean hasIronSword = false;
 	public boolean hasGoldenSword = false;
 	public boolean hasBloodySword = false;
-	boolean hasBow = false;
-	boolean hasShield = false;
+	public boolean hasBow = false;
+	public boolean hasShield = false;
 	int hasApple = 0;
 	int hasRedPotion = 0;
 	int hasPurplePotion = 0;

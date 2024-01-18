@@ -17,7 +17,7 @@ public class ITEM_shield extends SuperItem {
 			GamePanel.logger.log(Level.SEVERE, "Failed Loading Shield Sprite", e);
 		}
 		
-		description = "[" + name + "]\nGives you  more of defense.";
+		description = "[" + name + "]\nGives you  more of\ndefense.";
 	}
 
 }

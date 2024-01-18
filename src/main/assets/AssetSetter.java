@@ -2,8 +2,14 @@ package main.assets;
 
 import main.GamePanel;
 import main.items.ITEM_apple;
+import main.items.ITEM_bloodySword;
+import main.items.ITEM_bow;
+import main.items.ITEM_goldenSword;
+import main.items.ITEM_ironSword;
 import main.items.ITEM_purplePotion;
 import main.items.ITEM_redPotion;
+import main.items.ITEM_shield;
+import main.items.ITEM_woodenSword;
 import main.items.SuperItem;
 
 /** Manages main.assets and places them in the map.
@@ -32,7 +38,7 @@ public class AssetSetter {
 //    	gamePanel.assets[1].worldY = (27) * gamePanel.tileSize;
 //    	((ASSET_Sign) gamePanel.assets[1]).text = "¡Si puedes leer esto el commit ha sido todo \nun éxito 2!";
     	ASSET_Chest chest = new ASSET_Chest();
-    	chest.setItems(new SuperItem[] {new ITEM_apple(), new ITEM_apple(), new ITEM_apple(), new ITEM_apple(), new ITEM_apple(), new ITEM_redPotion(), new ITEM_purplePotion()});
+    	chest.setItems(new SuperItem[] {new ITEM_apple(), new ITEM_apple(), new ITEM_apple(), new ITEM_apple(), new ITEM_apple(), new ITEM_redPotion(), new ITEM_purplePotion(), new ITEM_woodenSword(), new ITEM_ironSword(), new ITEM_goldenSword(), new ITEM_bloodySword(), new ITEM_shield(), new ITEM_bow()});
     	gamePanel.assets[1] = chest;
     	gamePanel.assets[1].worldX = (28) * gamePanel.tileSize - gamePanel.tileSize/4;
     	gamePanel.assets[1].worldY = (27) * gamePanel.tileSize; 	

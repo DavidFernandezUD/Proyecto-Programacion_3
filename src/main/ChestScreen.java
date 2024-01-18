@@ -9,8 +9,14 @@ import java.awt.event.KeyEvent;
 import main.assets.ASSET_Chest;
 import main.assets.SuperAsset;
 import main.items.ITEM_apple;
+import main.items.ITEM_bloodySword;
+import main.items.ITEM_bow;
+import main.items.ITEM_goldenSword;
+import main.items.ITEM_ironSword;
 import main.items.ITEM_purplePotion;
 import main.items.ITEM_redPotion;
+import main.items.ITEM_shield;
+import main.items.ITEM_woodenSword;
 import main.items.SuperItem;
 
 /**
@@ -117,7 +123,6 @@ public class ChestScreen implements Drawable {
 				gamePanel.keyHandler.keyToggleStates.put(KeyEvent.VK_I, false);
 			}
 		}
-		// TODO: Add close button on chest
 		// Select items
 		if (onCloseButton) {
 			if (gamePanel.player.playerReading && gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER) != enterToggled) {
@@ -158,10 +163,10 @@ public class ChestScreen implements Drawable {
 		int itemIndex = getItemIndexOnSlotInventory();
 		if (itemIndex < gamePanel.player.inventory.size()) {
 			SuperItem selectedItem = gamePanel.player.inventory.get(itemIndex);
+			
 			if (chest.chestItems.size() < chest.maxChestItems) {
 				chest.chestItems.add(selectedItem);
 				gamePanel.player.inventory.remove(itemIndex);
-				System.out.println(selectedItem.toString());
 			}
 		}
 
@@ -182,11 +187,72 @@ public class ChestScreen implements Drawable {
 		int itemIndex = getItemIndexOnSlotChest();
 		if (itemIndex < chest.chestItems.size()) {
 			SuperItem selectedItem = chest.chestItems.get(itemIndex);
-			if (gamePanel.player.inventory.size() < gamePanel.player.maxInventorySize) {
-				gamePanel.player.inventory.add(selectedItem);
-				chest.chestItems.remove(itemIndex);
+			if (selectedItem instanceof ITEM_woodenSword) {
+				SuperItem oldSword = gamePanel.player.weapons[0];
+				if (oldSword != null) {
+					chest.chestItems.set(itemIndex, oldSword);
+				} else {
+					chest.chestItems.remove(itemIndex);
+				}
+				gamePanel.player.weapons[0] = selectedItem;
+				gamePanel.player.hasWoodenSword = true;
+				gamePanel.player.hasIronSword = false;
+				gamePanel.player.hasGoldenSword = false;
+				gamePanel.player.hasBloodySword = false;
+			} else if (selectedItem instanceof ITEM_ironSword) {
+				SuperItem oldSword = gamePanel.player.weapons[0];
+				if (oldSword != null) {
+					chest.chestItems.set(itemIndex, oldSword);
+				} else {
+					chest.chestItems.remove(itemIndex);
+				}			
+				gamePanel.player.weapons[0] = selectedItem;
+				gamePanel.player.hasWoodenSword = false;
+				gamePanel.player.hasIronSword = true;
+				gamePanel.player.hasGoldenSword = false;
+				gamePanel.player.hasBloodySword = false;			
+			} else if (selectedItem instanceof ITEM_goldenSword) {
+				SuperItem oldSword = gamePanel.player.weapons[0];
+				if (oldSword != null) {
+					chest.chestItems.set(itemIndex, oldSword);
+				} else {
+					chest.chestItems.remove(itemIndex);
+				}
+				gamePanel.player.weapons[0] = selectedItem;
+				gamePanel.player.hasWoodenSword = false;
+				gamePanel.player.hasIronSword = false;
+				gamePanel.player.hasGoldenSword = true;
+				gamePanel.player.hasBloodySword = false;	
+			} else if (selectedItem instanceof ITEM_bloodySword) {
+				SuperItem oldSword = gamePanel.player.weapons[0];
+				if (oldSword != null) {
+					chest.chestItems.set(itemIndex, oldSword);
+				} else {
+					chest.chestItems.remove(itemIndex);
+				}
+				gamePanel.player.weapons[0] = selectedItem;
+				gamePanel.player.hasWoodenSword = false;
+				gamePanel.player.hasIronSword = false;
+				gamePanel.player.hasGoldenSword = false;
+				gamePanel.player.hasBloodySword = true;			
+			} else if (selectedItem instanceof ITEM_shield) {
+				if (!gamePanel.player.hasShield) {
+					gamePanel.player.weapons[1] = selectedItem;
+					chest.chestItems.remove(itemIndex);
+					gamePanel.player.hasShield = true;
+				}
+			} else if (selectedItem instanceof ITEM_bow) {
+				if (!gamePanel.player.hasBow) {
+					gamePanel.player.weapons[2] = selectedItem;
+					chest.chestItems.remove(itemIndex);
+					gamePanel.player.hasBow = true;
+				}
+			} else {
+				if (gamePanel.player.inventory.size() < gamePanel.player.maxInventorySize) {
+					gamePanel.player.inventory.add(selectedItem);
+					chest.chestItems.remove(itemIndex);
+				}
 			}
-
 		}
 	}
 
