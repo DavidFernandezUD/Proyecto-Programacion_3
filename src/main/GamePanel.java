@@ -48,6 +48,9 @@ public class GamePanel extends JPanel implements Runnable {
 	public final int worldHeight = tileSize * maxWorldCol;
 	public final int worldWidth = tileSize * maxWorldRow;
 
+	// NAME GENERATOR
+	public NameGenerator nameGenerator = new NameGenerator();
+
 	// STATE SCREENS
 	public TitleScreen titleScreen = new TitleScreen(this);
 	public PauseScreen pauseScreen = new PauseScreen(this);
@@ -86,6 +89,7 @@ public class GamePanel extends JPanel implements Runnable {
 	public Hud hud = new Hud(this);
 	public Player player = Player.getInstance(this, keyHandler);
 	public EntityManager entityManager = new EntityManager(this, player);
+
 
 	// GAME MANAGER
 	public Game currentGame = new Game(this);
