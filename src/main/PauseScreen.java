@@ -5,10 +5,13 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 
-/** Drawable pause screen GUI component.
- * @author juanjose.restrepo@opendeusto.es*/
-public class PauseScreen implements Drawable{
-    
+/**
+ * Drawable pause screen GUI component.
+ * 
+ * @author juanjose.restrepo@opendeusto.es
+ */
+public class PauseScreen implements Drawable {
+
     // GAME PANEL
     public GamePanel gamePanel;
 
@@ -17,27 +20,27 @@ public class PauseScreen implements Drawable{
     private boolean downToggled = false;
     private int selectionIndex = 0;
 
-    /** Creates a PauseScreen component.*/
+    /** Creates a PauseScreen component. */
     PauseScreen(GamePanel gamePanel) {
 
         this.gamePanel = gamePanel;
     }
 
-    /** Updates the state of the pause screen based on user keyboard input.*/
+    /** Updates the state of the pause screen based on user keyboard input. */
     public void update() {
 
         // CONTINUE
-        if(selectionIndex == 0 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+        if (selectionIndex == 0 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
             gamePanel.pauseState = false;
         }
 
         // SAVE GAME
-        if(selectionIndex == 1 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
-            // gamePanel.gameManager.saveGame();
+        if (selectionIndex == 1 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+            gamePanel.gameManager.saveGame();
         }
 
         // BACK TO TITLE
-        if(selectionIndex == 2 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+        if (selectionIndex == 2 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
@@ -47,28 +50,32 @@ public class PauseScreen implements Drawable{
             gamePanel.titleState = true;
         }
 
-        if(gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_W) != upToggled) {
+        // UP & DOWN KEYS
+        if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_W) != upToggled) {
             upToggled = !upToggled;
             selectionIndex--;
-            if(selectionIndex < 0) {
+            if (selectionIndex < 0) {
                 selectionIndex = 2;
             }
         }
 
-        if(gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_S) != downToggled) {
+        if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_S) != downToggled) {
             downToggled = !downToggled;
             selectionIndex++;
-            if(selectionIndex > 2) {
+            if (selectionIndex > 2) {
                 selectionIndex = 0;
             }
         }
     }
 
-    /** Draws the pause screen in a given Graphics2D object.
-     * @param g2 Graphics2D object where the pause screen will be drawn into.*/
+    /**
+     * Draws the pause screen in a given Graphics2D object.
+     * 
+     * @param g2 Graphics2D object where the pause screen will be drawn into.
+     */
     @Override
     public void draw(Graphics2D g2) {
-        
+
         // DRAWING BACKGROUND
         g2.setColor(new Color(0, 0, 0, 150));
         g2.fillRect(0, 0, gamePanel.maxScreenCol * gamePanel.tileSize, gamePanel.maxScreenRow * gamePanel.tileSize);

@@ -3,9 +3,13 @@ package main;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
+import java.util.Map.Entry;
 
-/** Drawable title screen GUI component.
- * @author juanjose.restrepo@opendeusto.es*/
+/**
+ * Drawable title screen GUI component.
+ * 
+ * @author juanjose.restrepo@opendeusto.es
+ */
 public class TitleScreen implements Drawable {
 
     // SETTINGS
@@ -27,12 +31,12 @@ public class TitleScreen implements Drawable {
     private boolean gameLoad = false;
     private boolean newGame = false;
     private boolean gameTitle = true;
-    private boolean characterSelection = false;
 
     // LIST OF RECENT GAMES
     private HashMap<Integer, String> recentGames;
+    private Integer[] recentGameCodes;
 
-    /** Creates a title screen component.*/
+    /** Creates a title screen component. */
     TitleScreen(GamePanel gamePanel) {
 
         this.gamePanel = gamePanel;
@@ -42,14 +46,16 @@ public class TitleScreen implements Drawable {
 
     }
 
-    /** Updates the state of the title screen based on user keyboard
-     * input.*/
+    /**
+     * Updates the state of the title screen based on user keyboard
+     * input.
+     */
     public void update() {
 
         if (gameTitle) {
 
             // NEW GAME
-            if(selectionIndex == 0 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+            if (selectionIndex == 0 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
                 newGame = true;
                 gameTitle = false;
             }
@@ -61,28 +67,35 @@ public class TitleScreen implements Drawable {
                 gameTitle = false;
             }
 
+            // SETTINGS
+            if (selectionIndex == 3 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+                gamePanel.pauseState = true;
+                gamePanel.titleState = false;
+                Statistics statistics = new Statistics(gamePanel);
+            }
+
             // EXIT
-            if(selectionIndex == 4 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+            if (selectionIndex == 4 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
                 System.exit(0);
             }
-            
+
             // Inventory cannot be opened while title screen
             if (gamePanel.titleState) {
-    			if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_I)) {
-    				gamePanel.keyHandler.keyToggleStates.put(KeyEvent.VK_I, false);
-    			}
-    		}
+                if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_I)) {
+                    gamePanel.keyHandler.keyToggleStates.put(KeyEvent.VK_I, false);
+                }
+            }
 
         } else if (newGame) {
-            
+
             String gameName = "";
-            if(selectionIndex == 0) {
+            if (selectionIndex == 0) {
                 // GETTING GAME NAME
-                if(gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_BACK_SPACE)) {
-                    if(gameName.length() > 0) {
+                if (gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_BACK_SPACE)) {
+                    if (gameName.length() > 0) {
                         gameName = gameName.substring(0, gameName.length() - 1);
                     }
-                } else if(gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+                } else if (gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
                     selectionIndex = 1;
                 } else {
                     gameName += gamePanel.keyHandler.getKeyPressed();
@@ -90,74 +103,93 @@ public class TitleScreen implements Drawable {
             }
 
             // SUBMIT
-            if(selectionIndex == 1 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+            if (selectionIndex == 1 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
                 gamePanel.currentGame.gameName = gameName;
+                newGame = false;
                 gamePanel.pauseState = false;
                 gamePanel.titleState = false;
+            }
+
+            // BACK
+            if (selectionIndex == 2 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+                newGame = false;
+                gameTitle = true;
             }
 
         } else if (gameLoad) {
 
             // LOAD RECENT GAMES
             recentGames = gamePanel.gameManager.loadRecentGames();
+            recentGameCodes = gamePanel.gameManager.loadRecentGameCodes();
+
+            // LOAD SELECTED GAME
+            if (selectionCol == 0 && gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER) != enterToggled) {
+                enterToggled = !enterToggled;
+                gamePanel.gameManager.loadGame(recentGameCodes[selectionIndex]);
+                gamePanel.currentGame = gamePanel.gameManager.currentGame;
+                gamePanel.pauseState = false;
+                gamePanel.titleState = false;
+            }
 
             // DELETE
-            if(selectionCol == 1 && gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER) != enterToggled) {
+            if (selectionCol == 1 && gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER) != enterToggled) {
                 enterToggled = !enterToggled;
                 gamePanel.gameManager.deleteGame(selectionIndex);
             }
 
             // BACK
-            if(selectionCol == 2 && gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER) != enterToggled) {
+            if (selectionCol == 2 && gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER) != enterToggled) {
                 enterToggled = !enterToggled;
                 gameLoad = false;
                 gameTitle = true;
             }
-        } else if (characterSelection) {
-            //TODO: Character Selection
         }
 
         // UP AND DOWN ARROW KEYS
-        if(gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_W) != upToggled) {
+        if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_W) != upToggled) {
             upToggled = !upToggled;
             selectionIndex--;
-            if(selectionIndex < 0) {
+            if (selectionIndex < 0) {
                 selectionIndex = 0;
-            } 
+            }
         }
 
-        if(gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_S) != downToggled) {
+        if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_S) != downToggled) {
             downToggled = !downToggled;
             selectionIndex++;
-            if(selectionIndex > 4 && gameTitle) {
+            if (selectionIndex > 4 && gameTitle) {
                 selectionIndex = 0;
             } else if (selectionIndex > 5 && gameLoad) {
-                //selectionIndex = recentGames.size();
-            } else if (selectionIndex > 1 && newGame) {
+                // selectionIndex = recentGames.size();
+            } else if (selectionIndex > 3 && newGame) {
                 selectionIndex = 0;
             }
         }
 
         // LEFT AND RIGHT ARROW KEYS
-        if(gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_A) != leftToggled) {
+        if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_A) != leftToggled) {
             leftToggled = !leftToggled;
             selectionCol--;
-            if(selectionCol < 0) {
+            if (selectionCol < 0) {
                 selectionCol = 2;
             }
         }
-        
-        if(gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_D) != rightToggled) {
+
+        if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_D) != rightToggled) {
             rightToggled = !rightToggled;
             selectionCol++;
-            if(selectionCol > 2) {
+            if (selectionCol > 2) {
                 selectionCol = 0;
             }
         }
+
     }
 
-    /** Draws the title screen on a given Graphics2D object.
-     * @param g2 Graphics2D object where the title screen will be drawn into.*/
+    /**
+     * Draws the title screen on a given Graphics2D object.
+     * 
+     * @param g2 Graphics2D object where the title screen will be drawn into.
+     */
     @Override
     public void draw(Graphics2D g2) {
 
@@ -197,7 +229,7 @@ public class TitleScreen implements Drawable {
             int gameNameX = boxX + 5;
             int gameNameY = boxY + boxHeight - 10;
             g2.drawString(gameName, gameNameX, gameNameY);
-        
+
             // DRAWING SUBMIT BUTTON
             g2.setFont(FontManager.optionFont);
             int submitX = (gamePanel.screenWidth - g2.getFontMetrics().stringWidth("SUBMIT")) / 2;
@@ -205,10 +237,17 @@ public class TitleScreen implements Drawable {
             g2.setColor(selectionIndex == 1 ? FontManager.highlightColor : FontManager.fontColor);
             g2.drawString("SUBMIT", submitX, submitY);
 
+            // DRAWING BACK BUTTON
+            g2.setFont(FontManager.optionFont);
+            int backX = (gamePanel.screenWidth - g2.getFontMetrics().stringWidth("BACK")) / 2;
+            int backY = submitY + 40;
+            g2.setColor(selectionIndex == 2 ? FontManager.highlightColor : FontManager.fontColor);
+            g2.drawString("BACK", backX, backY);
+
         }
 
-        if(gameTitle) {
-            
+        if (gameTitle) {
+
             // BACKGROUND
             g2.setColor(Color.BLACK);
             g2.fillRect(0, 0, gamePanel.screenWidth, gamePanel.screenHeight);
@@ -255,7 +294,7 @@ public class TitleScreen implements Drawable {
             g2.setColor(selectionIndex == 4 ? FontManager.highlightColor : FontManager.fontColor);
             g2.drawString("EXIT", exitX, exitY);
         }
-        
+
         else if (gameLoad) {
             // BACKGROUND
             g2.setColor(Color.BLACK);
@@ -271,22 +310,15 @@ public class TitleScreen implements Drawable {
             int backX = gamePanel.screenWidth / 4 * 3;
             int backY = startY;
 
-            //TODO: Draw the saved games and delete options
-            /* 
-            for (Map.Entry<Integer,String> entry : recentGames.entrySet()) {
-                g2.setColor(selectionIndex == i && selectionCol == 0? FontManager.highlightColor : FontManager.fontColor);
-                g2.drawString(entry.getValue(), startX, startY + i * 50);
-                g2.setColor(selectionIndex == i && selectionCol == 1? FontManager.highlightColor : FontManager.fontColor);
-                g2.drawString("DELETE", deleteX, deleteY + i * 50);
+            for (Entry<Integer, String> entry : recentGames.entrySet()) {
+                g2.drawString(entry.getValue(), startX, startY);
+                g2.drawString("DELETE", deleteX, deleteY);
+                startY += 40;
+                deleteY += 40;
             }
-            */
 
             g2.setColor(selectionCol == 2 ? FontManager.highlightColor : FontManager.fontColor);
             g2.drawString("BACK", backX, backY);
-        }
-
-        else if (characterSelection) {
-            //TODO: Character Selection
         }
     }
 }

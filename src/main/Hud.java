@@ -9,32 +9,35 @@ import java.io.IOException;
 import java.util.logging.Level;
 import javax.imageio.ImageIO;
 
-/** Drawable HUD GUI component.
- * @author juanjose.restrepo@opendeusto.es*/
-public class Hud implements Drawable{
+/**
+ * Drawable HUD GUI component.
+ * 
+ * @author juanjose.restrepo@opendeusto.es
+ */
+public class Hud implements Drawable {
 
-    //GamePanel
+    // GamePanel
     public GamePanel gamePanel;
 
-    //Data
+    // Data
     int health;
     int stamina;
-    
-    //Heart Image
+
+    // Heart Image
     int heartWidth = 40;
     int heartHeight = 40;
     Image fullHeart;
     Image halfHeart;
 
-    //Progress Bar
+    // Progress Bar
     int progressBarWidth = 180;
     int progressBarHeight = 20;
     int progressBarX = 50;
     int progressBarY = 100;
 
-    /** Creates a HUD component.*/
+    /** Creates a HUD component. */
     public Hud(GamePanel gamePanel) {
-        
+
         // Load Heart Images
         this.gamePanel = gamePanel;
         try {
@@ -48,17 +51,20 @@ public class Hud implements Drawable{
 
     }
 
-    /** Updates the HUD based on players stamina and health*/
+    /** Updates the HUD based on players stamina and health */
     public void update() {
         health = gamePanel.player.health;
         stamina = gamePanel.player.stamina;
     }
 
-    /** Draws the HUD on a given Graphics2D object.
-     * @param g2 Graphics2D object where the HUD will be drawn into.*/
+    /**
+     * Draws the HUD on a given Graphics2D object.
+     * 
+     * @param g2 Graphics2D object where the HUD will be drawn into.
+     */
     @Override
     public void draw(Graphics2D g2) {
-        
+
         // Draw Health
         for (int i = 0; i < health / 20; i++) {
             g2.drawImage(fullHeart, 50 + (i * heartWidth), 40, null);
@@ -68,7 +74,7 @@ public class Hud implements Drawable{
         }
 
         // Draw Stamina
-        int remaining = 5 - stamina ;
+        int remaining = 5 - stamina;
         int x = progressBarX;
         int y = progressBarY;
         g2.setColor(Color.GREEN);
@@ -80,7 +86,7 @@ public class Hud implements Drawable{
             g2.fillRoundRect(x, y, (progressBarWidth / 5) * remaining / 20, progressBarHeight, 10, 10);
         }
 
-        // Draw borders
+        // Draw borders of Stamina
         x = progressBarX;
         y = progressBarY;
         g2.setColor(Color.WHITE);
@@ -91,6 +97,8 @@ public class Hud implements Drawable{
         if (remaining > 0) {
             g2.drawRoundRect(x, y, (progressBarWidth / 5) * remaining / 20, progressBarHeight, 10, 10);
         }
+
+        // TODO: Draw weapon icon
     }
 
 }
