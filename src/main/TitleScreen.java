@@ -118,6 +118,12 @@ public class TitleScreen implements Drawable {
 
         } else if (newGame) {
 
+            // NEW NAME
+            if (selectionIndex == 0 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+                NameGenerator nameGenerator = new NameGenerator();
+                gameName = nameGenerator.getRandomName();
+            }
+
             // SUBMIT
             if (selectionIndex == 1 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
                 gamePanel.currentGame.gameName = gameName;
@@ -253,10 +259,17 @@ public class TitleScreen implements Drawable {
             int nameY = newGameY + 80;
             g2.drawString(gameName, nameX, nameY);
 
-            // DRAWING SUBMIT BUTTON
+            // DRAWING NEW NAME BUTTON
+            g2.setFont(FontManager.optionFont);
+            int newNameX = (gamePanel.screenWidth - g2.getFontMetrics().stringWidth("OTHER NAME")) / 2;
+            int newNameY = nameY + 80;
+            g2.setColor(selectionIndex == 0 ? FontManager.highlightColor : FontManager.fontColor);
+            g2.drawString("OTHER NAME", newNameX, newNameY);
+
+            // DRAWING PlAY BUTTON
             g2.setFont(FontManager.optionFont);
             int submitX = (gamePanel.screenWidth - g2.getFontMetrics().stringWidth("PLAY")) / 2;
-            int submitY = nameY + 80;
+            int submitY = newNameY + 80;
             g2.setColor(selectionIndex == 1 ? FontManager.highlightColor : FontManager.fontColor);
             g2.drawString("PLAY", submitX, submitY);
 
@@ -319,7 +332,7 @@ public class TitleScreen implements Drawable {
             // Draw the saved games and delete options
             g2.setFont(FontManager.optionFont);
             g2.setColor(FontManager.fontColor);
-            int startX = gamePanel.screenWidth / 4;
+            int startX = gamePanel.screenWidth / 4 - 200;
             int startY = 200;
             int deleteX = gamePanel.screenWidth / 4 * 2;
             int deleteY = startY;
