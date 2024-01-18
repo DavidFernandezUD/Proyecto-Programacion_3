@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
 import java.util.Map.Entry;
+import java.util.logging.Level;
 
 /**
  * Drawable title screen GUI component.
@@ -50,12 +51,12 @@ public class TitleScreen implements Drawable {
         // TITLE
         title = "Shadows Of Despair";
 
+        // New Game name
+        NameGenerator nameGenerator = new NameGenerator();
+        gameName = nameGenerator.getRandomName();
+
         // STATISTICS
         statistics = new Statistics(gamePanel);
-
-        // LOAD RECENT GAMES
-        recentGames = gamePanel.gameManager.loadRecentGames();
-        recentGameCodes = gamePanel.gameManager.loadRecentGameCodes();
 
     }
 
@@ -69,25 +70,42 @@ public class TitleScreen implements Drawable {
 
             // NEW GAME
             if (selectionIndex == 0 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    gamePanel.logger.log(Level.SEVERE, "Thread.sleep() Failed", e);
+                }
                 newGame = true;
                 gameTitle = false;
+                resetIndex();
             }
 
             // CONTINUE
-            if (selectionIndex == 1 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER) != enterToggled) {
+            if (selectionIndex == 1 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    gamePanel.logger.log(Level.SEVERE, "Thread.sleep() Failed", e);
+                }
                 gameLoad = true;
                 gameTitle = false;
+                updateGames();
+                resetIndex();
             }
 
-            // SETTINGS
-            if (selectionIndex == 3 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
-                gamePanel.pauseState = true;
-                gamePanel.titleState = false;
+            // STATISTICS
+            if (selectionIndex == 2 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    gamePanel.logger.log(Level.SEVERE, "Thread.sleep() Failed", e);
+                }
                 statistics.setVisible(true);
+                resetIndex();
             }
 
             // EXIT
-            if (selectionIndex == 4 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+            if (selectionIndex == 3 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
                 System.exit(0);
             }
 
@@ -100,56 +118,66 @@ public class TitleScreen implements Drawable {
 
         } else if (newGame) {
 
-            if (selectionIndex == 0) {
-
-                // GETTING GAME NAME
-                if (gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_BACK_SPACE)) {
-                    if (gameName.length() > 0) {
-                        gameName = gameName.substring(0, gameName.length() - 1);
-                    }
-                } else if (gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
-                    selectionIndex = 1;
-                } else {
-                    gameName += gamePanel.keyHandler.getKeyPressed();
-                }
-            }
-
             // SUBMIT
             if (selectionIndex == 1 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
                 gamePanel.currentGame.gameName = gameName;
                 newGame = false;
                 gamePanel.pauseState = false;
+                gamePanel.newGame = true;
                 gamePanel.titleState = false;
             }
 
             // BACK
             if (selectionIndex == 2 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    gamePanel.logger.log(Level.SEVERE, "Thread.sleep() Failed", e);
+                }
                 newGame = false;
                 gameTitle = true;
+                resetIndex();
             }
 
         } else if (gameLoad) {
 
             // LOAD SELECTED GAME
-            if (selectionCol == 0 && gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER) != enterToggled) {
-                enterToggled = !enterToggled;
+            if (selectionCol == 0 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    gamePanel.logger.log(Level.SEVERE, "Thread.sleep() Failed", e);
+                }
                 gamePanel.gameManager.loadGame(recentGameCodes[selectionIndex]);
                 gamePanel.currentGame = gamePanel.gameManager.currentGame;
                 gamePanel.pauseState = false;
+                gamePanel.newGame = false;
                 gamePanel.titleState = false;
             }
 
             // DELETE
-            if (selectionCol == 1 && gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER) != enterToggled) {
+            if (selectionCol == 1 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    gamePanel.logger.log(Level.SEVERE, "Thread.sleep() Failed", e);
+                }
                 enterToggled = !enterToggled;
                 gamePanel.gameManager.deleteGame(recentGameCodes[selectionIndex]);
+                updateGames();
             }
 
             // BACK
-            if (selectionCol == 2 && gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER) != enterToggled) {
+            if (selectionCol == 2 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    gamePanel.logger.log(Level.SEVERE, "Thread.sleep() Failed", e);
+                }
                 enterToggled = !enterToggled;
                 gameLoad = false;
                 gameTitle = true;
+                resetIndex();
             }
         }
 
@@ -214,36 +242,23 @@ public class TitleScreen implements Drawable {
             int titleY = 180;
             g2.drawString(title, titleX, titleY);
 
-            // DRAWING NEW GAME NAME INPUT
+            // DRAWING NEW GAME
             g2.setFont(FontManager.optionFont);
-            int inputX = (gamePanel.screenWidth - g2.getFontMetrics().stringWidth("Enter Game Name:")) / 2;
-            int inputY = 320;
-            g2.setColor(FontManager.fontColor);
-            g2.drawString("Enter Game Name:", inputX, inputY);
-
-            // DRAWING INPUT BOX
-            int boxX = (gamePanel.screenWidth - 200) / 2; // Adjust the width of the input box as needed
-            int boxY = inputY + 20;
-            int boxWidth = 200; // Adjust the width of the input box as needed
-            int boxHeight = 30; // Adjust the height of the input box as needed
-            g2.setColor(Color.WHITE);
-            g2.fillRect(boxX, boxY, boxWidth, boxHeight);
-            g2.setColor(Color.BLACK);
-            g2.drawRect(boxX, boxY, boxWidth, boxHeight);
-
-            // PAINTING gameName INSIDE THE INPUT BOX
-            g2.setColor(Color.BLACK);
-            String gameName = "New game";
-            int gameNameX = boxX + 5;
-            int gameNameY = boxY + boxHeight - 10;
-            g2.drawString(gameName, gameNameX, gameNameY);
+            int newGameX = (gamePanel.screenWidth - g2.getFontMetrics().stringWidth("YOUR NAME IS:")) / 2;
+            int newGameY = 320;
+            g2.drawString("YOUR NAME IS:", newGameX, newGameY);
+            // DRAWING NEW GAME NAME
+            g2.setFont(FontManager.optionFont);
+            int nameX = (gamePanel.screenWidth - g2.getFontMetrics().stringWidth(gameName)) / 2;
+            int nameY = newGameY + 80;
+            g2.drawString(gameName, nameX, nameY);
 
             // DRAWING SUBMIT BUTTON
             g2.setFont(FontManager.optionFont);
-            int submitX = (gamePanel.screenWidth - g2.getFontMetrics().stringWidth("SUBMIT")) / 2;
-            int submitY = boxY + boxHeight + 30;
+            int submitX = (gamePanel.screenWidth - g2.getFontMetrics().stringWidth("PLAY")) / 2;
+            int submitY = nameY + 80;
             g2.setColor(selectionIndex == 1 ? FontManager.highlightColor : FontManager.fontColor);
-            g2.drawString("SUBMIT", submitX, submitY);
+            g2.drawString("PLAY", submitX, submitY);
 
             // DRAWING BACK BUTTON
             g2.setFont(FontManager.optionFont);
@@ -281,25 +296,18 @@ public class TitleScreen implements Drawable {
             g2.setColor(selectionIndex == 1 ? FontManager.highlightColor : FontManager.fontColor);
             g2.drawString("CONTINUE GAME", continueX, continueY);
 
-            // DRAWING OPTIONS BUTTON
-            g2.setFont(FontManager.optionFont);
-            int optionsX = (gamePanel.screenWidth - g2.getFontMetrics().stringWidth("OPTIONS")) / 2;
-            int optionsY = 400;
-            g2.setColor(selectionIndex == 2 ? FontManager.highlightColor : FontManager.fontColor);
-            g2.drawString("OPTIONS", optionsX, optionsY);
-
             // DRAWING STATISTICS BUTTON
             g2.setFont(FontManager.optionFont);
             int statisticsX = (gamePanel.screenWidth - g2.getFontMetrics().stringWidth("STATISTICS")) / 2;
-            int statisticsY = 440;
-            g2.setColor(selectionIndex == 3 ? FontManager.highlightColor : FontManager.fontColor);
+            int statisticsY = 400;
+            g2.setColor(selectionIndex == 2 ? FontManager.highlightColor : FontManager.fontColor);
             g2.drawString("STATISTICS", statisticsX, statisticsY);
 
             // DRAWING EXIT BUTTON
             g2.setFont(FontManager.optionFont);
             int exitX = (gamePanel.screenWidth - g2.getFontMetrics().stringWidth("EXIT")) / 2;
             int exitY = 480;
-            g2.setColor(selectionIndex == 4 ? FontManager.highlightColor : FontManager.fontColor);
+            g2.setColor(selectionIndex == 3 ? FontManager.highlightColor : FontManager.fontColor);
             g2.drawString("EXIT", exitX, exitY);
         }
 
@@ -317,16 +325,39 @@ public class TitleScreen implements Drawable {
             int deleteY = startY;
             int backX = gamePanel.screenWidth / 4 * 3;
             int backY = startY;
-
+            int i = 0;
             for (Entry<Integer, String> entry : recentGames.entrySet()) {
+                g2.setColor(
+                        selectionCol == 0 && selectionIndex == i ? FontManager.highlightColor : FontManager.fontColor);
                 g2.drawString(entry.getValue(), startX, startY);
+                g2.setColor(
+                        selectionCol == 1 && selectionIndex == i ? FontManager.highlightColor : FontManager.fontColor);
                 g2.drawString("DELETE", deleteX, deleteY);
                 startY += 40;
                 deleteY += 40;
+                i++;
             }
 
             g2.setColor(selectionCol == 2 ? FontManager.highlightColor : FontManager.fontColor);
             g2.drawString("BACK", backX, backY);
         }
+    }
+
+    public void resetTitle() {
+        gameTitle = true;
+        gameLoad = false;
+        newGame = false;
+        selectionCol = 0;
+        selectionIndex = 0;
+    }
+
+    public void resetIndex() {
+        selectionCol = 0;
+        selectionIndex = 0;
+    }
+
+    public void updateGames() {
+        recentGames = gamePanel.gameManager.loadRecentGames();
+        recentGameCodes = gamePanel.gameManager.loadRecentGameCodes();
     }
 }

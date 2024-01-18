@@ -61,6 +61,7 @@ public class GamePanel extends JPanel implements Runnable {
 	public boolean dialogueState = false;
 	public boolean inventoryState = false;
 	public boolean chestState = false;
+	public boolean newGame = true;
 
 	// FPS
 	public int FPS = 60;
@@ -303,6 +304,10 @@ public class GamePanel extends JPanel implements Runnable {
 					// etc.
 					update();
 					hud.update();
+				}
+
+				if (!newGame) {
+					entityManager.updateEntities(currentGame);
 				}
 
 				// 2 DRAW: Draw the screen with the updated information

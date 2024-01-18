@@ -13,8 +13,11 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.logging.Level;
 
-/** Class that manages all the main.entities inside the game.
- * @author david.f@opendeusto.es*/
+/**
+ * Class that manages all the main.entities inside the game.
+ * 
+ * @author david.f@opendeusto.es
+ */
 public class EntityManager implements Drawable {
 
     GamePanel gamePanel;
@@ -24,8 +27,11 @@ public class EntityManager implements Drawable {
     public Iterator<Entity> iterator;
     protected boolean playerChangedTile = true;
 
-    /** Creates an EntityManager, given a gamePanel and a Player.
-     * @param player Player.*/
+    /**
+     * Creates an EntityManager, given a gamePanel and a Player.
+     * 
+     * @param player Player.
+     */
     public EntityManager(GamePanel gamePanel, Player player) {
 
         this.gamePanel = gamePanel;
@@ -36,8 +42,10 @@ public class EntityManager implements Drawable {
 
     }
 
-    /** Loads main.entities from file and stores player
-     * and main.entities in an entity list.*/
+    /**
+     * Loads main.entities from file and stores player
+     * and main.entities in an entity list.
+     */
     private void setEntities() {
 
         // Player
@@ -45,23 +53,27 @@ public class EntityManager implements Drawable {
 
         // Enemies
         try {
-			InputStream is = getClass().getResourceAsStream("/main/res/entities/entities.csv");
-			assert is != null;
-			BufferedReader br = new BufferedReader(new InputStreamReader(is));
+            InputStream is = getClass().getResourceAsStream("/main/res/entities/entities.csv");
+            assert is != null;
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
             String line;
-			while((line = br.readLine()) != null) {
-				String[] cords = line.split(",");
+            while ((line = br.readLine()) != null) {
+                String[] cords = line.split(",");
                 entities.add(new Enemy(gamePanel,
                         Integer.parseInt(cords[0]),
                         Integer.parseInt(cords[1])));
-			}
-		} catch (Exception e) {
+            }
+        } catch (Exception e) {
             GamePanel.logger.log(Level.SEVERE, "failed Loading Entities", e);
-		}
+        }
     }
 
-    /** Updates all the main.entities in the entity list.*/
+    public void updateEntities(Game game) {
+        this.entities = game.entities;
+    }
+
+    /** Updates all the main.entities in the entity list. */
     public void update() {
         iterator = entities.iterator();
         while(iterator.hasNext()){
@@ -75,7 +87,7 @@ public class EntityManager implements Drawable {
         }
     }
 
-    /** Draws main.entities in correct order.*/
+    /** Draws main.entities in correct order. */
     @Override
     public void draw(Graphics2D g2) {
 
@@ -90,7 +102,7 @@ public class EntityManager implements Drawable {
             }
         });
 
-        for(Entity entity : entities) {
+        for (Entity entity : entities) {
             entity.draw(g2);
         }
 

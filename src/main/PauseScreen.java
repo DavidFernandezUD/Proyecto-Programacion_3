@@ -36,7 +36,13 @@ public class PauseScreen implements Drawable {
 
         // SAVE GAME
         if (selectionIndex == 1 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                gamePanel.logger.log(Level.SEVERE, "Thread.sleep() Failed", e);
+            }
             gamePanel.gameManager.saveGame();
+            gamePanel.pauseState = false;
         }
 
         // BACK TO TITLE
@@ -46,6 +52,7 @@ public class PauseScreen implements Drawable {
             } catch (InterruptedException e) {
                 gamePanel.logger.log(Level.SEVERE, "Thread.sleep() Failed", e);
             }
+            gamePanel.titleScreen.resetTitle();
             gamePanel.pauseState = false;
             gamePanel.titleState = true;
         }
