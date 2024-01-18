@@ -1,8 +1,10 @@
 package main;
 
+import java.awt.Image;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -145,6 +147,8 @@ public class Statistics extends JFrame {
             JPanel innerStatisticsPanel = new JPanel();
 
             // Create the statistics information
+            JLabel gameCodeLabel = new JLabel("Game Code: " + game.gameCode);
+            JLabel gameNameLabel = new JLabel("Game Name: " + game.gameName);
 
             // Button to go back to the main statistics menu
             JButton backToMenuButton = new JButton("Back To Menu");
