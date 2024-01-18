@@ -114,9 +114,12 @@ public class NameGenerator {
     /** Returns a random name from all the possible names.
      * @return Random name.*/
     public String getRandomName() {
-        Random random = new Random();
-        int randomIndex = random.nextInt(names.size());
-        return names.get(randomIndex);
+        if(!names.isEmpty()) {
+            Random random = new Random();
+            int randomIndex = random.nextInt(names.size());
+            return names.get(randomIndex);
+        }
+        return "";
     }
 
     /** Generates all the possible names that contain
