@@ -64,8 +64,8 @@ public class GameManager {
                 // SAVE PLAYER INVENTORY
                 for (SuperItem item : currentGame.player.inventory) {
                     stmt.executeUpdate(
-                            "INSERT INTO ITEMS (GAME_CODE, TYPE, POSX, POSY) VALUES ('" + currentGame.gameCode
-                                    + "', '" + item.name + "', 0, 0);");
+                            "INSERT INTO ITEMS (GAME_CODE, TYPE) VALUES ('" + currentGame.gameCode
+                                    + "', '" + item.name + "');");
                 }
 
                 stmt.close();

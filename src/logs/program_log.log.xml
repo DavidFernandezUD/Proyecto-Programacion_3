@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-01-18T19:33:50.576673800Z</date>
+  <millis>1705606430576</millis>
+  <nanos>673800</nanos>
+  <sequence>6</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GamePanel</class>
+  <method>&lt;init&gt;</method>
+  <thread>33</thread>
+  <message>Game Started</message>
+</record>
+<record>
+  <date>2024-01-18T19:33:50.655510900Z</date>
+  <millis>1705606430655</millis>
+  <nanos>510900</nanos>
+  <sequence>7</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GamePanel</class>
+  <method>startGameThread</method>
+  <thread>33</thread>
+  <message>Game Thread Started</message>
+</record>
+<record>
+  <date>2024-01-18T19:34:27.225541Z</date>
+  <millis>1705606467225</millis>
+  <nanos>541000</nanos>
+  <sequence>8</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>saveGame</method>
+  <thread>50</thread>
+  <message>Game saved</message>
+</record>
+<record>
+  <date>2024-01-18T19:34:29.418300500Z</date>
+  <millis>1705606469418</millis>
+  <nanos>300500</nanos>
+  <sequence>9</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>50</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T19:34:29.422289100Z</date>
+  <millis>1705606469422</millis>
+  <nanos>289100</nanos>
+  <sequence>10</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>50</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+</log>
