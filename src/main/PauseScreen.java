@@ -46,6 +46,7 @@ public class PauseScreen implements Drawable {
             } catch (InterruptedException e) {
                 gamePanel.logger.log(Level.SEVERE, "Thread.sleep() Failed", e);
             }
+            gamePanel.titleScreen.resetTitle();
             gamePanel.pauseState = false;
             gamePanel.titleState = true;
         }

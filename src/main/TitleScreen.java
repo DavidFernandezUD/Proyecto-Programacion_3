@@ -58,10 +58,6 @@ public class TitleScreen implements Drawable {
         // STATISTICS
         statistics = new Statistics(gamePanel);
 
-        // LOAD RECENT GAMES
-        recentGames = gamePanel.gameManager.loadRecentGames();
-        recentGameCodes = gamePanel.gameManager.loadRecentGameCodes();
-
     }
 
     /**
@@ -81,19 +77,31 @@ public class TitleScreen implements Drawable {
                 }
                 newGame = true;
                 gameTitle = false;
+                resetIndex();
             }
 
             // CONTINUE
             if (selectionIndex == 1 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    gamePanel.logger.log(Level.SEVERE, "Thread.sleep() Failed", e);
+                }
                 gameLoad = true;
                 gameTitle = false;
+                updateGames();
+                resetIndex();
             }
 
-            // SETTINGS
+            // STATISTICS
             if (selectionIndex == 2 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
-                gamePanel.pauseState = true;
-                gamePanel.titleState = false;
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    gamePanel.logger.log(Level.SEVERE, "Thread.sleep() Failed", e);
+                }
                 statistics.setVisible(true);
+                resetIndex();
             }
 
             // EXIT
@@ -127,13 +135,18 @@ public class TitleScreen implements Drawable {
                 }
                 newGame = false;
                 gameTitle = true;
+                resetIndex();
             }
 
         } else if (gameLoad) {
 
             // LOAD SELECTED GAME
-            if (selectionCol == 0 && gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER) != enterToggled) {
-                enterToggled = !enterToggled;
+            if (selectionCol == 0 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    gamePanel.logger.log(Level.SEVERE, "Thread.sleep() Failed", e);
+                }
                 gamePanel.gameManager.loadGame(recentGameCodes[selectionIndex]);
                 gamePanel.currentGame = gamePanel.gameManager.currentGame;
                 gamePanel.pauseState = false;
@@ -141,16 +154,28 @@ public class TitleScreen implements Drawable {
             }
 
             // DELETE
-            if (selectionCol == 1 && gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER) != enterToggled) {
+            if (selectionCol == 1 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    gamePanel.logger.log(Level.SEVERE, "Thread.sleep() Failed", e);
+                }
                 enterToggled = !enterToggled;
                 gamePanel.gameManager.deleteGame(recentGameCodes[selectionIndex]);
+                updateGames();
             }
 
             // BACK
-            if (selectionCol == 2 && gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER) != enterToggled) {
+            if (selectionCol == 2 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    gamePanel.logger.log(Level.SEVERE, "Thread.sleep() Failed", e);
+                }
                 enterToggled = !enterToggled;
                 gameLoad = false;
                 gameTitle = true;
+                resetIndex();
             }
         }
 
@@ -298,18 +323,39 @@ public class TitleScreen implements Drawable {
             int deleteY = startY;
             int backX = gamePanel.screenWidth / 4 * 3;
             int backY = startY;
-
+            int i = 0;
             for (Entry<Integer, String> entry : recentGames.entrySet()) {
-                g2.setColor(selectionCol == 0 ? FontManager.highlightColor : FontManager.fontColor);
+                g2.setColor(
+                        selectionCol == 0 && selectionIndex == i ? FontManager.highlightColor : FontManager.fontColor);
                 g2.drawString(entry.getValue(), startX, startY);
-                g2.setColor(selectionCol == 1 ? FontManager.highlightColor : FontManager.fontColor);
+                g2.setColor(
+                        selectionCol == 1 && selectionIndex == i ? FontManager.highlightColor : FontManager.fontColor);
                 g2.drawString("DELETE", deleteX, deleteY);
                 startY += 40;
                 deleteY += 40;
+                i++;
             }
 
             g2.setColor(selectionCol == 2 ? FontManager.highlightColor : FontManager.fontColor);
             g2.drawString("BACK", backX, backY);
         }
+    }
+
+    public void resetTitle() {
+        gameTitle = true;
+        gameLoad = false;
+        newGame = false;
+        selectionCol = 0;
+        selectionIndex = 0;
+    }
+
+    public void resetIndex() {
+        selectionCol = 0;
+        selectionIndex = 0;
+    }
+
+    public void updateGames() {
+        recentGames = gamePanel.gameManager.loadRecentGames();
+        recentGameCodes = gamePanel.gameManager.loadRecentGameCodes();
     }
 }

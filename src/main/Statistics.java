@@ -1,6 +1,7 @@
 package main;
 
 import java.awt.Image;
+import java.awt.LayoutManager;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -10,6 +11,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class Statistics extends JFrame {
@@ -145,17 +149,36 @@ public class Statistics extends JFrame {
             this.setResizable(false);
             this.setTitle(game.gameName + " Statistics");
             JPanel innerStatisticsPanel = new JPanel();
+            innerStatisticsPanel.setLayout(new BoxLayout(innerStatisticsPanel, BoxLayout.Y_AXIS));
 
             // Create the statistics information
-            JLabel gameCodeLabel = new JLabel("Game Code: " + game.gameCode);
-            JLabel gameNameLabel = new JLabel("Game Name: " + game.gameName);
+            JLabel gameNameLabel = new JLabel(game.gameName);
+            ImageIcon playerIcon = new ImageIcon("src/main/res/icons/player.png");
+            Image playerImage = playerIcon.getImage();
+            Image playerScaledImage = playerImage.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
+            playerIcon = new ImageIcon(playerScaledImage);
+            JLabel playerLabel = new JLabel(playerIcon);
+            JLabel playerHealthLabel = new JLabel("Player Health: " + game.player.health);
+            JLabel playerStaminaLabel = new JLabel("Player Stamina: " + game.player.stamina);
+            ImageIcon enemyIcon = new ImageIcon("src/main/res/icons/enemy.png");
+            Image enemyImage = enemyIcon.getImage();
+            Image enemyScaledImage = enemyImage.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
+            enemyIcon = new ImageIcon(enemyScaledImage);
+            JLabel enemyLabel = new JLabel(enemyIcon);
+            JLabel aliveEnemiesLabel = new JLabel("Alive Enemies: " + game.entities.size());
 
             // Button to go back to the main statistics menu
-            JButton backToMenuButton = new JButton("Back To Menu");
+            JButton backToMenuButton = new JButton("Back");
             backToMenuButton.addActionListener(e -> {
                 this.setVisible(false);
             });
 
+            innerStatisticsPanel.add(gameNameLabel);
+            innerStatisticsPanel.add(playerLabel);
+            innerStatisticsPanel.add(playerHealthLabel);
+            innerStatisticsPanel.add(playerStaminaLabel);
+            innerStatisticsPanel.add(enemyLabel);
+            innerStatisticsPanel.add(aliveEnemiesLabel);
             innerStatisticsPanel.add(backToMenuButton);
             this.add(innerStatisticsPanel);
             this.pack();
