@@ -295,8 +295,9 @@ public class Player extends Entity implements Drawable {
 			health -= damage;
 		}
 
-		// TODO: Make the player die when getting to 0 health points
 		if (health <= 0) {
+			worldX = gamePanel.tileSize * 90;
+			worldY = gamePanel.tileSize * 85;
 			health = MAX_HEALTH;
 			gamePanel.pauseState = true;
 		}
