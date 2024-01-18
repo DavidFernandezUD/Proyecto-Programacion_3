@@ -10,6 +10,9 @@
 bin/
 out/
 
+# Ignore Log Files
+logs/*.log.xml
+
 # Ignore IDE specific files
 # -- IDEA --
 .idea/
