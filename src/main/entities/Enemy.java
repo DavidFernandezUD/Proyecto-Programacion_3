@@ -90,48 +90,51 @@ public class Enemy extends Entity implements Drawable {
             }
 
             if(path != null) {
+                if(path.size() < 25) {
+                    int nextX = path.get(0).col * tileSize;
+                    int nextY = path.get(0).row * tileSize;
 
-                int nextX = path.get(0).col * tileSize;
-                int nextY = path.get(0).row * tileSize;
+                    direction = Entity.getDirection(this, path.get(0));
 
-                direction = Entity.getDirection(this, path.get(0));
+                    // Check main.collisions
+                    collisionOn = false;
+                    gamePanel.collisionChecker.checkTileCollision(this);
 
-                // Check main.collisions
-                collisionOn = false;
-                gamePanel.collisionChecker.checkTileCollision(this);
-
-                // Obstacle avoidance
-                if(collisionOn) {
-                    if(Objects.equals(direction, "up") || Objects.equals(direction, "down")) {
-                        if(nextX < worldX) {
-                            direction = "left";
+                    // Obstacle avoidance
+                    if (collisionOn) {
+                        if (Objects.equals(direction, "up") || Objects.equals(direction, "down")) {
+                            if (nextX < worldX) {
+                                direction = "left";
+                            } else {
+                                direction = "right";
+                            }
                         } else {
-                            direction = "right";
-                        }
-                    } else {
-                        if(nextY < worldY) {
-                            direction = "up";
-                        } else {
-                            direction = "down";
+                            if (nextY < worldY) {
+                                direction = "up";
+                            } else {
+                                direction = "down";
+                            }
                         }
                     }
-                }
 
-                // Moving
-                switch (direction) {
-				    case "up":
-					    worldY -= speed;
-					    break;
-				    case "down":
-					    worldY += speed;
-					    break;
-				    case "left":
-					    worldX -= speed;
-					    break;
-				    case "right":
-					    worldX += speed;
-					    break;
-				}
+                    // Moving
+                    switch (direction) {
+                        case "up":
+                            worldY -= speed;
+                            break;
+                        case "down":
+                            worldY += speed;
+                            break;
+                        case "left":
+                            worldX -= speed;
+                            break;
+                        case "right":
+                            worldX += speed;
+                            break;
+                    }
+                } else {
+                    moving = false;
+                }
             }
 
             // Checking if the tile the players is at has changed

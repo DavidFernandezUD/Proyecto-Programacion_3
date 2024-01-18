@@ -55,10 +55,12 @@ public class GameManager {
 
                 // SAVE ENTITIES
                 for (int i = 0; i < currentGame.entities.size(); i++) {
-                    stmt.executeUpdate(
+                    if(currentGame.entities.get(i) instanceof Enemy) {
+                        stmt.executeUpdate(
                             "INSERT INTO ENTITIES (GAME_CODE, TYPE, POSX, POSY) VALUES ('" + currentGame.gameCode
                                     + "', 'ENEMY', '" + currentGame.entities.get(i).worldX + "', '"
                                     + currentGame.entities.get(i).worldY + "');");
+                    }
                 }
 
                 // SAVE PLAYER INVENTORY
