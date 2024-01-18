@@ -54,13 +54,6 @@ public class GamePanel extends JPanel implements Runnable {
 	// NAME GENERATOR
 	public NameGenerator nameGenerator = new NameGenerator();
 
-	// STATE SCREENS
-	public TitleScreen titleScreen = new TitleScreen(this);
-	public PauseScreen pauseScreen = new PauseScreen(this);
-	public DialogueScreen dialogueScreen = new DialogueScreen(this);
-	public InventoryScreen inventoryScreen = new InventoryScreen(this);
-	public ChestScreen chestScreen = new ChestScreen(this);
-
 	// STATES
 	public boolean titleState = true;
 	public boolean pauseState = false;
@@ -96,6 +89,13 @@ public class GamePanel extends JPanel implements Runnable {
 	// GAME MANAGER
 	public Game currentGame = new Game(this);
 	public GameManager gameManager = new GameManager(this, currentGame);
+
+	// STATE SCREENS
+	public TitleScreen titleScreen = new TitleScreen(this);
+	public PauseScreen pauseScreen = new PauseScreen(this);
+	public DialogueScreen dialogueScreen = new DialogueScreen(this);
+	public InventoryScreen inventoryScreen = new InventoryScreen(this);
+	public ChestScreen chestScreen = new ChestScreen(this);
 
 	/** Creates a GamePamel. */
 	public GamePanel() {
