@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2024-01-18T18:35:38.821003300Z</date>
-  <millis>1705602938821</millis>
-  <nanos>3300</nanos>
+  <date>2024-01-18T18:45:03.303522600Z</date>
+  <millis>1705603503303</millis>
+  <nanos>522600</nanos>
   <sequence>8</sequence>
   <logger>main.GamePanel</logger>
   <level>INFO</level>
@@ -14,9 +14,9 @@
   <message>Game Started</message>
 </record>
 <record>
-  <date>2024-01-18T18:35:38.871011800Z</date>
-  <millis>1705602938871</millis>
-  <nanos>11800</nanos>
+  <date>2024-01-18T18:45:03.356031500Z</date>
+  <millis>1705603503356</millis>
+  <nanos>31500</nanos>
   <sequence>9</sequence>
   <logger>main.GamePanel</logger>
   <level>INFO</level>
@@ -24,5 +24,221 @@
   <method>startGameThread</method>
   <thread>35</thread>
   <message>Game Thread Started</message>
+</record>
+<record>
+  <date>2024-01-18T18:45:07.706299100Z</date>
+  <millis>1705603507706</millis>
+  <nanos>299100</nanos>
+  <sequence>10</sequence>
+  <logger>main.GamePanel</logger>
+  <level>SEVERE</level>
+  <class>main.GameManager</class>
+  <method>saveGame</method>
+  <thread>52</thread>
+  <message>SQLite driver not found: org.sqlite.JDBC</message>
+</record>
+<record>
+  <date>2024-01-18T18:45:07.722802Z</date>
+  <millis>1705603507722</millis>
+  <nanos>802000</nanos>
+  <sequence>11</sequence>
+  <logger>main.GamePanel</logger>
+  <level>SEVERE</level>
+  <class>main.GameManager</class>
+  <method>saveGame</method>
+  <thread>52</thread>
+  <message>SQLite driver not found: org.sqlite.JDBC</message>
+</record>
+<record>
+  <date>2024-01-18T18:45:07.739305Z</date>
+  <millis>1705603507739</millis>
+  <nanos>305000</nanos>
+  <sequence>12</sequence>
+  <logger>main.GamePanel</logger>
+  <level>SEVERE</level>
+  <class>main.GameManager</class>
+  <method>saveGame</method>
+  <thread>52</thread>
+  <message>SQLite driver not found: org.sqlite.JDBC</message>
+</record>
+<record>
+  <date>2024-01-18T18:45:07.756308200Z</date>
+  <millis>1705603507756</millis>
+  <nanos>308200</nanos>
+  <sequence>13</sequence>
+  <logger>main.GamePanel</logger>
+  <level>SEVERE</level>
+  <class>main.GameManager</class>
+  <method>saveGame</method>
+  <thread>52</thread>
+  <message>SQLite driver not found: org.sqlite.JDBC</message>
+</record>
+<record>
+  <date>2024-01-18T18:45:07.772810800Z</date>
+  <millis>1705603507772</millis>
+  <nanos>810800</nanos>
+  <sequence>14</sequence>
+  <logger>main.GamePanel</logger>
+  <level>SEVERE</level>
+  <class>main.GameManager</class>
+  <method>saveGame</method>
+  <thread>52</thread>
+  <message>SQLite driver not found: org.sqlite.JDBC</message>
+</record>
+<record>
+  <date>2024-01-18T18:45:11.206416400Z</date>
+  <millis>1705603511206</millis>
+  <nanos>416400</nanos>
+  <sequence>15</sequence>
+  <logger>main.GamePanel</logger>
+  <level>SEVERE</level>
+  <class>main.GameManager</class>
+  <method>saveGame</method>
+  <thread>52</thread>
+  <message>SQLite driver not found: org.sqlite.JDBC</message>
+</record>
+<record>
+  <date>2024-01-18T18:45:11.222919100Z</date>
+  <millis>1705603511222</millis>
+  <nanos>919100</nanos>
+  <sequence>16</sequence>
+  <logger>main.GamePanel</logger>
+  <level>SEVERE</level>
+  <class>main.GameManager</class>
+  <method>saveGame</method>
+  <thread>52</thread>
+  <message>SQLite driver not found: org.sqlite.JDBC</message>
+</record>
+<record>
+  <date>2024-01-18T18:45:11.239422300Z</date>
+  <millis>1705603511239</millis>
+  <nanos>422300</nanos>
+  <sequence>17</sequence>
+  <logger>main.GamePanel</logger>
+  <level>SEVERE</level>
+  <class>main.GameManager</class>
+  <method>saveGame</method>
+  <thread>52</thread>
+  <message>SQLite driver not found: org.sqlite.JDBC</message>
+</record>
+<record>
+  <date>2024-01-18T18:45:11.255925200Z</date>
+  <millis>1705603511255</millis>
+  <nanos>925200</nanos>
+  <sequence>18</sequence>
+  <logger>main.GamePanel</logger>
+  <level>SEVERE</level>
+  <class>main.GameManager</class>
+  <method>saveGame</method>
+  <thread>52</thread>
+  <message>SQLite driver not found: org.sqlite.JDBC</message>
+</record>
+<record>
+  <date>2024-01-18T18:45:11.272928Z</date>
+  <millis>1705603511272</millis>
+  <nanos>928000</nanos>
+  <sequence>19</sequence>
+  <logger>main.GamePanel</logger>
+  <level>SEVERE</level>
+  <class>main.GameManager</class>
+  <method>saveGame</method>
+  <thread>52</thread>
+  <message>SQLite driver not found: org.sqlite.JDBC</message>
+</record>
+<record>
+  <date>2024-01-18T18:45:11.289431100Z</date>
+  <millis>1705603511289</millis>
+  <nanos>431100</nanos>
+  <sequence>20</sequence>
+  <logger>main.GamePanel</logger>
+  <level>SEVERE</level>
+  <class>main.GameManager</class>
+  <method>saveGame</method>
+  <thread>52</thread>
+  <message>SQLite driver not found: org.sqlite.JDBC</message>
+</record>
+<record>
+  <date>2024-01-18T18:45:11.305934Z</date>
+  <millis>1705603511305</millis>
+  <nanos>934000</nanos>
+  <sequence>21</sequence>
+  <logger>main.GamePanel</logger>
+  <level>SEVERE</level>
+  <class>main.GameManager</class>
+  <method>saveGame</method>
+  <thread>52</thread>
+  <message>SQLite driver not found: org.sqlite.JDBC</message>
+</record>
+<record>
+  <date>2024-01-18T18:45:11.439457500Z</date>
+  <millis>1705603511439</millis>
+  <nanos>457500</nanos>
+  <sequence>22</sequence>
+  <logger>main.GamePanel</logger>
+  <level>SEVERE</level>
+  <class>main.GameManager</class>
+  <method>saveGame</method>
+  <thread>52</thread>
+  <message>SQLite driver not found: org.sqlite.JDBC</message>
+</record>
+<record>
+  <date>2024-01-18T18:45:11.455960300Z</date>
+  <millis>1705603511455</millis>
+  <nanos>960300</nanos>
+  <sequence>23</sequence>
+  <logger>main.GamePanel</logger>
+  <level>SEVERE</level>
+  <class>main.GameManager</class>
+  <method>saveGame</method>
+  <thread>52</thread>
+  <message>SQLite driver not found: org.sqlite.JDBC</message>
+</record>
+<record>
+  <date>2024-01-18T18:45:11.472963200Z</date>
+  <millis>1705603511472</millis>
+  <nanos>963200</nanos>
+  <sequence>24</sequence>
+  <logger>main.GamePanel</logger>
+  <level>SEVERE</level>
+  <class>main.GameManager</class>
+  <method>saveGame</method>
+  <thread>52</thread>
+  <message>SQLite driver not found: org.sqlite.JDBC</message>
+</record>
+<record>
+  <date>2024-01-18T18:45:11.489466700Z</date>
+  <millis>1705603511489</millis>
+  <nanos>466700</nanos>
+  <sequence>25</sequence>
+  <logger>main.GamePanel</logger>
+  <level>SEVERE</level>
+  <class>main.GameManager</class>
+  <method>saveGame</method>
+  <thread>52</thread>
+  <message>SQLite driver not found: org.sqlite.JDBC</message>
+</record>
+<record>
+  <date>2024-01-18T18:45:11.505969100Z</date>
+  <millis>1705603511505</millis>
+  <nanos>969100</nanos>
+  <sequence>26</sequence>
+  <logger>main.GamePanel</logger>
+  <level>SEVERE</level>
+  <class>main.GameManager</class>
+  <method>saveGame</method>
+  <thread>52</thread>
+  <message>SQLite driver not found: org.sqlite.JDBC</message>
+</record>
+<record>
+  <date>2024-01-18T18:45:11.522972100Z</date>
+  <millis>1705603511522</millis>
+  <nanos>972100</nanos>
+  <sequence>27</sequence>
+  <logger>main.GamePanel</logger>
+  <level>SEVERE</level>
+  <class>main.GameManager</class>
+  <method>saveGame</method>
+  <thread>52</thread>
+  <message>SQLite driver not found: org.sqlite.JDBC</message>
 </record>
 </log>
