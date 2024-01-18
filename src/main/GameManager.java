@@ -101,7 +101,6 @@ public class GameManager {
                 // currentGame.player.item = rs.getString("ITEM");
 
                 // LOAD ENTITIES
-                // TODO: Store position ionformation for the enemies and load it back here
                 rs = stmt.executeQuery("SELECT * FROM ENTITIES WHERE GAME_CODE = '" + currentGame.gameCode + "';");
                 while (rs.next()) {
                     Enemy enemy = new Enemy(gamePanel, -666, -666); // This must be updated

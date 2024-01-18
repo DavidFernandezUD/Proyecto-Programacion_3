@@ -8,6 +8,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
+import javax.swing.JButton;
 
 public class Statistics extends JFrame {
 
@@ -33,6 +34,25 @@ public class Statistics extends JFrame {
         statisticsScrollPane.setBounds(0, 0, 500, 500);
         statisticsPanel.add(statisticsScrollPane);
 
+        // Button to go back to the main menu
+        JButton backToMenuButton = new JButton("Back To Menu");
+        backToMenuButton.addActionListener(e -> {
+            this.setVisible(false);
+        });
+
+        // Button to see statistics of a game
+        JButton seeStatisticsButton = new JButton("See Statistics");
+        seeStatisticsButton.addActionListener(e -> {
+            int selectedRow = statisticsTable.getSelectedRow();
+            if (selectedRow != -1) {
+                Game game = games.get(selectedRow);
+                InnerStatistics innerStatistics = new InnerStatistics(game);
+                ;
+            }
+        });
+
+        statisticsPanel.add(seeStatisticsButton);
+        statisticsPanel.add(backToMenuButton);
         this.add(statisticsPanel);
         this.pack();
         this.setLocationRelativeTo(null);
@@ -110,6 +130,33 @@ public class Statistics extends JFrame {
 
         @Override
         public void removeTableModelListener(TableModelListener l) {
+        }
+    }
+
+    public class InnerStatistics extends JFrame {
+
+        private Game game;
+
+        public InnerStatistics(Game game) {
+
+            this.game = game;
+            this.setResizable(false);
+            this.setTitle(game.gameName + " Statistics");
+            JPanel innerStatisticsPanel = new JPanel();
+
+            // Create the statistics information
+
+            // Button to go back to the main statistics menu
+            JButton backToMenuButton = new JButton("Back To Menu");
+            backToMenuButton.addActionListener(e -> {
+                this.setVisible(false);
+            });
+
+            innerStatisticsPanel.add(backToMenuButton);
+            this.add(innerStatisticsPanel);
+            this.pack();
+            this.setLocationRelativeTo(null);
+            this.setVisible(true);
         }
     }
 
