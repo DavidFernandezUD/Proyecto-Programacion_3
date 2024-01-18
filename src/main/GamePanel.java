@@ -67,7 +67,7 @@ public class GamePanel extends JPanel implements Runnable {
 	public int FPS = 60;
 
 	// ASSETS AND ITEMS
-	public SuperAsset assets[] = new SuperAsset[10];
+	public SuperAsset assets[] = new SuperAsset[40];
 	public AssetSetter assetSetter = new AssetSetter(this);
 	public SuperItem items[] = new SuperItem[10];
 	public ItemSetter itemSetter = new ItemSetter(this);
