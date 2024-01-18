@@ -108,7 +108,7 @@ public class GamePanel extends JPanel implements Runnable {
 
 		try {
 			Properties properties = new Properties();
-			properties.load(new FileInputStream("src/logs/log_config.properties"));
+			properties.load(new FileInputStream("log_config.properties"));
 
 			setLoggerLevel(logger, properties.getProperty("logger_level"));
 
