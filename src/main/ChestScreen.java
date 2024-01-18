@@ -248,6 +248,14 @@ public class ChestScreen implements Drawable {
 			}
 		}
 		
+		// CLOSING FRAME
+		int cFrameX = gamePanel.tileSize * 3;
+		int cFrameY = gamePanel.tileSize * 2;
+		int cFrameWidth = gamePanel.tileSize * 2;
+		int cFrameHeight = gamePanel.tileSize * 1;
+		drawSubWindow(cFrameX, cFrameY, cFrameWidth, cFrameHeight, g2);
+		
+		g2.drawString("Close", cFrameX + 20, cFrameY + 40);	
 	}
 	
 	/** Helper method that flattens row col indexes
