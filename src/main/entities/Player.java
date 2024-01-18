@@ -27,7 +27,7 @@ public class Player extends Entity implements Drawable {
 
 
 	private static Player instance;
-	private KeyHandler keyHandler;
+	private final KeyHandler keyHandler;
 
 	public final int defaultScreenX;
 	public final int defaultScreenY;
@@ -56,18 +56,25 @@ public class Player extends Entity implements Drawable {
 	public boolean screenXLocked;
 	public boolean screenYLocked;
 
+	// Player Attack
+	private final Rectangle hitBoxUp = new Rectangle(0, -10, 64, 74);
+	private final Rectangle hitBoxDown = new Rectangle(0, 22, 64, 74);
+	private final Rectangle hitBoxLeft = new Rectangle(-21, 11, 74, 64);
+	private final Rectangle hitBoxRight = new Rectangle(11, 11, 74, 64);
+	private Rectangle hitBox;
+
 
 	// Payer Status
 	public int health = 100;
 	public int stamina = 5;
 	public final int MAX_HEALTH = 100;
 	public final int MAX_STAMINA = 5;
-	public int I_FRAMES = 60; // invulnerability frames
+	public final int I_FRAMES = 60; // invulnerability frames
 	public int i_counter = 60;
 	public boolean invulnerable = true;
 
 	// Just for debugging purposes (Displays Collision Box)
-	private boolean debug = false;
+	private boolean debug = true;
 
 	/** Creates a new player object with a keyHandler to manage user input.*/
 	private Player(GamePanel gamePanel, KeyHandler keyHandler) {
@@ -105,6 +112,8 @@ public class Player extends Entity implements Drawable {
 		moving = false;
 		attacking = false;
 		collisionBox = new Rectangle(11, 22, 42, 42);
+		hitBox = hitBoxRight;
+
 		// FOR ASSETS
 		collisionBoxDefaultX = collisionBox.x;
 		collisionBoxDefaultY = collisionBox.y;
@@ -144,6 +153,9 @@ public class Player extends Entity implements Drawable {
 	 * and other external factors.*/
 	public void update() {
 
+		// Temp collision box variable
+		Rectangle playerCollision = collisionBox;
+
 		// MOVING
 		if (keyHandler.isMoveKeyPressed()) {
 
@@ -162,12 +174,16 @@ public class Player extends Entity implements Drawable {
 
 			if (keyHandler.isLastMoveKeyPressed(KeyEvent.VK_W)) {
 				direction = "up";
+				hitBox = hitBoxUp;
 			} else if (keyHandler.isLastMoveKeyPressed(KeyEvent.VK_S)) {
 				direction = "down";
+				hitBox = hitBoxDown;
 			} else if (keyHandler.isLastMoveKeyPressed(KeyEvent.VK_A)) {
 				direction = "left";
+				hitBox = hitBoxLeft;
 			} else {
 				direction = "right";
+				hitBox = hitBoxRight;
 			}
 
 			// CHECK TILE COLLISION
@@ -210,6 +226,38 @@ public class Player extends Entity implements Drawable {
 		}
 
 		// ATTACKING
+		if(keyHandler.isKeyToggled(KeyEvent.VK_SPACE) != attackToggle) {
+			attackToggle = !attackToggle;
+			if(!attacking) {
+				attacking = true;
+				spriteCounter = 0;
+				spriteNum = 1;
+			}
+		}
+
+		if(attacking && spriteNum >= 4) {
+			attacking = false;
+		}
+
+		if(attacking) {
+			collisionBox = hitBox;
+			for(Entity ent : gamePanel.entityManager.entities) {
+				if(ent instanceof Enemy) {
+					if(collides(this, ent)) {
+						if(hasBloodySword) {
+							((Enemy) ent).damage(100);
+						} else if(hasGoldenSword) {
+							 ((Enemy) ent).damage(50);
+						} else if(hasIronSword) {
+							((Enemy) ent).damage(34);
+						} else if(hasWoodenSword) {
+							((Enemy) ent).damage(25);
+						}
+					}
+				}
+			}
+		}
+		collisionBox = playerCollision;
 
 		spriteCounter += (attacking ? 2 : 1); // Attack animation runs faster than moving and idle
 
@@ -233,9 +281,10 @@ public class Player extends Entity implements Drawable {
 	/** Subtracts the specified amount from the players' health
 	 * if the player is vulnerable. After receiving damage ane time
 	 * the player has a certain amount of invulnerability frames until
-	 * it can again receive damage.*/
+	 * it can again receive damage.
+	 * @param damage Amount of health to subtract.*/
 	public void damage(int damage) {
-		if (!gamePanel.player.invulnerable) {
+		if (!invulnerable) {
 			i_counter = 0;
 			health -= damage;
 		}
@@ -477,6 +526,9 @@ public class Player extends Entity implements Drawable {
 		if (debug) {
 			g2.setColor(new Color(255, 0, 0, 150));
 			g2.fillRect(collisionBox.x + screenX, collisionBox.y + screenY, collisionBox.width, collisionBox.height);
+
+			g2.setColor(new Color(255, 235, 0, 150));
+			g2.fillRect(hitBox.x + screenX, hitBox.y + screenY, hitBox.width, hitBox.height);
 		}
 	}
 

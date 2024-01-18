@@ -21,6 +21,12 @@ public class Enemy extends Entity implements Drawable {
     private final int TRACKING_RANGE = 20; // Maximum tracking range in tiles
     private boolean changedTile = true;
 
+    // Status
+    public int health = 100;
+	public final int I_FRAMES = 60; // invulnerability frames
+	public int i_counter = 60;
+	public boolean invulnerable = true;
+
     /** Creates an enemy at a given position.
      * @param x Position in the x axes in tiles.
      * @param y Position in the y axes in tiles.*/
@@ -154,7 +160,31 @@ public class Enemy extends Entity implements Drawable {
             }
             spriteCounter = 0;
         }
+
+        // Invulnerability Frames
+		invulnerable = i_counter < I_FRAMES;
+		if (invulnerable) {
+			i_counter++;
+		}
     }
+
+    /** Subtracts the specified amount from the players' health
+	 * if the player is vulnerable. After receiving damage ane time
+	 * the player has a certain amount of invulnerability frames until
+	 * it can again receive damage.
+	 * @param damage Amount of health to subtract.*/
+    public void damage(int damage) {
+		if (!invulnerable) {
+			i_counter = 0;
+			health -= damage;
+            System.out.println("Hit");
+		}
+
+		if (health <= 0) {
+            death = true;
+            System.out.println("Death");
+		}
+	}
 
     /** Draws the enemy on a given Graphics2D object.
      * @param g2 Graphics2D object the enemy will be drawn into.*/

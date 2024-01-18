@@ -10,6 +10,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.logging.Level;
 
 /** Class that manages all the main.entities inside the game.
@@ -20,6 +21,7 @@ public class EntityManager implements Drawable {
     Player player;
 
     public ArrayList<Entity> entities;
+    public Iterator<Entity> iterator;
     protected boolean playerChangedTile = true;
 
     /** Creates an EntityManager, given a gamePanel and a Player.
@@ -61,11 +63,16 @@ public class EntityManager implements Drawable {
 
     /** Updates all the main.entities in the entity list.*/
     public void update() {
-
-        for(Entity entity : entities) {
-            entity.update();
+        iterator = entities.iterator();
+        while(iterator.hasNext()){
+            Entity entity = iterator.next();
+            if(!entity.death) {
+                entity.update();
+            } else {
+                iterator.remove();
+                entities.remove(entity);
+            }
         }
-
     }
 
     /** Draws main.entities in correct order.*/

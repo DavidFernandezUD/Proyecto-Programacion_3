@@ -12,6 +12,8 @@ public abstract class Entity implements Drawable {
 
     GamePanel gamePanel;
     final int tileSize;
+
+    public boolean death = false;
     
     public int worldX, worldY;
     public int speed;
@@ -22,6 +24,7 @@ public abstract class Entity implements Drawable {
 
     public boolean moving;
     public boolean attacking;
+    public boolean attackToggle;
 
     public int spriteCounter = 0;
     public int spriteNum = 1;
