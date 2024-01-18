@@ -24,7 +24,7 @@ public class ChestScreen implements Drawable {
 	private boolean downToggled = false;
 	private boolean leftToggled = false;
 	private boolean rightToggled = false;
-	private boolean lToggled = false;
+	private boolean enterToggled = false;
 	private boolean cursorOnChest = true;
 	private boolean cursorOnInventory = false;
 	private boolean onCloseButton = false;
@@ -57,21 +57,16 @@ public class ChestScreen implements Drawable {
 	 * necessary.
 	 */
 	public void update() {
-		// TODO: Fix close button
 		if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_W) != upToggled) {
 			upToggled = !upToggled;
-			if (!onCloseButton) {
+			if (slotRow == 0 && cursorOnChest) {
+				onCloseButton = true;
+			} else {
 				if (slotRow != 0) {
 					slotRow--;
-					gamePanel.playSound(1);
-				}
-				if (cursorOnChest) {
-					if (slotRow == 0 && gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_W)) {
-						onCloseButton = true;
-					}
-				}
+				gamePanel.playSound(1);
+				}				
 			}
-			System.out.println(slotRow);
 		}
 		if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_A) != leftToggled) {
 			leftToggled = !leftToggled;
@@ -90,17 +85,15 @@ public class ChestScreen implements Drawable {
 		}
 		if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_S) != downToggled) {
 			downToggled = !downToggled;
-			if (!onCloseButton) {
+			if (onCloseButton) {
+				slotRow = 0;
+				onCloseButton = false;
+			} else {
 				if (slotRow != 3) {
 					slotRow++;
 					gamePanel.playSound(1);
 				}
 			}
-			if (onCloseButton) {
-				onCloseButton = false;
-				slotRow = 0;
-			}
-
 		}
 		if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_D) != rightToggled) {
 			rightToggled = !rightToggled;
@@ -125,25 +118,27 @@ public class ChestScreen implements Drawable {
 			}
 		}
 		// TODO: Add close button on chest
-		if (gamePanel.player.playerReading && !gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER)) {
-			for (SuperAsset sa : gamePanel.assets) {
-				if (gamePanel.collisionChecker.isPlayerAbleToRead(gamePanel.player, sa)) {
-					gamePanel.chestState = false;
-					return;
-				}
-			}
-			gamePanel.chestState = false;
-			gamePanel.player.playerReading = false;
-		}
 		// Select items
-		if (cursorOnChest) {
-			if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_L) != lToggled) {
-				lToggled = !lToggled;
+		if (onCloseButton) {
+			if (gamePanel.player.playerReading && gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER) != enterToggled) {
+				enterToggled = !enterToggled;
+				for (SuperAsset sa : gamePanel.assets) {
+					if (gamePanel.collisionChecker.isPlayerAbleToRead(gamePanel.player, sa)) {
+						gamePanel.chestState = false;
+						return;
+					}
+				}
+				gamePanel.chestState = false;
+				gamePanel.player.playerReading = false;
+			}
+		} else if (cursorOnChest) {
+			if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER) != enterToggled) {
+				enterToggled = !enterToggled;
 				selectItemFromChest();
 			}
-		} else {
-			if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_L) != lToggled) {
-				lToggled = !lToggled;
+		} else if (cursorOnInventory) {
+			if (gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER) != enterToggled) {
+				enterToggled = !enterToggled;
 				selectItemFromInventory();
 			}
 		}
@@ -249,9 +244,9 @@ public class ChestScreen implements Drawable {
 		if (!onCloseButton) {
 			g2.setColor(fontColor);
 			g2.setStroke(new BasicStroke(3));
-			g2.drawRoundRect(cursorX, cursorY, cursorWidth, cursorHeight, 10, 10);
+			g2.drawRoundRect(cursorX, cursorY, cursorWidth, cursorHeight, 10, 10);	
 		}
-
+		
 		// DESCRIPTION FRAME
 		int dFrameX = frameX;
 		int dFrameY = frameY + frameHeight;
@@ -259,24 +254,25 @@ public class ChestScreen implements Drawable {
 		int dFrameHeight = gamePanel.tileSize * 3;
 
 		// DRAW DESCRIPTION TEXT
-		int textX = dFrameX + 20;
-		int textY = dFrameY + gamePanel.tileSize;
-		g2.setFont(optionFont);
-
-		if (cursorOnChest) {
-			int itemIndex = getItemIndexOnSlotChest();
-
-			if (itemIndex < chest.chestItems.size()) {
-
-				drawSubWindow(dFrameX, dFrameY, dFrameWidth, dFrameHeight, g2);
-
-				for (String line : chest.chestItems.get(itemIndex).description.split("\n")) {
-					g2.drawString(line, textX, textY);
-					textY += 32;
+		if (!onCloseButton) {
+			int textX = dFrameX + 20;
+			int textY = dFrameY + gamePanel.tileSize;
+			g2.setFont(optionFont);
+	
+			if (cursorOnChest) {
+				int itemIndex = getItemIndexOnSlotChest();
+	
+				if (itemIndex < chest.chestItems.size()) {
+	
+					drawSubWindow(dFrameX, dFrameY, dFrameWidth, dFrameHeight, g2);
+	
+					for (String line : chest.chestItems.get(itemIndex).description.split("\n")) {
+						g2.drawString(line, textX, textY);
+						textY += 32;
+					}
 				}
 			}
-		}
-
+		}		
 		// CLOSING FRAME
 		int cFrameX = gamePanel.tileSize * 3;
 		int cFrameY = gamePanel.tileSize * 2;
