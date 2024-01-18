@@ -18,7 +18,7 @@ public class SuperAsset {
 	public int solidAreaDefaultX = 0;
 	public int solidAreaDefaultY = 0;
 
-	public boolean debug = false;
+	public boolean debug = true;
 
 	/** Draws interaction bow of main.assets for debugging purposes.*/
 	public void draw(Graphics2D g2, GamePanel gamePanel) {
