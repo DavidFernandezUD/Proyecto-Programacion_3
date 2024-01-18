@@ -1,6 +1,7 @@
 package main;
 
 import main.entities.Enemy;
+import main.items.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -60,6 +61,13 @@ public class GameManager {
                                     + currentGame.entities.get(i).worldY + "');");
                 }
 
+                // SAVE PLAYER INVENTORY
+                for (SuperItem item : currentGame.player.inventory) {
+                    stmt.executeUpdate(
+                            "INSERT INTO ITEMS (GAME_CODE, TYPE, POSX, POSY) VALUES ('" + currentGame.gameCode
+                                    + "', '" + item.name + "', 0, 0);");
+                }
+
                 stmt.close();
                 conn.close();
                 GamePanel.logger.log(Level.INFO, "Game saved");
@@ -93,7 +101,7 @@ public class GameManager {
                 currentGame.date = rs.getString("DATE");
 
                 // LOAD PLAYER
-                rs = stmt.executeQuery("SELECT * FROM PLAYER WHERE GAME_CODE = '" + currentGame.gameCode + "';");
+                rs = stmt.executeQuery("SELECT * FROM PLAYER WHERE GAME_CODE = '" + code + "';");
                 currentGame.player.worldX = rs.getInt("POSX");
                 currentGame.player.worldY = rs.getInt("POSY");
                 currentGame.player.health = rs.getInt("HEALTH");
@@ -101,12 +109,48 @@ public class GameManager {
                 // currentGame.player.item = rs.getString("ITEM");
 
                 // LOAD ENTITIES
-                rs = stmt.executeQuery("SELECT * FROM ENTITIES WHERE GAME_CODE = '" + currentGame.gameCode + "';");
+                rs = stmt.executeQuery("SELECT * FROM ENTITIES WHERE GAME_CODE = '" + code + "';");
                 while (rs.next()) {
                     Enemy enemy = new Enemy(gamePanel, -666, -666); // This must be updated
                     enemy.worldX = rs.getInt("POSX");
                     enemy.worldY = rs.getInt("POSY");
                     currentGame.entities.add(enemy);
+                }
+
+                // LOAD PLAYER INVENTORY
+                rs = stmt.executeQuery("SELECT * FROM ITEMS WHERE GAME_CODE = '" + code + "';");
+                while (rs.next()) {
+                    switch (rs.getString("TYPE")) {
+                        case "Apple":
+                            ITEM_apple apple = new ITEM_apple();
+                            currentGame.player.inventory.add(apple);
+                        case "Bloody Sword":
+                            ITEM_bloodySword bloodySword = new ITEM_bloodySword();
+                            currentGame.player.inventory.add(bloodySword);
+                        case "Bow":
+                            ITEM_bow bow = new ITEM_bow();
+                            currentGame.player.inventory.add(bow);
+                        case "Golden Sword":
+                            ITEM_goldenSword goldenSword = new ITEM_goldenSword();
+                            currentGame.player.inventory.add(goldenSword);
+                        case "Iron Sword":
+                            ITEM_ironSword ironSword = new ITEM_ironSword();
+                            currentGame.player.inventory.add(ironSword);
+                        case "Purple Potion":
+                            ITEM_purplePotion purplePotion = new ITEM_purplePotion();
+                            currentGame.player.inventory.add(purplePotion);
+                        case "Red Potion":
+                            ITEM_redPotion redPotion = new ITEM_redPotion();
+                            currentGame.player.inventory.add(redPotion);
+                        case "Shield":
+                            ITEM_shield shield = new ITEM_shield();
+                            currentGame.player.inventory.add(shield);
+                        case "Wooden Sword":
+                            ITEM_woodenSword woodenSword = new ITEM_woodenSword();
+                            currentGame.player.inventory.add(woodenSword);
+                        default:
+                            break;
+                    }
                 }
 
                 stmt.close();

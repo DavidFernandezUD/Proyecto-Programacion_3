@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2024-01-18T13:01:03.949742200Z</date>
-  <millis>1705582863949</millis>
-  <nanos>742200</nanos>
+  <date>2024-01-18T18:46:53.201701800Z</date>
+  <millis>1705603613201</millis>
+  <nanos>701800</nanos>
   <sequence>6</sequence>
   <logger>main.GamePanel</logger>
   <level>INFO</level>
@@ -14,9 +14,9 @@
   <message>Game Started</message>
 </record>
 <record>
-  <date>2024-01-18T13:01:04.036476300Z</date>
-  <millis>1705582864036</millis>
-  <nanos>476300</nanos>
+  <date>2024-01-18T18:46:53.287773500Z</date>
+  <millis>1705603613287</millis>
+  <nanos>773500</nanos>
   <sequence>7</sequence>
   <logger>main.GamePanel</logger>
   <level>INFO</level>
@@ -24,5 +24,101 @@
   <method>startGameThread</method>
   <thread>33</thread>
   <message>Game Thread Started</message>
+</record>
+<record>
+  <date>2024-01-18T18:46:54.456237100Z</date>
+  <millis>1705603614456</millis>
+  <nanos>237100</nanos>
+  <sequence>8</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>50</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T18:46:54.462853400Z</date>
+  <millis>1705603614462</millis>
+  <nanos>853400</nanos>
+  <sequence>9</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>50</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T18:46:55.441788100Z</date>
+  <millis>1705603615441</millis>
+  <nanos>788100</nanos>
+  <sequence>10</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.entities.Enemy</class>
+  <method>&lt;init&gt;</method>
+  <thread>50</thread>
+  <message>Enemy Created at -666, -666</message>
+</record>
+<record>
+  <date>2024-01-18T18:46:55.457741500Z</date>
+  <millis>1705603615457</millis>
+  <nanos>741500</nanos>
+  <sequence>11</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.entities.Enemy</class>
+  <method>&lt;init&gt;</method>
+  <thread>50</thread>
+  <message>Enemy Created at -666, -666</message>
+</record>
+<record>
+  <date>2024-01-18T18:46:55.475114800Z</date>
+  <millis>1705603615475</millis>
+  <nanos>114800</nanos>
+  <sequence>12</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.entities.Enemy</class>
+  <method>&lt;init&gt;</method>
+  <thread>50</thread>
+  <message>Enemy Created at -666, -666</message>
+</record>
+<record>
+  <date>2024-01-18T18:46:55.485043100Z</date>
+  <millis>1705603615485</millis>
+  <nanos>43100</nanos>
+  <sequence>13</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.entities.Enemy</class>
+  <method>&lt;init&gt;</method>
+  <thread>50</thread>
+  <message>Enemy Created at -666, -666</message>
+</record>
+<record>
+  <date>2024-01-18T18:46:55.499619Z</date>
+  <millis>1705603615499</millis>
+  <nanos>619000</nanos>
+  <sequence>14</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.entities.Enemy</class>
+  <method>&lt;init&gt;</method>
+  <thread>50</thread>
+  <message>Enemy Created at -666, -666</message>
+</record>
+<record>
+  <date>2024-01-18T18:46:55.499619Z</date>
+  <millis>1705603615499</millis>
+  <nanos>619000</nanos>
+  <sequence>15</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadGame</method>
+  <thread>50</thread>
+  <message>Game Loaded</message>
 </record>
 </log>

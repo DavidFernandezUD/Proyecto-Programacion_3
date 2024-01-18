@@ -123,6 +123,7 @@ public class TitleScreen implements Drawable {
                 gamePanel.currentGame.gameName = gameName;
                 newGame = false;
                 gamePanel.pauseState = false;
+                gamePanel.newGame = true;
                 gamePanel.titleState = false;
             }
 
@@ -150,6 +151,7 @@ public class TitleScreen implements Drawable {
                 gamePanel.gameManager.loadGame(recentGameCodes[selectionIndex]);
                 gamePanel.currentGame = gamePanel.gameManager.currentGame;
                 gamePanel.pauseState = false;
+                gamePanel.newGame = false;
                 gamePanel.titleState = false;
             }
 
@@ -253,10 +255,10 @@ public class TitleScreen implements Drawable {
 
             // DRAWING SUBMIT BUTTON
             g2.setFont(FontManager.optionFont);
-            int submitX = (gamePanel.screenWidth - g2.getFontMetrics().stringWidth("SUBMIT")) / 2;
+            int submitX = (gamePanel.screenWidth - g2.getFontMetrics().stringWidth("PLAY")) / 2;
             int submitY = nameY + 80;
             g2.setColor(selectionIndex == 1 ? FontManager.highlightColor : FontManager.fontColor);
-            g2.drawString("SUBMIT", submitX, submitY);
+            g2.drawString("PLAY", submitX, submitY);
 
             // DRAWING BACK BUTTON
             g2.setFont(FontManager.optionFont);
