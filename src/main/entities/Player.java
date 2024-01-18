@@ -279,7 +279,7 @@ public class Player extends Entity implements Drawable {
 	}
 
 	/** Returns true if the player possesses any sword.*/
-	private boolean HasSword() {
+	private boolean hasSword() {
 		return hasBloodySword || hasGoldenSword || hasIronSword || hasWoodenSword;
 	}
 
