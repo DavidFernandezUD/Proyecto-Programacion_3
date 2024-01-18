@@ -11,7 +11,7 @@ bin/
 out/
 
 # Ignore Log Files
-src/logs/
+logs/
 
 # Ignore IDE specific files
 # -- IDEA --

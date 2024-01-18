@@ -105,8 +105,8 @@ public class Player extends Entity implements Drawable {
 	/** Initializes the player state and position with
 	 * default values.*/
 	public void setDefaultValues() {
-		worldX = gamePanel.tileSize * 25;
-		worldY = gamePanel.tileSize * 35;
+		worldX = gamePanel.tileSize * 90;
+		worldY = gamePanel.tileSize * 85;
 		speed = 4;
 		direction = "down";
 		moving = false;
@@ -226,7 +226,7 @@ public class Player extends Entity implements Drawable {
 		}
 
 		// ATTACKING
-		if(keyHandler.isKeyToggled(KeyEvent.VK_SPACE) != attackToggle) {
+		if(keyHandler.isKeyToggled(KeyEvent.VK_SPACE) != attackToggle && hasSword()) {
 			attackToggle = !attackToggle;
 			if(!attacking) {
 				attacking = true;
@@ -276,6 +276,11 @@ public class Player extends Entity implements Drawable {
 		if (invulnerable) {
 			i_counter++;
 		}
+	}
+
+	/** Returns true if the player possesses any sword.*/
+	private boolean HasSword() {
+		return hasBloodySword || hasGoldenSword || hasIronSword || hasWoodenSword;
 	}
 
 	/** Subtracts the specified amount from the players' health

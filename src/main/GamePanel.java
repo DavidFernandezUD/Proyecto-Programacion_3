@@ -46,10 +46,10 @@ public class GamePanel extends JPanel implements Runnable {
 	public final int screenHeight = tileSize * maxScreenRow; // 768 pixels
 
 	// WORLD SETTINGS
-	public final int maxWorldCol = 40;
-	public final int maxWorldRow = 40;
-	public final int worldHeight = tileSize * maxWorldCol;
-	public final int worldWidth = tileSize * maxWorldRow;
+	public final int maxWorldCol = 100;
+	public final int maxWorldRow = 90;
+	public final int worldHeight = tileSize * maxWorldRow;
+	public final int worldWidth = tileSize * maxWorldCol;
 
 	// NAME GENERATOR
 	public NameGenerator nameGenerator = new NameGenerator();
@@ -116,7 +116,7 @@ public class GamePanel extends JPanel implements Runnable {
 			setHandlerLevel(h1, properties.getProperty("console_logger"));
 			logger.addHandler(h1);
 
-			Handler h2 = new FileHandler("src/logs/program_log.log.xml");
+			Handler h2 = new FileHandler("logs/program_log.log.xml");
 			setHandlerLevel(h2, properties.getProperty("file_logger"));
 			logger.addHandler(h2);
 

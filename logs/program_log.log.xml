@@ -2,33 +2,27 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2024-01-18T13:16:16.053272400Z</date>
-  <millis>1705583776053</millis>
-  <nanos>272400</nanos>
-  <date>2024-01-18T12:00:12.951808200Z</date>
-  <millis>1705579212951</millis>
-  <nanos>808200</nanos>
+  <date>2024-01-18T18:35:38.821003300Z</date>
+  <millis>1705602938821</millis>
+  <nanos>3300</nanos>
   <sequence>8</sequence>
   <logger>main.GamePanel</logger>
   <level>INFO</level>
   <class>main.GamePanel</class>
   <method>&lt;init&gt;</method>
-  <thread>25</thread>
+  <thread>35</thread>
   <message>Game Started</message>
 </record>
 <record>
-  <date>2024-01-18T13:16:16.097279700Z</date>
-  <millis>1705583776097</millis>
-  <nanos>279700</nanos>
-  <date>2024-01-18T12:00:13.114674200Z</date>
-  <millis>1705579213114</millis>
-  <nanos>674200</nanos>
+  <date>2024-01-18T18:35:38.871011800Z</date>
+  <millis>1705602938871</millis>
+  <nanos>11800</nanos>
   <sequence>9</sequence>
   <logger>main.GamePanel</logger>
   <level>INFO</level>
   <class>main.GamePanel</class>
   <method>startGameThread</method>
-  <thread>25</thread>
+  <thread>35</thread>
   <message>Game Thread Started</message>
 </record>
 </log>

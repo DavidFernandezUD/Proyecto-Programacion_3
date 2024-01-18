@@ -35,12 +35,12 @@ public class TileManager implements Drawable {
         getTileSprite();
 
         ArrayList<String> layerPaths = new ArrayList<>();
-        layerPaths.add("/main/res/maps/Map2.2/Map_02_Ground.csv");
-        layerPaths.add("/main/res/maps/Map2.2/Map_02_Level1.csv");
-        layerPaths.add("/main/res/maps/Map2.2/Map_02_Level2.csv");
-        layerPaths.add("/main/res/maps/Map2.2/Map_02_Props.csv");
+        layerPaths.add("/main/res/maps/Map3/Map_3_Ground.csv");
+        layerPaths.add("/main/res/maps/Map3/Map_3_Level1.csv");
+        layerPaths.add("/main/res/maps/Map3/Map_3_Level2.csv");
+        layerPaths.add("/main/res/maps/Map3/Map_3_Props.csv");
 
-        layerPaths.add("/main/res/maps/Map2/Map_02_Obj.csv"); // TODO: Move this to the AssetSetter
+        layerPaths.add("/main/res/maps/Map2/Map_2_Obj.csv"); // TODO: Move this to the AssetSetter
 
         loadMap(layerPaths);
 

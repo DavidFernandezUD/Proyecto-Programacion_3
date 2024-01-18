@@ -44,7 +44,7 @@ public class CollisionChecker {
 
 		// Loading collision map
 		try {
-			InputStream is = getClass().getResourceAsStream("/main/res/maps/Map2.2/Map_02_Collisions.csv");
+			InputStream is = getClass().getResourceAsStream("/main/res/maps/Map3/Map_3_Collisions.csv");
 			assert is != null;
 			BufferedReader br = new BufferedReader(new InputStreamReader(is));
 

@@ -18,7 +18,7 @@ public class Enemy extends Entity implements Drawable {
 
     private boolean debug = false;
     private ArrayList<PathFinder.Node> path = null;
-    private final int TRACKING_RANGE = 20; // Maximum tracking range in tiles
+    private final int TRACKING_RANGE = 12; // Maximum tracking range in tiles
     private boolean changedTile = true;
 
     // Status
