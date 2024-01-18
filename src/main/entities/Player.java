@@ -74,7 +74,8 @@ public class Player extends Entity implements Drawable {
 	public boolean invulnerable = true;
 
 	// Just for debugging purposes (Displays Collision Box)
-	private boolean debug = true;
+	private boolean debugCollision = false;
+	private	boolean debugHit = false;
 
 	/** Creates a new player object with a keyHandler to manage user input.*/
 	private Player(GamePanel gamePanel, KeyHandler keyHandler) {
@@ -528,10 +529,12 @@ public class Player extends Entity implements Drawable {
 		redrawProp(g2, this, screenX, screenY);
 
 		// Drawing collision box
-		if (debug) {
+		if(debugCollision) {
 			g2.setColor(new Color(255, 0, 0, 150));
 			g2.fillRect(collisionBox.x + screenX, collisionBox.y + screenY, collisionBox.width, collisionBox.height);
+		}
 
+		if(debugHit) {
 			g2.setColor(new Color(255, 235, 0, 150));
 			g2.fillRect(hitBox.x + screenX, hitBox.y + screenY, hitBox.width, hitBox.height);
 		}
