@@ -12,8 +12,8 @@ import static org.junit.Assert.*;
  * @author david.f@opendeusto.es*/
 public class NameGeneratorTest {
 
-    NameGenerator nameGenerator;
-    ArrayList<String> names;
+    private NameGenerator nameGenerator;
+    private ArrayList<String> names;
 
     @Before
     public void setUp() {
@@ -39,10 +39,16 @@ public class NameGeneratorTest {
     @Test
     public void getRandomNameTest() {
 
+        nameGenerator.setPattern("Elvis");
+        for(int i = 0; i < 100000; i++) {
+            assertTrue(nameGenerator.getRandomName().contains("Elvis"));
+        }
+        nameGenerator.setPattern("");
+
         // Checks if at least 99% of the 100 random name lists don't contain repeated names
         int n_repeated = 0;
         for(int i = 0; i < 100; i++) {
-            Boolean repeated = false;
+            boolean repeated = false;
             ArrayList<String> generatedNames = new ArrayList<>();
             for(int j = 0; j < 100; j++) {
                 String name = nameGenerator.getRandomName();

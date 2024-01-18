@@ -9,6 +9,7 @@ public class NameGenerator {
 
     // Generated names
     private ArrayList<String> names;
+    private String pattern = "";
 
     // Possible name prefixes, suffixes and second names
     private static final String[] PREFIXES = {
@@ -53,12 +54,16 @@ public class NameGenerator {
 
     /** Creates a GameGenerator, and generates all the possible names.*/
     public NameGenerator() {
+        pattern = "";
         names = generateNames(PREFIXES, SUFFIXES, SECOND_NAMES, "", 3);
     }
 
     /** Generates all the possible names formed by combining
      * a set of prefixes suffixes and second names, recursively.
-     * Also generates all the possible combinations without second name.
+     * If you specify a patter that isn't "", it will only generate
+     * names that contain that pattern specifies by setPatter()
+     * method. Also generates all the possible combinations without
+     * second name.
      * @param prefixes Array of possible prefixes.
      * @param suffixes Array of possible suffixes.
      * @param secondNames Array of possible second names.
@@ -74,7 +79,10 @@ public class NameGenerator {
         ArrayList<String> names = new ArrayList<>();
 
         if(n == 0) {
-            names.add(name);
+            // Only includes names that follow the specified pattern
+            if(name.contains(pattern)) {
+                names.add(name);
+            }
             return names;
         }
 
@@ -88,7 +96,9 @@ public class NameGenerator {
         for(String next : nextPart) {
             // Also generates all the possible names without second name
             if(n == 1) {
-                names.add(name);
+                if(name.contains(pattern)) {
+                    names.add(name);
+                }
             }
             names.addAll(generateNames(prefixes, suffixes, secondNames, name + next, n - 1));
         }
@@ -102,11 +112,20 @@ public class NameGenerator {
     }
 
     /** Returns a random name from all the possible names.
-     * @returns Random name.*/
+     * @return Random name.*/
     public String getRandomName() {
         Random random = new Random();
         int randomIndex = random.nextInt(names.size());
         return names.get(randomIndex);
     }
 
+    /** Generates all the possible names that contain
+     * the specified patter. Use getRandomName() method
+     * after setting the pattern to get a name with that
+     * pattern.
+     * @param pattern Pattern that generated names must contain.*/
+    public void setPattern(String pattern) {
+        this.pattern = pattern;
+        names = generateNames(PREFIXES, SUFFIXES, SECOND_NAMES, pattern, 3);
+    }
 }
