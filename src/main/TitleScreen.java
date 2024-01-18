@@ -36,6 +36,12 @@ public class TitleScreen implements Drawable {
     private HashMap<Integer, String> recentGames;
     private Integer[] recentGameCodes;
 
+    // GAME NAME
+    String gameName = "";
+
+    // STATISTICS
+    private Statistics statistics;
+
     /** Creates a title screen component. */
     TitleScreen(GamePanel gamePanel) {
 
@@ -43,6 +49,13 @@ public class TitleScreen implements Drawable {
 
         // TITLE
         title = "Shadows Of Despair";
+
+        // STATISTICS
+        statistics = new Statistics(gamePanel);
+
+        // LOAD RECENT GAMES
+        recentGames = gamePanel.gameManager.loadRecentGames();
+        recentGameCodes = gamePanel.gameManager.loadRecentGameCodes();
 
     }
 
@@ -61,8 +74,7 @@ public class TitleScreen implements Drawable {
             }
 
             // CONTINUE
-            if (selectionIndex == 1 && gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER) != enterToggled) {
-                enterToggled = !enterToggled;
+            if (selectionIndex == 1 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER) != enterToggled) {
                 gameLoad = true;
                 gameTitle = false;
             }
@@ -71,7 +83,7 @@ public class TitleScreen implements Drawable {
             if (selectionIndex == 3 && gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_ENTER)) {
                 gamePanel.pauseState = true;
                 gamePanel.titleState = false;
-                Statistics statistics = new Statistics(gamePanel);
+                statistics.setVisible(true);
             }
 
             // EXIT
@@ -88,8 +100,8 @@ public class TitleScreen implements Drawable {
 
         } else if (newGame) {
 
-            String gameName = "";
             if (selectionIndex == 0) {
+
                 // GETTING GAME NAME
                 if (gamePanel.keyHandler.isKeyPressed(KeyEvent.VK_BACK_SPACE)) {
                     if (gameName.length() > 0) {
@@ -118,10 +130,6 @@ public class TitleScreen implements Drawable {
 
         } else if (gameLoad) {
 
-            // LOAD RECENT GAMES
-            recentGames = gamePanel.gameManager.loadRecentGames();
-            recentGameCodes = gamePanel.gameManager.loadRecentGameCodes();
-
             // LOAD SELECTED GAME
             if (selectionCol == 0 && gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER) != enterToggled) {
                 enterToggled = !enterToggled;
@@ -134,7 +142,7 @@ public class TitleScreen implements Drawable {
             // DELETE
             if (selectionCol == 1 && gamePanel.keyHandler.isKeyToggled(KeyEvent.VK_ENTER) != enterToggled) {
                 enterToggled = !enterToggled;
-                gamePanel.gameManager.deleteGame(selectionIndex);
+                gamePanel.gameManager.deleteGame(recentGameCodes[selectionIndex]);
             }
 
             // BACK
@@ -160,7 +168,7 @@ public class TitleScreen implements Drawable {
             if (selectionIndex > 4 && gameTitle) {
                 selectionIndex = 0;
             } else if (selectionIndex > 5 && gameLoad) {
-                // selectionIndex = recentGames.size();
+                selectionIndex = 0;
             } else if (selectionIndex > 3 && newGame) {
                 selectionIndex = 0;
             }

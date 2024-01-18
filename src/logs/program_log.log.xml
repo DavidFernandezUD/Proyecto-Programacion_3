@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2024-01-17T18:51:56.159414700Z</date>
-  <millis>1705517516159</millis>
-  <nanos>414700</nanos>
+  <date>2024-01-18T09:23:41.536012400Z</date>
+  <millis>1705569821536</millis>
+  <nanos>12400</nanos>
   <sequence>5</sequence>
   <logger>main.GamePanel</logger>
   <level>INFO</level>
@@ -14,9 +14,9 @@
   <message>Game Started</message>
 </record>
 <record>
-  <date>2024-01-17T18:51:56.252716600Z</date>
-  <millis>1705517516252</millis>
-  <nanos>716600</nanos>
+  <date>2024-01-18T09:23:41.668918700Z</date>
+  <millis>1705569821668</millis>
+  <nanos>918700</nanos>
   <sequence>6</sequence>
   <logger>main.GamePanel</logger>
   <level>INFO</level>
@@ -24,5 +24,6341 @@
   <method>startGameThread</method>
   <thread>34</thread>
   <message>Game Thread Started</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.355358300Z</date>
+  <millis>1705569824355</millis>
+  <nanos>358300</nanos>
+  <sequence>7</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.357471700Z</date>
+  <millis>1705569824357</millis>
+  <nanos>471700</nanos>
+  <sequence>8</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.357471700Z</date>
+  <millis>1705569824357</millis>
+  <nanos>471700</nanos>
+  <sequence>9</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.357471700Z</date>
+  <millis>1705569824357</millis>
+  <nanos>471700</nanos>
+  <sequence>10</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.357471700Z</date>
+  <millis>1705569824357</millis>
+  <nanos>471700</nanos>
+  <sequence>11</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.357471700Z</date>
+  <millis>1705569824357</millis>
+  <nanos>471700</nanos>
+  <sequence>12</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.357471700Z</date>
+  <millis>1705569824357</millis>
+  <nanos>471700</nanos>
+  <sequence>13</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.357471700Z</date>
+  <millis>1705569824357</millis>
+  <nanos>471700</nanos>
+  <sequence>14</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.357471700Z</date>
+  <millis>1705569824357</millis>
+  <nanos>471700</nanos>
+  <sequence>15</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.373099900Z</date>
+  <millis>1705569824373</millis>
+  <nanos>99900</nanos>
+  <sequence>16</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.374437500Z</date>
+  <millis>1705569824374</millis>
+  <nanos>437500</nanos>
+  <sequence>17</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.377254200Z</date>
+  <millis>1705569824377</millis>
+  <nanos>254200</nanos>
+  <sequence>18</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.378169Z</date>
+  <millis>1705569824378</millis>
+  <nanos>169000</nanos>
+  <sequence>19</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.380395800Z</date>
+  <millis>1705569824380</millis>
+  <nanos>395800</nanos>
+  <sequence>20</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.383401300Z</date>
+  <millis>1705569824383</millis>
+  <nanos>401300</nanos>
+  <sequence>21</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.385480700Z</date>
+  <millis>1705569824385</millis>
+  <nanos>480700</nanos>
+  <sequence>22</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.388087100Z</date>
+  <millis>1705569824388</millis>
+  <nanos>87100</nanos>
+  <sequence>23</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.389797800Z</date>
+  <millis>1705569824389</millis>
+  <nanos>797800</nanos>
+  <sequence>24</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.391861200Z</date>
+  <millis>1705569824391</millis>
+  <nanos>861200</nanos>
+  <sequence>25</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.393362100Z</date>
+  <millis>1705569824393</millis>
+  <nanos>362100</nanos>
+  <sequence>26</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.394823200Z</date>
+  <millis>1705569824394</millis>
+  <nanos>823200</nanos>
+  <sequence>27</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.396074Z</date>
+  <millis>1705569824396</millis>
+  <nanos>74000</nanos>
+  <sequence>28</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.397108200Z</date>
+  <millis>1705569824397</millis>
+  <nanos>108200</nanos>
+  <sequence>29</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.399256900Z</date>
+  <millis>1705569824399</millis>
+  <nanos>256900</nanos>
+  <sequence>30</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.400413200Z</date>
+  <millis>1705569824400</millis>
+  <nanos>413200</nanos>
+  <sequence>31</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.402023Z</date>
+  <millis>1705569824402</millis>
+  <nanos>23000</nanos>
+  <sequence>32</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.403143900Z</date>
+  <millis>1705569824403</millis>
+  <nanos>143900</nanos>
+  <sequence>33</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.404405300Z</date>
+  <millis>1705569824404</millis>
+  <nanos>405300</nanos>
+  <sequence>34</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.406097400Z</date>
+  <millis>1705569824406</millis>
+  <nanos>97400</nanos>
+  <sequence>35</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.407413800Z</date>
+  <millis>1705569824407</millis>
+  <nanos>413800</nanos>
+  <sequence>36</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.409700500Z</date>
+  <millis>1705569824409</millis>
+  <nanos>700500</nanos>
+  <sequence>37</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.411975300Z</date>
+  <millis>1705569824411</millis>
+  <nanos>975300</nanos>
+  <sequence>38</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.413986600Z</date>
+  <millis>1705569824413</millis>
+  <nanos>986600</nanos>
+  <sequence>39</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.415123500Z</date>
+  <millis>1705569824415</millis>
+  <nanos>123500</nanos>
+  <sequence>40</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.417150600Z</date>
+  <millis>1705569824417</millis>
+  <nanos>150600</nanos>
+  <sequence>41</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.418211400Z</date>
+  <millis>1705569824418</millis>
+  <nanos>211400</nanos>
+  <sequence>42</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.419599600Z</date>
+  <millis>1705569824419</millis>
+  <nanos>599600</nanos>
+  <sequence>43</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.420730800Z</date>
+  <millis>1705569824420</millis>
+  <nanos>730800</nanos>
+  <sequence>44</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.421691Z</date>
+  <millis>1705569824421</millis>
+  <nanos>691000</nanos>
+  <sequence>45</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.422699700Z</date>
+  <millis>1705569824422</millis>
+  <nanos>699700</nanos>
+  <sequence>46</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.424699600Z</date>
+  <millis>1705569824424</millis>
+  <nanos>699600</nanos>
+  <sequence>47</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.425269300Z</date>
+  <millis>1705569824425</millis>
+  <nanos>269300</nanos>
+  <sequence>48</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.426892200Z</date>
+  <millis>1705569824426</millis>
+  <nanos>892200</nanos>
+  <sequence>49</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.428094500Z</date>
+  <millis>1705569824428</millis>
+  <nanos>94500</nanos>
+  <sequence>50</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.429100800Z</date>
+  <millis>1705569824429</millis>
+  <nanos>100800</nanos>
+  <sequence>51</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.432223500Z</date>
+  <millis>1705569824432</millis>
+  <nanos>223500</nanos>
+  <sequence>52</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.436717300Z</date>
+  <millis>1705569824436</millis>
+  <nanos>717300</nanos>
+  <sequence>53</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.437727100Z</date>
+  <millis>1705569824437</millis>
+  <nanos>727100</nanos>
+  <sequence>54</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.456808500Z</date>
+  <millis>1705569824456</millis>
+  <nanos>808500</nanos>
+  <sequence>55</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.460853400Z</date>
+  <millis>1705569824460</millis>
+  <nanos>853400</nanos>
+  <sequence>56</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.470682300Z</date>
+  <millis>1705569824470</millis>
+  <nanos>682300</nanos>
+  <sequence>57</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.473257Z</date>
+  <millis>1705569824473</millis>
+  <nanos>257000</nanos>
+  <sequence>58</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.491088700Z</date>
+  <millis>1705569824491</millis>
+  <nanos>88700</nanos>
+  <sequence>59</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.492488100Z</date>
+  <millis>1705569824492</millis>
+  <nanos>488100</nanos>
+  <sequence>60</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.503090500Z</date>
+  <millis>1705569824503</millis>
+  <nanos>90500</nanos>
+  <sequence>61</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.505283Z</date>
+  <millis>1705569824505</millis>
+  <nanos>283000</nanos>
+  <sequence>62</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.520449100Z</date>
+  <millis>1705569824520</millis>
+  <nanos>449100</nanos>
+  <sequence>63</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.521549700Z</date>
+  <millis>1705569824521</millis>
+  <nanos>549700</nanos>
+  <sequence>64</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.537265400Z</date>
+  <millis>1705569824537</millis>
+  <nanos>265400</nanos>
+  <sequence>65</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.538288200Z</date>
+  <millis>1705569824538</millis>
+  <nanos>288200</nanos>
+  <sequence>66</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.553741400Z</date>
+  <millis>1705569824553</millis>
+  <nanos>741400</nanos>
+  <sequence>67</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.554803200Z</date>
+  <millis>1705569824554</millis>
+  <nanos>803200</nanos>
+  <sequence>68</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.570653600Z</date>
+  <millis>1705569824570</millis>
+  <nanos>653600</nanos>
+  <sequence>69</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.572844700Z</date>
+  <millis>1705569824572</millis>
+  <nanos>844700</nanos>
+  <sequence>70</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.586855600Z</date>
+  <millis>1705569824586</millis>
+  <nanos>855600</nanos>
+  <sequence>71</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.589053900Z</date>
+  <millis>1705569824589</millis>
+  <nanos>53900</nanos>
+  <sequence>72</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.603459400Z</date>
+  <millis>1705569824603</millis>
+  <nanos>459400</nanos>
+  <sequence>73</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.605626800Z</date>
+  <millis>1705569824605</millis>
+  <nanos>626800</nanos>
+  <sequence>74</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.620418100Z</date>
+  <millis>1705569824620</millis>
+  <nanos>418100</nanos>
+  <sequence>75</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.622603800Z</date>
+  <millis>1705569824622</millis>
+  <nanos>603800</nanos>
+  <sequence>76</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.637416Z</date>
+  <millis>1705569824637</millis>
+  <nanos>416000</nanos>
+  <sequence>77</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.638502500Z</date>
+  <millis>1705569824638</millis>
+  <nanos>502500</nanos>
+  <sequence>78</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.654045800Z</date>
+  <millis>1705569824654</millis>
+  <nanos>45800</nanos>
+  <sequence>79</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.655120700Z</date>
+  <millis>1705569824655</millis>
+  <nanos>120700</nanos>
+  <sequence>80</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.670305500Z</date>
+  <millis>1705569824670</millis>
+  <nanos>305500</nanos>
+  <sequence>81</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.671402900Z</date>
+  <millis>1705569824671</millis>
+  <nanos>402900</nanos>
+  <sequence>82</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.690383700Z</date>
+  <millis>1705569824690</millis>
+  <nanos>383700</nanos>
+  <sequence>83</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.692514Z</date>
+  <millis>1705569824692</millis>
+  <nanos>514000</nanos>
+  <sequence>84</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.705394200Z</date>
+  <millis>1705569824705</millis>
+  <nanos>394200</nanos>
+  <sequence>85</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.707448700Z</date>
+  <millis>1705569824707</millis>
+  <nanos>448700</nanos>
+  <sequence>86</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.722567Z</date>
+  <millis>1705569824722</millis>
+  <nanos>567000</nanos>
+  <sequence>87</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.723704900Z</date>
+  <millis>1705569824723</millis>
+  <nanos>704900</nanos>
+  <sequence>88</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.737185700Z</date>
+  <millis>1705569824737</millis>
+  <nanos>185700</nanos>
+  <sequence>89</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.738441500Z</date>
+  <millis>1705569824738</millis>
+  <nanos>441500</nanos>
+  <sequence>90</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.758986Z</date>
+  <millis>1705569824758</millis>
+  <nanos>986000</nanos>
+  <sequence>91</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.761138700Z</date>
+  <millis>1705569824761</millis>
+  <nanos>138700</nanos>
+  <sequence>92</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.771882900Z</date>
+  <millis>1705569824771</millis>
+  <nanos>882900</nanos>
+  <sequence>93</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.773978300Z</date>
+  <millis>1705569824773</millis>
+  <nanos>978300</nanos>
+  <sequence>94</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.787789100Z</date>
+  <millis>1705569824787</millis>
+  <nanos>789100</nanos>
+  <sequence>95</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.789942Z</date>
+  <millis>1705569824789</millis>
+  <nanos>942000</nanos>
+  <sequence>96</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.804395900Z</date>
+  <millis>1705569824804</millis>
+  <nanos>395900</nanos>
+  <sequence>97</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.805504Z</date>
+  <millis>1705569824805</millis>
+  <nanos>504000</nanos>
+  <sequence>98</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.823926400Z</date>
+  <millis>1705569824823</millis>
+  <nanos>926400</nanos>
+  <sequence>99</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.829188100Z</date>
+  <millis>1705569824829</millis>
+  <nanos>188100</nanos>
+  <sequence>100</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.838134600Z</date>
+  <millis>1705569824838</millis>
+  <nanos>134600</nanos>
+  <sequence>101</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.840316700Z</date>
+  <millis>1705569824840</millis>
+  <nanos>316700</nanos>
+  <sequence>102</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.853460200Z</date>
+  <millis>1705569824853</millis>
+  <nanos>460200</nanos>
+  <sequence>103</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.855742600Z</date>
+  <millis>1705569824855</millis>
+  <nanos>742600</nanos>
+  <sequence>104</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.871183300Z</date>
+  <millis>1705569824871</millis>
+  <nanos>183300</nanos>
+  <sequence>105</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.872286700Z</date>
+  <millis>1705569824872</millis>
+  <nanos>286700</nanos>
+  <sequence>106</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.887497300Z</date>
+  <millis>1705569824887</millis>
+  <nanos>497300</nanos>
+  <sequence>107</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.888608100Z</date>
+  <millis>1705569824888</millis>
+  <nanos>608100</nanos>
+  <sequence>108</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.910034100Z</date>
+  <millis>1705569824910</millis>
+  <nanos>34100</nanos>
+  <sequence>109</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.912178600Z</date>
+  <millis>1705569824912</millis>
+  <nanos>178600</nanos>
+  <sequence>110</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.920632700Z</date>
+  <millis>1705569824920</millis>
+  <nanos>632700</nanos>
+  <sequence>111</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.921850600Z</date>
+  <millis>1705569824921</millis>
+  <nanos>850600</nanos>
+  <sequence>112</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.938977Z</date>
+  <millis>1705569824938</millis>
+  <nanos>977000</nanos>
+  <sequence>113</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.940013100Z</date>
+  <millis>1705569824940</millis>
+  <nanos>13100</nanos>
+  <sequence>114</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.955008900Z</date>
+  <millis>1705569824955</millis>
+  <nanos>8900</nanos>
+  <sequence>115</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.957104400Z</date>
+  <millis>1705569824957</millis>
+  <nanos>104400</nanos>
+  <sequence>116</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.970833800Z</date>
+  <millis>1705569824970</millis>
+  <nanos>833800</nanos>
+  <sequence>117</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.971956100Z</date>
+  <millis>1705569824971</millis>
+  <nanos>956100</nanos>
+  <sequence>118</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.987665300Z</date>
+  <millis>1705569824987</millis>
+  <nanos>665300</nanos>
+  <sequence>119</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:44.988827200Z</date>
+  <millis>1705569824988</millis>
+  <nanos>827200</nanos>
+  <sequence>120</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.011130300Z</date>
+  <millis>1705569825011</millis>
+  <nanos>130300</nanos>
+  <sequence>121</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.015276900Z</date>
+  <millis>1705569825015</millis>
+  <nanos>276900</nanos>
+  <sequence>122</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.023689600Z</date>
+  <millis>1705569825023</millis>
+  <nanos>689600</nanos>
+  <sequence>123</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.026130800Z</date>
+  <millis>1705569825026</millis>
+  <nanos>130800</nanos>
+  <sequence>124</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.036548200Z</date>
+  <millis>1705569825036</millis>
+  <nanos>548200</nanos>
+  <sequence>125</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.038875700Z</date>
+  <millis>1705569825038</millis>
+  <nanos>875700</nanos>
+  <sequence>126</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.053651400Z</date>
+  <millis>1705569825053</millis>
+  <nanos>651400</nanos>
+  <sequence>127</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.055749400Z</date>
+  <millis>1705569825055</millis>
+  <nanos>749400</nanos>
+  <sequence>128</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.070448900Z</date>
+  <millis>1705569825070</millis>
+  <nanos>448900</nanos>
+  <sequence>129</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.071523Z</date>
+  <millis>1705569825071</millis>
+  <nanos>523000</nanos>
+  <sequence>130</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.087056100Z</date>
+  <millis>1705569825087</millis>
+  <nanos>56100</nanos>
+  <sequence>131</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.089189Z</date>
+  <millis>1705569825089</millis>
+  <nanos>189000</nanos>
+  <sequence>132</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.103948600Z</date>
+  <millis>1705569825103</millis>
+  <nanos>948600</nanos>
+  <sequence>133</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.105130600Z</date>
+  <millis>1705569825105</millis>
+  <nanos>130600</nanos>
+  <sequence>134</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.120946900Z</date>
+  <millis>1705569825120</millis>
+  <nanos>946900</nanos>
+  <sequence>135</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.121981900Z</date>
+  <millis>1705569825121</millis>
+  <nanos>981900</nanos>
+  <sequence>136</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.137526500Z</date>
+  <millis>1705569825137</millis>
+  <nanos>526500</nanos>
+  <sequence>137</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.138900200Z</date>
+  <millis>1705569825138</millis>
+  <nanos>900200</nanos>
+  <sequence>138</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.152913700Z</date>
+  <millis>1705569825152</millis>
+  <nanos>913700</nanos>
+  <sequence>139</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.154039300Z</date>
+  <millis>1705569825154</millis>
+  <nanos>39300</nanos>
+  <sequence>140</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.169986500Z</date>
+  <millis>1705569825169</millis>
+  <nanos>986500</nanos>
+  <sequence>141</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.171147Z</date>
+  <millis>1705569825171</millis>
+  <nanos>147000</nanos>
+  <sequence>142</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.187165600Z</date>
+  <millis>1705569825187</millis>
+  <nanos>165600</nanos>
+  <sequence>143</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.187165600Z</date>
+  <millis>1705569825187</millis>
+  <nanos>165600</nanos>
+  <sequence>144</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.203987100Z</date>
+  <millis>1705569825203</millis>
+  <nanos>987100</nanos>
+  <sequence>145</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.205072100Z</date>
+  <millis>1705569825205</millis>
+  <nanos>72100</nanos>
+  <sequence>146</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.219946300Z</date>
+  <millis>1705569825219</millis>
+  <nanos>946300</nanos>
+  <sequence>147</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.220953600Z</date>
+  <millis>1705569825220</millis>
+  <nanos>953600</nanos>
+  <sequence>148</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.237958400Z</date>
+  <millis>1705569825237</millis>
+  <nanos>958400</nanos>
+  <sequence>149</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.238957200Z</date>
+  <millis>1705569825238</millis>
+  <nanos>957200</nanos>
+  <sequence>150</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.253805100Z</date>
+  <millis>1705569825253</millis>
+  <nanos>805100</nanos>
+  <sequence>151</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.255911100Z</date>
+  <millis>1705569825255</millis>
+  <nanos>911100</nanos>
+  <sequence>152</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.267605500Z</date>
+  <millis>1705569825267</millis>
+  <nanos>605500</nanos>
+  <sequence>153</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.272563300Z</date>
+  <millis>1705569825272</millis>
+  <nanos>563300</nanos>
+  <sequence>154</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.287018900Z</date>
+  <millis>1705569825287</millis>
+  <nanos>18900</nanos>
+  <sequence>155</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.289217800Z</date>
+  <millis>1705569825289</millis>
+  <nanos>217800</nanos>
+  <sequence>156</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.304053800Z</date>
+  <millis>1705569825304</millis>
+  <nanos>53800</nanos>
+  <sequence>157</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.305084300Z</date>
+  <millis>1705569825305</millis>
+  <nanos>84300</nanos>
+  <sequence>158</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.320897Z</date>
+  <millis>1705569825320</millis>
+  <nanos>897000</nanos>
+  <sequence>159</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.322903300Z</date>
+  <millis>1705569825322</millis>
+  <nanos>903300</nanos>
+  <sequence>160</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.337621700Z</date>
+  <millis>1705569825337</millis>
+  <nanos>621700</nanos>
+  <sequence>161</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.339051300Z</date>
+  <millis>1705569825339</millis>
+  <nanos>51300</nanos>
+  <sequence>162</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.354685300Z</date>
+  <millis>1705569825354</millis>
+  <nanos>685300</nanos>
+  <sequence>163</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.356474500Z</date>
+  <millis>1705569825356</millis>
+  <nanos>474500</nanos>
+  <sequence>164</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.371406600Z</date>
+  <millis>1705569825371</millis>
+  <nanos>406600</nanos>
+  <sequence>165</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.372593Z</date>
+  <millis>1705569825372</millis>
+  <nanos>593000</nanos>
+  <sequence>166</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.387299200Z</date>
+  <millis>1705569825387</millis>
+  <nanos>299200</nanos>
+  <sequence>167</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.389498800Z</date>
+  <millis>1705569825389</millis>
+  <nanos>498800</nanos>
+  <sequence>168</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.403925600Z</date>
+  <millis>1705569825403</millis>
+  <nanos>925600</nanos>
+  <sequence>169</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.405291500Z</date>
+  <millis>1705569825405</millis>
+  <nanos>291500</nanos>
+  <sequence>170</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.420521Z</date>
+  <millis>1705569825420</millis>
+  <nanos>521000</nanos>
+  <sequence>171</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.421575300Z</date>
+  <millis>1705569825421</millis>
+  <nanos>575300</nanos>
+  <sequence>172</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.440984800Z</date>
+  <millis>1705569825440</millis>
+  <nanos>984800</nanos>
+  <sequence>173</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.442036800Z</date>
+  <millis>1705569825442</millis>
+  <nanos>36800</nanos>
+  <sequence>174</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.454174600Z</date>
+  <millis>1705569825454</millis>
+  <nanos>174600</nanos>
+  <sequence>175</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.456522600Z</date>
+  <millis>1705569825456</millis>
+  <nanos>522600</nanos>
+  <sequence>176</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.470296Z</date>
+  <millis>1705569825470</millis>
+  <nanos>296000</nanos>
+  <sequence>177</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.471531100Z</date>
+  <millis>1705569825471</millis>
+  <nanos>531100</nanos>
+  <sequence>178</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.488138300Z</date>
+  <millis>1705569825488</millis>
+  <nanos>138300</nanos>
+  <sequence>179</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.490308600Z</date>
+  <millis>1705569825490</millis>
+  <nanos>308600</nanos>
+  <sequence>180</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.503060Z</date>
+  <millis>1705569825503</millis>
+  <nanos>60000</nanos>
+  <sequence>181</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.504092100Z</date>
+  <millis>1705569825504</millis>
+  <nanos>92100</nanos>
+  <sequence>182</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.519845100Z</date>
+  <millis>1705569825519</millis>
+  <nanos>845100</nanos>
+  <sequence>183</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.521961300Z</date>
+  <millis>1705569825521</millis>
+  <nanos>961300</nanos>
+  <sequence>184</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.537452400Z</date>
+  <millis>1705569825537</millis>
+  <nanos>452400</nanos>
+  <sequence>185</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.537452400Z</date>
+  <millis>1705569825537</millis>
+  <nanos>452400</nanos>
+  <sequence>186</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.557256800Z</date>
+  <millis>1705569825557</millis>
+  <nanos>256800</nanos>
+  <sequence>187</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.559996500Z</date>
+  <millis>1705569825559</millis>
+  <nanos>996500</nanos>
+  <sequence>188</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.572735700Z</date>
+  <millis>1705569825572</millis>
+  <nanos>735700</nanos>
+  <sequence>189</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.573823900Z</date>
+  <millis>1705569825573</millis>
+  <nanos>823900</nanos>
+  <sequence>190</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.587086Z</date>
+  <millis>1705569825587</millis>
+  <nanos>86000</nanos>
+  <sequence>191</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.588165800Z</date>
+  <millis>1705569825588</millis>
+  <nanos>165800</nanos>
+  <sequence>192</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.603984Z</date>
+  <millis>1705569825603</millis>
+  <nanos>984000</nanos>
+  <sequence>193</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.603984Z</date>
+  <millis>1705569825603</millis>
+  <nanos>984000</nanos>
+  <sequence>194</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.620704600Z</date>
+  <millis>1705569825620</millis>
+  <nanos>704600</nanos>
+  <sequence>195</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.621740400Z</date>
+  <millis>1705569825621</millis>
+  <nanos>740400</nanos>
+  <sequence>196</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.636581200Z</date>
+  <millis>1705569825636</millis>
+  <nanos>581200</nanos>
+  <sequence>197</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.637598500Z</date>
+  <millis>1705569825637</millis>
+  <nanos>598500</nanos>
+  <sequence>198</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.654093300Z</date>
+  <millis>1705569825654</millis>
+  <nanos>93300</nanos>
+  <sequence>199</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.655200500Z</date>
+  <millis>1705569825655</millis>
+  <nanos>200500</nanos>
+  <sequence>200</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.670205100Z</date>
+  <millis>1705569825670</millis>
+  <nanos>205100</nanos>
+  <sequence>201</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.671231600Z</date>
+  <millis>1705569825671</millis>
+  <nanos>231600</nanos>
+  <sequence>202</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.689062600Z</date>
+  <millis>1705569825689</millis>
+  <nanos>62600</nanos>
+  <sequence>203</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.690399100Z</date>
+  <millis>1705569825690</millis>
+  <nanos>399100</nanos>
+  <sequence>204</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.703662100Z</date>
+  <millis>1705569825703</millis>
+  <nanos>662100</nanos>
+  <sequence>205</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.704662200Z</date>
+  <millis>1705569825704</millis>
+  <nanos>662200</nanos>
+  <sequence>206</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.720796100Z</date>
+  <millis>1705569825720</millis>
+  <nanos>796100</nanos>
+  <sequence>207</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.722799200Z</date>
+  <millis>1705569825722</millis>
+  <nanos>799200</nanos>
+  <sequence>208</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.737419Z</date>
+  <millis>1705569825737</millis>
+  <nanos>419000</nanos>
+  <sequence>209</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.738468800Z</date>
+  <millis>1705569825738</millis>
+  <nanos>468800</nanos>
+  <sequence>210</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.748989600Z</date>
+  <millis>1705569825748</millis>
+  <nanos>989600</nanos>
+  <sequence>211</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.748989600Z</date>
+  <millis>1705569825748</millis>
+  <nanos>989600</nanos>
+  <sequence>212</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.770877300Z</date>
+  <millis>1705569825770</millis>
+  <nanos>877300</nanos>
+  <sequence>213</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.773598500Z</date>
+  <millis>1705569825773</millis>
+  <nanos>598500</nanos>
+  <sequence>214</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.787346Z</date>
+  <millis>1705569825787</millis>
+  <nanos>346000</nanos>
+  <sequence>215</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.789532800Z</date>
+  <millis>1705569825789</millis>
+  <nanos>532800</nanos>
+  <sequence>216</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.803608200Z</date>
+  <millis>1705569825803</millis>
+  <nanos>608200</nanos>
+  <sequence>217</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.804648400Z</date>
+  <millis>1705569825804</millis>
+  <nanos>648400</nanos>
+  <sequence>218</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.821102900Z</date>
+  <millis>1705569825821</millis>
+  <nanos>102900</nanos>
+  <sequence>219</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.822319200Z</date>
+  <millis>1705569825822</millis>
+  <nanos>319200</nanos>
+  <sequence>220</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.837159800Z</date>
+  <millis>1705569825837</millis>
+  <nanos>159800</nanos>
+  <sequence>221</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.838265Z</date>
+  <millis>1705569825838</millis>
+  <nanos>265000</nanos>
+  <sequence>222</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.853850800Z</date>
+  <millis>1705569825853</millis>
+  <nanos>850800</nanos>
+  <sequence>223</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.854956Z</date>
+  <millis>1705569825854</millis>
+  <nanos>956000</nanos>
+  <sequence>224</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.869748Z</date>
+  <millis>1705569825869</millis>
+  <nanos>748000</nanos>
+  <sequence>225</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.870848600Z</date>
+  <millis>1705569825870</millis>
+  <nanos>848600</nanos>
+  <sequence>226</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.887026200Z</date>
+  <millis>1705569825887</millis>
+  <nanos>26200</nanos>
+  <sequence>227</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.888185600Z</date>
+  <millis>1705569825888</millis>
+  <nanos>185600</nanos>
+  <sequence>228</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.903303300Z</date>
+  <millis>1705569825903</millis>
+  <nanos>303300</nanos>
+  <sequence>229</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.904303800Z</date>
+  <millis>1705569825904</millis>
+  <nanos>303800</nanos>
+  <sequence>230</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.921224300Z</date>
+  <millis>1705569825921</millis>
+  <nanos>224300</nanos>
+  <sequence>231</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.923226900Z</date>
+  <millis>1705569825923</millis>
+  <nanos>226900</nanos>
+  <sequence>232</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.936988300Z</date>
+  <millis>1705569825936</millis>
+  <nanos>988300</nanos>
+  <sequence>233</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.938993400Z</date>
+  <millis>1705569825938</millis>
+  <nanos>993400</nanos>
+  <sequence>234</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.953413Z</date>
+  <millis>1705569825953</millis>
+  <nanos>413000</nanos>
+  <sequence>235</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.954470900Z</date>
+  <millis>1705569825954</millis>
+  <nanos>470900</nanos>
+  <sequence>236</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.970583200Z</date>
+  <millis>1705569825970</millis>
+  <nanos>583200</nanos>
+  <sequence>237</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.971605800Z</date>
+  <millis>1705569825971</millis>
+  <nanos>605800</nanos>
+  <sequence>238</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.987295900Z</date>
+  <millis>1705569825987</millis>
+  <nanos>295900</nanos>
+  <sequence>239</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:45.988387Z</date>
+  <millis>1705569825988</millis>
+  <nanos>387000</nanos>
+  <sequence>240</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.003144600Z</date>
+  <millis>1705569826003</millis>
+  <nanos>144600</nanos>
+  <sequence>241</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.004196500Z</date>
+  <millis>1705569826004</millis>
+  <nanos>196500</nanos>
+  <sequence>242</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.020534500Z</date>
+  <millis>1705569826020</millis>
+  <nanos>534500</nanos>
+  <sequence>243</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.021731900Z</date>
+  <millis>1705569826021</millis>
+  <nanos>731900</nanos>
+  <sequence>244</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.036610900Z</date>
+  <millis>1705569826036</millis>
+  <nanos>610900</nanos>
+  <sequence>245</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.037672400Z</date>
+  <millis>1705569826037</millis>
+  <nanos>672400</nanos>
+  <sequence>246</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.054439600Z</date>
+  <millis>1705569826054</millis>
+  <nanos>439600</nanos>
+  <sequence>247</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.055477900Z</date>
+  <millis>1705569826055</millis>
+  <nanos>477900</nanos>
+  <sequence>248</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.069889100Z</date>
+  <millis>1705569826069</millis>
+  <nanos>889100</nanos>
+  <sequence>249</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.070960500Z</date>
+  <millis>1705569826070</millis>
+  <nanos>960500</nanos>
+  <sequence>250</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.087672200Z</date>
+  <millis>1705569826087</millis>
+  <nanos>672200</nanos>
+  <sequence>251</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.087968Z</date>
+  <millis>1705569826087</millis>
+  <nanos>968000</nanos>
+  <sequence>252</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.103396200Z</date>
+  <millis>1705569826103</millis>
+  <nanos>396200</nanos>
+  <sequence>253</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.105453500Z</date>
+  <millis>1705569826105</millis>
+  <nanos>453500</nanos>
+  <sequence>254</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.120774500Z</date>
+  <millis>1705569826120</millis>
+  <nanos>774500</nanos>
+  <sequence>255</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.124354300Z</date>
+  <millis>1705569826124</millis>
+  <nanos>354300</nanos>
+  <sequence>256</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.137826900Z</date>
+  <millis>1705569826137</millis>
+  <nanos>826900</nanos>
+  <sequence>257</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.138895200Z</date>
+  <millis>1705569826138</millis>
+  <nanos>895200</nanos>
+  <sequence>258</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.154140900Z</date>
+  <millis>1705569826154</millis>
+  <nanos>140900</nanos>
+  <sequence>259</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.156154Z</date>
+  <millis>1705569826156</millis>
+  <nanos>154000</nanos>
+  <sequence>260</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.171120400Z</date>
+  <millis>1705569826171</millis>
+  <nanos>120400</nanos>
+  <sequence>261</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.172123800Z</date>
+  <millis>1705569826172</millis>
+  <nanos>123800</nanos>
+  <sequence>262</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.186933Z</date>
+  <millis>1705569826186</millis>
+  <nanos>933000</nanos>
+  <sequence>263</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.188017500Z</date>
+  <millis>1705569826188</millis>
+  <nanos>17500</nanos>
+  <sequence>264</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.203244100Z</date>
+  <millis>1705569826203</millis>
+  <nanos>244100</nanos>
+  <sequence>265</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.204326100Z</date>
+  <millis>1705569826204</millis>
+  <nanos>326100</nanos>
+  <sequence>266</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.220397100Z</date>
+  <millis>1705569826220</millis>
+  <nanos>397100</nanos>
+  <sequence>267</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.221722600Z</date>
+  <millis>1705569826221</millis>
+  <nanos>722600</nanos>
+  <sequence>268</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.236989400Z</date>
+  <millis>1705569826236</millis>
+  <nanos>989400</nanos>
+  <sequence>269</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.238031Z</date>
+  <millis>1705569826238</millis>
+  <nanos>31000</nanos>
+  <sequence>270</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.253500400Z</date>
+  <millis>1705569826253</millis>
+  <nanos>500400</nanos>
+  <sequence>271</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.254587900Z</date>
+  <millis>1705569826254</millis>
+  <nanos>587900</nanos>
+  <sequence>272</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.269716500Z</date>
+  <millis>1705569826269</millis>
+  <nanos>716500</nanos>
+  <sequence>273</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.270756100Z</date>
+  <millis>1705569826270</millis>
+  <nanos>756100</nanos>
+  <sequence>274</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.287574300Z</date>
+  <millis>1705569826287</millis>
+  <nanos>574300</nanos>
+  <sequence>275</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.288642Z</date>
+  <millis>1705569826288</millis>
+  <nanos>642000</nanos>
+  <sequence>276</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.303272500Z</date>
+  <millis>1705569826303</millis>
+  <nanos>272500</nanos>
+  <sequence>277</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.304287700Z</date>
+  <millis>1705569826304</millis>
+  <nanos>287700</nanos>
+  <sequence>278</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.320067600Z</date>
+  <millis>1705569826320</millis>
+  <nanos>67600</nanos>
+  <sequence>279</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.322184800Z</date>
+  <millis>1705569826322</millis>
+  <nanos>184800</nanos>
+  <sequence>280</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.337748200Z</date>
+  <millis>1705569826337</millis>
+  <nanos>748200</nanos>
+  <sequence>281</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.342752300Z</date>
+  <millis>1705569826342</millis>
+  <nanos>752300</nanos>
+  <sequence>282</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.355719400Z</date>
+  <millis>1705569826355</millis>
+  <nanos>719400</nanos>
+  <sequence>283</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.357825100Z</date>
+  <millis>1705569826357</millis>
+  <nanos>825100</nanos>
+  <sequence>284</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.374876600Z</date>
+  <millis>1705569826374</millis>
+  <nanos>876600</nanos>
+  <sequence>285</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.376984200Z</date>
+  <millis>1705569826376</millis>
+  <nanos>984200</nanos>
+  <sequence>286</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.387829300Z</date>
+  <millis>1705569826387</millis>
+  <nanos>829300</nanos>
+  <sequence>287</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.391104200Z</date>
+  <millis>1705569826391</millis>
+  <nanos>104200</nanos>
+  <sequence>288</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.403864900Z</date>
+  <millis>1705569826403</millis>
+  <nanos>864900</nanos>
+  <sequence>289</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.404939400Z</date>
+  <millis>1705569826404</millis>
+  <nanos>939400</nanos>
+  <sequence>290</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.420894Z</date>
+  <millis>1705569826420</millis>
+  <nanos>894000</nanos>
+  <sequence>291</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.422948400Z</date>
+  <millis>1705569826422</millis>
+  <nanos>948400</nanos>
+  <sequence>292</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.437472400Z</date>
+  <millis>1705569826437</millis>
+  <nanos>472400</nanos>
+  <sequence>293</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.438538500Z</date>
+  <millis>1705569826438</millis>
+  <nanos>538500</nanos>
+  <sequence>294</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.453869400Z</date>
+  <millis>1705569826453</millis>
+  <nanos>869400</nanos>
+  <sequence>295</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.455051900Z</date>
+  <millis>1705569826455</millis>
+  <nanos>51900</nanos>
+  <sequence>296</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.470412700Z</date>
+  <millis>1705569826470</millis>
+  <nanos>412700</nanos>
+  <sequence>297</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.471513300Z</date>
+  <millis>1705569826471</millis>
+  <nanos>513300</nanos>
+  <sequence>298</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.486840800Z</date>
+  <millis>1705569826486</millis>
+  <nanos>840800</nanos>
+  <sequence>299</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.487913900Z</date>
+  <millis>1705569826487</millis>
+  <nanos>913900</nanos>
+  <sequence>300</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.503119700Z</date>
+  <millis>1705569826503</millis>
+  <nanos>119700</nanos>
+  <sequence>301</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.504234600Z</date>
+  <millis>1705569826504</millis>
+  <nanos>234600</nanos>
+  <sequence>302</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.520409700Z</date>
+  <millis>1705569826520</millis>
+  <nanos>409700</nanos>
+  <sequence>303</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.520409700Z</date>
+  <millis>1705569826520</millis>
+  <nanos>409700</nanos>
+  <sequence>304</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.536561800Z</date>
+  <millis>1705569826536</millis>
+  <nanos>561800</nanos>
+  <sequence>305</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.537587900Z</date>
+  <millis>1705569826537</millis>
+  <nanos>587900</nanos>
+  <sequence>306</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.553129500Z</date>
+  <millis>1705569826553</millis>
+  <nanos>129500</nanos>
+  <sequence>307</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.554287Z</date>
+  <millis>1705569826554</millis>
+  <nanos>287000</nanos>
+  <sequence>308</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.570682500Z</date>
+  <millis>1705569826570</millis>
+  <nanos>682500</nanos>
+  <sequence>309</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.571750600Z</date>
+  <millis>1705569826571</millis>
+  <nanos>750600</nanos>
+  <sequence>310</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.587694200Z</date>
+  <millis>1705569826587</millis>
+  <nanos>694200</nanos>
+  <sequence>311</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.588858100Z</date>
+  <millis>1705569826588</millis>
+  <nanos>858100</nanos>
+  <sequence>312</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.604006Z</date>
+  <millis>1705569826604</millis>
+  <nanos>6000</nanos>
+  <sequence>313</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.605015900Z</date>
+  <millis>1705569826605</millis>
+  <nanos>15900</nanos>
+  <sequence>314</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.620748400Z</date>
+  <millis>1705569826620</millis>
+  <nanos>748400</nanos>
+  <sequence>315</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.626993100Z</date>
+  <millis>1705569826626</millis>
+  <nanos>993100</nanos>
+  <sequence>316</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.636586500Z</date>
+  <millis>1705569826636</millis>
+  <nanos>586500</nanos>
+  <sequence>317</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.637683100Z</date>
+  <millis>1705569826637</millis>
+  <nanos>683100</nanos>
+  <sequence>318</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.654089200Z</date>
+  <millis>1705569826654</millis>
+  <nanos>89200</nanos>
+  <sequence>319</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.655145100Z</date>
+  <millis>1705569826655</millis>
+  <nanos>145100</nanos>
+  <sequence>320</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.670241400Z</date>
+  <millis>1705569826670</millis>
+  <nanos>241400</nanos>
+  <sequence>321</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.671262200Z</date>
+  <millis>1705569826671</millis>
+  <nanos>262200</nanos>
+  <sequence>322</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.686938800Z</date>
+  <millis>1705569826686</millis>
+  <nanos>938800</nanos>
+  <sequence>323</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.688044200Z</date>
+  <millis>1705569826688</millis>
+  <nanos>44200</nanos>
+  <sequence>324</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.703897100Z</date>
+  <millis>1705569826703</millis>
+  <nanos>897100</nanos>
+  <sequence>325</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.704936200Z</date>
+  <millis>1705569826704</millis>
+  <nanos>936200</nanos>
+  <sequence>326</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.720621200Z</date>
+  <millis>1705569826720</millis>
+  <nanos>621200</nanos>
+  <sequence>327</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.720621200Z</date>
+  <millis>1705569826720</millis>
+  <nanos>621200</nanos>
+  <sequence>328</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.736306700Z</date>
+  <millis>1705569826736</millis>
+  <nanos>306700</nanos>
+  <sequence>329</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.737315300Z</date>
+  <millis>1705569826737</millis>
+  <nanos>315300</nanos>
+  <sequence>330</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.753980Z</date>
+  <millis>1705569826753</millis>
+  <nanos>980000</nanos>
+  <sequence>331</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.755145Z</date>
+  <millis>1705569826755</millis>
+  <nanos>145000</nanos>
+  <sequence>332</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.771104300Z</date>
+  <millis>1705569826771</millis>
+  <nanos>104300</nanos>
+  <sequence>333</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.772132200Z</date>
+  <millis>1705569826772</millis>
+  <nanos>132200</nanos>
+  <sequence>334</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.786702100Z</date>
+  <millis>1705569826786</millis>
+  <nanos>702100</nanos>
+  <sequence>335</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.788753900Z</date>
+  <millis>1705569826788</millis>
+  <nanos>753900</nanos>
+  <sequence>336</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.803609100Z</date>
+  <millis>1705569826803</millis>
+  <nanos>609100</nanos>
+  <sequence>337</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.804646900Z</date>
+  <millis>1705569826804</millis>
+  <nanos>646900</nanos>
+  <sequence>338</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.821098300Z</date>
+  <millis>1705569826821</millis>
+  <nanos>98300</nanos>
+  <sequence>339</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.822107800Z</date>
+  <millis>1705569826822</millis>
+  <nanos>107800</nanos>
+  <sequence>340</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.837120700Z</date>
+  <millis>1705569826837</millis>
+  <nanos>120700</nanos>
+  <sequence>341</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.838124300Z</date>
+  <millis>1705569826838</millis>
+  <nanos>124300</nanos>
+  <sequence>342</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.853572400Z</date>
+  <millis>1705569826853</millis>
+  <nanos>572400</nanos>
+  <sequence>343</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.855568700Z</date>
+  <millis>1705569826855</millis>
+  <nanos>568700</nanos>
+  <sequence>344</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.870468300Z</date>
+  <millis>1705569826870</millis>
+  <nanos>468300</nanos>
+  <sequence>345</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.871491600Z</date>
+  <millis>1705569826871</millis>
+  <nanos>491600</nanos>
+  <sequence>346</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.887891200Z</date>
+  <millis>1705569826887</millis>
+  <nanos>891200</nanos>
+  <sequence>347</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.888926600Z</date>
+  <millis>1705569826888</millis>
+  <nanos>926600</nanos>
+  <sequence>348</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.903670300Z</date>
+  <millis>1705569826903</millis>
+  <nanos>670300</nanos>
+  <sequence>349</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.905789400Z</date>
+  <millis>1705569826905</millis>
+  <nanos>789400</nanos>
+  <sequence>350</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.920993900Z</date>
+  <millis>1705569826920</millis>
+  <nanos>993900</nanos>
+  <sequence>351</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.921377800Z</date>
+  <millis>1705569826921</millis>
+  <nanos>377800</nanos>
+  <sequence>352</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.937058Z</date>
+  <millis>1705569826937</millis>
+  <nanos>58000</nanos>
+  <sequence>353</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.938110100Z</date>
+  <millis>1705569826938</millis>
+  <nanos>110100</nanos>
+  <sequence>354</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.953656800Z</date>
+  <millis>1705569826953</millis>
+  <nanos>656800</nanos>
+  <sequence>355</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.954689600Z</date>
+  <millis>1705569826954</millis>
+  <nanos>689600</nanos>
+  <sequence>356</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.979557200Z</date>
+  <millis>1705569826979</millis>
+  <nanos>557200</nanos>
+  <sequence>357</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.980814900Z</date>
+  <millis>1705569826980</millis>
+  <nanos>814900</nanos>
+  <sequence>358</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.987350400Z</date>
+  <millis>1705569826987</millis>
+  <nanos>350400</nanos>
+  <sequence>359</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:46.990340200Z</date>
+  <millis>1705569826990</millis>
+  <nanos>340200</nanos>
+  <sequence>360</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.003600200Z</date>
+  <millis>1705569827003</millis>
+  <nanos>600200</nanos>
+  <sequence>361</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.005694400Z</date>
+  <millis>1705569827005</millis>
+  <nanos>694400</nanos>
+  <sequence>362</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.020347100Z</date>
+  <millis>1705569827020</millis>
+  <nanos>347100</nanos>
+  <sequence>363</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.022278900Z</date>
+  <millis>1705569827022</millis>
+  <nanos>278900</nanos>
+  <sequence>364</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.037042400Z</date>
+  <millis>1705569827037</millis>
+  <nanos>42400</nanos>
+  <sequence>365</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.038113200Z</date>
+  <millis>1705569827038</millis>
+  <nanos>113200</nanos>
+  <sequence>366</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.053101600Z</date>
+  <millis>1705569827053</millis>
+  <nanos>101600</nanos>
+  <sequence>367</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.056361400Z</date>
+  <millis>1705569827056</millis>
+  <nanos>361400</nanos>
+  <sequence>368</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.070475400Z</date>
+  <millis>1705569827070</millis>
+  <nanos>475400</nanos>
+  <sequence>369</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.071523600Z</date>
+  <millis>1705569827071</millis>
+  <nanos>523600</nanos>
+  <sequence>370</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.087507500Z</date>
+  <millis>1705569827087</millis>
+  <nanos>507500</nanos>
+  <sequence>371</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.088583200Z</date>
+  <millis>1705569827088</millis>
+  <nanos>583200</nanos>
+  <sequence>372</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.103940500Z</date>
+  <millis>1705569827103</millis>
+  <nanos>940500</nanos>
+  <sequence>373</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.103940500Z</date>
+  <millis>1705569827103</millis>
+  <nanos>940500</nanos>
+  <sequence>374</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.120388300Z</date>
+  <millis>1705569827120</millis>
+  <nanos>388300</nanos>
+  <sequence>375</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.121589500Z</date>
+  <millis>1705569827121</millis>
+  <nanos>589500</nanos>
+  <sequence>376</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.136825900Z</date>
+  <millis>1705569827136</millis>
+  <nanos>825900</nanos>
+  <sequence>377</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.137844200Z</date>
+  <millis>1705569827137</millis>
+  <nanos>844200</nanos>
+  <sequence>378</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.153059500Z</date>
+  <millis>1705569827153</millis>
+  <nanos>59500</nanos>
+  <sequence>379</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.154160900Z</date>
+  <millis>1705569827154</millis>
+  <nanos>160900</nanos>
+  <sequence>380</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.170280400Z</date>
+  <millis>1705569827170</millis>
+  <nanos>280400</nanos>
+  <sequence>381</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.171443300Z</date>
+  <millis>1705569827171</millis>
+  <nanos>443300</nanos>
+  <sequence>382</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.187125700Z</date>
+  <millis>1705569827187</millis>
+  <nanos>125700</nanos>
+  <sequence>383</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.189688Z</date>
+  <millis>1705569827189</millis>
+  <nanos>688000</nanos>
+  <sequence>384</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.203720700Z</date>
+  <millis>1705569827203</millis>
+  <nanos>720700</nanos>
+  <sequence>385</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.204794Z</date>
+  <millis>1705569827204</millis>
+  <nanos>794000</nanos>
+  <sequence>386</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.221107700Z</date>
+  <millis>1705569827221</millis>
+  <nanos>107700</nanos>
+  <sequence>387</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.221107700Z</date>
+  <millis>1705569827221</millis>
+  <nanos>107700</nanos>
+  <sequence>388</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.237128700Z</date>
+  <millis>1705569827237</millis>
+  <nanos>128700</nanos>
+  <sequence>389</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.238156600Z</date>
+  <millis>1705569827238</millis>
+  <nanos>156600</nanos>
+  <sequence>390</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.255443400Z</date>
+  <millis>1705569827255</millis>
+  <nanos>443400</nanos>
+  <sequence>391</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.257443600Z</date>
+  <millis>1705569827257</millis>
+  <nanos>443600</nanos>
+  <sequence>392</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.265389800Z</date>
+  <millis>1705569827265</millis>
+  <nanos>389800</nanos>
+  <sequence>393</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.265389800Z</date>
+  <millis>1705569827265</millis>
+  <nanos>389800</nanos>
+  <sequence>394</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.287669900Z</date>
+  <millis>1705569827287</millis>
+  <nanos>669900</nanos>
+  <sequence>395</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.288832500Z</date>
+  <millis>1705569827288</millis>
+  <nanos>832500</nanos>
+  <sequence>396</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.303665Z</date>
+  <millis>1705569827303</millis>
+  <nanos>665000</nanos>
+  <sequence>397</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.304909700Z</date>
+  <millis>1705569827304</millis>
+  <nanos>909700</nanos>
+  <sequence>398</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.320832800Z</date>
+  <millis>1705569827320</millis>
+  <nanos>832800</nanos>
+  <sequence>399</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.321920600Z</date>
+  <millis>1705569827321</millis>
+  <nanos>920600</nanos>
+  <sequence>400</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.336694500Z</date>
+  <millis>1705569827336</millis>
+  <nanos>694500</nanos>
+  <sequence>401</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.337779600Z</date>
+  <millis>1705569827337</millis>
+  <nanos>779600</nanos>
+  <sequence>402</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.354250400Z</date>
+  <millis>1705569827354</millis>
+  <nanos>250400</nanos>
+  <sequence>403</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.355347500Z</date>
+  <millis>1705569827355</millis>
+  <nanos>347500</nanos>
+  <sequence>404</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.374012Z</date>
+  <millis>1705569827374</millis>
+  <nanos>12000</nanos>
+  <sequence>405</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.379704900Z</date>
+  <millis>1705569827379</millis>
+  <nanos>704900</nanos>
+  <sequence>406</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.389071800Z</date>
+  <millis>1705569827389</millis>
+  <nanos>71800</nanos>
+  <sequence>407</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.392210Z</date>
+  <millis>1705569827392</millis>
+  <nanos>210000</nanos>
+  <sequence>408</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.404507200Z</date>
+  <millis>1705569827404</millis>
+  <nanos>507200</nanos>
+  <sequence>409</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.406629Z</date>
+  <millis>1705569827406</millis>
+  <nanos>629000</nanos>
+  <sequence>410</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.420512600Z</date>
+  <millis>1705569827420</millis>
+  <nanos>512600</nanos>
+  <sequence>411</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.421538Z</date>
+  <millis>1705569827421</millis>
+  <nanos>538000</nanos>
+  <sequence>412</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.439976200Z</date>
+  <millis>1705569827439</millis>
+  <nanos>976200</nanos>
+  <sequence>413</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.442290200Z</date>
+  <millis>1705569827442</millis>
+  <nanos>290200</nanos>
+  <sequence>414</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.455112200Z</date>
+  <millis>1705569827455</millis>
+  <nanos>112200</nanos>
+  <sequence>415</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.458357400Z</date>
+  <millis>1705569827458</millis>
+  <nanos>357400</nanos>
+  <sequence>416</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.470081700Z</date>
+  <millis>1705569827470</millis>
+  <nanos>81700</nanos>
+  <sequence>417</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.471156700Z</date>
+  <millis>1705569827471</millis>
+  <nanos>156700</nanos>
+  <sequence>418</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.489321200Z</date>
+  <millis>1705569827489</millis>
+  <nanos>321200</nanos>
+  <sequence>419</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.491390400Z</date>
+  <millis>1705569827491</millis>
+  <nanos>390400</nanos>
+  <sequence>420</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.506180Z</date>
+  <millis>1705569827506</millis>
+  <nanos>180000</nanos>
+  <sequence>421</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.509401700Z</date>
+  <millis>1705569827509</millis>
+  <nanos>401700</nanos>
+  <sequence>422</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.521139700Z</date>
+  <millis>1705569827521</millis>
+  <nanos>139700</nanos>
+  <sequence>423</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.524090600Z</date>
+  <millis>1705569827524</millis>
+  <nanos>90600</nanos>
+  <sequence>424</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.539016300Z</date>
+  <millis>1705569827539</millis>
+  <nanos>16300</nanos>
+  <sequence>425</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.541143300Z</date>
+  <millis>1705569827541</millis>
+  <nanos>143300</nanos>
+  <sequence>426</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.553842Z</date>
+  <millis>1705569827553</millis>
+  <nanos>842000</nanos>
+  <sequence>427</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.555910800Z</date>
+  <millis>1705569827555</millis>
+  <nanos>910800</nanos>
+  <sequence>428</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.569992100Z</date>
+  <millis>1705569827569</millis>
+  <nanos>992100</nanos>
+  <sequence>429</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.571002900Z</date>
+  <millis>1705569827571</millis>
+  <nanos>2900</nanos>
+  <sequence>430</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.587364500Z</date>
+  <millis>1705569827587</millis>
+  <nanos>364500</nanos>
+  <sequence>431</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.589515800Z</date>
+  <millis>1705569827589</millis>
+  <nanos>515800</nanos>
+  <sequence>432</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.603835600Z</date>
+  <millis>1705569827603</millis>
+  <nanos>835600</nanos>
+  <sequence>433</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.604879200Z</date>
+  <millis>1705569827604</millis>
+  <nanos>879200</nanos>
+  <sequence>434</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.620718500Z</date>
+  <millis>1705569827620</millis>
+  <nanos>718500</nanos>
+  <sequence>435</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.621760500Z</date>
+  <millis>1705569827621</millis>
+  <nanos>760500</nanos>
+  <sequence>436</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.641461800Z</date>
+  <millis>1705569827641</millis>
+  <nanos>461800</nanos>
+  <sequence>437</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.643679900Z</date>
+  <millis>1705569827643</millis>
+  <nanos>679900</nanos>
+  <sequence>438</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.653680900Z</date>
+  <millis>1705569827653</millis>
+  <nanos>680900</nanos>
+  <sequence>439</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.654734500Z</date>
+  <millis>1705569827654</millis>
+  <nanos>734500</nanos>
+  <sequence>440</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.670582Z</date>
+  <millis>1705569827670</millis>
+  <nanos>582000</nanos>
+  <sequence>441</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.671604800Z</date>
+  <millis>1705569827671</millis>
+  <nanos>604800</nanos>
+  <sequence>442</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.686540Z</date>
+  <millis>1705569827686</millis>
+  <nanos>540000</nanos>
+  <sequence>443</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.687697200Z</date>
+  <millis>1705569827687</millis>
+  <nanos>697200</nanos>
+  <sequence>444</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.703011Z</date>
+  <millis>1705569827703</millis>
+  <nanos>11000</nanos>
+  <sequence>445</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.704042Z</date>
+  <millis>1705569827704</millis>
+  <nanos>42000</nanos>
+  <sequence>446</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.720333300Z</date>
+  <millis>1705569827720</millis>
+  <nanos>333300</nanos>
+  <sequence>447</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.722626100Z</date>
+  <millis>1705569827722</millis>
+  <nanos>626100</nanos>
+  <sequence>448</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.738181100Z</date>
+  <millis>1705569827738</millis>
+  <nanos>181100</nanos>
+  <sequence>449</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.741387500Z</date>
+  <millis>1705569827741</millis>
+  <nanos>387500</nanos>
+  <sequence>450</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.756319400Z</date>
+  <millis>1705569827756</millis>
+  <nanos>319400</nanos>
+  <sequence>451</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.758436900Z</date>
+  <millis>1705569827758</millis>
+  <nanos>436900</nanos>
+  <sequence>452</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.770947Z</date>
+  <millis>1705569827770</millis>
+  <nanos>947000</nanos>
+  <sequence>453</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.773015800Z</date>
+  <millis>1705569827773</millis>
+  <nanos>15800</nanos>
+  <sequence>454</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.787658700Z</date>
+  <millis>1705569827787</millis>
+  <nanos>658700</nanos>
+  <sequence>455</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.787658700Z</date>
+  <millis>1705569827787</millis>
+  <nanos>658700</nanos>
+  <sequence>456</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.803805200Z</date>
+  <millis>1705569827803</millis>
+  <nanos>805200</nanos>
+  <sequence>457</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.803805200Z</date>
+  <millis>1705569827803</millis>
+  <nanos>805200</nanos>
+  <sequence>458</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.820855800Z</date>
+  <millis>1705569827820</millis>
+  <nanos>855800</nanos>
+  <sequence>459</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.823389400Z</date>
+  <millis>1705569827823</millis>
+  <nanos>389400</nanos>
+  <sequence>460</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.837355100Z</date>
+  <millis>1705569827837</millis>
+  <nanos>355100</nanos>
+  <sequence>461</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.838758100Z</date>
+  <millis>1705569827838</millis>
+  <nanos>758100</nanos>
+  <sequence>462</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.853825400Z</date>
+  <millis>1705569827853</millis>
+  <nanos>825400</nanos>
+  <sequence>463</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.855982Z</date>
+  <millis>1705569827855</millis>
+  <nanos>982000</nanos>
+  <sequence>464</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.870590800Z</date>
+  <millis>1705569827870</millis>
+  <nanos>590800</nanos>
+  <sequence>465</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.871601600Z</date>
+  <millis>1705569827871</millis>
+  <nanos>601600</nanos>
+  <sequence>466</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.888617800Z</date>
+  <millis>1705569827888</millis>
+  <nanos>617800</nanos>
+  <sequence>467</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.890386700Z</date>
+  <millis>1705569827890</millis>
+  <nanos>386700</nanos>
+  <sequence>468</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.904141900Z</date>
+  <millis>1705569827904</millis>
+  <nanos>141900</nanos>
+  <sequence>469</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.906145Z</date>
+  <millis>1705569827906</millis>
+  <nanos>145000</nanos>
+  <sequence>470</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.922914500Z</date>
+  <millis>1705569827922</millis>
+  <nanos>914500</nanos>
+  <sequence>471</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.925115600Z</date>
+  <millis>1705569827925</millis>
+  <nanos>115600</nanos>
+  <sequence>472</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.939192700Z</date>
+  <millis>1705569827939</millis>
+  <nanos>192700</nanos>
+  <sequence>473</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.941473200Z</date>
+  <millis>1705569827941</millis>
+  <nanos>473200</nanos>
+  <sequence>474</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.954514Z</date>
+  <millis>1705569827954</millis>
+  <nanos>514000</nanos>
+  <sequence>475</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.955865100Z</date>
+  <millis>1705569827955</millis>
+  <nanos>865100</nanos>
+  <sequence>476</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.970604700Z</date>
+  <millis>1705569827970</millis>
+  <nanos>604700</nanos>
+  <sequence>477</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.971627Z</date>
+  <millis>1705569827971</millis>
+  <nanos>627000</nanos>
+  <sequence>478</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.986610900Z</date>
+  <millis>1705569827986</millis>
+  <nanos>610900</nanos>
+  <sequence>479</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:47.988722700Z</date>
+  <millis>1705569827988</millis>
+  <nanos>722700</nanos>
+  <sequence>480</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.003424900Z</date>
+  <millis>1705569828003</millis>
+  <nanos>424900</nanos>
+  <sequence>481</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.004449Z</date>
+  <millis>1705569828004</millis>
+  <nanos>449000</nanos>
+  <sequence>482</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.020596800Z</date>
+  <millis>1705569828020</millis>
+  <nanos>596800</nanos>
+  <sequence>483</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.021667700Z</date>
+  <millis>1705569828021</millis>
+  <nanos>667700</nanos>
+  <sequence>484</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.037361400Z</date>
+  <millis>1705569828037</millis>
+  <nanos>361400</nanos>
+  <sequence>485</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.038399200Z</date>
+  <millis>1705569828038</millis>
+  <nanos>399200</nanos>
+  <sequence>486</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.053984400Z</date>
+  <millis>1705569828053</millis>
+  <nanos>984400</nanos>
+  <sequence>487</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.055007Z</date>
+  <millis>1705569828055</millis>
+  <nanos>7000</nanos>
+  <sequence>488</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.070312900Z</date>
+  <millis>1705569828070</millis>
+  <nanos>312900</nanos>
+  <sequence>489</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.071342100Z</date>
+  <millis>1705569828071</millis>
+  <nanos>342100</nanos>
+  <sequence>490</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.086537400Z</date>
+  <millis>1705569828086</millis>
+  <nanos>537400</nanos>
+  <sequence>491</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.088629900Z</date>
+  <millis>1705569828088</millis>
+  <nanos>629900</nanos>
+  <sequence>492</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.103967900Z</date>
+  <millis>1705569828103</millis>
+  <nanos>967900</nanos>
+  <sequence>493</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.105022900Z</date>
+  <millis>1705569828105</millis>
+  <nanos>22900</nanos>
+  <sequence>494</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.120554100Z</date>
+  <millis>1705569828120</millis>
+  <nanos>554100</nanos>
+  <sequence>495</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.121850500Z</date>
+  <millis>1705569828121</millis>
+  <nanos>850500</nanos>
+  <sequence>496</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.137059100Z</date>
+  <millis>1705569828137</millis>
+  <nanos>59100</nanos>
+  <sequence>497</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.138108400Z</date>
+  <millis>1705569828138</millis>
+  <nanos>108400</nanos>
+  <sequence>498</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.153899500Z</date>
+  <millis>1705569828153</millis>
+  <nanos>899500</nanos>
+  <sequence>499</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.154908Z</date>
+  <millis>1705569828154</millis>
+  <nanos>908000</nanos>
+  <sequence>500</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.169898Z</date>
+  <millis>1705569828169</millis>
+  <nanos>898000</nanos>
+  <sequence>501</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.170917700Z</date>
+  <millis>1705569828170</millis>
+  <nanos>917700</nanos>
+  <sequence>502</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.187546500Z</date>
+  <millis>1705569828187</millis>
+  <nanos>546500</nanos>
+  <sequence>503</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.188713700Z</date>
+  <millis>1705569828188</millis>
+  <nanos>713700</nanos>
+  <sequence>504</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.203630200Z</date>
+  <millis>1705569828203</millis>
+  <nanos>630200</nanos>
+  <sequence>505</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.204746600Z</date>
+  <millis>1705569828204</millis>
+  <nanos>746600</nanos>
+  <sequence>506</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.220941Z</date>
+  <millis>1705569828220</millis>
+  <nanos>941000</nanos>
+  <sequence>507</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.221994200Z</date>
+  <millis>1705569828221</millis>
+  <nanos>994200</nanos>
+  <sequence>508</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.236423600Z</date>
+  <millis>1705569828236</millis>
+  <nanos>423600</nanos>
+  <sequence>509</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.237454200Z</date>
+  <millis>1705569828237</millis>
+  <nanos>454200</nanos>
+  <sequence>510</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.253699100Z</date>
+  <millis>1705569828253</millis>
+  <nanos>699100</nanos>
+  <sequence>511</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.254810400Z</date>
+  <millis>1705569828254</millis>
+  <nanos>810400</nanos>
+  <sequence>512</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.270217Z</date>
+  <millis>1705569828270</millis>
+  <nanos>217000</nanos>
+  <sequence>513</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.271256500Z</date>
+  <millis>1705569828271</millis>
+  <nanos>256500</nanos>
+  <sequence>514</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.286677300Z</date>
+  <millis>1705569828286</millis>
+  <nanos>677300</nanos>
+  <sequence>515</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.287748900Z</date>
+  <millis>1705569828287</millis>
+  <nanos>748900</nanos>
+  <sequence>516</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.303541200Z</date>
+  <millis>1705569828303</millis>
+  <nanos>541200</nanos>
+  <sequence>517</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.305291200Z</date>
+  <millis>1705569828305</millis>
+  <nanos>291200</nanos>
+  <sequence>518</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.320429700Z</date>
+  <millis>1705569828320</millis>
+  <nanos>429700</nanos>
+  <sequence>519</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.321430300Z</date>
+  <millis>1705569828321</millis>
+  <nanos>430300</nanos>
+  <sequence>520</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.336966800Z</date>
+  <millis>1705569828336</millis>
+  <nanos>966800</nanos>
+  <sequence>521</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.337924400Z</date>
+  <millis>1705569828337</millis>
+  <nanos>924400</nanos>
+  <sequence>522</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.354869100Z</date>
+  <millis>1705569828354</millis>
+  <nanos>869100</nanos>
+  <sequence>523</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.354869100Z</date>
+  <millis>1705569828354</millis>
+  <nanos>869100</nanos>
+  <sequence>524</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.370472800Z</date>
+  <millis>1705569828370</millis>
+  <nanos>472800</nanos>
+  <sequence>525</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.371584Z</date>
+  <millis>1705569828371</millis>
+  <nanos>584000</nanos>
+  <sequence>526</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.387537100Z</date>
+  <millis>1705569828387</millis>
+  <nanos>537100</nanos>
+  <sequence>527</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.388720700Z</date>
+  <millis>1705569828388</millis>
+  <nanos>720700</nanos>
+  <sequence>528</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.403469400Z</date>
+  <millis>1705569828403</millis>
+  <nanos>469400</nanos>
+  <sequence>529</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.404578500Z</date>
+  <millis>1705569828404</millis>
+  <nanos>578500</nanos>
+  <sequence>530</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.420609500Z</date>
+  <millis>1705569828420</millis>
+  <nanos>609500</nanos>
+  <sequence>531</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.421091200Z</date>
+  <millis>1705569828421</millis>
+  <nanos>91200</nanos>
+  <sequence>532</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.436371700Z</date>
+  <millis>1705569828436</millis>
+  <nanos>371700</nanos>
+  <sequence>533</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGames</method>
+  <thread>45</thread>
+  <message>Recent Games Loaded</message>
+</record>
+<record>
+  <date>2024-01-18T09:23:48.437835900Z</date>
+  <millis>1705569828437</millis>
+  <nanos>835900</nanos>
+  <sequence>534</sequence>
+  <logger>main.GamePanel</logger>
+  <level>INFO</level>
+  <class>main.GameManager</class>
+  <method>loadRecentGameCodes</method>
+  <thread>45</thread>
+  <message>Recent Games Codes Loaded</message>
 </record>
 </log>

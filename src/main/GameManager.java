@@ -62,6 +62,7 @@ public class GameManager {
 
                 stmt.close();
                 conn.close();
+                GamePanel.logger.log(Level.INFO, "Game saved");
 
             } catch (SQLException e) {
                 gamePanel.logger.log(Level.SEVERE, "SQLite connection failed: " + e.getMessage());
@@ -111,6 +112,7 @@ public class GameManager {
 
                 stmt.close();
                 conn.close();
+                GamePanel.logger.log(Level.INFO, "Game Loaded");
 
             } catch (SQLException e) {
                 gamePanel.logger.log(Level.SEVERE, "SQLite connection failed: " + e.getMessage());
@@ -138,6 +140,7 @@ public class GameManager {
 
                 stmt.close();
                 conn.close();
+                GamePanel.logger.log(Level.INFO, "Game deleted");
 
             } catch (SQLException e) {
                 gamePanel.logger.log(Level.SEVERE, "SQLite connection failed: " + e.getMessage());
@@ -170,6 +173,7 @@ public class GameManager {
 
                 stmt.close();
                 conn.close();
+                GamePanel.logger.log(Level.INFO, "Recent Games Loaded");
 
             } catch (SQLException e) {
                 gamePanel.logger.log(Level.SEVERE, "SQLite connection failed: " + e.getMessage());
@@ -204,6 +208,7 @@ public class GameManager {
 
                 stmt.close();
                 conn.close();
+                GamePanel.logger.log(Level.INFO, "Recent Games Codes Loaded");
 
             } catch (SQLException e) {
                 gamePanel.logger.log(Level.SEVERE, "SQLite connection failed: " + e.getMessage());
@@ -235,6 +240,7 @@ public class GameManager {
 
                 stmt.close();
                 conn.close();
+                GamePanel.logger.log(Level.INFO, "Games Loaded");
 
             } catch (SQLException e) {
                 gamePanel.logger.log(Level.SEVERE, "SQLite connection failed: " + e.getMessage());

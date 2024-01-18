@@ -17,7 +17,6 @@ public class Statistics extends JFrame {
     public Statistics(GamePanel gamePanel) {
 
         this.gamePanel = gamePanel;
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
         this.setTitle("Shadows Of Despair");
 
@@ -37,7 +36,7 @@ public class Statistics extends JFrame {
         this.add(statisticsPanel);
         this.pack();
         this.setLocationRelativeTo(null);
-        this.setVisible(true);
+        this.setVisible(false);
     }
 
     public class StatisticsModel implements TableModel {
